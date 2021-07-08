@@ -1,0 +1,59 @@
+function Pot = compute_potential_energy(z_n, theta, V, c_n, z_n)
+    % This function is implementing the potential energy term of the
+    % lagrangian. See section 3.1.1 of Romualdez Thesis, specifically
+    % Eq3.25-3.26. The rate is because of the partial derivitive of V wrt
+    % theta. 
+    
+    %Determine relative rotation matrices and rates for each joint
+    ndof = length(theta)
+    
+    %rotation matricies
+    C_n = zeros(3,3,ndof)
+    C_n_rate = C_n;
+    V = zeros(3,1);
+    
+    for n = 1:ndof
+        C_n(:,:,n) = axis2rot(z_n(:,n), theta(n));
+        C_n_rate(:,:,n) = -1 * xmat(z_n(:,n) * C_n(:,:,n);
+    end
+    
+    % Compute potential energy term
+    for n = 1:ndof 
+        m_i = 0;
+        dVdtheta_i = zeros(ndof,1);
+        
+        % mass of remaining link (ex. 7 + 8 + 9) is totla mass at OF joint
+        for q = n:n_dof
+            m_i = m_i + m_n(q);
+        end
+        
+        if (m_i ~= 0)
+            for j = 1:n-1
+                dC_10 = eye(3);
+                dC_im10 = eye(3);
+                
+                for k = 1:n
+                    if (k == n)
+                          dC_im10 = dC_10
+                    end
+                    %This multiplies the rotation matricies successively
+                    % until the link j is reached in which case the rate
+                    % is multiplied by the overall rotation
+                    if (k == j)
+                        dC_10 = C_n_rate(:,:,k) * dC_10;
+                    else
+                        dC_10 = C_n(:,:,k) * dC_10;
+                    end
+                end
+                right = dC_im10 * g0;
+                t1 = r_n1_n(n)' * right;
+                
+                right = dC_10 * g0;
+                %dot product
+                t2 = c_n(n)' * right;
+                
+                dVdtheta_i(j) = -m_i*t1-t2
+            end
+        end
+        V = V + dVdtheta_i
+end
