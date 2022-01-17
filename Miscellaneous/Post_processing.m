@@ -1,5 +1,5 @@
 % Post Processing
-t = 0:dt:tf-dt;
+% t = 0:dt:tf-dt;
 
 % ARCSEC = 1;
 

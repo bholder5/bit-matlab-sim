@@ -27,6 +27,10 @@ function [tau_joint] = PID_control(error, omega,theta, dtheta,z_n, sum, kp_f, kd
         end
     end
     
+    if abs(tau_f(3)) > 80
+        tau_f(3) = sign(tau_f(3))*80;
+    end
+
     tau_joint = zeros(9,1);
     tau_joint(7) = -tau_f(3);
     tau_joint(8) = tau_f(1);

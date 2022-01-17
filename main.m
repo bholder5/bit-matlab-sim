@@ -2,9 +2,13 @@ clc
 clear
 
 
-addpath('C:\Users\General_Grievous\Documents\Brad School\Matlab_BIT_Sim\Miscellaneous', ...
-    'C:\Users\General_Grievous\Documents\Brad School\Matlab_BIT_Sim\Plant_functions', ... 
-    'C:\Users\General_Grievous\Documents\Brad School\Matlab_BIT_Sim\Control'); 
+% addpath('C:\Users\General_Grievous\Documents\Brad School\Matlab_BIT_Sim\Miscellaneous', ...
+%     'C:\Users\General_Grievous\Documents\Brad School\Matlab_BIT_Sim\Plant_functions', ... 
+%     'C:\Users\General_Grievous\Documents\Brad School\Matlab_BIT_Sim\Control'); 
+addpath('~/bit-matlab-sim/Miscellaneous/')
+addpath('~/bit-matlab-sim/ADCS/')
+addpath('~/bit-matlab-sim/Plant_functions/')
+
 % Run initialization script
 Initialization;
 %% Setup Simulation
@@ -17,22 +21,27 @@ y_lat = zeros(21,1);
 
 % Sim Parameters
 t = 0;
-tf = 600;
-dt = 2e-2;
+t1 = 5000;
+dt1 = 1e-2;
+tf = 7500 ;
+dt = 1e-4;
+t_vec1 = 0:dt1:t1;
+t_vec2 = t1+dt:dt:tf;
+t_vec  = [t_vec1, t_vec2];
 m = 10; %num terms used for fit
 
 
 % y_all1 = zeros(18, tf/(dt));
-y_all = zeros(21, tf/(dt));
-tau = zeros(9, tf/(dt));
-step = 0;
+y_all = zeros(21, length(t_vec));
+tau = zeros(9, length(t_vec));
+step = 1;
 
 % simulation vectors
 C_true = compute_rotation_mat(z_n, x0(10:18));
 phi_true = parameterize_312_rotation(C_true); %Pointing angle
 C_des = compute_rotation_mat(z_n, theta_des);    %Desired Pointing angle
 w_true = zeros(3,1); %Pointing rate
-tau_applied = zeros(9,1);
+% tau_applied = zeros(9,1);
 
 %took out t from (t, y_true) for rk4
 sys = @(y_true, tau_applied) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, ...
@@ -41,14 +50,18 @@ sys = @(y_true, tau_applied) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, ...
 
 err_sum = zeros(3,1);
 err = zeros(3,1);
-e_hist = zeros(3,tf/dt);
+e_hist = zeros(3,length(t_vec));
 
 err_tc = 10;
 err_decay = exp(-dt/err_tc);
 %% Sim
-while step < tf/dt
-    step = step + 1;   
-    
+tau_applied = zeros(9,1);
+while step < length(t_vec)
+    step = step + 1;
+    dt = t_vec(step) - t_vec(step-1);
+    if ~mod(t_vec(step), 1000)
+        timeis = t_vec(step)
+    end
 %     if step ==  100000
 %         kp_f = [0,0,60]';
 %         kd_f = [0.0,0.0,0.3]';
@@ -75,18 +88,16 @@ while step < tf/dt
     %it, bArth will get me this.
     
     %% calculate control torques
-    %identity - (C_true' * C_des) and then extract euler angles 5.37
-    C_true = compute_rotation_mat(z_n, y_true(10:18));
-    [omega_true] = compute_angular_velocity(y_true(10:18), y_true(1:9), z_n); %Pointing rate
-    err = unxmat(eye(3) - (C_true * C_des'));
-    err_sum = (err_sum .* err_decay) + (err*dt);
-    if step == 5000
-        step
+    if ~mod(t_vec(k), 0.02)
+        %identity - (C_true' * C_des) and then extract euler angles 5.37
+        C_true = compute_rotation_mat(z_n, y_true(10:18));
+        [omega_true] = compute_angular_velocity(y_true(10:18), y_true(1:9), z_n); %Pointing rate
+        err = unxmat(eye(3) - (C_true * C_des'));
+        err_sum = (err_sum .* err_decay) + (err*dt);
+        tau_applied = PID_control(err, omega_true, y_true(16:18), y_true(7:9),...
+            z_n, err_sum, kp_f, kd_f,ki_f, kp_rw, kd_rw, ki_rw, tau_f_max);
+    %     tau_applied = zeros(9,1);
     end
-    tau_applied = PID_control(err, omega_true, y_true(16:18), y_true(7:9),...
-        z_n, err_sum, kp_f, kd_f,ki_f, kp_rw, kd_rw, ki_rw, tau_f_max)
-%     tau_applied = zeros(9,1);
-    
     %% Propagate the system
     % takes in system dynamics and applied torques
     %[Y, T] = rkf45_1(sys, 0, dt, y_true, dt/10, h);
@@ -111,5 +122,5 @@ while step < tf/dt
     e_hist(:,step) = err;
 end
 
-
+save('control_for_estimator.mat')
 Post_processing
