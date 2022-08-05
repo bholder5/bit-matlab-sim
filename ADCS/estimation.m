@@ -10,7 +10,7 @@ clear
 addpath('~/bit-matlab-sim/Miscellaneous/')
 addpath('~/bit-matlab-sim/ADCS/')
 addpath('~/bit-matlab-sim/Plant_functions/')
-load('~/bit-matlab-sim/control_for_estimator.mat')
+load('~/bit-matlab-sim/latest_no_control_test.mat')
 
 %psi = angular velocity measured in Fb
 %PSI = rotation for time step tk-1 -> tk
@@ -72,8 +72,8 @@ dt_gyro = inv(1000);
 dt_lis = 0.2;
 %%
 beg   = 400;
-steps = 1500000;
-cor_steps = 200;
+steps = 204200;
+cor_steps = 1;
 
 err_hist = zeros(3,steps);
 bias_hist = zeros(3,steps/cor_steps);
@@ -95,8 +95,8 @@ for step = beg:beg+steps
     index1 = (step) * 1;
 
     %% calculate gyro readings 
-    ck0  = compute_rotation_mat(z_n, y_all(10:18,index0));
-    ck1  = compute_rotation_mat(z_n, y_all(10:18,index1));
+    ck0  = compute_rotation_mat(z_n, y_all(10:18,index0))
+    ck1  = compute_rotation_mat(z_n, y_all(10:18,index1))
     Psik = ck1*ck0';
     [psi_k, psi_mag_k] = rot2axis(Psik);
     Psi_check = axis2rot(psi_k, psi_mag_k);
@@ -107,7 +107,7 @@ for step = beg:beg+steps
     w_k_true = psi_k * psi_mag_k / dt_gyro;
 
     %inject bias and offsets
-    wg_meas = (Abg_true' * Cbg_true' * w_k_true) - bg_true;
+    wg_meas = (inv(Abg_true) * Cbg_true' * w_k_true) - bg_true
 
     %% Propogation
     %gyro reading correction and resulting rotation

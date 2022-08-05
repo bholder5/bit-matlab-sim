@@ -1,0 +1,61 @@
+# CompilerName=gcc
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/glnxa64
+matlabdir = /usr/local/MATLAB/R2021b
+startdir = /home/brad/bit-matlab-sim/onestepC
+
+# Toolchain information
+cc = /usr/bin/gcc
+cxx = g++
+linker = /usr/bin/gcc
+linkerxx = g++
+
+cflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I "$root" -I "$startdir" -I "/home/brad/bit-matlab-sim" -I "/home/brad/bit-matlab-sim/ADCS" -I "/home/brad/bit-matlab-sim/Miscellaneous" -I "/home/brad/bit-matlab-sim/Plant_functions" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c 
+
+cxxflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -std=c++11 -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c++11 -I "$root" -I "$startdir" -I "/home/brad/bit-matlab-sim" -I "/home/brad/bit-matlab-sim/ADCS" -I "/home/brad/bit-matlab-sim/Miscellaneous" -I "/home/brad/bit-matlab-sim/Plant_functions" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c 
+
+ldflags =  -pthread -Wl,--no-undefined -Wl,-rpath-link,$matlabdir/bin/glnxa64 -shared  -L"$matlabdir/bin/glnxa64" -lmx -lmex -lmat -lm -lstdc++  -o rot2axis_mex.mexa64 -L"$matlabdir/bin/glnxa64" -lmwlapack -lmwblas -lemlrt -lcovrt -lut -lmwmathutil  -Wl,--version-script,rot2axis_mex.map
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker $in $ldflags
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir/rot2axis_mex_data.o : cc $root/rot2axis_mex_data.c
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/rot2axis_mex_initialize.o : cc $root/rot2axis_mex_initialize.c
+build $builddir/rot2axis_mex_terminate.o : cc $root/rot2axis_mex_terminate.c
+build $builddir/bit_one_step.o : cc $root/bit_one_step.c
+build $builddir/axis2rot.o : cc $root/axis2rot.c
+build $builddir/warning.o : cc $root/warning.c
+build $builddir/compute_rotation_mat.o : cc $root/compute_rotation_mat.c
+build $builddir/rot2axis.o : cc $root/rot2axis.c
+build $builddir/xzsvdc.o : cc $root/xzsvdc.c
+build $builddir/xnrm2.o : cc $root/xnrm2.c
+build $builddir/xdotc.o : cc $root/xdotc.c
+build $builddir/_coder_rot2axis_mex_api.o : cc $root/interface/_coder_rot2axis_mex_api.c
+build $builddir/_coder_rot2axis_mex_mex.o : cc $root/interface/_coder_rot2axis_mex_mex.c
+build $builddir/bit_propagator.o : cc $root/bit_propagator.c
+build $builddir/eml_int_forloop_overflow_check.o : cc $root/eml_int_forloop_overflow_check.c
+build $builddir/chol.o : cc $root/chol.c
+build $builddir/mldivide.o : cc $root/mldivide.c
+build $builddir/xscal.o : cc $root/xscal.c
+build $builddir/xaxpy.o : cc $root/xaxpy.c
+build $builddir/_coder_rot2axis_mex_info.o : cc $root/interface/_coder_rot2axis_mex_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+
+# Link
+build $root/rot2axis_mex.mexa64 : link $builddir/rot2axis_mex_data.o $builddir/rt_nonfinite.o $builddir/rot2axis_mex_initialize.o $builddir/rot2axis_mex_terminate.o $builddir/bit_one_step.o $builddir/axis2rot.o $builddir/warning.o $builddir/compute_rotation_mat.o $builddir/rot2axis.o $builddir/xzsvdc.o $builddir/xnrm2.o $builddir/xdotc.o $builddir/_coder_rot2axis_mex_api.o $builddir/_coder_rot2axis_mex_mex.o $builddir/bit_propagator.o $builddir/eml_int_forloop_overflow_check.o $builddir/chol.o $builddir/mldivide.o $builddir/xscal.o $builddir/xaxpy.o $builddir/_coder_rot2axis_mex_info.o $builddir/c_mexapi_version.o 

@@ -15,7 +15,8 @@ function [tau_joint] = PID_control(error, omega,theta, dtheta,z_n, sum, kp_f, kd
        error;
        sum;
        
-       %error is in 123 format but dtheta is in 312
+       %error is in 123 format but dtheta is in 312(because its dtheta not
+       %omega
        dthet_err = -[dtheta(2); dtheta(3); dtheta(1)];
     tau_f  = (diag(kp_f) * phi * error) + ...
              (diag(kd_f) * phi * dthet_err) + ...

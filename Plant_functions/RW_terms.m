@@ -1,5 +1,5 @@
-function [R, r, d_hs, w_piv] = RW_terms(theta, dtheta, z_n, i_rw, hs, ...
-    tau_rw, hs_rw_max, rw_g1, rw_g2, w_rw_nom)
+function [R, r, d_hs] = RW_terms(theta, dtheta, z_n, hs, ...
+    tau_rw, hs_rw_max)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -24,11 +24,12 @@ elseif hs(3) <= -hs_rw_max
     end
 end
 
-r = s7'*d_hs;
+r = (s7')*d_hs;
 
-R = -s7' * xmat(hs) * s7 * dtheta;
-
-w_piv = -rw_g1*((hs(3)/i_rw(3,3))-w_rw_nom) - rw_g2*tau_rw;
+R = -(s7') * xmat(hs) * s7 * dtheta;
+% rw_g2 = 2.353962297635081;
+% rw_g1 = 0.034;
+% w_piv = rw_g1*((-hs(3)/i_rw(3,3))-w_rw_nom) - (rw_g2*tau_rw);
 
 end
 

@@ -1,0 +1,134 @@
+[
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  rot2axis_mex_data.c -o build/glnxa64/rot2axis_mex_data.o",
+    "file": "rot2axis_mex_data.c",
+    "output": "build/glnxa64/rot2axis_mex_data.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  rt_nonfinite.c -o build/glnxa64/rt_nonfinite.o",
+    "file": "rt_nonfinite.c",
+    "output": "build/glnxa64/rt_nonfinite.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  rot2axis_mex_initialize.c -o build/glnxa64/rot2axis_mex_initialize.o",
+    "file": "rot2axis_mex_initialize.c",
+    "output": "build/glnxa64/rot2axis_mex_initialize.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  rot2axis_mex_terminate.c -o build/glnxa64/rot2axis_mex_terminate.o",
+    "file": "rot2axis_mex_terminate.c",
+    "output": "build/glnxa64/rot2axis_mex_terminate.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  bit_one_step.c -o build/glnxa64/bit_one_step.o",
+    "file": "bit_one_step.c",
+    "output": "build/glnxa64/bit_one_step.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  axis2rot.c -o build/glnxa64/axis2rot.o",
+    "file": "axis2rot.c",
+    "output": "build/glnxa64/axis2rot.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  warning.c -o build/glnxa64/warning.o",
+    "file": "warning.c",
+    "output": "build/glnxa64/warning.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  compute_rotation_mat.c -o build/glnxa64/compute_rotation_mat.o",
+    "file": "compute_rotation_mat.c",
+    "output": "build/glnxa64/compute_rotation_mat.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  rot2axis.c -o build/glnxa64/rot2axis.o",
+    "file": "rot2axis.c",
+    "output": "build/glnxa64/rot2axis.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  xzsvdc.c -o build/glnxa64/xzsvdc.o",
+    "file": "xzsvdc.c",
+    "output": "build/glnxa64/xzsvdc.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  xnrm2.c -o build/glnxa64/xnrm2.o",
+    "file": "xnrm2.c",
+    "output": "build/glnxa64/xnrm2.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  xdotc.c -o build/glnxa64/xdotc.o",
+    "file": "xdotc.c",
+    "output": "build/glnxa64/xdotc.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  interface/_coder_rot2axis_mex_api.c -o build/glnxa64/_coder_rot2axis_mex_api.o",
+    "file": "interface/_coder_rot2axis_mex_api.c",
+    "output": "build/glnxa64/_coder_rot2axis_mex_api.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  interface/_coder_rot2axis_mex_mex.c -o build/glnxa64/_coder_rot2axis_mex_mex.o",
+    "file": "interface/_coder_rot2axis_mex_mex.c",
+    "output": "build/glnxa64/_coder_rot2axis_mex_mex.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  bit_propagator.c -o build/glnxa64/bit_propagator.o",
+    "file": "bit_propagator.c",
+    "output": "build/glnxa64/bit_propagator.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  eml_int_forloop_overflow_check.c -o build/glnxa64/eml_int_forloop_overflow_check.o",
+    "file": "eml_int_forloop_overflow_check.c",
+    "output": "build/glnxa64/eml_int_forloop_overflow_check.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  chol.c -o build/glnxa64/chol.o",
+    "file": "chol.c",
+    "output": "build/glnxa64/chol.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  mldivide.c -o build/glnxa64/mldivide.o",
+    "file": "mldivide.c",
+    "output": "build/glnxa64/mldivide.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  xscal.c -o build/glnxa64/xscal.o",
+    "file": "xscal.c",
+    "output": "build/glnxa64/xscal.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  xaxpy.c -o build/glnxa64/xaxpy.o",
+    "file": "xaxpy.c",
+    "output": "build/glnxa64/xaxpy.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  interface/_coder_rot2axis_mex_info.c -o build/glnxa64/_coder_rot2axis_mex_info.o",
+    "file": "interface/_coder_rot2axis_mex_info.c",
+    "output": "build/glnxa64/_coder_rot2axis_mex_info.o"
+  },
+  {
+    "directory": "/home/brad/bit-matlab-sim/onestepC/codegen/mex/rot2axis_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I \".\" -I \"/home/brad/bit-matlab-sim/onestepC\" -I \"/home/brad/bit-matlab-sim\" -I \"/home/brad/bit-matlab-sim/ADCS\" -I \"/home/brad/bit-matlab-sim/Miscellaneous\" -I \"/home/brad/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2021b/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=rot2axis_mex -c  /usr/local/MATLAB/R2021b/extern/version/c_mexapi_version.c -o build/glnxa64/c_mexapi_version.o",
+    "file": "/usr/local/MATLAB/R2021b/extern/version/c_mexapi_version.c",
+    "output": "build/glnxa64/c_mexapi_version.o"
+  }
+]
