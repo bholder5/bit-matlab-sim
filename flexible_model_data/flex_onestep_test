@@ -1,0 +1,10 @@
+clc
+clear
+
+% Run initialization script
+load('/home/brad/bit-matlab-sim/flexible_model_data/flex_model');
+
+eta0 = zeros(104,1);
+
+[eta_true] = bit_one_step(eta0, tau_applied, ...
+    dt, num_steps, A_hat, B_hat)

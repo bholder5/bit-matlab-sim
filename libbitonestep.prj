@@ -1,7 +1,7 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2021a">
-  <configuration build-checksum="520994176" file="/home/brad/bit-matlab-sim/libbitonestep.prj" location="/home/brad/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/brad/gigabit_code/sim/bit_one_step" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="353095281" file="/home/brad/bit-matlab-sim/libbitonestep.prj" location="/home/brad/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/brad/gigabit_code/sim/bit_one_step" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
-      <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
+      <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
       <param.WorkingFolder>option.WorkingFolder.Specified</param.WorkingFolder>
       <param.SpecifiedWorkingFolder>/home/brad/bit-matlab-sim</param.SpecifiedWorkingFolder>
@@ -81,7 +81,7 @@
       <param.EnableAutoParallelizationReporting>true</param.EnableAutoParallelizationReporting>
       <param.CacheDynamicArrayDataPointer>true</param.CacheDynamicArrayDataPointer>
       <param.EnableJIT>false</param.EnableJIT>
-      <param.EnableJITSilentBailOut>false</param.EnableJITSilentBailOut>
+      <param.EnableJITSilentBailOut />
       <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
       <param.EnableGitSupport>false</param.EnableGitSupport>
       <param.EnableAutoCommit>false</param.EnableAutoCommit>
@@ -873,7 +873,7 @@
       </unset>
     </profile>
     <param.objective>option.objective.c</param.objective>
-    <param.WorkflowStep>workflowSummary</param.WorkflowStep>
+    <param.WorkflowStep>generateCode</param.WorkflowStep>
     <param.TestSnippets>
       <item>sim_loop_rust</item>
       <item>sim_rust_loop</item>
@@ -909,12 +909,12 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/libbitonestep</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>520994176</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>353095281</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen/mex/bit_one_step_mex</var.cfi.lastOutputRoot>
     <var.cfi.preBuildChecksum>2900051951</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>sim_loop_rust</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/mass_mat_func.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;3522718438&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/mass_mat_func.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;3736398225&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/mass_mat_func.m&lt;/file&gt;&lt;file&gt;/home/brad/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -1314,7 +1314,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>5.13.0-41-generic</osver>
+      <osver>5.15.0-43-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

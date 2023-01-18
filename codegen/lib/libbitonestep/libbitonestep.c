@@ -5,7 +5,7 @@
  * File: libbitonestep.c
  *
  * MATLAB Coder version            : 5.3
- * C/C++ source code generated on  : 19-May-2022 08:18:40
+ * C/C++ source code generated on  : 16-Aug-2022 11:56:01
  */
 
 /* Include Files */
@@ -235,7 +235,7 @@ static void bit_one_step_anonFcn1(const real_T unlock[9], real_T w_piv,
 
   static const real_T g0[3] = { 0.0, 0.0, -9.72 };
 
-  static const int16_T iv[9] = { 0, 0, 10, 0, 0, 1, 350, 73, 150 };
+  static const int32_T iv[9] = { 0, 0, 100000, 0, 0, 1, 350, 73, 150 };
 
   static const int8_T z_n[9][3] = { { 0, 0, 1 }, { 1, 0, 0 }, { 0, 1, 0 }, { 1,
       0, 0 }, { 0, 1, 0 }, { 0, 0, 1 }, { 0, 0, 1 }, { 1, 0, 0 }, { 0, 1, 0 } };
@@ -8675,7 +8675,7 @@ void bit_one_step(const real_T x0[21], const real_T tau_applied[9], const real_T
   /*  y_all1 = zeros(18, tf/(dt)); */
   /* 'bit_one_step:12' step = 0; */
   /* 'bit_one_step:14' sys = @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
-  /* 'bit_one_step:15'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom) */
+  /* 'bit_one_step:15'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom); */
   /*  sim */
   /* 'bit_one_step:19' for step = 1:num_steps */
   if ((1 <= ((int32_T)num_steps)) && (((int32_T)num_steps) > 65534)) {
