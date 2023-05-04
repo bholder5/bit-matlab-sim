@@ -25,7 +25,6 @@
 extern emlrtCTX emlrtRootTLSGlobal;
 extern const volatile char_T *emlrtBreakCheckR2012bFlagVar;
 extern emlrtContext emlrtContextGlobal;
-extern emlrtRSInfo f_emlrtRSI;
 extern covrtInstance emlrtCoverageInstance;
 
 /* End of code generation (bit_one_step_mex_data.h) */

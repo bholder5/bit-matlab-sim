@@ -44,10 +44,10 @@ function [y_true, y_flex] = bit_one_step(x0, tau_applied, unlock, w_piv, piv_fla
 %               y_true(13), y_true(14), y_true(15), y_true(16), y_true(17), y_true(18),...
 %                y_true(19), y_true(20), y_true(21));      
         %% Propogate flexible system
-        kf1 = sys_flex(y_flex, tau_app_flex, tau_flex) * dt;
-        kf2 = sys_flex(y_flex + (kf1/2), tau_app_flex, tau_flex) * dt;
-        kf3 = sys_flex(y_flex + (kf2/2), tau_app_flex, tau_flex) * dt;
-        kf4 = sys_flex(y_flex + kf3, tau_app_flex, tau_flex) * dt;
+        kf1 = sys_flex(y_flex, tau_app_flex, tau_app_flex) * dt;
+        kf2 = sys(y_flex + (kf1/2), tau_app_flex, tau_flex) * dt;
+        kf3 = sys(y_flex + (kf2/2), tau_app_flex, tau_app_flex) * dt;
+        kf4 = sys(y_flex + kf3, tau_app_flex, tau_flex) * dt;
 
         eta_dd = ((kf1+(2*kf2)+(2*kf3)+kf4)/6);
         y_flex = y_flex + eta_dd;  

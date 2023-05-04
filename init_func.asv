@@ -80,8 +80,9 @@ latency = 0.0150;
 fs =   50.0; 
 fs_ekf = 1000.0;
 
-a_flex = a_f_func;
-b_flex = b_f_func();
+load('flexibl')
+
+
 
 
 end

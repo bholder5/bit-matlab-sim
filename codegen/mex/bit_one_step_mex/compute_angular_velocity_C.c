@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo ec_emlrtRSI = {
+static emlrtRSInfo qc_emlrtRSI = {
     9,                                                       /* lineNo */
     "compute_angular_velocity_C",                            /* fcnName */
     "/home/brad/bit-matlab-sim/compute_angular_velocity_C.m" /* pathName */
@@ -33,17 +33,14 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
   emlrtStack st;
   real_T b_Cn[27];
   real_T s9[27];
-  real_T Cn[9];
   real_T d;
-  real_T d1;
-  real_T d2;
   int32_T b_i;
   int32_T i;
   int32_T s9_tmp;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 8U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 11U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 0U);
   /* UNTITLED2 Summary of this function goes here */
   /*    Detailed explanation goes here */
   /* 'compute_angular_velocity_C:4' theta = x(10:18); */
@@ -52,11 +49,12 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
   memset(&s9[0], 0, 27U * sizeof(real_T));
   /* 'compute_angular_velocity_C:8' for i = 1:9 */
   for (i = 0; i < 9; i++) {
-    covrtLogFor(&emlrtCoverageInstance, 8U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 1U);
+    real_T Cn[9];
+    covrtLogFor(&emlrtCoverageInstance, 11U, 0U, 0, 1);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 1U);
     /* 'compute_angular_velocity_C:9' Cn = axis2rot(z_n(:,i), theta(i)); */
-    st.site = &ec_emlrtRSI;
-    axis2rot(&st, *(real_T(*)[3]) & z_n[3 * i], x[i + 9], Cn);
+    st.site = &qc_emlrtRSI;
+    axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
     /* 'compute_angular_velocity_C:10' s9(:,i) = z_n(:,i); */
     s9[3 * i] = z_n[3 * i];
     s9_tmp = 3 * i + 1;
@@ -65,6 +63,8 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
     s9[s9_tmp] = z_n[s9_tmp];
     /* 'compute_angular_velocity_C:11' s9 = Cn*s9; */
     for (s9_tmp = 0; s9_tmp < 3; s9_tmp++) {
+      real_T d1;
+      real_T d2;
       d = Cn[s9_tmp];
       d1 = Cn[s9_tmp + 3];
       d2 = Cn[s9_tmp + 6];
@@ -75,11 +75,11 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
     }
     memcpy(&s9[0], &b_Cn[0], 27U * sizeof(real_T));
     if (*emlrtBreakCheckR2012bFlagVar != 0) {
-      emlrtBreakCheckR2012b((emlrtCTX)sp);
+      emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 8U, 0U, 0, 0);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 2U);
+  covrtLogFor(&emlrtCoverageInstance, 11U, 0U, 0, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 2U);
   /* 'compute_angular_velocity_C:14' omega = s9 * dtheta; */
   for (s9_tmp = 0; s9_tmp < 3; s9_tmp++) {
     d = 0.0;

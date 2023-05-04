@@ -1,6 +1,7 @@
 addpath('~/bit-matlab-sim/Miscellaneous/')
 addpath('~/bit-matlab-sim/ADCS/')
 addpath('~/bit-matlab-sim/Plant_functions/')
+addpath('~/bit-matlab-sim/flexible_model_data/')
 % addpath('/home/brad/bit-matlab-sim/codegen/mex/bit_one_step_mex')
 
 ARCSEC = 4.848136805555555555555555555e-6;
@@ -38,6 +39,11 @@ thet_pit_nom = 0* -40*pi/180
 theta_des = [0.,0.4*pi/180.0,0.4*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.,0,-40*pi/180]';
 d_theta_dt_0 = [0.,0.,0.,0.,0.,0.,0.,0.,0.]'; 
 
+y_flex = zeros(104,1)+1.1;
+x_flex0 = y_flex;
+tau_flex = zeros(5,1)+1.1;
+
+
 i_rw = reshape([10.0,0.,0.,0.,10.0,0.,0.,0.,9.0], 3, 3);
 hs_rw = i_rw*pi*[0.0; 0.0; 1.0];
 
@@ -49,7 +55,7 @@ z_n = [0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0;
 
 dt = [1e-3, 1e-4];
 num_steps = 10;
-t = 0:dt(1)*num_steps:1;
+t = 0:dt(1):dt(1)*10;
 w_piv = 0.01;
 piv_flag = false;
 unlock1 = [1,0,0,0,0,0,0,0,0]';
@@ -61,9 +67,10 @@ tau_applied = [10;0;0;0;0;0;0;0;0];
 %% run propagator loop
 x0 = [d_theta_dt_0; theta_0; hs_rw];
 for step = 1:length(t)
-    y_all = bit_one_step(x0, tau_applied, unlock2, w_piv, false, ...
-        dt(1), uint16(num_steps), tau_max_piv, thet_pit_nom)
+    [y_all, y_flex] = bit_one_step(x0, tau_applied, unlock2, w_piv, false, ...
+        dt(1), uint16(num_steps), tau_max_piv, thet_pit_nom, x_flex0, tau_flex)
     x0 = y_all(:);
+    x_flex0 = y_flex;
 end
     %     y_all2 = bit_one_step(x0, tau_applied, unlock(:,step), w_piv, true, dt(mod(step,2)+1), uint16(5));
     

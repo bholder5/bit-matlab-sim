@@ -22,6 +22,6 @@
 #include <string.h>
 
 /* Function Declarations */
-void cholesky(const emlrtStack *sp, real_T A[81]);
+void chol(const emlrtStack *sp, real_T A[81]);
 
 /* End of code generation (chol.h) */

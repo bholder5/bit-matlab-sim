@@ -2,7 +2,7 @@
 ## Makefile generated for component 'libbitonestep'. 
 ## 
 ## Makefile     : libbitonestep_rtw.mk
-## Generated on : Wed Feb 09 07:44:05 2022
+## Generated on : Tue Apr 18 16:30:30 2023
 ## Final product: ./libbitonestep.a
 ## Product type : static-library
 ## 
@@ -19,8 +19,8 @@
 
 PRODUCT_NAME              = libbitonestep
 MAKEFILE                  = libbitonestep_rtw.mk
-MATLAB_ROOT               = /usr/local/MATLAB/R2021b
-MATLAB_BIN                = /usr/local/MATLAB/R2021b/bin
+MATLAB_ROOT               = /usr/local/MATLAB/R2023a
+MATLAB_BIN                = /usr/local/MATLAB/R2023a/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/glnxa64
 START_DIR                 = /home/brad/bit-matlab-sim
 TGT_FCN_LIB               = ISO_C
@@ -38,7 +38,7 @@ MODELLIB                  = libbitonestep.a
 
 # Toolchain Name:          GNU gcc/g++ | gmake (64-bit Linux)
 # Supported Version(s):    
-# ToolchainInfo Version:   2021b
+# ToolchainInfo Version:   2023a
 # Specification Revision:  1.0
 # 
 #-------------------------------------------
@@ -350,7 +350,7 @@ info :
 
 
 clean : 
-	$(ECHO) "### Deleting all derived files..."
+	$(ECHO) "### Deleting all derived files ..."
 	$(RM) $(PRODUCT)
 	$(RM) $(ALL_OBJS)
 	$(ECHO) "### Deleted all derived files."

@@ -26,6 +26,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21],
                   const real_T tau_applied[9], const real_T unlock[9],
                   real_T w_piv, boolean_T piv_flag, real_T dt,
                   uint16_T num_steps, real_T tau_max_piv, real_T thet_pit_nom,
-                  real_T y_true[21]);
+                  const real_T x_flex0[104], const real_T tau_flex[5],
+                  real_T y_true[21], real_T y_flex[104]);
 
 /* End of code generation (bit_one_step.h) */

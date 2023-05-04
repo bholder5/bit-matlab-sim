@@ -21,6 +21,10 @@ y_mex = x0;
 buffer = y_true;
 y_lat = zeros(21,1);
 
+y_flex = zeros(104,1)+1.1;
+x_flex0 = y_flex;
+tau_flex = zeros(5,1)+1.1;
+
 % Sim Parameters
 t = 0;
 t1 = 1;
@@ -115,8 +119,8 @@ while step < length(t_vec)
 %     y_true = bit_one_step_mex('bit_one_step',y_true, tau_applied, unlock, w_piv, piv_flag, dt/10, uint16(10));
     dw_piv = (w_piv - y_true(6))/dt
     
-    y_true = bit_one_step(y_true, tau_applied, unlock, w_piv, piv_flag, ...
-    dt, uint16(10), tau_max_piv, thet_pit_nom);
+    [y_true, y_flex] = bit_one_step(y_true, tau_applied, unlock, w_piv, piv_flag, ...
+    dt, uint16(10), tau_max_piv, thet_pit_nom, x_flex0, tau_flex);
     C = compute_rotation_mat(z_n, y_true(10:18));
     omega = compute_angular_velocity_C(y_true(1:18), z_n);
     %MEX File check

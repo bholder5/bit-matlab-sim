@@ -33,7 +33,7 @@ Be = 0.5*[rw_curl, roll_bow_curl, roll_stern_curl, pitch_port_curl, pitch_sb_cur
 B = [Br;Be];
 
 % Mr = [3526.5, 4483.2, 5748.2]*1000000; %kg*mm^2
-Mr = [3526.5, 4483.2, 5748.2]; %kg*mm^2
+Mr = [991, 364, 134]; %kg*mm^2
 Me = zeros(1,length(freqs))+1;
 M = [Mr, Me];
 M = diag(M);
@@ -92,7 +92,8 @@ for l = 1:length(freqs)
     B_mf(l2,:) = Be(l,:);
 end
 
-
+B_mf = B_mf*1000;
+B_f = B_f*1000;
 
 %%
 
@@ -108,4 +109,16 @@ dlmwrite('G1f.csv', Cf_gyro1, 'precision', '%.16f')
 dlmwrite('G2f.csv', Cf_gyro2, 'precision', '%.16f')
 dlmwrite('G1fp.csv', Cf_gyro_pos, 'precision', '%.16f')
 dlmwrite('pos_gimb.csv', Cf_pos_gimbal, 'precision', '%.16f')
+
+a_f_syms = sym(A_f);
+f1 = matlabFunction(a_f_syms, 'file', 'a_f_func.m');
+
+b_f_syms = sym(B_f);
+f2 = matlabFunction(b_f_syms, 'file', 'b_f_func.m');
+
+a_mf_syms = sym(A_mf);
+f1 = matlabFunction(a_f_syms, 'file', 'a_mf_func.m');
+
+b_mf_syms = sym(B_mf);
+f2 = matlabFunction(b_f_syms, 'file', 'b_mf_func.m');
 

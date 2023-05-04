@@ -48,20 +48,18 @@ void bit_one_step_mex_atexit(void)
   covrtFreeInstanceData(&emlrtCoverageInstance);
   /* Free instance data */
   covrtFreeInstanceData(&emlrtCoverageInstance);
-  emlrtLeaveRtStackR2012b(&st);
+  /* Free instance data */
+  covrtFreeInstanceData(&emlrtCoverageInstance);
+  /* Free instance data */
+  covrtFreeInstanceData(&emlrtCoverageInstance);
+  /* Free instance data */
+  covrtFreeInstanceData(&emlrtCoverageInstance);
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }
 
 void bit_one_step_mex_terminate(void)
 {
-  emlrtStack st = {
-      NULL, /* site */
-      NULL, /* tls */
-      NULL  /* prev */
-  };
-  st.tls = emlrtRootTLSGlobal;
-  emlrtLeaveRtStackR2012b(&st);
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
 }
 

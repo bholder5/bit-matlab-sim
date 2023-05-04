@@ -14,15 +14,16 @@
 #include "bit_one_step_mex_data.h"
 #include "rt_nonfinite.h"
 #include "mwmathutil.h"
+#include <emmintrin.h>
 
 /* Variable Definitions */
-static emlrtRSInfo gc_emlrtRSI = {
+static emlrtRSInfo sc_emlrtRSI = {
     2,                                       /* lineNo */
     "rot2axis_C",                            /* fcnName */
     "/home/brad/bit-matlab-sim/rot2axis_C.m" /* pathName */
 };
 
-static emlrtRSInfo hc_emlrtRSI = {
+static emlrtRSInfo tc_emlrtRSI = {
     6,                                       /* lineNo */
     "rot2axis_C",                            /* fcnName */
     "/home/brad/bit-matlab-sim/rot2axis_C.m" /* pathName */
@@ -32,14 +33,14 @@ static emlrtRTEInfo b_emlrtRTEI = {
     13,                                                            /* lineNo */
     9,                                                             /* colNo */
     "sqrt",                                                        /* fName */
-    "/usr/local/MATLAB/R2021b/toolbox/eml/lib/matlab/elfun/sqrt.m" /* pName */
+    "/usr/local/MATLAB/R2023a/toolbox/eml/lib/matlab/elfun/sqrt.m" /* pName */
 };
 
 static emlrtRTEInfo c_emlrtRTEI = {
     14,                                                            /* lineNo */
     9,                                                             /* colNo */
     "acos",                                                        /* fName */
-    "/usr/local/MATLAB/R2021b/toolbox/eml/lib/matlab/elfun/acos.m" /* pName */
+    "/usr/local/MATLAB/R2023a/toolbox/eml/lib/matlab/elfun/acos.m" /* pName */
 };
 
 /* Function Definitions */
@@ -49,14 +50,15 @@ static emlrtRTEInfo c_emlrtRTEI = {
 void rot2axis_C(const emlrtStack *sp, const real_T C[9], real_T v[3],
                 real_T *phi)
 {
+  __m128d r;
   emlrtStack st;
   real_T b_v;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 10U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 10U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 13U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 0U);
   /* 'rot2axis_C:2' phi = acos((C(1,1) + C(2,2) + C(3,3) - 1)/2); */
-  st.site = &gc_emlrtRSI;
+  st.site = &sc_emlrtRSI;
   *phi = (((C[0] + C[4]) + C[8]) - 1.0) / 2.0;
   if ((*phi < -1.0) || (*phi > 1.0)) {
     emlrtErrorWithMessageIdR2018a(
@@ -73,15 +75,15 @@ void rot2axis_C(const emlrtStack *sp, const real_T C[9], real_T v[3],
   v[2] = (C[1] - C[3]) / b_v;
   /* 'rot2axis_C:6' v = v/sqrt(v'*v); */
   b_v = (v[0] * v[0] + v[1] * v[1]) + v[2] * v[2];
-  st.site = &hc_emlrtRSI;
+  st.site = &tc_emlrtRSI;
   if (b_v < 0.0) {
     emlrtErrorWithMessageIdR2018a(
         &st, &b_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
         "Coder:toolbox:ElFunDomainError", 3, 4, 4, "sqrt");
   }
   b_v = muDoubleScalarSqrt(b_v);
-  v[0] /= b_v;
-  v[1] /= b_v;
+  r = _mm_loadu_pd(&v[0]);
+  _mm_storeu_pd(&v[0], _mm_div_pd(r, _mm_set1_pd(b_v)));
   v[2] /= b_v;
 }
 

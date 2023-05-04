@@ -18,29 +18,35 @@
 #include "rt_nonfinite.h"
 
 /* Function Definitions */
-void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T nrhs,
-                              const mxArray *prhs[9])
+void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
+                              const mxArray *prhs[11])
 {
   emlrtStack st = {
       NULL, /* site */
       NULL, /* tls */
       NULL  /* prev */
   };
-  const mxArray *outputs;
+  const mxArray *outputs[2];
+  int32_T i;
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
-  if (nrhs != 9) {
-    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 9, 4,
+  if (nrhs != 11) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 11, 4,
                         12, "bit_one_step");
   }
-  if (nlhs > 1) {
+  if (nlhs > 2) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 12,
                         "bit_one_step");
   }
   /* Call the function. */
-  bit_one_step_api(prhs, &outputs);
+  bit_one_step_api(prhs, nlhs, outputs);
   /* Copy over outputs to the caller. */
-  emlrtReturnArrays(1, &plhs[0], &outputs);
+  if (nlhs < 1) {
+    i = 1;
+  } else {
+    i = nlhs;
+  }
+  emlrtReturnArrays(i, &plhs[0], &outputs[0]);
 }
 
 void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
@@ -131,8 +137,8 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
 
 emlrtCTX mexFunctionCreateRootTLS(void)
 {
-  emlrtCreateRootTLSR2021a(&emlrtRootTLSGlobal, &emlrtContextGlobal, NULL, 1,
-                           NULL);
+  emlrtCreateRootTLSR2022a(&emlrtRootTLSGlobal, &emlrtContextGlobal, NULL, 1,
+                           NULL, "UTF-8", true);
   return emlrtRootTLSGlobal;
 }
 
@@ -145,7 +151,7 @@ void rot2axis_C_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
       NULL  /* prev */
   };
   const mxArray *outputs[2];
-  int32_T nOutputs;
+  int32_T i;
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
   if (nrhs != 1) {
@@ -160,11 +166,11 @@ void rot2axis_C_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
   rot2axis_C_api(prhs[0], nlhs, outputs);
   /* Copy over outputs to the caller. */
   if (nlhs < 1) {
-    nOutputs = 1;
+    i = 1;
   } else {
-    nOutputs = nlhs;
+    i = nlhs;
   }
-  emlrtReturnArrays(nOutputs, &plhs[0], &outputs[0]);
+  emlrtReturnArrays(i, &plhs[0], &outputs[0]);
 }
 
 /* End of code generation (_coder_bit_one_step_mex_mex.c) */

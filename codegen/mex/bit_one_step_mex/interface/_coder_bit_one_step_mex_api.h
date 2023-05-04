@@ -22,7 +22,8 @@
 #include <string.h>
 
 /* Function Declarations */
-void bit_one_step_api(const mxArray *const prhs[9], const mxArray **plhs);
+void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
+                      const mxArray *plhs[2]);
 
 void compute_angular_velocity_C_api(const mxArray *const prhs[2],
                                     const mxArray **plhs);

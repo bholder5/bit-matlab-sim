@@ -22,8 +22,8 @@
 #include <string.h>
 
 /* Function Declarations */
-void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[1], int32_T nrhs,
-                              const mxArray *prhs[9]);
+void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
+                              const mxArray *prhs[11]);
 
 void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                             int32_T nrhs,

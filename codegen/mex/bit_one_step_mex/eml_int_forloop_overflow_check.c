@@ -16,10 +16,10 @@
 
 /* Variable Definitions */
 static emlrtRTEInfo emlrtRTEI = {
-    88,                             /* lineNo */
-    9,                              /* colNo */
+    87,                             /* lineNo */
+    33,                             /* colNo */
     "check_forloop_overflow_error", /* fName */
-    "/usr/local/MATLAB/R2021b/toolbox/eml/lib/matlab/eml/"
+    "/usr/local/MATLAB/R2023a/toolbox/eml/lib/matlab/eml/"
     "eml_int_forloop_overflow_check.m" /* pName */
 };
 
@@ -27,21 +27,11 @@ static emlrtRTEInfo emlrtRTEI = {
 /*
  *
  */
-void b_check_forloop_overflow_error(const emlrtStack *sp)
-{
-  emlrtErrorWithMessageIdR2018a(
-      sp, &emlrtRTEI, "Coder:toolbox:int_forloop_overflow",
-      "Coder:toolbox:int_forloop_overflow", 3, 4, 5, "int32");
-}
-
-/*
- *
- */
 void check_forloop_overflow_error(const emlrtStack *sp)
 {
   emlrtErrorWithMessageIdR2018a(
       sp, &emlrtRTEI, "Coder:toolbox:int_forloop_overflow",
-      "Coder:toolbox:int_forloop_overflow", 3, 4, 6, "uint16");
+      "Coder:toolbox:int_forloop_overflow", 3, 4, 5, "int32");
 }
 
 /* End of code generation (eml_int_forloop_overflow_check.c) */

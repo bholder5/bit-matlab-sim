@@ -2,16 +2,17 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
- * File: _coder_libbitonestep_api.h
  *
- * MATLAB Coder version            : 5.3
- * C/C++ source code generated on  : 16-Aug-2022 11:56:01
+ * _coder_libbitonestep_api.h
+ *
+ * Code generation for function 'bit_one_step'
+ *
  */
 
 #ifndef _CODER_LIBBITONESTEP_API_H
 #define _CODER_LIBBITONESTEP_API_H
 
-/* Include Files */
+/* Include files */
 #include "emlrt.h"
 #include "tmwtypes.h"
 #include <string.h>
@@ -28,9 +29,11 @@ extern "C" {
 void bit_one_step(real_T x0[21], real_T tau_applied[9], real_T unlock[9],
                   real_T w_piv, boolean_T piv_flag, real_T dt,
                   uint16_T num_steps, real_T tau_max_piv, real_T thet_pit_nom,
-                  real_T y_true[21]);
+                  real_T x_flex0[104], real_T tau_flex[5], real_T y_true[21],
+                  real_T y_flex[104]);
 
-void bit_one_step_api(const mxArray *const prhs[9], const mxArray **plhs);
+void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
+                      const mxArray *plhs[2]);
 
 void compute_angular_velocity_C(real_T x[18], real_T z_n[9][3],
                                 real_T omega[3]);
@@ -62,8 +65,4 @@ void rot2axis_C_api(const mxArray *prhs, int32_T nlhs, const mxArray *plhs[2]);
 #endif
 
 #endif
-/*
- * File trailer for _coder_libbitonestep_api.h
- *
- * [EOF]
- */
+/* End of code generation (_coder_libbitonestep_api.h) */
