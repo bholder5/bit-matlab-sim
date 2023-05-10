@@ -117,8 +117,8 @@ b_f_syms = sym(B_f);
 f2 = matlabFunction(b_f_syms, 'file', 'b_f_func.m');
 
 a_mf_syms = sym(A_mf);
-f1 = matlabFunction(a_f_syms, 'file', 'a_mf_func.m');
+f1 = matlabFunction(a_mf_syms, 'file', 'a_mf_func.m');
 
 b_mf_syms = sym(B_mf);
-f2 = matlabFunction(b_f_syms, 'file', 'b_mf_func.m');
+f2 = matlabFunction(b_mf_syms, 'file', 'b_mf_func.m');
 

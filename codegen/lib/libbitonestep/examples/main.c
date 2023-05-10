@@ -39,6 +39,7 @@
 #include "libbitonestep.h"
 #include "libbitonestep_internal_types.h"
 #include <stdio.h>
+#include <string.h>
 
 /* Function Declarations */
 static void argInit_104x1_real_T(real_T result[104]);
@@ -188,7 +189,11 @@ int32_T main(int32_T argc, char **argv)
 You can call entry-point functions multiple times. */
   main_bit_one_step();
   main_compute_angular_velocity_C();
+  main_compute_angular_velocity_roll_C();
+  main_compute_angular_velocity_yaw_C();
   main_compute_rotation_mat_C();
+  main_compute_rotation_mat_roll_C();
+  main_compute_rotation_mat_yaw_C();
   main_rot2axis_C();
   /* Terminate the application.
 You do not need to do this more than one time. */
@@ -202,6 +207,7 @@ void main_bit_one_step(void)
   real_T y_flex[104];
   real_T dv[21];
   real_T y_true[21];
+  real_T b_tau_applied_tmp[9];
   real_T tau_applied_tmp[9];
   real_T dv2[5];
   real_T w_piv_tmp;
@@ -217,7 +223,8 @@ void main_bit_one_step(void)
   argInit_21x1_real_T(dv);
   argInit_104x1_real_T(dv1);
   argInit_5x1_real_T(dv2);
-  bit_one_step(dv, tau_applied_tmp, tau_applied_tmp, w_piv_tmp,
+  memcpy(&b_tau_applied_tmp[0], &tau_applied_tmp[0], 9U * sizeof(real_T));
+  bit_one_step(dv, b_tau_applied_tmp, tau_applied_tmp, w_piv_tmp,
                argInit_boolean_T(), w_piv_tmp, argInit_uint16_T(), w_piv_tmp,
                w_piv_tmp, dv1, dv2, y_true, y_flex);
 }
@@ -236,6 +243,34 @@ void main_compute_angular_velocity_C(void)
   compute_angular_velocity_C(dv, dv1, omega);
 }
 
+void main_compute_angular_velocity_roll_C(void)
+{
+  real_T dv1[9][3];
+  real_T dv[18];
+  real_T omega[3];
+  /* Initialize function 'compute_angular_velocity_roll_C' input arguments. */
+  /* Initialize function input argument 'x'. */
+  /* Initialize function input argument 'z_n'. */
+  /* Call the entry-point 'compute_angular_velocity_roll_C'. */
+  argInit_18x1_real_T(dv);
+  argInit_3x9_real_T(dv1);
+  compute_angular_velocity_roll_C(dv, dv1, omega);
+}
+
+void main_compute_angular_velocity_yaw_C(void)
+{
+  real_T dv1[9][3];
+  real_T dv[18];
+  real_T omega[3];
+  /* Initialize function 'compute_angular_velocity_yaw_C' input arguments. */
+  /* Initialize function input argument 'x'. */
+  /* Initialize function input argument 'z_n'. */
+  /* Call the entry-point 'compute_angular_velocity_yaw_C'. */
+  argInit_18x1_real_T(dv);
+  argInit_3x9_real_T(dv1);
+  compute_angular_velocity_yaw_C(dv, dv1, omega);
+}
+
 void main_compute_rotation_mat_C(void)
 {
   real_T dv[9][3];
@@ -248,6 +283,34 @@ void main_compute_rotation_mat_C(void)
   argInit_3x9_real_T(dv);
   argInit_9x1_real_T(dv1);
   compute_rotation_mat_C(dv, dv1, C);
+}
+
+void main_compute_rotation_mat_roll_C(void)
+{
+  real_T dv[9][3];
+  real_T C[3][3];
+  real_T dv1[9];
+  /* Initialize function 'compute_rotation_mat_roll_C' input arguments. */
+  /* Initialize function input argument 'z_n'. */
+  /* Initialize function input argument 'theta'. */
+  /* Call the entry-point 'compute_rotation_mat_roll_C'. */
+  argInit_3x9_real_T(dv);
+  argInit_9x1_real_T(dv1);
+  compute_rotation_mat_roll_C(dv, dv1, C);
+}
+
+void main_compute_rotation_mat_yaw_C(void)
+{
+  real_T dv[9][3];
+  real_T C[3][3];
+  real_T dv1[9];
+  /* Initialize function 'compute_rotation_mat_yaw_C' input arguments. */
+  /* Initialize function input argument 'z_n'. */
+  /* Initialize function input argument 'theta'. */
+  /* Call the entry-point 'compute_rotation_mat_yaw_C'. */
+  argInit_3x9_real_T(dv);
+  argInit_9x1_real_T(dv1);
+  compute_rotation_mat_yaw_C(dv, dv1, C);
 }
 
 void main_rot2axis_C(void)

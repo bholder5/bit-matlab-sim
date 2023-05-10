@@ -35,16 +35,40 @@ void bit_one_step(real_T x0[21], real_T tau_applied[9], real_T unlock[9],
 void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
                       const mxArray *plhs[2]);
 
+void c_compute_angular_velocity_roll(const mxArray *const prhs[2],
+                                     const mxArray **plhs);
+
+void c_compute_angular_velocity_yaw_(const mxArray *const prhs[2],
+                                     const mxArray **plhs);
+
 void compute_angular_velocity_C(real_T x[18], real_T z_n[9][3],
                                 real_T omega[3]);
 
 void compute_angular_velocity_C_api(const mxArray *const prhs[2],
                                     const mxArray **plhs);
 
+void compute_angular_velocity_roll_C(real_T x[18], real_T z_n[9][3],
+                                     real_T omega[3]);
+
+void compute_angular_velocity_yaw_C(real_T x[18], real_T z_n[9][3],
+                                    real_T omega[3]);
+
 void compute_rotation_mat_C(real_T z_n[9][3], real_T theta[9], real_T C[3][3]);
 
 void compute_rotation_mat_C_api(const mxArray *const prhs[2],
                                 const mxArray **plhs);
+
+void compute_rotation_mat_roll_C(real_T z_n[9][3], real_T theta[9],
+                                 real_T C[3][3]);
+
+void compute_rotation_mat_roll_C_api(const mxArray *const prhs[2],
+                                     const mxArray **plhs);
+
+void compute_rotation_mat_yaw_C(real_T z_n[9][3], real_T theta[9],
+                                real_T C[3][3]);
+
+void compute_rotation_mat_yaw_C_api(const mxArray *const prhs[2],
+                                    const mxArray **plhs);
 
 void libbitonestep_atexit(void);
 

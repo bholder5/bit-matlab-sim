@@ -75,7 +75,11 @@ end
     %     y_all2 = bit_one_step(x0, tau_applied, unlock(:,step), w_piv, true, dt(mod(step,2)+1), uint16(5));
     
     C = compute_rotation_mat_C(z_n, theta_des);
+    Cr = compute_rotation_mat_roll_C(z_n, theta_des);
+    Cy = compute_rotation_mat_yaw_C(z_n, theta_des);
     [ax, rot] = rot2axis_C(C);
+    omegay = compute_angular_velocity_yaw_C(x0(1:18), z_n)
+    omegar = compute_angular_velocity_roll_C(x0(1:18), z_n)
     omega = compute_angular_velocity_C(x0(1:18), z_n)
 % end
 

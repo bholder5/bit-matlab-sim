@@ -566,6 +566,7 @@ void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
       NULL, /* tls */
       NULL  /* prev */
   };
+  const mxArray *prhs_copy_idx_1;
   real_T(*x_flex0)[104];
   real_T(*y_flex)[104];
   real_T(*x0)[21];
@@ -582,9 +583,11 @@ void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
   st.tls = emlrtRootTLSGlobal;
   y_true = (real_T(*)[21])mxMalloc(sizeof(real_T[21]));
   y_flex = (real_T(*)[104])mxMalloc(sizeof(real_T[104]));
+  prhs_copy_idx_1 = emlrtProtectR2012b(prhs[1], 1, false, -1);
   /* Marshall function inputs */
   x0 = emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "x0");
-  tau_applied = c_emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "tau_applied");
+  tau_applied =
+      c_emlrt_marshallIn(&st, emlrtAlias(prhs_copy_idx_1), "tau_applied");
   unlock = c_emlrt_marshallIn(&st, emlrtAlias(prhs[2]), "unlock");
   w_piv = e_emlrt_marshallIn(&st, emlrtAliasP(prhs[3]), "w_piv");
   piv_flag = g_emlrt_marshallIn(&st, emlrtAliasP(prhs[4]), "piv_flag");
@@ -603,6 +606,50 @@ void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
   if (nlhs > 1) {
     plhs[1] = b_emlrt_marshallOut(*y_flex);
   }
+}
+
+void c_compute_angular_velocity_roll(const mxArray *const prhs[2],
+                                     const mxArray **plhs)
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  real_T(*z_n)[9][3];
+  real_T(*x)[18];
+  real_T(*omega)[3];
+  st.tls = emlrtRootTLSGlobal;
+  omega = (real_T(*)[3])mxMalloc(sizeof(real_T[3]));
+  /* Marshall function inputs */
+  x = o_emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "x");
+  z_n = q_emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "z_n");
+  /* Invoke the target function */
+  compute_angular_velocity_roll_C(*x, *z_n, *omega);
+  /* Marshall function outputs */
+  *plhs = c_emlrt_marshallOut(*omega);
+}
+
+void c_compute_angular_velocity_yaw_(const mxArray *const prhs[2],
+                                     const mxArray **plhs)
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  real_T(*z_n)[9][3];
+  real_T(*x)[18];
+  real_T(*omega)[3];
+  st.tls = emlrtRootTLSGlobal;
+  omega = (real_T(*)[3])mxMalloc(sizeof(real_T[3]));
+  /* Marshall function inputs */
+  x = o_emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "x");
+  z_n = q_emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "z_n");
+  /* Invoke the target function */
+  compute_angular_velocity_yaw_C(*x, *z_n, *omega);
+  /* Marshall function outputs */
+  *plhs = c_emlrt_marshallOut(*omega);
 }
 
 void compute_angular_velocity_C_api(const mxArray *const prhs[2],
@@ -645,6 +692,50 @@ void compute_rotation_mat_C_api(const mxArray *const prhs[2],
   theta = c_emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "theta");
   /* Invoke the target function */
   compute_rotation_mat_C(*z_n, *theta, *C);
+  /* Marshall function outputs */
+  *plhs = d_emlrt_marshallOut(*C);
+}
+
+void compute_rotation_mat_roll_C_api(const mxArray *const prhs[2],
+                                     const mxArray **plhs)
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  real_T(*z_n)[9][3];
+  real_T(*C)[3][3];
+  real_T(*theta)[9];
+  st.tls = emlrtRootTLSGlobal;
+  C = (real_T(*)[3][3])mxMalloc(sizeof(real_T[3][3]));
+  /* Marshall function inputs */
+  z_n = q_emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "z_n");
+  theta = c_emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "theta");
+  /* Invoke the target function */
+  compute_rotation_mat_roll_C(*z_n, *theta, *C);
+  /* Marshall function outputs */
+  *plhs = d_emlrt_marshallOut(*C);
+}
+
+void compute_rotation_mat_yaw_C_api(const mxArray *const prhs[2],
+                                    const mxArray **plhs)
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  real_T(*z_n)[9][3];
+  real_T(*C)[3][3];
+  real_T(*theta)[9];
+  st.tls = emlrtRootTLSGlobal;
+  C = (real_T(*)[3][3])mxMalloc(sizeof(real_T[3][3]));
+  /* Marshall function inputs */
+  z_n = q_emlrt_marshallIn(&st, emlrtAlias(prhs[0]), "z_n");
+  theta = c_emlrt_marshallIn(&st, emlrtAlias(prhs[1]), "theta");
+  /* Invoke the target function */
+  compute_rotation_mat_yaw_C(*z_n, *theta, *C);
   /* Marshall function outputs */
   *plhs = d_emlrt_marshallOut(*C);
 }

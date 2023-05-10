@@ -16,6 +16,10 @@ function [y_true, y_flex] = bit_one_step(x0, tau_applied, unlock, w_piv, piv_fla
     sys = @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ... 
     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom);
     tau_app_flex = tau_applied(7:9);
+    tau_applied(7) = tau_applied(7) + tau_flex(1);
+    tau_applied(8) = tau_applied(8) + tau_flex(2) + tau_flex(3);
+    tau_applied(9) = tau_applied(9) + tau_flex(4) + tau_flex(5);
+    
     sys_flex = @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_flex, b_flex, tau_app_flex, tau_flex, y_flex);
 
 %% sim

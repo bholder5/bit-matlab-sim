@@ -1,6 +1,6 @@
 function [ndof, g0, r_n1_n, z_n, p_n, m_n, c_n, ...
     i_n, m_w_n,  i_rw, bear_k_cst, bear_c_cst, k_d, b_d, ...
-    w_rw_max, w_rw_nom, hs_rw, hs_rw_max, a_flex, b_flex] = init_func()
+    w_rw_max, w_rw_nom, hs_rw, hs_rw_max, a_flex, b_flex,a_df, b_df] = init_func()
     %%% This file initializes are parameters for simulating BIT (9 DOF)
     %%% This file initializes are parameters for simulating BIT (9 DOF)
 ndof = 9;
@@ -82,6 +82,8 @@ fs_ekf = 1000.0;
 
 a_flex = a_f_func;
 b_flex = b_f_func();
+a_df = a_mf_func();
+b_df = b_mf_func();
 
 
 end

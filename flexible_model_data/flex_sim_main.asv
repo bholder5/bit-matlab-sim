@@ -132,7 +132,7 @@ while step < length(t_vec)
     ctrl_dd = ((kc1+(2*kc2)+(2*kc3)+kc4)/6);
     x_ctrl = x_ctrl + ctrl_dd; 
 
-    tau_flex = cc * x_ctrl;
+    tau_flex = -cc * x_ctrl;
 
     %% save historical data
     % x_all(:,step) = x_true;
