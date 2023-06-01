@@ -558,7 +558,7 @@ static uint16_T y_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src,
   return ret;
 }
 
-void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
+void bit_one_step_api(const mxArray *const prhs[12], int32_T nlhs,
                       const mxArray *plhs[2])
 {
   emlrtStack st = {
@@ -579,6 +579,7 @@ void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
   real_T thet_pit_nom;
   real_T w_piv;
   uint16_T num_steps;
+  boolean_T flexure_flag;
   boolean_T piv_flag;
   st.tls = emlrtRootTLSGlobal;
   y_true = (real_T(*)[21])mxMalloc(sizeof(real_T[21]));
@@ -597,10 +598,11 @@ void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
   thet_pit_nom = e_emlrt_marshallIn(&st, emlrtAliasP(prhs[8]), "thet_pit_nom");
   x_flex0 = k_emlrt_marshallIn(&st, emlrtAlias(prhs[9]), "x_flex0");
   tau_flex = m_emlrt_marshallIn(&st, emlrtAlias(prhs[10]), "tau_flex");
+  flexure_flag = g_emlrt_marshallIn(&st, emlrtAliasP(prhs[11]), "flexure_flag");
   /* Invoke the target function */
   bit_one_step(*x0, *tau_applied, *unlock, w_piv, piv_flag, dt, num_steps,
-               tau_max_piv, thet_pit_nom, *x_flex0, *tau_flex, *y_true,
-               *y_flex);
+               tau_max_piv, thet_pit_nom, *x_flex0, *tau_flex, flexure_flag,
+               *y_true, *y_flex);
   /* Marshall function outputs */
   plhs[0] = emlrt_marshallOut(*y_true);
   if (nlhs > 1) {

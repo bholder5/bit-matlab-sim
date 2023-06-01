@@ -15,21 +15,21 @@
 
 /* Function Definitions */
 void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
-                              const mxArray *prhs[11])
+                              const mxArray *prhs[12])
 {
   emlrtStack st = {
       NULL, /* site */
       NULL, /* tls */
       NULL  /* prev */
   };
-  const mxArray *b_prhs[11];
+  const mxArray *b_prhs[12];
   const mxArray *outputs[2];
   int32_T i;
   int32_T i1;
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
-  if (nrhs != 11) {
-    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 11, 4,
+  if (nrhs != 12) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 12, 4,
                         12, "bit_one_step");
   }
   if (nlhs > 2) {
@@ -37,7 +37,7 @@ void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
                         "bit_one_step");
   }
   /* Call the function. */
-  for (i = 0; i < 11; i++) {
+  for (i = 0; i < 12; i++) {
     b_prhs[i] = prhs[i];
   }
   bit_one_step_api(b_prhs, nlhs, outputs);

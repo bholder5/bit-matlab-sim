@@ -75,6 +75,58 @@ void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+void compute_angular_velocity_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                                 int32_T nrhs,
+                                                 const mxArray *prhs[2])
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  const mxArray *outputs;
+  st.tls = emlrtRootTLSGlobal;
+  /* Check for proper number of arguments. */
+  if (nrhs != 2) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 2, 4,
+                        31, "compute_angular_velocity_roll_C");
+  }
+  if (nlhs > 1) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 31,
+                        "compute_angular_velocity_roll_C");
+  }
+  /* Call the function. */
+  c_compute_angular_velocity_roll(prhs, &outputs);
+  /* Copy over outputs to the caller. */
+  emlrtReturnArrays(1, &plhs[0], &outputs);
+}
+
+void compute_angular_velocity_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                                int32_T nrhs,
+                                                const mxArray *prhs[2])
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  const mxArray *outputs;
+  st.tls = emlrtRootTLSGlobal;
+  /* Check for proper number of arguments. */
+  if (nrhs != 2) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 2, 4,
+                        30, "compute_angular_velocity_yaw_C");
+  }
+  if (nlhs > 1) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 30,
+                        "compute_angular_velocity_yaw_C");
+  }
+  /* Call the function. */
+  c_compute_angular_velocity_yaw_(prhs, &outputs);
+  /* Copy over outputs to the caller. */
+  emlrtReturnArrays(1, &plhs[0], &outputs);
+}
+
 void compute_rotation_mat_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                         int32_T nrhs, const mxArray *prhs[2])
 {
@@ -100,12 +152,69 @@ void compute_rotation_mat_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+void compute_rotation_mat_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                             int32_T nrhs,
+                                             const mxArray *prhs[2])
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  const mxArray *outputs;
+  st.tls = emlrtRootTLSGlobal;
+  /* Check for proper number of arguments. */
+  if (nrhs != 2) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 2, 4,
+                        27, "compute_rotation_mat_roll_C");
+  }
+  if (nlhs > 1) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 27,
+                        "compute_rotation_mat_roll_C");
+  }
+  /* Call the function. */
+  compute_rotation_mat_roll_C_api(prhs, &outputs);
+  /* Copy over outputs to the caller. */
+  emlrtReturnArrays(1, &plhs[0], &outputs);
+}
+
+void compute_rotation_mat_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                            int32_T nrhs,
+                                            const mxArray *prhs[2])
+{
+  emlrtStack st = {
+      NULL, /* site */
+      NULL, /* tls */
+      NULL  /* prev */
+  };
+  const mxArray *outputs;
+  st.tls = emlrtRootTLSGlobal;
+  /* Check for proper number of arguments. */
+  if (nrhs != 2) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 2, 4,
+                        26, "compute_rotation_mat_yaw_C");
+  }
+  if (nlhs > 1) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, 4, 26,
+                        "compute_rotation_mat_yaw_C");
+  }
+  /* Call the function. */
+  compute_rotation_mat_yaw_C_api(prhs, &outputs);
+  /* Copy over outputs to the caller. */
+  emlrtReturnArrays(1, &plhs[0], &outputs);
+}
+
 void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
                  const mxArray *prhs[])
 {
-  static const char_T *emlrtEntryPoints[4] = {
-      "bit_one_step", "compute_angular_velocity_C", "compute_rotation_mat_C",
-      "rot2axis_C"};
+  static const char_T *emlrtEntryPoints[8] = {"bit_one_step",
+                                              "compute_angular_velocity_C",
+                                              "compute_angular_velocity_roll_C",
+                                              "compute_angular_velocity_yaw_C",
+                                              "compute_rotation_mat_C",
+                                              "compute_rotation_mat_roll_C",
+                                              "compute_rotation_mat_yaw_C",
+                                              "rot2axis_C"};
   emlrtStack st = {
       NULL, /* site */
       NULL, /* tls */
@@ -117,7 +226,7 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
   st.tls = emlrtRootTLSGlobal;
   /* Dispatch the entry-point. */
   switch (emlrtGetEntryPointIndexR2016a(
-      &st, nrhs, &prhs[0], (const char_T **)&emlrtEntryPoints[0], 4)) {
+      &st, nrhs, &prhs[0], (const char_T **)&emlrtEntryPoints[0], 8)) {
   case 0:
     bit_one_step_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
     break;
@@ -125,9 +234,21 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
     compute_angular_velocity_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
     break;
   case 2:
-    compute_rotation_mat_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
+    compute_angular_velocity_roll_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
     break;
   case 3:
+    compute_angular_velocity_yaw_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
+    break;
+  case 4:
+    compute_rotation_mat_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
+    break;
+  case 5:
+    compute_rotation_mat_roll_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
+    break;
+  case 6:
+    compute_rotation_mat_yaw_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
+    break;
+  case 7:
     rot2axis_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
     break;
   }

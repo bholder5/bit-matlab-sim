@@ -1,4 +1,4 @@
-function Xdot = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ... 
+function [Xdot] = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ... 
     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag,...
     dw_piv, tau_max_piv, thet_pit_nom)
     %split the state
@@ -32,13 +32,12 @@ function Xdot = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...
     %to eq 3.37
     torques = tau_applied - (Pot + spring + damp + R + r);
  
-%     M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n);
+    % M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n);
 
-    M = mass_mat_func(theta);
+    % M = mass_mat_func(theta);
+    M = mass_mat_func_gb(theta);
 
     M_decomp = chol(M);
-
-
 
     ddtheta = M_decomp\((M_decomp')\torques);
     ddtheta = ddtheta.*unlock;
@@ -70,6 +69,9 @@ function Xdot = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...
         end
     end
 
-    Xdot = [ddtheta; dtheta; d_hs;];
+    tau_gond = M(7:9,7:9) * ddtheta(7:9);
+    % tau_gond(1) = tau_rw
+
+    Xdot = [ddtheta; dtheta; d_hs; tau_gond];
     
 end

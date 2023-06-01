@@ -3,32 +3,32 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * compute_rotation_mat_C.c
+ * compute_rotation_mat_roll_C.c
  *
- * Code generation for function 'compute_rotation_mat_C'
+ * Code generation for function 'compute_rotation_mat_roll_C'
  *
  */
 
 /* Include files */
-#include "compute_rotation_mat_C.h"
+#include "compute_rotation_mat_roll_C.h"
 #include "axis2rot.h"
 #include "bit_one_step_mex_data.h"
 #include "rt_nonfinite.h"
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo vc_emlrtRSI = {
-    6,                                                      /* lineNo */
-    "compute_rotation_mat_C",                               /* fcnName */
-    "/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m" /* pathName */
+static emlrtRSInfo wc_emlrtRSI = {
+    6,                                                           /* lineNo */
+    "compute_rotation_mat_roll_C",                               /* fcnName */
+    "/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m" /* pathName */
 };
 
 /* Function Definitions */
 /*
- * function [C] = compute_rotation_mat_C(z_n, theta)
+ * function [C] = compute_rotation_mat_roll_C(z_n, theta)
  */
-void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
-                            const real_T theta[9], real_T C[9])
+void compute_rotation_mat_roll_C(const emlrtStack *sp, const real_T z_n[27],
+                                 const real_T theta[9], real_T C[9])
 {
   emlrtStack st;
   real_T a[9];
@@ -38,21 +38,21 @@ void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
   int32_T i1;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 16U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 17U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 17U, 0U);
   /* UNTITLED3 Summary of this function goes here */
   /*    Detailed explanation goes here */
-  /* 'compute_rotation_mat_C:4' C = (eye(3)); */
+  /* 'compute_rotation_mat_roll_C:4' C = (eye(3)); */
   memset(&C[0], 0, 9U * sizeof(real_T));
   C[0] = 1.0;
   C[4] = 1.0;
   C[8] = 1.0;
-  /* 'compute_rotation_mat_C:5' for i = 1:9 */
-  for (i = 0; i < 9; i++) {
-    covrtLogFor(&emlrtCoverageInstance, 16U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 1U);
-    /* 'compute_rotation_mat_C:6' C = axis2rot(z_n(:,i), theta(i)) * C; */
-    st.site = &vc_emlrtRSI;
+  /* 'compute_rotation_mat_roll_C:5' for i = 1:8 */
+  for (i = 0; i < 8; i++) {
+    covrtLogFor(&emlrtCoverageInstance, 17U, 0U, 0, 1);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 17U, 1U);
+    /* 'compute_rotation_mat_roll_C:6' C = axis2rot(z_n(:,i), theta(i)) * C; */
+    st.site = &wc_emlrtRSI;
     axis2rot(&st, &z_n[3 * i], theta[i], b_a);
     for (b_i = 0; b_i < 3; b_i++) {
       real_T d;
@@ -71,9 +71,9 @@ void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
       emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 16U, 0U, 0, 0);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 2U);
-  /* 'compute_rotation_mat_C:8' C = C'; */
+  covrtLogFor(&emlrtCoverageInstance, 17U, 0U, 0, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 17U, 2U);
+  /* 'compute_rotation_mat_roll_C:8' C = C'; */
   for (b_i = 0; b_i < 3; b_i++) {
     b_a[3 * b_i] = C[b_i];
     b_a[3 * b_i + 1] = C[b_i + 3];
@@ -82,4 +82,4 @@ void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
   memcpy(&C[0], &b_a[0], 9U * sizeof(real_T));
 }
 
-/* End of code generation (compute_rotation_mat_C.c) */
+/* End of code generation (compute_rotation_mat_roll_C.c) */

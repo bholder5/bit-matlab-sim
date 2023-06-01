@@ -46,40 +46,43 @@ num_modes = 4;
 num_states = 3+2*num_modes;
 a_use = a_ctrl(1:num_states, 1:num_states);
 b_use = b_ctrl(1:num_states, :);
-R = 0.5*eye(5);
-gn = 1:num_modes*2;
-gns = 1*[0.001, 0.001, 0.001, gn]
+R = 0.00001*eye(5);
+
+QR = zeros(size(a_use))
+QR(1:3,1:3) = m_rig;
+QR_flex = [];
+for k = 1:num_modes
+    QR_flex = [QR_flex, 0.01, 1];
+end
+QR(4:num_states, 4:num_states) = diag(QR_flex);
+
+QL = 1000*inv(QR);
+
+% %% override to only use flexible modes
+% a_use = a_df(1:num_modes*2, 1:num_modes*2);
+% b_use = b_df(1:num_modes*2, :);
+% 
 % QR = 1*eye(size(a_use));
-QR = diag(gns)
-QL = 1*eye(size(a_use));
-
-QR(1:3, 1:3) = QR(1:3, 1:3) * 0.00001
-QL(1:3, 1:3) = QL(1:3, 1:3) * 0.00001
-
-%% override to only use flexible modes
-a_use = a_df(1:num_modes*2, 1:num_modes*2);
-b_use = b_df(1:num_modes*2, :);
-
-QR = 1*eye(size(a_use));
-QL = eye(size(a_use));
+% QL = eye(size(a_use));
 
 [ac, bc, cc] = flex_ctrl(a_use, b_use, b_use', R, QR, QL);
 
 x_ctrl = zeros(num_states,1);
 
-y_flex = zeros(104,1);
-x_ctrl = zeros(num_modes*2,1);
+x_flex = zeros(110,1);
+
 %% initiate flex system
-sys_flex = @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex);
+sys_flex = @(x_flex, tau_app_flex, tau_flex) flex_propogate(A_sys, B_sys, tau_app_flex, tau_flex, x_flex);
 sys_ctrl = @(x_ctrl, gyros) ac*x_ctrl + bc*gyros;
 % Sim Parameters
 t0 = 0;
-tf = 60 ;
-dt = 1e-3;
+tf = 20 ;
+dt = 5e-4;
 t_vec = 0:dt:tf;
 t_plot = 0:dt*100:tf;
 
-y_all = zeros(104, length(t_plot));
+x_all = zeros(110, length(t_plot));
+g_all = zeros(5, length(t_plot));
 
 step = 0;
 
@@ -113,15 +116,15 @@ while step < length(t_vec)
     %% Propagate the system 
     %RK4 solver
 %% Propogate flexible system
-    kf1 = sys_flex(y_flex, tau_app_flex, tau_flex) * dt;
-    kf2 = sys_flex(y_flex + (kf1/2), tau_app_flex, tau_flex) * dt;
-    kf3 = sys_flex(y_flex + (kf2/2), tau_app_flex, tau_flex) * dt;
-    kf4 = sys_flex(y_flex + kf3, tau_app_flex, tau_flex) * dt;
+    kf1 = sys_flex(x_flex, tau_app_flex, tau_flex) * dt;
+    kf2 = sys_flex(x_flex + (kf1/2), tau_app_flex, tau_flex) * dt;
+    kf3 = sys_flex(x_flex + (kf2/2), tau_app_flex, tau_flex) * dt;
+    kf4 = sys_flex(x_flex + kf3, tau_app_flex, tau_flex) * dt;
 
     eta_dd = ((kf1+(2*kf2)+(2*kf3)+kf4)/6);
-    y_flex = y_flex + eta_dd;  
+    x_flex = x_flex + eta_dd;  
     
-    gyros = b_df' * y_flex;
+    gyros = B_sys' * x_flex;
 
     %% propogate control state
     kc1 = sys_ctrl(x_ctrl, gyros) * dt;
@@ -132,12 +135,14 @@ while step < length(t_vec)
     ctrl_dd = ((kc1+(2*kc2)+(2*kc3)+kc4)/6);
     x_ctrl = x_ctrl + ctrl_dd; 
 
-    tau_flex = cc * x_ctrl;
+    tau_flex = -cc * x_ctrl;
+     % tau_flex = -cc * y_flex(1:8);
 
     %% save historical data
     % x_all(:,step) = x_true;
     if ~mod(step,100)
-        y_all(:,(step/100)+1) = [y_flex];
+        x_all(:,(step/100)+1) = [x_flex];
+        g_all(:,(step/100)+1) = [gyros];
     end
 
 end
@@ -185,39 +190,72 @@ tau_flex
 % plot(t_plot, y_all(17,:))
 
 figure(1)
+title('Rigid')
 subplot(3,2,1)
 hold on
-% plot(t_plot, y_all(2,:))
-% figure()
-% plot(t_plot, y_all(3,:))
-% figure()
-% plot(t_plot, y_all(4,:))
-% figure()
-% plot(t_plot, y_all(5,:))
-% figure()
-% plot(t_plot, y_all(6,:))
-% legend('yaw gyro')
-% figure()
-plot(t_plot, y_all(1,:))
+plot(t_plot, x_all(1,:))
 % figure(2)
 subplot(3,2,2)
 hold on
-plot(t_plot, y_all(2,:))
+plot(t_plot, x_all(2,:))
 % legend('roll gyro')
 % figure(3)
 subplot(3,2,3)
 hold on
-plot(t_plot, y_all(3,:))
+plot(t_plot, x_all(3,:))
 % figure(4)
 subplot(3,2,4)
 hold on
-plot(t_plot, y_all(4,:))
+plot(t_plot, x_all(4,:))
 % figure(5)
 subplot(3,2,5)
 hold on
-plot(t_plot, y_all(5,:))
+plot(t_plot, x_all(5,:))
 % figure(6)
 subplot(3,2,6)
 hold on
-plot(t_plot, y_all(6,:))
+plot(t_plot, x_all(6,:))
 
+figure(3)
+title('flex')
+subplot(3,2,1)
+hold on
+plot(t_plot, x_all(7,:))
+% figure(2)
+subplot(3,2,2)
+hold on
+plot(t_plot, x_all(8,:))
+% legend('roll gyro')
+% figure(3)
+subplot(3,2,3)
+hold on
+plot(t_plot, x_all(9,:))
+% figure(4)
+subplot(3,2,4)
+hold on
+plot(t_plot, x_all(10,:))
+% figure(5)
+subplot(3,2,5)
+hold on
+plot(t_plot, x_all(11,:))
+% figure(6)
+subplot(3,2,6)
+hold on
+plot(t_plot, x_all(12,:))
+
+figure(2)
+subplot(5,1,1)
+hold on
+plot(t_plot, g_all(1,:))
+subplot(5,1,2)
+hold on
+plot(t_plot, g_all(2,:))
+subplot(5,1,3)
+hold on
+plot(t_plot, g_all(3,:))
+subplot(5,1,4)
+hold on
+plot(t_plot, g_all(4,:))
+subplot(5,1,5)
+hold on
+plot(t_plot, g_all(5,:))

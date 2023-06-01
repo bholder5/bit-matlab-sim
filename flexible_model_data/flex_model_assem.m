@@ -1,31 +1,33 @@
+
+
 clear
 clc
 
 freqs = extract_freqs;
 
-cd("RW/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/RW/")
 rw_curl = rw();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/roll_stern/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/roll_stern/")
 roll_stern_curl = roll_stern();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/roll_bow/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/roll_bow/")
 roll_bow_curl = roll_bow();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/pitch_sb/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/pitch_sb/")
 pitch_sb_curl = sb_pitch();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/pitch_port/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/pitch_port/")
 pitch_port_curl = port_pitch();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/gyro1_p/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_p/")
 gyro1_p_curl = gyro1_pitch();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/gyro1_xp/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_xp/")
 gyro1_xp_curl = gyro1_xp();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/gyro1_bore/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_bore/")
 gyro1_bore_curl = gyro1_bore();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/gyro2_p/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/gyro2_p/")
 gyro2_p_curl = gyro2_pitch();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/gyro2_xp/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/gyro2_xp/")
 gyro2_xp_curl = gyro2_xp();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/gyro2_bore/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/gyro2_bore/")
 gyro2_bore_curl = gyro2_bore();
-cd("/home/brad/bit-matlab-sim/flexible_model_data/")
+cd("/home/bholder/bit-matlab-sim/flexible_model_data/")
 
 %% Build the Model
 Br = [1 0 0 0 0; 0 1 1 0 0; 0 0 0 1 1];
@@ -80,7 +82,7 @@ Cf_gyro2 = [gyro2_bore_curl', zeros(1, length(gyro2_bore_curl));...
 %% Add Damping
 A_mf = zeros(size(A_f));
 B_mf = zeros(size(B_f));
-zeta = 0.001;
+zeta = 0.0001;
 for l = 1:length(freqs)
     w = freqs(l)*2*pi;
     l1 = ((l-1)*2) + 1;

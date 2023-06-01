@@ -2,7 +2,7 @@
 ## Makefile generated for component 'libbitonestep'. 
 ## 
 ## Makefile     : libbitonestep_rtw_example.mk
-## Generated on : Sat May 06 14:06:17 2023
+## Generated on : Tue May 23 14:26:57 2023
 ## Final product: $(START_DIR)/libbitonestep
 ## Product type : executable
 ## 
@@ -21,7 +21,7 @@ MAKEFILE                  = libbitonestep_rtw_example.mk
 MATLAB_ROOT               = /usr/local/MATLAB/R2023a
 MATLAB_BIN                = /usr/local/MATLAB/R2023a/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/glnxa64
-START_DIR                 = /home/brad/bit-matlab-sim
+START_DIR                 = /home/bholder/bit-matlab-sim
 TGT_FCN_LIB               = ISO_C
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0

@@ -11,12 +11,12 @@ function crl = roll_bow()
     z.two.id = 210670;
     z.thr.id = 211177;
     
-    tab_y = readtable('/home/brad/bit-matlab-sim/flexible_model_data/roll_bow/wy.csv');
+    tab_y = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/roll_bow/wy.csv');
     col1y = tab_y(:,1);
     col2y = tab_y(:,2);
     col3y = tab_y(:,3);
     
-    tab_z = readtable('/home/brad/bit-matlab-sim/flexible_model_data/roll_bow/wz.csv');
+    tab_z = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/roll_bow/wz.csv');
     col1z = tab_z(:,1);
     col2z = tab_z(:,2);
     col3z = tab_z(:,3);

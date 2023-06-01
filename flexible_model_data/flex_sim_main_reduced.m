@@ -5,7 +5,7 @@ clear
 addpath('~/bit-matlab-sim/Miscellaneous/')
 addpath('~/bit-matlab-sim/ADCS/')
 addpath('~/bit-matlab-sim/Plant_functions/')
-addpath('/home/brad/bit-matlab-sim/')
+addpath('~/bit-matlab-sim/')
 % load('/home/brad/bit-matlab-sim/flexible_model_data/flex_model');
 %% Setup Simulation
 % initial conditions, state is dtheta; theta
@@ -25,9 +25,19 @@ num_states = 2*num_modes;
 a_use = a_df(1:num_modes*2, 1:num_modes*2);
 b_use = b_df(1:num_modes*2, :);
 
-R = 1*eye(5)
-QR = 10*eye(size(a_use));
-QL = 100*eye(size(a_use));
+b_use = b_use(:,1);
+
+R = 1*eye(5);
+R = 0.00000008;
+
+QR_flex = [];
+for k = 1:num_modes
+    QR_flex = [QR_flex, 0.01, 1];
+end
+QR(8,8) = 10000;
+QR = diag(QR_flex);
+
+QL = inv(QR);
 
 [ac, bc, cc] = flex_ctrl(a_use, b_use, b_use', R, QR, QL);
 
@@ -40,7 +50,7 @@ sys_flex = @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_use, b_use, tau_ap
 sys_ctrl = @(x_ctrl, gyros) ac*x_ctrl + bc*gyros;
 % Sim Parameters
 t0 = 0;
-tf = 150 ;
+tf = 100 ;
 dt = 1e-3;
 t_vec = 0:dt:tf;
 t_plot = 0:dt*10:tf;
@@ -52,6 +62,7 @@ step = 0;
 
 
 tau_flex = zeros(5,1)+10;
+tau_flex = 10;
 
 %% Sim
 while step < length(t_vec)
@@ -70,12 +81,14 @@ while step < length(t_vec)
     % tau_applied(9) = tau_applied(9) + tau_flex(4) + tau_flex(5);
     % 
     if step < 100
-        tau_flex = zeros(5,1)+10;
+        % tau_flex = zeros(5,1)+10;
+        tau_flex = 10;
     end
 
-    % if step > 100
-    %     tau_flex = zeros(5,1);
-    % end
+    if step > 100
+        tau_flex = zeros(5,1);
+        tau_flex = 0;
+    end
 
     %% Propagate the system 
     %RK4 solver

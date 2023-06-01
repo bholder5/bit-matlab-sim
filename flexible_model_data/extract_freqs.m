@@ -1,7 +1,7 @@
 function [freqs] = extract_freqs()
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-    tab_x = readtable('/home/brad/bit-matlab-sim/flexible_model_data/gyro2_p/wx.csv');
+    tab_x = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/gyro2_p/wx.csv');
     col1x = tab_x(:,1);
     col2x = tab_x(:,2);
     col3x = tab_x(:,3);

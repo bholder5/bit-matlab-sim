@@ -2,7 +2,7 @@ function crl = gyro1_pitch()
     clear
     clc
     
-    addpath('/home/brad/bit-matlab-sim/Miscellaneous/')
+    addpath('/home/bholder/bit-matlab-sim/Miscellaneous/')
     % addpath('/home/brad/bit-matlab-sim/flexible_model_data/pitch_port')
     
     
@@ -61,12 +61,12 @@ function crl = gyro1_pitch()
     vxp1 = rot2 * vxp1
     vxp2 = rot2 * vxp2
     
-    tab_x = readtable('/home/brad/bit-matlab-sim/flexible_model_data/gyro1_p/wx.csv');
+    tab_x = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_p/wx.csv');
     col1x = tab_x(:,1);
     col2x = tab_x(:,2);
     col3x = tab_x(:,3);
     
-    tab_y = readtable('/home/brad/bit-matlab-sim/flexible_model_data/gyro1_p/wy.csv');
+    tab_y = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_p/wy.csv');
     col1y = tab_y(:,1);
     col2y = tab_y(:,2);
     col3y = tab_y(:,3);

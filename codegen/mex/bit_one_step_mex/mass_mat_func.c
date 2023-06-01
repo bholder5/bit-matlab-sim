@@ -284,8 +284,8 @@ static void ft_2(const real_T ct[671], real_T mass_mat[81])
   real_T t922;
   real_T t924;
   real_T t955;
-  covrtLogFcn(&emlrtCoverageInstance, 9U, 2U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 2U);
+  covrtLogFcn(&emlrtCoverageInstance, 11U, 2U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 2U);
 
   /* 'mass_mat_func:1391' t10 = ct{1}; */
   /* 'mass_mat_func:1392' t1000 = ct{2}; */
@@ -1613,8 +1613,8 @@ static void ft_2(const real_T ct[671], real_T mass_mat[81])
   ct_idx_690 = t712 * 73.0;
   ct_idx_776 = ct[224] * t888;
   ct_idx_779 = ct[285] * t888;
-  covrtLogFcn(&emlrtCoverageInstance, 9U, 3U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 3U);
+  covrtLogFcn(&emlrtCoverageInstance, 11U, 3U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 3U);
 
   /* 'mass_mat_func:2565' t10 = ct{1}; */
   /* 'mass_mat_func:2566' t1000 = ct{2}; */
@@ -3076,8 +3076,8 @@ static void ft_2(const real_T ct[671], real_T mass_mat[81])
                    [72]) - ct[91]) + ct_idx_481_tmp * ((ct[280] + ct[569]) - ct
     [606])) + ((((t1168 + ct[351]) + ct[352]) + ct[468]) - ct[527]) * ct[171]) +
     b_ct_idx_481_tmp * ((((t1106 + ct[283]) + ct[284]) + ct[562]) - ct[607]);
-  covrtLogFcn(&emlrtCoverageInstance, 9U, 4U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 4U);
+  covrtLogFcn(&emlrtCoverageInstance, 11U, 4U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 4U);
 
   /* 'mass_mat_func:3870' t10 = ct{1}; */
   /* 'mass_mat_func:3871' t1003 = ct{2}; */
@@ -4924,8 +4924,8 @@ void mass_mat_func(const real_T in1[9], real_T mass_mat[81])
   real_T t94;
   real_T t97_tmp;
   real_T t98_tmp;
-  covrtLogFcn(&emlrtCoverageInstance, 9U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 11U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 0U);
 
   /* MASS_MAT_FUNC */
   /*     MASS_MAT = MASS_MAT_FUNC(IN1) */
@@ -5726,8 +5726,8 @@ void mass_mat_func(const real_T in1[9], real_T mass_mat[81])
   ct_idx_340_tmp = ct_idx_340_tmp_tmp * t184_tmp;
   ct_idx_340 = ct_idx_340_tmp * 10.5;
   ct_idx_363 = ct_idx_340_tmp * 25.53;
-  covrtLogFcn(&emlrtCoverageInstance, 9U, 1U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 1U);
+  covrtLogFcn(&emlrtCoverageInstance, 11U, 1U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 1U);
 
   /* 'mass_mat_func:512' t10 = ct{1}; */
   /* 'mass_mat_func:513' t1000 = ct{2}; */

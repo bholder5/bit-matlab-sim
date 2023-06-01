@@ -211,12 +211,14 @@ void main_bit_one_step(void)
   real_T tau_applied_tmp[9];
   real_T dv2[5];
   real_T w_piv_tmp;
+  boolean_T piv_flag_tmp;
   /* Initialize function 'bit_one_step' input arguments. */
   /* Initialize function input argument 'x0'. */
   /* Initialize function input argument 'tau_applied'. */
   argInit_9x1_real_T(tau_applied_tmp);
   /* Initialize function input argument 'unlock'. */
   w_piv_tmp = argInit_real_T();
+  piv_flag_tmp = argInit_boolean_T();
   /* Initialize function input argument 'x_flex0'. */
   /* Initialize function input argument 'tau_flex'. */
   /* Call the entry-point 'bit_one_step'. */
@@ -224,9 +226,9 @@ void main_bit_one_step(void)
   argInit_104x1_real_T(dv1);
   argInit_5x1_real_T(dv2);
   memcpy(&b_tau_applied_tmp[0], &tau_applied_tmp[0], 9U * sizeof(real_T));
-  bit_one_step(dv, b_tau_applied_tmp, tau_applied_tmp, w_piv_tmp,
-               argInit_boolean_T(), w_piv_tmp, argInit_uint16_T(), w_piv_tmp,
-               w_piv_tmp, dv1, dv2, y_true, y_flex);
+  bit_one_step(dv, b_tau_applied_tmp, tau_applied_tmp, w_piv_tmp, piv_flag_tmp,
+               w_piv_tmp, argInit_uint16_T(), w_piv_tmp, w_piv_tmp, dv1, dv2,
+               piv_flag_tmp, y_true, y_flex);
 }
 
 void main_compute_angular_velocity_C(void)

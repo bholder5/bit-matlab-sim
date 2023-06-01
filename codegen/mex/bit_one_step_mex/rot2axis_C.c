@@ -17,16 +17,16 @@
 #include <emmintrin.h>
 
 /* Variable Definitions */
-static emlrtRSInfo sc_emlrtRSI = {
-    2,                                       /* lineNo */
-    "rot2axis_C",                            /* fcnName */
-    "/home/brad/bit-matlab-sim/rot2axis_C.m" /* pathName */
+static emlrtRSInfo yc_emlrtRSI = {
+    2,                                          /* lineNo */
+    "rot2axis_C",                               /* fcnName */
+    "/home/bholder/bit-matlab-sim/rot2axis_C.m" /* pathName */
 };
 
-static emlrtRSInfo tc_emlrtRSI = {
-    6,                                       /* lineNo */
-    "rot2axis_C",                            /* fcnName */
-    "/home/brad/bit-matlab-sim/rot2axis_C.m" /* pathName */
+static emlrtRSInfo ad_emlrtRSI = {
+    6,                                          /* lineNo */
+    "rot2axis_C",                               /* fcnName */
+    "/home/bholder/bit-matlab-sim/rot2axis_C.m" /* pathName */
 };
 
 static emlrtRTEInfo b_emlrtRTEI = {
@@ -55,10 +55,10 @@ void rot2axis_C(const emlrtStack *sp, const real_T C[9], real_T v[3],
   real_T b_v;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 13U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 19U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 19U, 0U);
   /* 'rot2axis_C:2' phi = acos((C(1,1) + C(2,2) + C(3,3) - 1)/2); */
-  st.site = &sc_emlrtRSI;
+  st.site = &yc_emlrtRSI;
   *phi = (((C[0] + C[4]) + C[8]) - 1.0) / 2.0;
   if ((*phi < -1.0) || (*phi > 1.0)) {
     emlrtErrorWithMessageIdR2018a(
@@ -75,7 +75,7 @@ void rot2axis_C(const emlrtStack *sp, const real_T C[9], real_T v[3],
   v[2] = (C[1] - C[3]) / b_v;
   /* 'rot2axis_C:6' v = v/sqrt(v'*v); */
   b_v = (v[0] * v[0] + v[1] * v[1]) + v[2] * v[2];
-  st.site = &tc_emlrtRSI;
+  st.site = &ad_emlrtRSI;
   if (b_v < 0.0) {
     emlrtErrorWithMessageIdR2018a(
         &st, &b_emlrtRTEI, "Coder:toolbox:ElFunDomainError",

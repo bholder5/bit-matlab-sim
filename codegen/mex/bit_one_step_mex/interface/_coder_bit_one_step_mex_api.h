@@ -25,11 +25,23 @@
 void bit_one_step_api(const mxArray *const prhs[11], int32_T nlhs,
                       const mxArray *plhs[2]);
 
+void c_compute_angular_velocity_roll(const mxArray *const prhs[2],
+                                     const mxArray **plhs);
+
+void c_compute_angular_velocity_yaw_(const mxArray *const prhs[2],
+                                     const mxArray **plhs);
+
 void compute_angular_velocity_C_api(const mxArray *const prhs[2],
                                     const mxArray **plhs);
 
 void compute_rotation_mat_C_api(const mxArray *const prhs[2],
                                 const mxArray **plhs);
+
+void compute_rotation_mat_roll_C_api(const mxArray *const prhs[2],
+                                     const mxArray **plhs);
+
+void compute_rotation_mat_yaw_C_api(const mxArray *const prhs[2],
+                                    const mxArray **plhs);
 
 void rot2axis_C_api(const mxArray *prhs, int32_T nlhs, const mxArray *plhs[2]);
 

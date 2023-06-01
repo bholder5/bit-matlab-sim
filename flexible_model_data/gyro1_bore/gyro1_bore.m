@@ -2,7 +2,7 @@ function crl = gyro1_bore()
     clear
     clc
     
-    addpath('/home/brad/bit-matlab-sim/Miscellaneous/')
+    addpath('/home/bholder/bit-matlab-sim/Miscellaneous/')
     % addpath('/home/brad/bit-matlab-sim/flexible_model_data/pitch_port')
     
     pp_xp.one.locx = -1045.310000;
@@ -36,17 +36,17 @@ function crl = gyro1_bore()
     vp1 = rot2 * vp1;
     vp2 = rot2 * vp2;
     
-    tab_x = readtable('/home/brad/bit-matlab-sim/flexible_model_data/gyro1_bore/wx.csv');
+    tab_x = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_bore/wx.csv');
     col1x = tab_x(:,1);
     col2x = tab_x(:,2);
     col3x = tab_x(:,3);
     
-    tab_y = readtable('/home/brad/bit-matlab-sim/flexible_model_data/gyro1_bore/wy.csv');
+    tab_y = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_bore/wy.csv');
     col1y = tab_y(:,1);
     col2y = tab_y(:,2);
     col3y = tab_y(:,3);
     
-    tab_z = readtable('/home/brad/bit-matlab-sim/flexible_model_data/gyro1_bore/wz.csv');
+    tab_z = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/gyro1_bore/wz.csv');
     col1z = tab_z(:,1);
     col2z = tab_z(:,2);
     col3z = tab_z(:,3);

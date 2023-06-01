@@ -19,7 +19,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo v_emlrtRSI =
+static emlrtRSInfo x_emlrtRSI =
     {
         79,             /* lineNo */
         "ceval_xpotrf", /* fcnName */
@@ -27,28 +27,28 @@ static emlrtRSInfo v_emlrtRSI =
         "xpotrf.m" /* pathName */
 };
 
-static emlrtRSInfo gb_emlrtRSI = {
+static emlrtRSInfo ib_emlrtRSI = {
     84,     /* lineNo */
     "chol", /* fcnName */
     "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/chol.m" /* pathName
                                                                         */
 };
 
-static emlrtRSInfo hb_emlrtRSI = {
+static emlrtRSInfo jb_emlrtRSI = {
     100,    /* lineNo */
     "chol", /* fcnName */
     "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/chol.m" /* pathName
                                                                         */
 };
 
-static emlrtRSInfo ib_emlrtRSI = {
+static emlrtRSInfo kb_emlrtRSI = {
     101,    /* lineNo */
     "chol", /* fcnName */
     "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/chol.m" /* pathName
                                                                         */
 };
 
-static emlrtRSInfo jb_emlrtRSI =
+static emlrtRSInfo lb_emlrtRSI =
     {
         13,       /* lineNo */
         "xpotrf", /* fcnName */
@@ -98,15 +98,15 @@ void chol(const emlrtStack *sp, real_T A[81])
   int32_T jmax;
   st.prev = sp;
   st.tls = sp->tls;
-  st.site = &gb_emlrtRSI;
+  st.site = &ib_emlrtRSI;
   b_st.prev = &st;
   b_st.tls = st.tls;
   c_st.prev = &b_st;
   c_st.tls = b_st.tls;
-  b_st.site = &jb_emlrtRSI;
+  b_st.site = &lb_emlrtRSI;
   info_t = LAPACKE_dpotrf_work(102, 'U', (ptrdiff_t)9, &A[0], (ptrdiff_t)9);
   info = (int32_T)info_t;
-  c_st.site = &v_emlrtRSI;
+  c_st.site = &x_emlrtRSI;
   if (info < 0) {
     if (info == -1010) {
       emlrtErrorWithMessageIdR2018a(&c_st, &e_emlrtRTEI, "MATLAB:nomem",
@@ -122,11 +122,11 @@ void chol(const emlrtStack *sp, real_T A[81])
   } else {
     jmax = info - 3;
   }
-  st.site = &hb_emlrtRSI;
+  st.site = &jb_emlrtRSI;
   for (j = 0; j <= jmax; j++) {
     int32_T a;
     a = j + 2;
-    st.site = &ib_emlrtRSI;
+    st.site = &kb_emlrtRSI;
     if (a <= jmax + 2) {
       memset(&A[(j * 9 + a) + -1], 0,
              (uint32_T)((jmax - a) + 3) * sizeof(real_T));

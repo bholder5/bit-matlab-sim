@@ -18,25 +18,25 @@
 
 /* Variable Definitions */
 static emlrtBCInfo emlrtBCI = {
-    1,                                                    /* iFirst */
-    3,                                                    /* iLast */
-    13,                                                   /* lineNo */
-    35,                                                   /* colNo */
-    "v",                                                  /* aName */
-    "axis2rot",                                           /* fName */
-    "/home/brad/bit-matlab-sim/Miscellaneous/axis2rot.m", /* pName */
-    0                                                     /* checkKind */
+    1,                                                       /* iFirst */
+    3,                                                       /* iLast */
+    13,                                                      /* lineNo */
+    35,                                                      /* colNo */
+    "v",                                                     /* aName */
+    "axis2rot",                                              /* fName */
+    "/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m", /* pName */
+    0                                                        /* checkKind */
 };
 
 static emlrtBCInfo b_emlrtBCI = {
-    1,                                                    /* iFirst */
-    3,                                                    /* iLast */
-    19,                                                   /* lineNo */
-    47,                                                   /* colNo */
-    "v",                                                  /* aName */
-    "axis2rot",                                           /* fName */
-    "/home/brad/bit-matlab-sim/Miscellaneous/axis2rot.m", /* pName */
-    0                                                     /* checkKind */
+    1,                                                       /* iFirst */
+    3,                                                       /* iLast */
+    19,                                                      /* lineNo */
+    47,                                                      /* colNo */
+    "v",                                                     /* aName */
+    "axis2rot",                                              /* fName */
+    "/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m", /* pName */
+    0                                                        /* checkKind */
 };
 
 /* Function Definitions */
@@ -51,8 +51,8 @@ void axis2rot(const emlrtStack *sp, const real_T v[3], real_T phi,
   real_T sina;
   int32_T j;
   int32_T k;
-  covrtLogFcn(&emlrtCoverageInstance, 7U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 9U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 0U);
   /*  This function gives the rotation matric applied to other rotation */
   /*  matricies, not the vector (it is transpose of the rot mat applied to the
    */
@@ -68,15 +68,15 @@ void axis2rot(const emlrtStack *sp, const real_T v[3], real_T phi,
   /* 'axis2rot:11' for k = 1:3 */
   for (k = 0; k < 3; k++) {
     int32_T i;
-    covrtLogFor(&emlrtCoverageInstance, 7U, 0U, 0, 1);
+    covrtLogFor(&emlrtCoverageInstance, 9U, 0U, 0, 1);
     /* 'axis2rot:12' for j = k:3 */
     i = 2 - k;
     for (j = 0; j <= i; j++) {
       real_T mij;
       int32_T b_j;
       b_j = k + j;
-      covrtLogFor(&emlrtCoverageInstance, 7U, 0U, 1, 1);
-      covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 1U);
+      covrtLogFor(&emlrtCoverageInstance, 9U, 0U, 1, 1);
+      covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 1U);
       /* 'axis2rot:13' mij = (1-cosa)*v(k)*v(j); */
       if (b_j + 1 > 3) {
         emlrtDynamicBoundsCheckR2012b(b_j + 1, 1, 3, &emlrtBCI,
@@ -84,15 +84,15 @@ void axis2rot(const emlrtStack *sp, const real_T v[3], real_T phi,
       }
       mij = (1.0 - cosa) * v[k] * v[b_j];
       /* 'axis2rot:14' if (k == j) */
-      if (covrtLogIf(&emlrtCoverageInstance, 7U, 0U, 0, k == b_j)) {
-        covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 2U);
+      if (covrtLogIf(&emlrtCoverageInstance, 9U, 0U, 0, k == b_j)) {
+        covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 2U);
         /* 'axis2rot:15' mij = mij + cosa; */
         rot[k + 3 * b_j] = mij + cosa;
         /* 'axis2rot:16' rot(k,j) = mij; */
       } else {
         real_T rot_tmp;
         int32_T i1;
-        covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 3U);
+        covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 3U);
         /* 'axis2rot:17' else */
         /* index is 3 - j - k for 0 indexed programming languages */
         /* 'axis2rot:19' rot(k,j) = mij + (sign*sina*v((5-k-j)+1)); */
@@ -112,12 +112,12 @@ void axis2rot(const emlrtStack *sp, const real_T v[3], real_T phi,
         emlrtBreakCheckR2012b((emlrtConstCTX)sp);
       }
     }
-    covrtLogFor(&emlrtCoverageInstance, 7U, 0U, 1, 0);
+    covrtLogFor(&emlrtCoverageInstance, 9U, 0U, 1, 0);
     if (*emlrtBreakCheckR2012bFlagVar != 0) {
       emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 7U, 0U, 0, 0);
+  covrtLogFor(&emlrtCoverageInstance, 9U, 0U, 0, 0);
 }
 
 /* End of code generation (axis2rot.c) */

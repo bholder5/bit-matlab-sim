@@ -29,8 +29,24 @@ void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                             int32_T nrhs,
                                             const mxArray *prhs[2]);
 
+void compute_angular_velocity_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                                 int32_T nrhs,
+                                                 const mxArray *prhs[2]);
+
+void compute_angular_velocity_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                                int32_T nrhs,
+                                                const mxArray *prhs[2]);
+
 void compute_rotation_mat_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                         int32_T nrhs, const mxArray *prhs[2]);
+
+void compute_rotation_mat_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                             int32_T nrhs,
+                                             const mxArray *prhs[2]);
+
+void compute_rotation_mat_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
+                                            int32_T nrhs,
+                                            const mxArray *prhs[2]);
 
 MEXFUNCTION_LINKAGE void mexFunction(int32_T nlhs, mxArray *plhs[],
                                      int32_T nrhs, const mxArray *prhs[]);

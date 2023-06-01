@@ -12,12 +12,12 @@ function crl = rw()
     z.two.id = 210670;
     z.thr.id = 211177;
     
-    tab_x = readtable('/home/brad/bit-matlab-sim/flexible_model_data/RW/wx.csv');
+    tab_x = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/RW/wx.csv');
     col1x = tab_x(:,1);
     col2x = tab_x(:,2);
     col3x = tab_x(:,3);
     
-    tab_z = readtable('/home/brad/bit-matlab-sim/flexible_model_data/RW/wz.csv');
+    tab_z = readtable('/home/bholder/bit-matlab-sim/flexible_model_data/RW/wz.csv');
     col1z = tab_z(:,1);
     col2z = tab_z(:,2);
     col3z = tab_z(:,3);
