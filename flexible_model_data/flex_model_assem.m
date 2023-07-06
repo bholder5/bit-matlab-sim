@@ -82,7 +82,7 @@ Cf_gyro2 = [gyro2_bore_curl', zeros(1, length(gyro2_bore_curl));...
 %% Add Damping
 A_mf = zeros(size(A_f));
 B_mf = zeros(size(B_f));
-zeta = 0.0001;
+zeta = 0.001;
 for l = 1:length(freqs)
     w = freqs(l)*2*pi;
     l1 = ((l-1)*2) + 1;

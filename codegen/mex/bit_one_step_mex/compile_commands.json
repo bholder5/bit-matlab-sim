@@ -37,9 +37,9 @@
   },
   {
     "directory": "/home/bholder/bit-matlab-sim/codegen/mex/bit_one_step_mex",
-    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  mass_mat_func.c -o build/glnxa64/mass_mat_func.o",
-    "file": "mass_mat_func.c",
-    "output": "build/glnxa64/mass_mat_func.o"
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  mass_mat_func_gb.c -o build/glnxa64/mass_mat_func_gb.o",
+    "file": "mass_mat_func_gb.c",
+    "output": "build/glnxa64/mass_mat_func_gb.o"
   },
   {
     "directory": "/home/bholder/bit-matlab-sim/codegen/mex/bit_one_step_mex",

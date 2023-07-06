@@ -14,7 +14,7 @@
 #include "axis2rot.h"
 #include "bit_one_step_mex_data.h"
 #include "chol.h"
-#include "mass_mat_func.h"
+#include "mass_mat_func_gb.h"
 #include "mldivide.h"
 #include "rt_nonfinite.h"
 #include "blas.h"
@@ -29,42 +29,42 @@ static emlrtRSInfo emlrtRSI = { 4,     /* lineNo */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo b_emlrtRSI = { 32,  /* lineNo */
+static emlrtRSInfo b_emlrtRSI = { 40,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo c_emlrtRSI = { 33,  /* lineNo */
+static emlrtRSInfo c_emlrtRSI = { 41,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo d_emlrtRSI = { 34,  /* lineNo */
+static emlrtRSInfo d_emlrtRSI = { 42,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo e_emlrtRSI = { 35,  /* lineNo */
+static emlrtRSInfo e_emlrtRSI = { 43,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo f_emlrtRSI = { 53,  /* lineNo */
+static emlrtRSInfo f_emlrtRSI = { 61,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo g_emlrtRSI = { 54,  /* lineNo */
+static emlrtRSInfo g_emlrtRSI = { 62,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo h_emlrtRSI = { 55,  /* lineNo */
+static emlrtRSInfo h_emlrtRSI = { 63,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo i_emlrtRSI = { 56,  /* lineNo */
+static emlrtRSInfo i_emlrtRSI = { 64,  /* lineNo */
   "bit_one_step",                      /* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
@@ -84,48 +84,48 @@ static emlrtRSInfo r_emlrtRSI = { 9,   /* lineNo */
   "/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m"/* pathName */
 };
 
-static emlrtRSInfo y_emlrtRSI = { 16,  /* lineNo */
+static emlrtRSInfo x_emlrtRSI = { 22,  /* lineNo */
   "@(y_true,tau_applied,dw_piv)bit_propagator(y_true,c_n,z_n,m_n,r_n1_n,m_w_n,p_n,k_d,b_d,g0,unlock,hs_rw_max,tau_applied,w_piv,piv"
   "_flag,dw_piv,tau_max_piv,thet_pit_nom)",/* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo ab_emlrtRSI = { 20, /* lineNo */
+static emlrtRSInfo y_emlrtRSI = { 20,  /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo bb_emlrtRSI = { 29, /* lineNo */
+static emlrtRSInfo ab_emlrtRSI = { 29, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo cb_emlrtRSI = { 37, /* lineNo */
+static emlrtRSInfo bb_emlrtRSI = { 38, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo db_emlrtRSI = { 39, /* lineNo */
+static emlrtRSInfo cb_emlrtRSI = { 40, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo eb_emlrtRSI = { 43, /* lineNo */
+static emlrtRSInfo db_emlrtRSI = { 42, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo fb_emlrtRSI = { 62, /* lineNo */
+static emlrtRSInfo eb_emlrtRSI = { 61, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo gb_emlrtRSI = { 67, /* lineNo */
+static emlrtRSInfo fb_emlrtRSI = { 66, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo hb_emlrtRSI = { 12, /* lineNo */
+static emlrtRSInfo gb_emlrtRSI = { 12, /* lineNo */
   "chol",                              /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/lib/matlab/matfun/chol.m"/* pathName */
 };
@@ -141,10 +141,10 @@ static emlrtBCInfo c_emlrtBCI = { 1,   /* iFirst */
 };
 
 /* Function Declarations */
-static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
-  real_T w_piv, boolean_T piv_flag, real_T tau_max_piv, real_T thet_pit_nom,
-  const real_T y_true[21], const real_T tau_applied[9], real_T dw_piv, real_T
-  varargout_1[24]);
+static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T k_d[9],
+  const real_T unlock[9], real_T w_piv, boolean_T piv_flag, real_T tau_max_piv,
+  real_T thet_pit_nom, const real_T y_true[21], const real_T tau_applied[9],
+  real_T dw_piv, real_T varargout_1[24]);
 static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
   [520], const real_T y_flex[104], const real_T tau_app_flex[3], const real_T
   tau_flex[5], real_T varargout_1[104]);
@@ -153,10 +153,10 @@ static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
 /*
  * @(y_true, tau_applied, dw_piv)
  */
-static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
-  real_T w_piv, boolean_T piv_flag, real_T tau_max_piv, real_T thet_pit_nom,
-  const real_T y_true[21], const real_T tau_applied[9], real_T dw_piv, real_T
-  varargout_1[24])
+static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T k_d[9],
+  const real_T unlock[9], real_T w_piv, boolean_T piv_flag, real_T tau_max_piv,
+  real_T thet_pit_nom, const real_T y_true[21], const real_T tau_applied[9],
+  real_T dw_piv, real_T varargout_1[24])
 {
   static const real_T c_n[27] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -30.5,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.4, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
@@ -166,22 +166,21 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
     0.0, 0.0, -61.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.4,
     0.0, 0.0, 0.0 };
 
-  static const real_T k_d[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0017453292519943296,
-    0.0, 62.607671231740191, 62.607671231740191 };
-
   static const real_T g0[3] = { 0.0, 0.0, -9.72 };
 
   static const int32_T iv[9] = { 0, 0, 100000, 0, 0, 1, 350, 73, 150 };
 
-  static const int8_T z_n[27] = { 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0,
-    0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0 };
+  static const int8_T b_z_n[27] = { 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0,
+    0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0 };
 
   __m128d r;
+  __m128d r1;
   emlrtStack b_st;
   emlrtStack c_st;
   emlrtStack st;
   real_T C_n[81];
   real_T C_n_rate[81];
+  real_T c_r_tmp[81];
   real_T b_dVdtheta_i[27];
   real_T b_r_tmp[27];
   real_T r_tmp[27];
@@ -193,7 +192,7 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   real_T dVdtheta_i[9];
   real_T dtheta[9];
   real_T t1[9];
-  real_T tau_gond[3];
+  real_T z_n[3];
   real_T d;
   real_T d1;
   real_T int_err;
@@ -201,13 +200,13 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   real_T tau_piv;
   real_T vec_idx_0_tmp;
   real_T vec_idx_2;
-  int32_T b_tau_gond_tmp;
-  int32_T c_tau_gond_tmp;
+  int32_T b_z_n_tmp;
+  int32_T c_z_n_tmp;
   int32_T i;
   int32_T j;
   int32_T n;
   int32_T q;
-  int32_T tau_gond_tmp;
+  int32_T z_n_tmp;
   boolean_T x[3];
   boolean_T exitg1;
   boolean_T y;
@@ -218,11 +217,11 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   c_st.prev = &b_st;
   c_st.tls = b_st.tls;
   covrtLogFcn(&emlrtCoverageInstance, 0U, 1U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 1U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 3U);
 
-  /* 'bit_one_step:16' @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
-  /* 'bit_one_step:17'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom) */
-  st.site = &y_emlrtRSI;
+  /* 'bit_one_step:22' @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
+  /* 'bit_one_step:23'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom) */
+  st.site = &x_emlrtRSI;
   memcpy(&b_tau_applied[0], &tau_applied[0], 9U * sizeof(real_T));
   covrtLogFcn(&emlrtCoverageInstance, 7U, 0U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 0U);
@@ -251,7 +250,7 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
 
   /*     %% */
   /* 'bit_propagator:20' Pot = compute_potential_energy_term(theta, c_n, z_n, m_n, r_n1_n, g0); */
-  b_st.site = &ab_emlrtRSI;
+  b_st.site = &y_emlrtRSI;
   covrtLogFcn(&emlrtCoverageInstance, 8U, 0U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 0U);
 
@@ -277,14 +276,14 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
     covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 1U);
 
     /* 'compute_potential_energy_term:17' C_n(:,:,n) = axis2rot(z_n(:,n), theta(n)); */
-    tau_gond_tmp = z_n[3 * n];
-    tau_gond[0] = tau_gond_tmp;
-    b_tau_gond_tmp = z_n[3 * n + 1];
-    tau_gond[1] = b_tau_gond_tmp;
-    c_tau_gond_tmp = z_n[3 * n + 2];
-    tau_gond[2] = c_tau_gond_tmp;
+    z_n_tmp = b_z_n[3 * n];
+    z_n[0] = z_n_tmp;
+    b_z_n_tmp = b_z_n[3 * n + 1];
+    z_n[1] = b_z_n_tmp;
+    c_z_n_tmp = b_z_n[3 * n + 2];
+    z_n[2] = c_z_n_tmp;
     c_st.site = &p_emlrtRSI;
-    axis2rot(&c_st, tau_gond, y_true[n + 9], *(real_T (*)[9])&C_n[9 * n]);
+    axis2rot(&c_st, z_n, y_true[n + 9], *(real_T (*)[9])&C_n[9 * n]);
 
     /* Partial of Rot_n with respect to theta_n */
     /* 'compute_potential_energy_term:19' C_n_rate(:,:,n) = -1 * xmat(z_n(:,n)) * C_n(:,:,n); */
@@ -294,20 +293,20 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
     /* 'xmat:2' mat = [        0, -vec(3),  vec(2); */
     /* 'xmat:3'             vec(3),         0, -vec(1); */
     /* 'xmat:4'            -vec(2),  vec(1),         0]; */
-    b_C_n[3] = c_tau_gond_tmp;
-    b_C_n[6] = -(real_T)b_tau_gond_tmp;
-    b_C_n[1] = -(real_T)c_tau_gond_tmp;
-    b_C_n[7] = tau_gond_tmp;
-    b_C_n[2] = b_tau_gond_tmp;
-    b_C_n[5] = -(real_T)tau_gond_tmp;
-    for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-      i = (int32_T)b_C_n[c_tau_gond_tmp];
-      b_tau_gond_tmp = (int32_T)b_C_n[c_tau_gond_tmp + 3];
-      q = (int32_T)b_C_n[c_tau_gond_tmp + 6];
-      for (tau_gond_tmp = 0; tau_gond_tmp < 3; tau_gond_tmp++) {
-        j = 3 * tau_gond_tmp + 9 * n;
-        C_n_rate[(c_tau_gond_tmp + 3 * tau_gond_tmp) + 9 * n] = ((real_T)i *
-          C_n[j] + (real_T)b_tau_gond_tmp * C_n[j + 1]) + (real_T)q * C_n[j + 2];
+    b_C_n[3] = c_z_n_tmp;
+    b_C_n[6] = -(real_T)b_z_n_tmp;
+    b_C_n[1] = -(real_T)c_z_n_tmp;
+    b_C_n[7] = z_n_tmp;
+    b_C_n[2] = b_z_n_tmp;
+    b_C_n[5] = -(real_T)z_n_tmp;
+    for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+      i = (int32_T)b_C_n[c_z_n_tmp];
+      b_z_n_tmp = (int32_T)b_C_n[c_z_n_tmp + 3];
+      q = (int32_T)b_C_n[c_z_n_tmp + 6];
+      for (z_n_tmp = 0; z_n_tmp < 3; z_n_tmp++) {
+        j = 3 * z_n_tmp + 9 * n;
+        C_n_rate[(c_z_n_tmp + 3 * z_n_tmp) + 9 * n] = ((real_T)i * C_n[j] +
+          (real_T)b_z_n_tmp * C_n[j + 1]) + (real_T)q * C_n[j + 2];
       }
     }
 
@@ -322,7 +321,6 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   /*  koints contribution. */
   /* 'compute_potential_energy_term:24' for n = 1:ndof */
   for (n = 0; n < 9; n++) {
-    __m128d r1;
     covrtLogFor(&emlrtCoverageInstance, 8U, 0U, 1, 1);
     covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 2U);
 
@@ -334,8 +332,8 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
 
     /*  mass of remaining link (ex. 7 + 8 + 9) is totla mass at OF joint */
     /* 'compute_potential_energy_term:29' for q = n:ndof */
-    c_tau_gond_tmp = 8 - n;
-    for (q = 0; q <= c_tau_gond_tmp; q++) {
+    c_z_n_tmp = 8 - n;
+    for (q = 0; q <= c_z_n_tmp; q++) {
       covrtLogFor(&emlrtCoverageInstance, 8U, 0U, 2, 1);
       covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 3U);
 
@@ -377,24 +375,22 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
         dC_10[8] = 1.0;
 
         /* 'compute_potential_energy_term:44' for k = 1:n-1 */
-        for (tau_gond_tmp = 0; tau_gond_tmp < n; tau_gond_tmp++) {
+        for (z_n_tmp = 0; z_n_tmp < n; z_n_tmp++) {
           covrtLogFor(&emlrtCoverageInstance, 8U, 0U, 4, 1);
 
           /* This multiplies the rotation matricies successively */
           /*  until the link j where the rate is inserted instead */
           /* 'compute_potential_energy_term:47' if (k == j) */
-          if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 1, tau_gond_tmp == j))
-          {
+          if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 1, z_n_tmp == j)) {
             covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 6U);
 
             /* 'compute_potential_energy_term:48' dC_10 = C_n_rate(:,:,k) * dC_10; */
-            for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-              i = c_tau_gond_tmp + 9 * tau_gond_tmp;
-              for (b_tau_gond_tmp = 0; b_tau_gond_tmp < 3; b_tau_gond_tmp++) {
-                b_C_n[c_tau_gond_tmp + 3 * b_tau_gond_tmp] = (C_n_rate[i] *
-                  dC_10[3 * b_tau_gond_tmp] + C_n_rate[i + 3] * dC_10[3 *
-                  b_tau_gond_tmp + 1]) + C_n_rate[i + 6] * dC_10[3 *
-                  b_tau_gond_tmp + 2];
+            for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+              i = c_z_n_tmp + 9 * z_n_tmp;
+              for (b_z_n_tmp = 0; b_z_n_tmp < 3; b_z_n_tmp++) {
+                b_C_n[c_z_n_tmp + 3 * b_z_n_tmp] = (C_n_rate[i] * dC_10[3 *
+                  b_z_n_tmp] + C_n_rate[i + 3] * dC_10[3 * b_z_n_tmp + 1]) +
+                  C_n_rate[i + 6] * dC_10[3 * b_z_n_tmp + 2];
               }
             }
 
@@ -404,12 +400,12 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
 
             /* 'compute_potential_energy_term:49' else */
             /* 'compute_potential_energy_term:50' dC_10 = C_n(:,:,k) * dC_10; */
-            for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-              i = c_tau_gond_tmp + 9 * tau_gond_tmp;
-              for (b_tau_gond_tmp = 0; b_tau_gond_tmp < 3; b_tau_gond_tmp++) {
-                b_C_n[c_tau_gond_tmp + 3 * b_tau_gond_tmp] = (C_n[i] * dC_10[3 *
-                  b_tau_gond_tmp] + C_n[i + 3] * dC_10[3 * b_tau_gond_tmp + 1])
-                  + C_n[i + 6] * dC_10[3 * b_tau_gond_tmp + 2];
+            for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+              i = c_z_n_tmp + 9 * z_n_tmp;
+              for (b_z_n_tmp = 0; b_z_n_tmp < 3; b_z_n_tmp++) {
+                b_C_n[c_z_n_tmp + 3 * b_z_n_tmp] = (C_n[i] * dC_10[3 * b_z_n_tmp]
+                  + C_n[i + 3] * dC_10[3 * b_z_n_tmp + 1]) + C_n[i + 6] * dC_10
+                  [3 * b_z_n_tmp + 2];
               }
             }
 
@@ -429,10 +425,9 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
         tau_piv = r_n1_n[3 * n];
         d = r_n1_n[3 * n + 1];
         d1 = r_n1_n[3 * n + 2];
-        for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-          int_err += ((tau_piv * dC_10[3 * c_tau_gond_tmp] + d * dC_10[3 *
-                       c_tau_gond_tmp + 1]) + d1 * dC_10[3 * c_tau_gond_tmp + 2])
-            * g0[c_tau_gond_tmp];
+        for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+          int_err += ((tau_piv * dC_10[3 * c_z_n_tmp] + d * dC_10[3 * c_z_n_tmp
+                       + 1]) + d1 * dC_10[3 * c_z_n_tmp + 2]) * g0[c_z_n_tmp];
         }
 
         t1[j] = int_err;
@@ -459,25 +454,23 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
         dC_10[8] = 1.0;
 
         /* 'compute_potential_energy_term:59' for k = 1:n */
-        for (tau_gond_tmp = 0; tau_gond_tmp <= n; tau_gond_tmp++) {
+        for (z_n_tmp = 0; z_n_tmp <= n; z_n_tmp++) {
           covrtLogFor(&emlrtCoverageInstance, 8U, 0U, 6, 1);
 
           /* This multiplies the rotation matricies successively */
           /*  until the link j is reached in which case the rate */
           /*  is multiplied by the overall rotation */
           /* 'compute_potential_energy_term:63' if (k == j) */
-          if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 2, tau_gond_tmp == j))
-          {
+          if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 2, z_n_tmp == j)) {
             covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 10U);
 
             /* 'compute_potential_energy_term:64' dC_10 = C_n_rate(:,:,k) * dC_10; */
-            for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-              i = c_tau_gond_tmp + 9 * tau_gond_tmp;
-              for (b_tau_gond_tmp = 0; b_tau_gond_tmp < 3; b_tau_gond_tmp++) {
-                b_C_n[c_tau_gond_tmp + 3 * b_tau_gond_tmp] = (C_n_rate[i] *
-                  dC_10[3 * b_tau_gond_tmp] + C_n_rate[i + 3] * dC_10[3 *
-                  b_tau_gond_tmp + 1]) + C_n_rate[i + 6] * dC_10[3 *
-                  b_tau_gond_tmp + 2];
+            for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+              i = c_z_n_tmp + 9 * z_n_tmp;
+              for (b_z_n_tmp = 0; b_z_n_tmp < 3; b_z_n_tmp++) {
+                b_C_n[c_z_n_tmp + 3 * b_z_n_tmp] = (C_n_rate[i] * dC_10[3 *
+                  b_z_n_tmp] + C_n_rate[i + 3] * dC_10[3 * b_z_n_tmp + 1]) +
+                  C_n_rate[i + 6] * dC_10[3 * b_z_n_tmp + 2];
               }
             }
 
@@ -487,12 +480,12 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
 
             /* 'compute_potential_energy_term:65' else */
             /* 'compute_potential_energy_term:66' dC_10 = C_n(:,:,k) * dC_10; */
-            for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-              i = c_tau_gond_tmp + 9 * tau_gond_tmp;
-              for (b_tau_gond_tmp = 0; b_tau_gond_tmp < 3; b_tau_gond_tmp++) {
-                b_C_n[c_tau_gond_tmp + 3 * b_tau_gond_tmp] = (C_n[i] * dC_10[3 *
-                  b_tau_gond_tmp] + C_n[i + 3] * dC_10[3 * b_tau_gond_tmp + 1])
-                  + C_n[i + 6] * dC_10[3 * b_tau_gond_tmp + 2];
+            for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+              i = c_z_n_tmp + 9 * z_n_tmp;
+              for (b_z_n_tmp = 0; b_z_n_tmp < 3; b_z_n_tmp++) {
+                b_C_n[c_z_n_tmp + 3 * b_z_n_tmp] = (C_n[i] * dC_10[3 * b_z_n_tmp]
+                  + C_n[i + 3] * dC_10[3 * b_z_n_tmp + 1]) + C_n[i + 6] * dC_10
+                  [3 * b_z_n_tmp + 2];
               }
             }
 
@@ -512,10 +505,9 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
         /* 'compute_potential_energy_term:71' t2 = c_n(:,n)' * dC_10 * g0; */
         /* 'compute_potential_energy_term:73' dVdtheta_i(j) = -m_i*t1(j)-t2; */
         int_err = 0.0;
-        for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-          int_err += ((tau_piv * dC_10[3 * c_tau_gond_tmp] + d * dC_10[3 *
-                       c_tau_gond_tmp + 1]) + d1 * dC_10[3 * c_tau_gond_tmp + 2])
-            * g0[c_tau_gond_tmp];
+        for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+          int_err += ((tau_piv * dC_10[3 * c_z_n_tmp] + d * dC_10[3 * c_z_n_tmp
+                       + 1]) + d1 * dC_10[3 * c_z_n_tmp + 2]) * g0[c_z_n_tmp];
         }
 
         dVdtheta_i[j] = -m_i * t1[j] - int_err;
@@ -560,7 +552,7 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   /* 'bit_propagator:26' damp = b_d.*dtheta; */
   /* place holder */
   /* 'bit_propagator:29' [R,r, d_hs] = RW_terms(theta, dtheta, z_n, hs, tau_rw, hs_rw_max); */
-  b_st.site = &bb_emlrtRSI;
+  b_st.site = &ab_emlrtRSI;
   covrtLogFcn(&emlrtCoverageInstance, 10U, 0U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 10U, 0U);
 
@@ -576,30 +568,30 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
     covrtLogBasicBlock(&emlrtCoverageInstance, 10U, 1U);
 
     /* 'RW_terms:9' Cn = axis2rot(z_n(:,i), theta(i)); */
-    tau_gond_tmp = z_n[3 * n];
-    tau_gond[0] = tau_gond_tmp;
+    z_n_tmp = b_z_n[3 * n];
+    z_n[0] = z_n_tmp;
     q = 3 * n + 1;
-    b_tau_gond_tmp = z_n[q];
-    tau_gond[1] = b_tau_gond_tmp;
+    b_z_n_tmp = b_z_n[q];
+    z_n[1] = b_z_n_tmp;
     j = 3 * n + 2;
-    c_tau_gond_tmp = z_n[j];
-    tau_gond[2] = c_tau_gond_tmp;
+    c_z_n_tmp = b_z_n[j];
+    z_n[2] = c_z_n_tmp;
     c_st.site = &r_emlrtRSI;
-    axis2rot(&c_st, tau_gond, y_true[n + 9], dVdtheta_i);
+    axis2rot(&c_st, z_n, y_true[n + 9], dVdtheta_i);
 
     /* 'RW_terms:10' s7(:,i) = z_n(:,i); */
-    s7[3 * n] = tau_gond_tmp;
-    s7[q] = b_tau_gond_tmp;
-    s7[j] = c_tau_gond_tmp;
+    s7[3 * n] = z_n_tmp;
+    s7[q] = b_z_n_tmp;
+    s7[j] = c_z_n_tmp;
 
     /* 'RW_terms:11' s7 = Cn*s7; */
-    for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
-      tau_piv = dVdtheta_i[c_tau_gond_tmp];
-      d = dVdtheta_i[c_tau_gond_tmp + 3];
-      d1 = dVdtheta_i[c_tau_gond_tmp + 6];
+    for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
+      tau_piv = dVdtheta_i[c_z_n_tmp];
+      d = dVdtheta_i[c_z_n_tmp + 3];
+      d1 = dVdtheta_i[c_z_n_tmp + 6];
       for (i = 0; i < 9; i++) {
-        b_dVdtheta_i[c_tau_gond_tmp + 3 * i] = (tau_piv * s7[3 * i] + d * s7[3 *
-          i + 1]) + d1 * s7[3 * i + 2];
+        b_dVdtheta_i[c_z_n_tmp + 3 * i] = (tau_piv * s7[3 * i] + d * s7[3 * i +
+          1]) + d1 * s7[3 * i + 2];
       }
     }
 
@@ -620,14 +612,14 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   vec_idx_2 = tau_applied[6];
   x[2] = (y_true[20] >= 28.274333882308138);
   y = true;
-  tau_gond_tmp = 0;
+  z_n_tmp = 0;
   exitg1 = false;
-  while ((!exitg1) && (tau_gond_tmp < 3)) {
-    if (!x[tau_gond_tmp]) {
+  while ((!exitg1) && (z_n_tmp < 3)) {
+    if (!x[z_n_tmp]) {
       y = false;
       exitg1 = true;
     } else {
-      tau_gond_tmp++;
+      z_n_tmp++;
     }
   }
 
@@ -644,14 +636,14 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
     x[1] = (y_true[20] <= -0.0);
     x[2] = (y_true[20] <= -28.274333882308138);
     y = true;
-    tau_gond_tmp = 0;
+    z_n_tmp = 0;
     exitg1 = false;
-    while ((!exitg1) && (tau_gond_tmp < 3)) {
-      if (!x[tau_gond_tmp]) {
+    while ((!exitg1) && (z_n_tmp < 3)) {
+      if (!x[z_n_tmp]) {
         y = false;
         exitg1 = true;
       } else {
-        tau_gond_tmp++;
+        z_n_tmp++;
       }
     }
 
@@ -669,9 +661,9 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   covrtLogBasicBlock(&emlrtCoverageInstance, 10U, 5U);
 
   /* 'RW_terms:27' r = (s7')*d_hs; */
-  for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 3; c_tau_gond_tmp++) {
+  for (c_z_n_tmp = 0; c_z_n_tmp < 3; c_z_n_tmp++) {
     for (i = 0; i < 9; i++) {
-      b_dVdtheta_i[i + 9 * c_tau_gond_tmp] = s7[c_tau_gond_tmp + 3 * i];
+      b_dVdtheta_i[i + 9 * c_z_n_tmp] = s7[c_z_n_tmp + 3 * i];
     }
   }
 
@@ -688,9 +680,9 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   /* calculate joint torques from gravity elasticity and damnping according */
   /* to eq 3.37 */
   /* 'bit_propagator:33' torques = tau_applied - (Pot + spring + damp + R + r); */
-  for (c_tau_gond_tmp = 0; c_tau_gond_tmp <= 24; c_tau_gond_tmp += 2) {
-    r = _mm_loadu_pd(&b_dVdtheta_i[c_tau_gond_tmp]);
-    _mm_storeu_pd(&r_tmp[c_tau_gond_tmp], _mm_mul_pd(r, _mm_set1_pd(-1.0)));
+  for (c_z_n_tmp = 0; c_z_n_tmp <= 24; c_z_n_tmp += 2) {
+    r = _mm_loadu_pd(&b_dVdtheta_i[c_z_n_tmp]);
+    _mm_storeu_pd(&r_tmp[c_z_n_tmp], _mm_mul_pd(r, _mm_set1_pd(-1.0)));
   }
 
   r_tmp[26] = -b_dVdtheta_i[26];
@@ -703,57 +695,58 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   b_C_n[2] = -y_true[19];
   b_C_n[5] = y_true[18];
   b_C_n[8] = 0.0;
-  for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 9; c_tau_gond_tmp++) {
-    tau_piv = r_tmp[c_tau_gond_tmp];
-    d = r_tmp[c_tau_gond_tmp + 9];
-    d1 = r_tmp[c_tau_gond_tmp + 18];
+  for (c_z_n_tmp = 0; c_z_n_tmp < 9; c_z_n_tmp++) {
+    tau_piv = r_tmp[c_z_n_tmp];
+    d = r_tmp[c_z_n_tmp + 9];
+    d1 = r_tmp[c_z_n_tmp + 18];
     for (i = 0; i < 3; i++) {
-      b_r_tmp[c_tau_gond_tmp + 9 * i] = (tau_piv * b_C_n[3 * i] + d * b_C_n[3 *
-        i + 1]) + d1 * b_C_n[3 * i + 2];
+      b_r_tmp[c_z_n_tmp + 9 * i] = (tau_piv * b_C_n[3 * i] + d * b_C_n[3 * i + 1])
+        + d1 * b_C_n[3 * i + 2];
     }
 
     tau_piv = 0.0;
-    d = b_r_tmp[c_tau_gond_tmp];
-    d1 = b_r_tmp[c_tau_gond_tmp + 9];
-    m_i = b_r_tmp[c_tau_gond_tmp + 18];
+    d = b_r_tmp[c_z_n_tmp];
+    d1 = b_r_tmp[c_z_n_tmp + 9];
+    m_i = b_r_tmp[c_z_n_tmp + 18];
     for (i = 0; i < 9; i++) {
       tau_piv += ((d * s7[3 * i] + d1 * s7[3 * i + 1]) + m_i * s7[3 * i + 2]) *
         dtheta[i];
     }
 
-    tau_piv = b_tau_applied[c_tau_gond_tmp] - ((((Pot[c_tau_gond_tmp] +
-      k_d[c_tau_gond_tmp] * t1[c_tau_gond_tmp]) + 0.0 * dtheta[c_tau_gond_tmp])
-      + tau_piv) + ((b_dVdtheta_i[c_tau_gond_tmp] * vec_idx_0_tmp +
-                     b_dVdtheta_i[c_tau_gond_tmp + 9] * vec_idx_0_tmp) +
-                    b_dVdtheta_i[c_tau_gond_tmp + 18] * vec_idx_2));
-    b_tau_applied[c_tau_gond_tmp] = tau_piv;
-    dC_10[c_tau_gond_tmp] = tau_piv;
+    tau_piv = b_tau_applied[c_z_n_tmp] - ((((Pot[c_z_n_tmp] + k_d[c_z_n_tmp] *
+      t1[c_z_n_tmp]) + 0.0 * dtheta[c_z_n_tmp]) + tau_piv) +
+      ((b_dVdtheta_i[c_z_n_tmp] * vec_idx_0_tmp + b_dVdtheta_i[c_z_n_tmp + 9] *
+        vec_idx_0_tmp) + b_dVdtheta_i[c_z_n_tmp + 18] * vec_idx_2));
+    b_tau_applied[c_z_n_tmp] = tau_piv;
+    dC_10[c_z_n_tmp] = tau_piv;
   }
 
-  /*      M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n); */
-  /* 'bit_propagator:37' M = mass_mat_func(theta); */
+  /*  M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n); */
+  /*  M = mass_mat_func(theta); */
+  /* 'bit_propagator:38' M = mass_mat_func_gb(theta); */
+  b_st.site = &bb_emlrtRSI;
+  mass_mat_func_gb(&y_true[9], C_n);
+
+  /* 'bit_propagator:40' M_decomp = chol(M); */
   b_st.site = &cb_emlrtRSI;
-  mass_mat_func(&y_true[9], C_n);
+  memcpy(&C_n_rate[0], &C_n[0], 81U * sizeof(real_T));
+  c_st.site = &gb_emlrtRSI;
+  chol(&c_st, C_n_rate);
 
-  /* 'bit_propagator:39' M_decomp = chol(M); */
-  b_st.site = &db_emlrtRSI;
-  c_st.site = &hb_emlrtRSI;
-  chol(&c_st, C_n);
-
-  /* 'bit_propagator:43' ddtheta = M_decomp\((M_decomp')\torques); */
-  for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 9; c_tau_gond_tmp++) {
-    dVdtheta_i[c_tau_gond_tmp] = dC_10[c_tau_gond_tmp];
+  /* 'bit_propagator:42' ddtheta = M_decomp\((M_decomp')\torques); */
+  for (c_z_n_tmp = 0; c_z_n_tmp < 9; c_z_n_tmp++) {
+    dVdtheta_i[c_z_n_tmp] = dC_10[c_z_n_tmp];
     for (i = 0; i < 9; i++) {
-      C_n_rate[i + 9 * c_tau_gond_tmp] = C_n[c_tau_gond_tmp + 9 * i];
+      c_r_tmp[i + 9 * c_z_n_tmp] = C_n_rate[c_z_n_tmp + 9 * i];
     }
   }
 
-  b_st.site = &eb_emlrtRSI;
+  b_st.site = &db_emlrtRSI;
+  mldivide(&b_st, c_r_tmp, dVdtheta_i);
+  b_st.site = &db_emlrtRSI;
   mldivide(&b_st, C_n_rate, dVdtheta_i);
-  b_st.site = &eb_emlrtRSI;
-  mldivide(&b_st, C_n, dVdtheta_i);
 
-  /* 'bit_propagator:44' ddtheta = ddtheta.*unlock; */
+  /* 'bit_propagator:43' ddtheta = ddtheta.*unlock; */
   r = _mm_loadu_pd(&dVdtheta_i[0]);
   _mm_storeu_pd(&dVdtheta_i[0], _mm_mul_pd(r, _mm_loadu_pd(&unlock[0])));
   r = _mm_loadu_pd(&dVdtheta_i[2]);
@@ -764,77 +757,77 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
   _mm_storeu_pd(&dVdtheta_i[6], _mm_mul_pd(r, _mm_loadu_pd(&unlock[6])));
   dVdtheta_i[8] *= unlock[8];
 
-  /* 'bit_propagator:46' if piv_flag == true */
+  /* 'bit_propagator:45' if piv_flag == true */
   if (covrtLogIf(&emlrtCoverageInstance, 7U, 0U, 1, piv_flag)) {
     covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 3U);
 
-    /* 'bit_propagator:47' prop_err = 10; */
-    /* 'bit_propagator:48' int_err = 0; */
-    /* 'bit_propagator:49' kp = 1; */
-    /* 'bit_propagator:50' ki = 0.5; */
-    /* 'bit_propagator:51' prop_err = dw_piv - ddtheta(6); */
+    /* 'bit_propagator:46' prop_err = 10; */
+    /* 'bit_propagator:47' int_err = 0; */
+    /* 'bit_propagator:48' kp = 1; */
+    /* 'bit_propagator:49' ki = 0.5; */
+    /* 'bit_propagator:50' prop_err = dw_piv - ddtheta(6); */
     m_i = dw_piv - dVdtheta_i[5];
 
-    /* 'bit_propagator:52' int_err = int_err + prop_err; */
+    /* 'bit_propagator:51' int_err = int_err + prop_err; */
     int_err = m_i;
 
-    /* 'bit_propagator:53' tau_piv = torques(6); */
+    /* 'bit_propagator:52' tau_piv = torques(6); */
     tau_piv = dC_10[5];
 
-    /* 'bit_propagator:55' while abs(prop_err) > 1e-9 */
+    /* 'bit_propagator:54' while abs(prop_err) > 1e-9 */
     exitg1 = false;
     while ((!exitg1) && covrtLogWhile(&emlrtCoverageInstance, 7U, 0U, 0,
             muDoubleScalarAbs(m_i) > 1.0E-9)) {
       covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 4U);
 
-      /* 'bit_propagator:57' tau_piv = tau_piv + ((kp*prop_err) + (ki*int_err)); */
+      /* 'bit_propagator:56' tau_piv = tau_piv + ((kp*prop_err) + (ki*int_err)); */
       tau_piv += m_i + 0.5 * int_err;
 
-      /* 'bit_propagator:58' if abs(tau_piv) > tau_max_piv */
+      /* 'bit_propagator:57' if abs(tau_piv) > tau_max_piv */
       if (covrtLogIf(&emlrtCoverageInstance, 7U, 0U, 2, muDoubleScalarAbs
                      (tau_piv) > tau_max_piv)) {
         covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 5U);
 
-        /* 'bit_propagator:59' tau_piv = sign(tau_piv) * tau_max_piv; */
+        /* 'bit_propagator:58' tau_piv = sign(tau_piv) * tau_max_piv; */
         dC_10[5] = muDoubleScalarSign(tau_piv) * tau_max_piv;
 
-        /* 'bit_propagator:60' torques(6) = tau_piv; */
-        /* 'bit_propagator:62' ddtheta = M_decomp\((M_decomp')\torques); */
-        for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 9; c_tau_gond_tmp++) {
-          dVdtheta_i[c_tau_gond_tmp] = dC_10[c_tau_gond_tmp];
+        /* 'bit_propagator:59' torques(6) = tau_piv; */
+        /* 'bit_propagator:61' ddtheta = M_decomp\((M_decomp')\torques); */
+        for (c_z_n_tmp = 0; c_z_n_tmp < 9; c_z_n_tmp++) {
           for (i = 0; i < 9; i++) {
-            C_n_rate[i + 9 * c_tau_gond_tmp] = C_n[c_tau_gond_tmp + 9 * i];
+            c_r_tmp[i + 9 * c_z_n_tmp] = C_n_rate[c_z_n_tmp + 9 * i];
           }
         }
 
-        b_st.site = &fb_emlrtRSI;
+        b_st.site = &eb_emlrtRSI;
+        mldivide(&b_st, c_r_tmp, dC_10);
+        memcpy(&dVdtheta_i[0], &dC_10[0], 9U * sizeof(real_T));
+        b_st.site = &eb_emlrtRSI;
         mldivide(&b_st, C_n_rate, dVdtheta_i);
-        b_st.site = &fb_emlrtRSI;
-        mldivide(&b_st, C_n, dVdtheta_i);
         exitg1 = true;
       } else {
         covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 6U);
 
-        /* 'bit_propagator:65' torques(6) = tau_piv; */
+        /* 'bit_propagator:64' torques(6) = tau_piv; */
         dC_10[5] = tau_piv;
 
-        /* 'bit_propagator:67' ddtheta = M_decomp\((M_decomp')\torques); */
-        for (c_tau_gond_tmp = 0; c_tau_gond_tmp < 9; c_tau_gond_tmp++) {
-          dVdtheta_i[c_tau_gond_tmp] = dC_10[c_tau_gond_tmp];
+        /* 'bit_propagator:66' ddtheta = M_decomp\((M_decomp')\torques); */
+        for (c_z_n_tmp = 0; c_z_n_tmp < 9; c_z_n_tmp++) {
+          dVdtheta_i[c_z_n_tmp] = dC_10[c_z_n_tmp];
           for (i = 0; i < 9; i++) {
-            C_n_rate[i + 9 * c_tau_gond_tmp] = C_n[c_tau_gond_tmp + 9 * i];
+            c_r_tmp[i + 9 * c_z_n_tmp] = C_n_rate[c_z_n_tmp + 9 * i];
           }
         }
 
-        b_st.site = &gb_emlrtRSI;
+        b_st.site = &fb_emlrtRSI;
+        mldivide(&b_st, c_r_tmp, dVdtheta_i);
+        b_st.site = &fb_emlrtRSI;
         mldivide(&b_st, C_n_rate, dVdtheta_i);
-        b_st.site = &gb_emlrtRSI;
-        mldivide(&b_st, C_n, dVdtheta_i);
 
-        /* 'bit_propagator:68' prop_err = dw_piv - ddtheta(6); */
+        /* 'bit_propagator:67' prop_err = dw_piv - ddtheta(6); */
         m_i = dw_piv - dVdtheta_i[5];
 
-        /* 'bit_propagator:69' int_err = int_err + prop_err; */
+        /* 'bit_propagator:68' int_err = int_err + prop_err; */
         int_err += m_i;
         if (*emlrtBreakCheckR2012bFlagVar != 0) {
           emlrtBreakCheckR2012b(&st);
@@ -845,20 +838,33 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T unlock[9],
 
   covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 7U);
 
-  /* 'bit_propagator:73' tau_gond = torques(7:9); */
-  /* 'bit_propagator:74' tau_gond(1) = tau_rw */
-  /* 'bit_propagator:76' Xdot = [ddtheta; dtheta; d_hs; tau_gond]; */
-  for (n = 0; n < 9; n++) {
-    varargout_1[n] = dVdtheta_i[n];
-    varargout_1[n + 9] = dtheta[n];
+  /* 'bit_propagator:72' tau_gond = M(7:9,7:9) * ddtheta(7:9); */
+  /*  tau_gond(1) = tau_rw */
+  /* 'bit_propagator:75' Xdot = [ddtheta; dtheta; d_hs; tau_gond]; */
+  tau_piv = dVdtheta_i[6];
+  d = dVdtheta_i[7];
+  d1 = dVdtheta_i[8];
+  r = _mm_loadu_pd(&C_n[60]);
+  r = _mm_mul_pd(r, _mm_set1_pd(tau_piv));
+  r1 = _mm_loadu_pd(&C_n[69]);
+  r1 = _mm_mul_pd(r1, _mm_set1_pd(d));
+  r = _mm_add_pd(r, r1);
+  r1 = _mm_loadu_pd(&C_n[78]);
+  r1 = _mm_mul_pd(r1, _mm_set1_pd(d1));
+  r = _mm_add_pd(r, r1);
+  _mm_storeu_pd(&z_n[0], r);
+  z_n[2] = (C_n[62] * tau_piv + C_n[71] * d) + C_n[80] * d1;
+  for (c_z_n_tmp = 0; c_z_n_tmp < 9; c_z_n_tmp++) {
+    varargout_1[c_z_n_tmp] = dVdtheta_i[c_z_n_tmp];
+    varargout_1[c_z_n_tmp + 9] = dtheta[c_z_n_tmp];
   }
 
   varargout_1[18] = vec_idx_0_tmp;
-  varargout_1[21] = tau_applied[6];
+  varargout_1[21] = z_n[0];
   varargout_1[19] = vec_idx_0_tmp;
-  varargout_1[22] = dC_10[7];
+  varargout_1[22] = z_n[1];
   varargout_1[20] = vec_idx_2;
-  varargout_1[23] = dC_10[8];
+  varargout_1[23] = z_n[2];
 }
 
 /*
@@ -882,9 +888,9 @@ static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
   char_T TRANSA1;
   char_T TRANSB1;
   covrtLogFcn(&emlrtCoverageInstance, 0U, 2U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 2U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 4U);
 
-  /* 'bit_one_step:23' @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex) */
+  /* 'bit_one_step:31' @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex) */
   covrtLogFcn(&emlrtCoverageInstance, 12U, 0U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 0U);
 
@@ -951,13 +957,14 @@ static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
 
 /*
  * function [y_true, y_flex] = bit_one_step(x0, tau_applied, unlock, w_piv, piv_flag,...
- *     dt, num_steps, tau_max_piv, thet_pit_nom, x_flex0, tau_flex)
+ *     dt, num_steps, tau_max_piv, thet_pit_nom, x_flex0, tau_flex, flexure_flag)
  */
 void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
                   [9], const real_T unlock[9], real_T w_piv, boolean_T piv_flag,
                   real_T dt, uint16_T num_steps, real_T tau_max_piv, real_T
                   thet_pit_nom, const real_T x_flex0[104], const real_T
-                  tau_flex[5], real_T y_true[21], real_T y_flex[104])
+                  tau_flex[5], boolean_T flexure_flag, real_T y_true[21], real_T
+                  y_flex[104])
 {
   static const real_T dv[10816] = { 0.0, -6850.0880077557886, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
@@ -1780,48 +1787,52 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     0.0001014908067770024, 0.0, -0.001735771988292981, 0.0,
     -0.000296634453801802, 0.0, 0.0058872119588950587, 0.0,
     -0.0014413788705655861, 0.0, -0.00177066463838367, 0.0,
-    -0.0040428003580101251, 0.0, 0.0074533822429511789, 0.0,
-    0.0067533698625509113, 0.0, -0.01214358152176903, 0.0, -0.0184522418228579,
-    0.0, -0.0053156546824438388, 0.0, -0.005784926297461539, 0.0,
-    0.01007161819628742, 0.0, 0.0099811730068321818, 0.0, 0.016725323182585409,
-    0.0, 0.05896156151305363, 0.0, 0.099212696332003275, 0.0,
-    -0.02273034167112653, 0.0, 0.0071072743908696528, 0.0, -0.024456802788191311,
-    0.0, -0.022528240489751671, 0.0, 0.060418491782594348, 0.0,
-    0.030912859721961242, 0.0, -0.0020977979095101892, 0.0, 0.06998252935527037,
-    0.0, -0.00062013179746458048, 0.0, 0.019571579687998879, 0.0,
-    0.032313440511189263, 0.0, -0.0071153149194514509, 0.0, 0.089621056139394667,
-    0.0, 0.0073898092281106161, 0.0, -0.016483521469336959, 0.0,
+    -0.0040428003580101251, 0.0, 0.0074533822429511528, 0.0, 0.00675336986255086,
+    0.0, -0.01214358152176909, 0.0, -0.0184522418228579, 0.0,
+    -0.0053156546824436861, 0.0, -0.005784926297461539, 0.0, 0.01007161819628742,
+    0.0, 0.0099811730068321558, 0.0, 0.016725323182585392, 0.0,
+    0.058961561513053637, 0.0, 0.099212696332003261, 0.0, -0.02273034167112653,
+    0.0, 0.0071072743908696511, 0.0, -0.024456802788191359, 0.0,
+    -0.0225282404897517, 0.0, 0.060418491782594348, 0.0, 0.03091285972196119,
+    0.0, -0.0020977979095101128, 0.0, 0.06998252935527037, 0.0,
+    -0.00062013179746458048, 0.0, 0.01957157968799891, 0.0, 0.032313440511189263,
+    0.0, -0.0071153149194514509, 0.0, 0.089621056139394709, 0.0,
+    0.0073898092281106222, 0.0, -0.016483521469336911, 0.0,
     -0.048854396482386361, 0.0, 0.0050727113573692329, 0.0, 0.027054124644752951,
-    0.0, -0.0078139623198636449, 0.0, -0.0363151838560942, 0.0,
-    0.01355254005566818, 0.0, -0.043992907011276658, 0.0, 0.035938381876238032,
-    0.0, -0.15004597200136369, 0.0, -0.012797343110262959, 0.0,
-    0.0057557493447683268, 0.0, 0.01985315414395079, 0.0, 0.0022292579060057909,
-    0.0, -0.001354836098959031, 0.0, 0.00093487139263365084, 0.0,
-    0.0084864464580716673, 0.0, -0.091530654463505348, 0.0, -0.06528461539789468,
-    0.0, -0.0081798580013035145, 0.0, 0.0263781227908255, 0.0,
-    0.00048200608246749322, 0.0, 0.03940911522087126, 0.0, -0.17136697661704661,
-    0.0, 0.025646802026163481, 0.0, -0.035870834732484209, 0.0,
-    0.0039324732961645709, 0.0, -0.0075931218908970779, 0.0,
-    -0.00754166140885566, 0.0, -0.012050109567904241, 0.0, -0.01820984604788407,
-    0.0, 0.0056567649115213583, 0.0, -0.0057411447961357017, 0.0,
-    -0.010198305432373879, 0.0, -0.009950058909049684, 0.0,
-    -0.015912022138171479, 0.0, 0.059086734067436079, 0.0, 0.0992841302200189,
-    0.0, 0.023166051028904538, 0.0, 0.0022107087942586671, 0.0,
-    -0.024557664608419429, 0.0, -0.021401089625040681, 0.0, 0.058912837419534882,
-    0.0, 0.03009507657086875, 0.0, 0.010974108517545151, 0.0,
-    -0.070591404052476672, 0.0, 0.0022084232892898648, 0.0, -0.01918768523356695,
-    0.0, 0.03111064053180964, 0.0, -0.0079105713432141636, 0.0,
-    -0.0902519657290362, 0.0, 0.0055835836709739019, 0.0, -0.01485229705796603,
-    0.0, 0.048945935752260028, 0.0, 0.0048189169315320723, 0.0,
-    0.025597760264376671, 0.0, -0.0076758314089120164, 0.0, 0.035289635636920808,
-    0.0, 0.01052518260579636, 0.0, 0.041272275986769927, 0.0,
-    0.026174867780662081, 0.0, 0.13343504659095989, 0.0, -0.073044822987175323,
-    0.0, -0.0059794632994338674, 0.0, -0.02207117798895579, 0.0,
-    -0.0043628552308314743, 0.0, 0.0199471501891688, 0.0, 0.02347865569282875,
-    0.0, 0.01489152586798825, 0.0, 0.091990534816266345, 0.0,
-    0.06344316825951378, 0.0, -0.016873668952046759, 0.0, 0.022199905124457329,
-    0.0, -0.0007647777929260239, 0.0, -0.00020938302908622, 0.0,
-    0.166599021410397, 0.0, -0.0144830576027064, 0.0, -0.054790779983943542 };
+    0.0, -0.0078139623198636311, 0.0, -0.0363151838560942, 0.0,
+    0.01355254005566817, 0.0, -0.043992907011276658, 0.0, 0.035938381876238032,
+    0.0, -0.15004597200136369, 0.0, -0.01279734311026298, 0.0,
+    0.0057557493447683268, 0.0, 0.0198531541439508, 0.0, 0.0022292579060057892,
+    0.0, -0.0013548360989590251, 0.0, 0.00093487139263362558, 0.0,
+    0.0084864464580716673, 0.0, -0.091530654463505251, 0.0,
+    -0.065284615397894624, 0.0, -0.0081798580013035145, 0.0, 0.0263781227908255,
+    0.0, 0.00048200608246749322, 0.0, 0.03940911522087126, 0.0,
+    -0.17136697661704661, 0.0, 0.02564680202616346, 0.0, -0.035870834732484209,
+    0.0, 0.0039324732961645709, 0.0, -0.007593121890897103, 0.0,
+    -0.0075416614088555586, 0.0, -0.012050109567904191, 0.0,
+    -0.018209846047884119, 0.0, 0.0056567649115213583, 0.0,
+    -0.0057411447961357581, 0.0, -0.010198305432373879, 0.0,
+    -0.0099500589090496978, 0.0, -0.015912022138171521, 0.0,
+    0.059086734067436031, 0.0, 0.0992841302200189, 0.0, 0.023166051028904549,
+    0.0, 0.0022107087942586289, 0.0, -0.02455766460841945, 0.0,
+    -0.021401089625040681, 0.0, 0.0589128374195349, 0.0, 0.030095076570868708,
+    0.0, 0.01097410851754513, 0.0, -0.070591404052476714, 0.0,
+    0.0022084232892898648, 0.0, -0.019187685233566971, 0.0, 0.03111064053180964,
+    0.0, -0.0079105713432141879, 0.0, -0.09025196572903621, 0.0,
+    0.0055835836709738958, 0.0, -0.014852297057966059, 0.0, 0.048945935752260028,
+    0.0, 0.0048189169315320706, 0.0, 0.025597760264376671, 0.0,
+    -0.0076758314089119912, 0.0, 0.035289635636920808, 0.0, 0.010525182605796379,
+    0.0, 0.041272275986769927, 0.0, 0.026174867780662081, 0.0,
+    0.13343504659095989, 0.0, -0.073044822987175323, 0.0, -0.0059794632994338674,
+    0.0, -0.0220711779889558, 0.0, -0.0043628552308314743, 0.0,
+    0.0199471501891688, 0.0, 0.02347865569282874, 0.0, 0.01489152586798825, 0.0,
+    0.091990534816266345, 0.0, 0.06344316825951378, 0.0, -0.016873668952046759,
+    0.0, 0.02219990512445736, 0.0, -0.00076477779292602422, 0.0,
+    -0.00020938302908622, 0.0, 0.166599021410397, 0.0, -0.0144830576027064, 0.0,
+    -0.054790779983943542 };
+
+  static const real_T k_d[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0017453292519943296,
+    0.0, 62.607671231740191, 62.607671231740191 };
 
   __m128d r;
   __m128d r1;
@@ -1838,6 +1849,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   real_T k3[24];
   real_T varargout_1[24];
   real_T b_y_true[21];
+  real_T sys_workspace_k_d[9];
   real_T tau_app_flex[3];
   int32_T i;
   int32_T k;
@@ -1942,7 +1954,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* A_F_FUNC */
   /*     A_F_SYMS = A_F_FUNC */
   /*     This function was generated by the Symbolic Math Toolbox version 9.3. */
-  /*     08-May-2023 12:39:44 */
+  /*     04-Jul-2023 09:33:09 */
   /* 'a_f_func:8' mt1 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-6.850088007755789e+3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]; */
   /* 'a_f_func:9' mt2 = [-7.962670657776231e+3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.264786649674035e+4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]; */
   /* 'a_f_func:10' mt3 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.310213472955605e+4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]; */
@@ -2013,7 +2025,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* B_F_FUNC */
   /*     B_F_SYMS = B_F_FUNC */
   /*     This function was generated by the Symbolic Math Toolbox version 9.3. */
-  /*     08-May-2023 12:39:44 */
+  /*     04-Jul-2023 09:33:10 */
   /* 'b_f_func:8' mt1 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.320756923076926e-3,6.585399999999996e-3,-4.550771384615384e-3,2.359384615384519e-5]; */
   /* 'b_f_func:9' mt2 = [2.744553846151324e-5,-2.49863076923077e-3,1.609753846154618e-5,-2.225440000000001e-3,-2.463941538461537e-3]; */
   /* 'b_f_func:10' mt3 = [2.23066153846153e-3,-2.864307692308197e-5,8.784615384616455e-6,1.917723076923086e-5,3.132307692307692e-3]; */
@@ -2046,27 +2058,27 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* 'b_f_func:37' mt30 = [3.925422842838922e-3,1.662896752760128e-4,-4.07242887271996e-4,-2.243701925816938e-4,-4.682583099099017e-4]; */
   /* 'b_f_func:38' mt31 = [-2.065707443862476e-2,-6.902027669146457e-3,7.759878262626521e-4,1.014908067770024e-4,-1.735771988292981e-3]; */
   /* 'b_f_func:39' mt32 = [-2.96634453801802e-4,5.887211958895059e-3,-1.441378870565586e-3,-1.77066463838367e-3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]; */
-  /* 'b_f_func:40' mt33 = [-4.042800358010125e-3,7.453382242951179e-3,6.753369862550911e-3,-1.214358152176903e-2,-1.84522418228579e-2]; */
-  /* 'b_f_func:41' mt34 = [-5.315654682443839e-3,-5.784926297461539e-3,1.007161819628742e-2,9.981173006832182e-3,1.672532318258541e-2]; */
-  /* 'b_f_func:42' mt35 = [5.896156151305363e-2,9.921269633200328e-2,-2.273034167112653e-2,7.107274390869653e-3,-2.445680278819131e-2]; */
-  /* 'b_f_func:43' mt36 = [-2.252824048975167e-2,6.041849178259435e-2,3.091285972196124e-2,-2.097797909510189e-3,6.998252935527037e-2]; */
-  /* 'b_f_func:44' mt37 = [-6.201317974645805e-4,1.957157968799888e-2,3.231344051118926e-2,-7.115314919451451e-3,8.962105613939467e-2]; */
-  /* 'b_f_func:45' mt38 = [7.389809228110616e-3,-1.648352146933696e-2,-4.885439648238636e-2,5.072711357369233e-3,2.705412464475295e-2]; */
-  /* 'b_f_func:46' mt39 = [-7.813962319863645e-3,-3.63151838560942e-2,1.355254005566818e-2,-4.399290701127666e-2,3.593838187623803e-2]; */
-  /* 'b_f_func:47' mt40 = [-1.500459720013637e-1,-1.279734311026296e-2,5.755749344768327e-3,1.985315414395079e-2,2.229257906005791e-3]; */
-  /* 'b_f_func:48' mt41 = [-1.354836098959031e-3,9.348713926336508e-4,8.486446458071667e-3,-9.153065446350535e-2,-6.528461539789468e-2]; */
+  /* 'b_f_func:40' mt33 = [-4.042800358010125e-3,7.453382242951153e-3,6.75336986255086e-3,-1.214358152176909e-2,-1.84522418228579e-2]; */
+  /* 'b_f_func:41' mt34 = [-5.315654682443686e-3,-5.784926297461539e-3,1.007161819628742e-2,9.981173006832156e-3,1.672532318258539e-2]; */
+  /* 'b_f_func:42' mt35 = [5.896156151305364e-2,9.921269633200326e-2,-2.273034167112653e-2,7.107274390869651e-3,-2.445680278819136e-2]; */
+  /* 'b_f_func:43' mt36 = [-2.25282404897517e-2,6.041849178259435e-2,3.091285972196119e-2,-2.097797909510113e-3,6.998252935527037e-2]; */
+  /* 'b_f_func:44' mt37 = [-6.201317974645805e-4,1.957157968799891e-2,3.231344051118926e-2,-7.115314919451451e-3,8.962105613939471e-2]; */
+  /* 'b_f_func:45' mt38 = [7.389809228110622e-3,-1.648352146933691e-2,-4.885439648238636e-2,5.072711357369233e-3,2.705412464475295e-2]; */
+  /* 'b_f_func:46' mt39 = [-7.813962319863631e-3,-3.63151838560942e-2,1.355254005566817e-2,-4.399290701127666e-2,3.593838187623803e-2]; */
+  /* 'b_f_func:47' mt40 = [-1.500459720013637e-1,-1.279734311026298e-2,5.755749344768327e-3,1.98531541439508e-2,2.229257906005789e-3]; */
+  /* 'b_f_func:48' mt41 = [-1.354836098959025e-3,9.348713926336256e-4,8.486446458071667e-3,-9.153065446350525e-2,-6.528461539789462e-2]; */
   /* 'b_f_func:49' mt42 = [-8.179858001303515e-3,2.63781227908255e-2,4.820060824674932e-4,3.940911522087126e-2,-1.713669766170466e-1]; */
-  /* 'b_f_func:50' mt43 = [2.564680202616348e-2,-3.587083473248421e-2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.932473296164571e-3,-7.593121890897078e-3]; */
-  /* 'b_f_func:51' mt44 = [-7.54166140885566e-3,-1.205010956790424e-2,-1.820984604788407e-2,5.656764911521358e-3,-5.741144796135702e-3]; */
-  /* 'b_f_func:52' mt45 = [-1.019830543237388e-2,-9.950058909049684e-3,-1.591202213817148e-2,5.908673406743608e-2,9.92841302200189e-2]; */
-  /* 'b_f_func:53' mt46 = [2.316605102890454e-2,2.210708794258667e-3,-2.455766460841943e-2,-2.140108962504068e-2,5.891283741953488e-2]; */
-  /* 'b_f_func:54' mt47 = [3.009507657086875e-2,1.097410851754515e-2,-7.059140405247667e-2,2.208423289289865e-3,-1.918768523356695e-2]; */
-  /* 'b_f_func:55' mt48 = [3.111064053180964e-2,-7.910571343214164e-3,-9.02519657290362e-2,5.583583670973902e-3,-1.485229705796603e-2]; */
-  /* 'b_f_func:56' mt49 = [4.894593575226003e-2,4.818916931532072e-3,2.559776026437667e-2,-7.675831408912016e-3,3.528963563692081e-2]; */
-  /* 'b_f_func:57' mt50 = [1.052518260579636e-2,4.127227598676993e-2,2.617486778066208e-2,1.334350465909599e-1,-7.304482298717532e-2]; */
-  /* 'b_f_func:58' mt51 = [-5.979463299433867e-3,-2.207117798895579e-2,-4.362855230831474e-3,1.99471501891688e-2,2.347865569282875e-2]; */
-  /* 'b_f_func:59' mt52 = [1.489152586798825e-2,9.199053481626634e-2,6.344316825951378e-2,-1.687366895204676e-2,2.219990512445733e-2]; */
-  /* 'b_f_func:60' mt53 = [-7.647777929260239e-4,-2.0938302908622e-4,1.66599021410397e-1,-1.44830576027064e-2,-5.479077998394354e-2]; */
+  /* 'b_f_func:50' mt43 = [2.564680202616346e-2,-3.587083473248421e-2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.932473296164571e-3,-7.593121890897103e-3]; */
+  /* 'b_f_func:51' mt44 = [-7.541661408855559e-3,-1.205010956790419e-2,-1.820984604788412e-2,5.656764911521358e-3,-5.741144796135758e-3]; */
+  /* 'b_f_func:52' mt45 = [-1.019830543237388e-2,-9.950058909049698e-3,-1.591202213817152e-2,5.908673406743603e-2,9.92841302200189e-2]; */
+  /* 'b_f_func:53' mt46 = [2.316605102890455e-2,2.210708794258629e-3,-2.455766460841945e-2,-2.140108962504068e-2,5.89128374195349e-2]; */
+  /* 'b_f_func:54' mt47 = [3.009507657086871e-2,1.097410851754513e-2,-7.059140405247671e-2,2.208423289289865e-3,-1.918768523356697e-2]; */
+  /* 'b_f_func:55' mt48 = [3.111064053180964e-2,-7.910571343214188e-3,-9.025196572903621e-2,5.583583670973896e-3,-1.485229705796606e-2]; */
+  /* 'b_f_func:56' mt49 = [4.894593575226003e-2,4.818916931532071e-3,2.559776026437667e-2,-7.675831408911991e-3,3.528963563692081e-2]; */
+  /* 'b_f_func:57' mt50 = [1.052518260579638e-2,4.127227598676993e-2,2.617486778066208e-2,1.334350465909599e-1,-7.304482298717532e-2]; */
+  /* 'b_f_func:58' mt51 = [-5.979463299433867e-3,-2.20711779889558e-2,-4.362855230831474e-3,1.99471501891688e-2,2.347865569282874e-2]; */
+  /* 'b_f_func:59' mt52 = [1.489152586798825e-2,9.199053481626634e-2,6.344316825951378e-2,-1.687366895204676e-2,2.219990512445736e-2]; */
+  /* 'b_f_func:60' mt53 = [-7.647777929260242e-4,-2.0938302908622e-4,1.66599021410397e-1,-1.44830576027064e-2,-5.479077998394354e-2]; */
   /* 'b_f_func:61' b_f_syms = reshape([mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10,mt11,mt12,mt13,mt14,mt15,mt16,mt17,mt18,mt19,mt20,mt21,mt22,mt23,mt24,mt25,mt26,mt27,mt28,mt29,mt30,mt31,mt32,mt33,mt34,mt35,mt36,mt37,mt38,mt39,mt40,mt41,mt42,mt43,mt44,mt45,mt46,mt47,mt48,mt49,mt50,mt51,mt52,mt53],104,5); */
   /* 'init_func:83' a_df = a_mf_func(); */
   covrtLogFcn(&emlrtCoverageInstance, 5U, 0U);
@@ -2075,7 +2087,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* A_MF_FUNC */
   /*     A_MF_SYMS = A_MF_FUNC */
   /*     This function was generated by the Symbolic Math Toolbox version 9.3. */
-  /*     08-May-2023 12:39:44 */
+  /*     04-Jul-2023 09:33:10 */
   /* 'a_mf_func:8' mt1 = [0.0,-6.850088007755789e+3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,pi.*(-5.269e-2),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]; */
   /* 'a_mf_func:9' mt2 = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-7.962670657776231e+3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0]; */
   /* 'a_mf_func:10' mt3 = [-1.78467595465129e-1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.264786649674035e+4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]; */
@@ -2155,7 +2167,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* B_MF_FUNC */
   /*     B_MF_SYMS = B_MF_FUNC */
   /*     This function was generated by the Symbolic Math Toolbox version 9.3. */
-  /*     08-May-2023 12:39:44 */
+  /*     04-Jul-2023 09:33:10 */
   /* 'b_mf_func:8' mt1 = [0.0,8.320756923076926e-3,0.0,6.585399999999996e-3,0.0,-4.550771384615384e-3,0.0,2.359384615384519e-5,0.0,2.744553846151324e-5,0.0]; */
   /* 'b_mf_func:9' mt2 = [-2.49863076923077e-3,0.0,1.609753846154618e-5,0.0,-2.225440000000001e-3,0.0,-2.463941538461537e-3,0.0,2.23066153846153e-3,0.0]; */
   /* 'b_mf_func:10' mt3 = [-2.864307692308197e-5,0.0,8.784615384616455e-6,0.0,1.917723076923086e-5,0.0,3.132307692307692e-3,0.0,6.353846153846183e-4,0.0]; */
@@ -2187,54 +2199,71 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* 'b_mf_func:36' mt29 = [3.157421387983396e-3,0.0,4.837268535720318e-3,0.0,3.925422842838922e-3,0.0,1.662896752760128e-4,0.0,-4.07242887271996e-4,0.0]; */
   /* 'b_mf_func:37' mt30 = [-2.243701925816938e-4,0.0,-4.682583099099017e-4,0.0,-2.065707443862476e-2,0.0,-6.902027669146457e-3,0.0,7.759878262626521e-4,0.0]; */
   /* 'b_mf_func:38' mt31 = [1.014908067770024e-4,0.0,-1.735771988292981e-3,0.0,-2.96634453801802e-4,0.0,5.887211958895059e-3,0.0,-1.441378870565586e-3,0.0]; */
-  /* 'b_mf_func:39' mt32 = [-1.77066463838367e-3,0.0,-4.042800358010125e-3,0.0,7.453382242951179e-3,0.0,6.753369862550911e-3,0.0,-1.214358152176903e-2,0.0]; */
-  /* 'b_mf_func:40' mt33 = [-1.84522418228579e-2,0.0,-5.315654682443839e-3,0.0,-5.784926297461539e-3,0.0,1.007161819628742e-2,0.0,9.981173006832182e-3,0.0]; */
-  /* 'b_mf_func:41' mt34 = [1.672532318258541e-2,0.0,5.896156151305363e-2,0.0,9.921269633200328e-2,0.0,-2.273034167112653e-2,0.0,7.107274390869653e-3,0.0]; */
-  /* 'b_mf_func:42' mt35 = [-2.445680278819131e-2,0.0,-2.252824048975167e-2,0.0,6.041849178259435e-2,0.0,3.091285972196124e-2,0.0,-2.097797909510189e-3,0.0]; */
-  /* 'b_mf_func:43' mt36 = [6.998252935527037e-2,0.0,-6.201317974645805e-4,0.0,1.957157968799888e-2,0.0,3.231344051118926e-2,0.0,-7.115314919451451e-3,0.0]; */
-  /* 'b_mf_func:44' mt37 = [8.962105613939467e-2,0.0,7.389809228110616e-3,0.0,-1.648352146933696e-2,0.0,-4.885439648238636e-2,0.0,5.072711357369233e-3,0.0]; */
-  /* 'b_mf_func:45' mt38 = [2.705412464475295e-2,0.0,-7.813962319863645e-3,0.0,-3.63151838560942e-2,0.0,1.355254005566818e-2,0.0,-4.399290701127666e-2,0.0]; */
-  /* 'b_mf_func:46' mt39 = [3.593838187623803e-2,0.0,-1.500459720013637e-1,0.0,-1.279734311026296e-2,0.0,5.755749344768327e-3,0.0,1.985315414395079e-2,0.0]; */
-  /* 'b_mf_func:47' mt40 = [2.229257906005791e-3,0.0,-1.354836098959031e-3,0.0,9.348713926336508e-4,0.0,8.486446458071667e-3,0.0,-9.153065446350535e-2,0.0]; */
-  /* 'b_mf_func:48' mt41 = [-6.528461539789468e-2,0.0,-8.179858001303515e-3,0.0,2.63781227908255e-2,0.0,4.820060824674932e-4,0.0,3.940911522087126e-2,0.0]; */
-  /* 'b_mf_func:49' mt42 = [-1.713669766170466e-1,0.0,2.564680202616348e-2,0.0,-3.587083473248421e-2,0.0,3.932473296164571e-3,0.0,-7.593121890897078e-3,0.0]; */
-  /* 'b_mf_func:50' mt43 = [-7.54166140885566e-3,0.0,-1.205010956790424e-2,0.0,-1.820984604788407e-2,0.0,5.656764911521358e-3,0.0,-5.741144796135702e-3,0.0]; */
-  /* 'b_mf_func:51' mt44 = [-1.019830543237388e-2,0.0,-9.950058909049684e-3,0.0,-1.591202213817148e-2,0.0,5.908673406743608e-2,0.0,9.92841302200189e-2,0.0]; */
-  /* 'b_mf_func:52' mt45 = [2.316605102890454e-2,0.0,2.210708794258667e-3,0.0,-2.455766460841943e-2,0.0,-2.140108962504068e-2,0.0,5.891283741953488e-2,0.0]; */
-  /* 'b_mf_func:53' mt46 = [3.009507657086875e-2,0.0,1.097410851754515e-2,0.0,-7.059140405247667e-2,0.0,2.208423289289865e-3,0.0,-1.918768523356695e-2,0.0]; */
-  /* 'b_mf_func:54' mt47 = [3.111064053180964e-2,0.0,-7.910571343214164e-3,0.0,-9.02519657290362e-2,0.0,5.583583670973902e-3,0.0,-1.485229705796603e-2,0.0]; */
-  /* 'b_mf_func:55' mt48 = [4.894593575226003e-2,0.0,4.818916931532072e-3,0.0,2.559776026437667e-2,0.0,-7.675831408912016e-3,0.0,3.528963563692081e-2,0.0]; */
-  /* 'b_mf_func:56' mt49 = [1.052518260579636e-2,0.0,4.127227598676993e-2,0.0,2.617486778066208e-2,0.0,1.334350465909599e-1,0.0,-7.304482298717532e-2,0.0]; */
-  /* 'b_mf_func:57' mt50 = [-5.979463299433867e-3,0.0,-2.207117798895579e-2,0.0,-4.362855230831474e-3,0.0,1.99471501891688e-2,0.0,2.347865569282875e-2,0.0]; */
-  /* 'b_mf_func:58' mt51 = [1.489152586798825e-2,0.0,9.199053481626634e-2,0.0,6.344316825951378e-2,0.0,-1.687366895204676e-2,0.0,2.219990512445733e-2,0.0]; */
-  /* 'b_mf_func:59' mt52 = [-7.647777929260239e-4,0.0,-2.0938302908622e-4,0.0,1.66599021410397e-1,0.0,-1.44830576027064e-2,0.0,-5.479077998394354e-2]; */
+  /* 'b_mf_func:39' mt32 = [-1.77066463838367e-3,0.0,-4.042800358010125e-3,0.0,7.453382242951153e-3,0.0,6.75336986255086e-3,0.0,-1.214358152176909e-2,0.0]; */
+  /* 'b_mf_func:40' mt33 = [-1.84522418228579e-2,0.0,-5.315654682443686e-3,0.0,-5.784926297461539e-3,0.0,1.007161819628742e-2,0.0,9.981173006832156e-3,0.0]; */
+  /* 'b_mf_func:41' mt34 = [1.672532318258539e-2,0.0,5.896156151305364e-2,0.0,9.921269633200326e-2,0.0,-2.273034167112653e-2,0.0,7.107274390869651e-3,0.0]; */
+  /* 'b_mf_func:42' mt35 = [-2.445680278819136e-2,0.0,-2.25282404897517e-2,0.0,6.041849178259435e-2,0.0,3.091285972196119e-2,0.0,-2.097797909510113e-3,0.0]; */
+  /* 'b_mf_func:43' mt36 = [6.998252935527037e-2,0.0,-6.201317974645805e-4,0.0,1.957157968799891e-2,0.0,3.231344051118926e-2,0.0,-7.115314919451451e-3,0.0]; */
+  /* 'b_mf_func:44' mt37 = [8.962105613939471e-2,0.0,7.389809228110622e-3,0.0,-1.648352146933691e-2,0.0,-4.885439648238636e-2,0.0,5.072711357369233e-3,0.0]; */
+  /* 'b_mf_func:45' mt38 = [2.705412464475295e-2,0.0,-7.813962319863631e-3,0.0,-3.63151838560942e-2,0.0,1.355254005566817e-2,0.0,-4.399290701127666e-2,0.0]; */
+  /* 'b_mf_func:46' mt39 = [3.593838187623803e-2,0.0,-1.500459720013637e-1,0.0,-1.279734311026298e-2,0.0,5.755749344768327e-3,0.0,1.98531541439508e-2,0.0]; */
+  /* 'b_mf_func:47' mt40 = [2.229257906005789e-3,0.0,-1.354836098959025e-3,0.0,9.348713926336256e-4,0.0,8.486446458071667e-3,0.0,-9.153065446350525e-2,0.0]; */
+  /* 'b_mf_func:48' mt41 = [-6.528461539789462e-2,0.0,-8.179858001303515e-3,0.0,2.63781227908255e-2,0.0,4.820060824674932e-4,0.0,3.940911522087126e-2,0.0]; */
+  /* 'b_mf_func:49' mt42 = [-1.713669766170466e-1,0.0,2.564680202616346e-2,0.0,-3.587083473248421e-2,0.0,3.932473296164571e-3,0.0,-7.593121890897103e-3,0.0]; */
+  /* 'b_mf_func:50' mt43 = [-7.541661408855559e-3,0.0,-1.205010956790419e-2,0.0,-1.820984604788412e-2,0.0,5.656764911521358e-3,0.0,-5.741144796135758e-3,0.0]; */
+  /* 'b_mf_func:51' mt44 = [-1.019830543237388e-2,0.0,-9.950058909049698e-3,0.0,-1.591202213817152e-2,0.0,5.908673406743603e-2,0.0,9.92841302200189e-2,0.0]; */
+  /* 'b_mf_func:52' mt45 = [2.316605102890455e-2,0.0,2.210708794258629e-3,0.0,-2.455766460841945e-2,0.0,-2.140108962504068e-2,0.0,5.89128374195349e-2,0.0]; */
+  /* 'b_mf_func:53' mt46 = [3.009507657086871e-2,0.0,1.097410851754513e-2,0.0,-7.059140405247671e-2,0.0,2.208423289289865e-3,0.0,-1.918768523356697e-2,0.0]; */
+  /* 'b_mf_func:54' mt47 = [3.111064053180964e-2,0.0,-7.910571343214188e-3,0.0,-9.025196572903621e-2,0.0,5.583583670973896e-3,0.0,-1.485229705796606e-2,0.0]; */
+  /* 'b_mf_func:55' mt48 = [4.894593575226003e-2,0.0,4.818916931532071e-3,0.0,2.559776026437667e-2,0.0,-7.675831408911991e-3,0.0,3.528963563692081e-2,0.0]; */
+  /* 'b_mf_func:56' mt49 = [1.052518260579638e-2,0.0,4.127227598676993e-2,0.0,2.617486778066208e-2,0.0,1.334350465909599e-1,0.0,-7.304482298717532e-2,0.0]; */
+  /* 'b_mf_func:57' mt50 = [-5.979463299433867e-3,0.0,-2.20711779889558e-2,0.0,-4.362855230831474e-3,0.0,1.99471501891688e-2,0.0,2.347865569282874e-2,0.0]; */
+  /* 'b_mf_func:58' mt51 = [1.489152586798825e-2,0.0,9.199053481626634e-2,0.0,6.344316825951378e-2,0.0,-1.687366895204676e-2,0.0,2.219990512445736e-2,0.0]; */
+  /* 'b_mf_func:59' mt52 = [-7.647777929260242e-4,0.0,-2.0938302908622e-4,0.0,1.66599021410397e-1,0.0,-1.44830576027064e-2,0.0,-5.479077998394354e-2]; */
   /* 'b_mf_func:60' b_mf_syms = reshape([mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10,mt11,mt12,mt13,mt14,mt15,mt16,mt17,mt18,mt19,mt20,mt21,mt22,mt23,mt24,mt25,mt26,mt27,mt28,mt29,mt30,mt31,mt32,mt33,mt34,mt35,mt36,mt37,mt38,mt39,mt40,mt41,mt42,mt43,mt44,mt45,mt46,mt47,mt48,mt49,mt50,mt51,mt52],104,5); */
+  memcpy(&sys_workspace_k_d[0], &k_d[0], 9U * sizeof(real_T));
+
+  /* 'bit_one_step:8' if ~flexure_flag */
+  if (covrtLogIf(&emlrtCoverageInstance, 0U, 0U, 0, covrtLogMcdc
+                 (&emlrtCoverageInstance, 0U, 0U, 0, !covrtLogCond
+                  (&emlrtCoverageInstance, 0U, 0U, 0, flexure_flag)))) {
+    covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 1U);
+
+    /* 'bit_one_step:9' k_d(8) = 0; */
+    sys_workspace_k_d[7] = 0.0;
+
+    /* 'bit_one_step:10' k_d(9) = 0; */
+    sys_workspace_k_d[8] = 0.0;
+  }
+
+  covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 2U);
+
   /*     %% Setup Simulation */
   /*  initial conditions, state is dtheta; theta */
-  /* 'bit_one_step:9' y_true = x0; */
+  /* 'bit_one_step:15' y_true = x0; */
   memcpy(&y_true[0], &x0[0], 21U * sizeof(real_T));
 
-  /* 'bit_one_step:10' y_flex = x_flex0; */
+  /* 'bit_one_step:16' y_flex = x_flex0; */
   memcpy(&y_flex[0], &x_flex0[0], 104U * sizeof(real_T));
 
   /*  Sim Parameters */
   /*  y_all1 = zeros(18, tf/(dt)); */
-  /* 'bit_one_step:14' step = 0; */
-  /* 'bit_one_step:16' sys = @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
-  /* 'bit_one_step:17'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom); */
-  /* 'bit_one_step:18' tau_app_flex = tau_applied(7:9); */
-  /* 'bit_one_step:19' tau_applied(7) = tau_applied(7) + tau_flex(1); */
+  /* 'bit_one_step:20' step = 0; */
+  /* 'bit_one_step:22' sys = @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
+  /* 'bit_one_step:23'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom); */
+  /* 'bit_one_step:25' tau_app_flex = tau_applied(7:9); */
+  /* 'bit_one_step:27' tau_applied(7) = tau_applied(7) + tau_flex(1); */
   tau_applied[6] += tau_flex[0];
 
-  /* 'bit_one_step:20' tau_applied(8) = tau_applied(8) + tau_flex(2) + tau_flex(3); */
+  /* 'bit_one_step:28' tau_applied(8) = tau_applied(8) + tau_flex(2) + tau_flex(3); */
   tau_applied[7] = (tau_flex[1] + tau_applied[7]) + tau_flex[2];
 
-  /* 'bit_one_step:21' tau_applied(9) = tau_applied(9) + tau_flex(4) + tau_flex(5); */
+  /* 'bit_one_step:29' tau_applied(9) = tau_applied(9) + tau_flex(4) + tau_flex(5); */
   tau_applied[8] = (tau_flex[3] + tau_applied[8]) + tau_flex[4];
 
-  /* 'bit_one_step:23' sys_flex = @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex); */
+  /* 'bit_one_step:31' sys_flex = @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex); */
   /*  sim */
-  /* 'bit_one_step:27' for step = 1:num_steps */
+  /* 'bit_one_step:35' for step = 1:num_steps */
   k = num_steps;
   if (k - 1 >= 0) {
     r = _mm_set1_pd(2.0);
@@ -2251,24 +2280,25 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     boolean_T th_over[9];
     boolean_T th_under[9];
     covrtLogFor(&emlrtCoverageInstance, 0U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 3U);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 5U);
 
     /*         %% Propagate the system */
     /* RK4 solver */
-    /* 'bit_one_step:30' dw_piv = (w_piv - y_true(6))/dt; */
+    /* 'bit_one_step:38' dw_piv = (w_piv - y_true(6))/dt; */
     dw_piv = (w_piv - y_true[5]) / dt;
 
-    /* 'bit_one_step:32' [k1] = sys(y_true, tau_applied, dw_piv) * dt; */
+    /* 'bit_one_step:40' [k1] = sys(y_true, tau_applied, dw_piv) * dt; */
     st.site = &b_emlrtRSI;
     b_st.site = &o_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, unlock, w_piv, piv_flag, tau_max_piv,
-                          thet_pit_nom, y_true, tau_applied, dw_piv, k1);
+    bit_one_step_anonFcn1(&b_st, sys_workspace_k_d, unlock, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, y_true, tau_applied, dw_piv,
+                          k1);
     for (i = 0; i <= 22; i += 2) {
       r3 = _mm_loadu_pd(&k1[i]);
       _mm_storeu_pd(&k1[i], _mm_mul_pd(r3, _mm_set1_pd(dt)));
     }
 
-    /* 'bit_one_step:33' [k2] = sys(y_true + (k1(1:21)/2), tau_applied, dw_piv) * dt; */
+    /* 'bit_one_step:41' [k2] = sys(y_true + (k1(1:21)/2), tau_applied, dw_piv) * dt; */
     st.site = &c_emlrtRSI;
     for (i = 0; i <= 18; i += 2) {
       r3 = _mm_loadu_pd(&k1[i]);
@@ -2278,14 +2308,15 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
 
     b_y_true[20] = y_true[20] + k1[20] / 2.0;
     b_st.site = &o_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, unlock, w_piv, piv_flag, tau_max_piv,
-                          thet_pit_nom, b_y_true, tau_applied, dw_piv, k2);
+    bit_one_step_anonFcn1(&b_st, sys_workspace_k_d, unlock, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, b_y_true, tau_applied,
+                          dw_piv, k2);
     for (i = 0; i <= 22; i += 2) {
       r3 = _mm_loadu_pd(&k2[i]);
       _mm_storeu_pd(&k2[i], _mm_mul_pd(r3, _mm_set1_pd(dt)));
     }
 
-    /* 'bit_one_step:34' [k3] = sys(y_true + (k2(1:21)/2), tau_applied, dw_piv) * dt; */
+    /* 'bit_one_step:42' [k3] = sys(y_true + (k2(1:21)/2), tau_applied, dw_piv) * dt; */
     st.site = &d_emlrtRSI;
     for (i = 0; i <= 18; i += 2) {
       r3 = _mm_loadu_pd(&k2[i]);
@@ -2295,14 +2326,15 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
 
     b_y_true[20] = y_true[20] + k2[20] / 2.0;
     b_st.site = &o_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, unlock, w_piv, piv_flag, tau_max_piv,
-                          thet_pit_nom, b_y_true, tau_applied, dw_piv, k3);
+    bit_one_step_anonFcn1(&b_st, sys_workspace_k_d, unlock, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, b_y_true, tau_applied,
+                          dw_piv, k3);
     for (i = 0; i <= 22; i += 2) {
       r3 = _mm_loadu_pd(&k3[i]);
       _mm_storeu_pd(&k3[i], _mm_mul_pd(r3, _mm_set1_pd(dt)));
     }
 
-    /* 'bit_one_step:35' [k4] = sys(y_true + k3(1:21), tau_applied, dw_piv) * dt; */
+    /* 'bit_one_step:43' [k4] = sys(y_true + k3(1:21), tau_applied, dw_piv) * dt; */
     st.site = &e_emlrtRSI;
     for (i = 0; i <= 18; i += 2) {
       r3 = _mm_loadu_pd(&y_true[i]);
@@ -2312,11 +2344,11 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
 
     b_y_true[20] = y_true[20] + k3[20];
     b_st.site = &o_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, unlock, w_piv, piv_flag, tau_max_piv,
-                          thet_pit_nom, b_y_true, tau_applied, dw_piv,
-                          varargout_1);
+    bit_one_step_anonFcn1(&b_st, sys_workspace_k_d, unlock, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, b_y_true, tau_applied,
+                          dw_piv, varargout_1);
 
-    /* 'bit_one_step:37' temp = ((k1+(2*k2)+(2*k3)+k4)/6); */
+    /* 'bit_one_step:45' temp = ((k1+(2*k2)+(2*k3)+k4)/6); */
     for (i = 0; i <= 22; i += 2) {
       r3 = _mm_loadu_pd(&k2[i]);
       r4 = _mm_loadu_pd(&k1[i]);
@@ -2327,13 +2359,13 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
         _mm_set1_pd(6.0)));
     }
 
-    /* 'bit_one_step:38' tdd = temp(1:21); */
-    /* 'bit_one_step:39' tau_app_flex = temp(22:24)/dt */
+    /* 'bit_one_step:46' tdd = temp(1:21); */
+    /* 'bit_one_step:47' tau_app_flex = temp(22:24)/dt */
     r3 = _mm_loadu_pd(&k1[21]);
     _mm_storeu_pd(&tau_app_flex[0], _mm_div_pd(r3, r1));
     tau_app_flex[2] = k1[23] / dt;
 
-    /* 'bit_one_step:40' y_true = y_true + tdd; */
+    /* 'bit_one_step:48' y_true = y_true + tdd; */
     for (i = 0; i <= 18; i += 2) {
       r3 = _mm_loadu_pd(&y_true[i]);
       r4 = _mm_loadu_pd(&k1[i]);
@@ -2342,21 +2374,21 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
 
     y_true[20] += k1[20];
 
-    /* 'bit_one_step:42' th_over = y_true(10:18) > pi; */
-    /* 'bit_one_step:43' th_under = y_true(10:18) < -pi; */
+    /* 'bit_one_step:50' th_over = y_true(10:18) > pi; */
+    /* 'bit_one_step:51' th_under = y_true(10:18) < -pi; */
     for (i = 0; i < 9; i++) {
       dw_piv = y_true[i + 9];
       th_over[i] = (dw_piv > 3.1415926535897931);
       th_under[i] = (dw_piv < -3.1415926535897931);
     }
 
-    /* 'bit_one_step:44' y_true(10:14) = y_true(10:14) -(2*pi*th_over(1:5)) + (2*pi*th_under(1:5)); */
+    /* 'bit_one_step:52' y_true(10:14) = y_true(10:14) -(2*pi*th_over(1:5)) + (2*pi*th_under(1:5)); */
     for (i = 0; i < 5; i++) {
       y_true[i + 9] = (y_true[i + 9] - 6.2831853071795862 * (real_T)th_over[i])
         + 6.2831853071795862 * (real_T)th_under[i];
     }
 
-    /* 'bit_one_step:45' y_true(16:18) = y_true(16:18) -(2*pi*th_over(7:9)) + (2*pi*th_under(7:9)); */
+    /* 'bit_one_step:53' y_true(16:18) = y_true(16:18) -(2*pi*th_over(7:9)) + (2*pi*th_under(7:9)); */
     y_true[15] = (y_true[15] - 6.2831853071795862 * (real_T)th_over[6]) +
       6.2831853071795862 * (real_T)th_under[6];
     y_true[16] = (y_true[16] - 6.2831853071795862 * (real_T)th_over[7]) +
@@ -2370,7 +2402,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /*                y_true(13), y_true(14), y_true(15), y_true(16), y_true(17), y_true(18),... */
     /*                 y_true(19), y_true(20), y_true(21));       */
     /*         %% Propogate flexible system */
-    /* 'bit_one_step:53' kf1 = sys_flex(y_flex, tau_app_flex, tau_flex) * dt; */
+    /* 'bit_one_step:61' kf1 = sys_flex(y_flex, tau_app_flex, tau_flex) * dt; */
     st.site = &f_emlrtRSI;
     bit_one_step_anonFcn2(dv, dv1, y_flex, tau_app_flex, tau_flex, kf1);
     for (i = 0; i <= 102; i += 2) {
@@ -2378,7 +2410,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
       _mm_storeu_pd(&kf1[i], _mm_mul_pd(r3, r1));
     }
 
-    /* 'bit_one_step:54' kf2 = sys_flex(y_flex + (kf1/2), tau_app_flex, tau_flex) * dt; */
+    /* 'bit_one_step:62' kf2 = sys_flex(y_flex + (kf1/2), tau_app_flex, tau_flex) * dt; */
     st.site = &g_emlrtRSI;
     for (i = 0; i <= 102; i += 2) {
       r3 = _mm_loadu_pd(&kf1[i]);
@@ -2392,7 +2424,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
       _mm_storeu_pd(&kf2[i], _mm_mul_pd(r3, r1));
     }
 
-    /* 'bit_one_step:55' kf3 = sys_flex(y_flex + (kf2/2), tau_app_flex, tau_flex) * dt; */
+    /* 'bit_one_step:63' kf3 = sys_flex(y_flex + (kf2/2), tau_app_flex, tau_flex) * dt; */
     st.site = &h_emlrtRSI;
     for (i = 0; i <= 102; i += 2) {
       r3 = _mm_loadu_pd(&kf2[i]);
@@ -2406,7 +2438,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
       _mm_storeu_pd(&kf3[i], _mm_mul_pd(r3, r1));
     }
 
-    /* 'bit_one_step:56' kf4 = sys_flex(y_flex + kf3, tau_app_flex, tau_flex) * dt; */
+    /* 'bit_one_step:64' kf4 = sys_flex(y_flex + kf3, tau_app_flex, tau_flex) * dt; */
     st.site = &i_emlrtRSI;
     for (i = 0; i <= 102; i += 2) {
       r3 = _mm_loadu_pd(&y_flex[i]);
@@ -2417,8 +2449,8 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     bit_one_step_anonFcn2(dv, dv1, b_y_flex, tau_app_flex, tau_flex,
                           b_varargout_1);
 
-    /* 'bit_one_step:58' eta_dd = ((kf1+(2*kf2)+(2*kf3)+kf4)/6); */
-    /* 'bit_one_step:59' y_flex = y_flex + eta_dd; */
+    /* 'bit_one_step:66' eta_dd = ((kf1+(2*kf2)+(2*kf3)+kf4)/6); */
+    /* 'bit_one_step:67' y_flex = y_flex + eta_dd; */
     for (i = 0; i <= 102; i += 2) {
       __m128d r7;
       r3 = _mm_loadu_pd(&kf2[i]);

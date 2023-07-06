@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo sc_emlrtRSI = {
+static emlrtRSInfo rc_emlrtRSI = {
     9,                                                          /* lineNo */
     "compute_angular_velocity_C",                               /* fcnName */
     "/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m" /* pathName */
@@ -53,7 +53,7 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
     covrtLogFor(&emlrtCoverageInstance, 13U, 0U, 0, 1);
     covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 1U);
     /* 'compute_angular_velocity_C:9' Cn = axis2rot(z_n(:,i), theta(i)); */
-    st.site = &sc_emlrtRSI;
+    st.site = &rc_emlrtRSI;
     axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
     /* 'compute_angular_velocity_C:10' s9(:,i) = z_n(:,i); */
     s9[3 * i] = z_n[3 * i];

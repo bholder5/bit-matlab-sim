@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo xc_emlrtRSI = {
+static emlrtRSInfo wc_emlrtRSI = {
     6,                                                          /* lineNo */
     "compute_rotation_mat_yaw_C",                               /* fcnName */
     "/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m" /* pathName */
@@ -52,7 +52,7 @@ void compute_rotation_mat_yaw_C(const emlrtStack *sp, const real_T z_n[27],
     covrtLogFor(&emlrtCoverageInstance, 18U, 0U, 0, 1);
     covrtLogBasicBlock(&emlrtCoverageInstance, 18U, 1U);
     /* 'compute_rotation_mat_yaw_C:6' C = axis2rot(z_n(:,i), theta(i)) * C; */
-    st.site = &xc_emlrtRSI;
+    st.site = &wc_emlrtRSI;
     axis2rot(&st, &z_n[3 * i], theta[i], b_a);
     for (b_i = 0; b_i < 3; b_i++) {
       real_T d;
