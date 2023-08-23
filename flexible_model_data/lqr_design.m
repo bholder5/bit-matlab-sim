@@ -1,7 +1,7 @@
 clear
 clc
 
-load('/home/brad/bit-matlab-sim/flexible_model_data/flex_model');
+load('/home/bholder/bit-matlab-sim/flexible_model_data/flex_model');
 
 num_freqs = 2
 
@@ -13,7 +13,7 @@ r = eye(length(B_red(1,:)));
 
 [K,P1,Pol] = lqr(A_red,B_red,q,r)
 
-Cc = -K;
+Cc = K;
 
 %% make closed loop A
 

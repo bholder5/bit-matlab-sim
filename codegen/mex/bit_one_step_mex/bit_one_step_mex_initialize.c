@@ -62,9 +62,9 @@ static void bit_one_step_mex_once(void)
                   "/home/bholder/bit-matlab-sim/init_func.m", 1U, 1U, 3U, 0U,
                   0U, 0U, 0U, 1U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 1U, 0U, "init_func", 0, -1, 3269);
+  covrtFcnInit(&emlrtCoverageInstance, 1U, 0U, "init_func", 0, -1, 3271);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 1U, 2U, 1944, -1, 3263);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 1U, 2U, 1944, -1, 3265);
   covrtBasicBlockInit(&emlrtCoverageInstance, 1U, 1U, 1764, -1, 1938);
   covrtBasicBlockInit(&emlrtCoverageInstance, 1U, 0U, 340, -1, 1747);
   /* Initialize If Information */

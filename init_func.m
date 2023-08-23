@@ -56,8 +56,8 @@ bear_c_cst = 0.;
 k_d = [0.,0.,0.,0.,0.,0.1*pi/180.0,0.,bear_k_cst,bear_k_cst]';
 b_d = [0.,0.,0.,0.,0.,0.,0.,0.,0.]';
 
-w_rw_max = 2.0*pi;
-w_rw_nom = pi; 
+w_rw_max = 4.0*pi;
+w_rw_nom = 2*pi; 
 hs_rw = i_rw * w_rw_nom * z_n(:,7);
 hs_rw_max = i_rw * w_rw_max * z_n(:,7);
 
