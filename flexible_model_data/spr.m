@@ -1,4 +1,4 @@
-function [Bc] = spr(A_red, B_red)
+function [Bc Cc] = spr(A_red, B_red)
     %UNTITLED2 Summary of this function goes here
     %   Detailed explanation goes here
     A_red = A_mf(1:(2*num_freqs), 1:(2*num_freqs));
