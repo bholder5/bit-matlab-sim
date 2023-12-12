@@ -1,7 +1,7 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2023a">
-  <configuration build-checksum="211697520" file="/home/bholder/bit-matlab-sim/libbitonestep.prj" location="/home/bholder/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/bholder/bit-matlab-sim" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="292754096" file="/home/bholder/bit-matlab-sim/libbitonestep.prj" location="/home/bholder/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/bholder/bit-matlab-sim" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
-      <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
+      <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
       <param.WorkingFolder>option.WorkingFolder.Current</param.WorkingFolder>
       <param.SpecifiedWorkingFolder>/home/brad/bit-matlab-sim</param.SpecifiedWorkingFolder>
@@ -87,7 +87,7 @@
       <param.EnableAutoParallelizationReporting>true</param.EnableAutoParallelizationReporting>
       <param.CacheDynamicArrayDataPointer>true</param.CacheDynamicArrayDataPointer>
       <param.EnableJIT>false</param.EnableJIT>
-      <param.EnableJITSilentBailOut>false</param.EnableJITSilentBailOut>
+      <param.EnableJITSilentBailOut />
       <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
       <param.EnableGitSupport>false</param.EnableGitSupport>
       <param.EnableAutoCommit>true</param.EnableAutoCommit>
@@ -592,12 +592,12 @@
     <param.hdlParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/libbitonestep</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>211697520</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>3625508932</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen/mex/bit_one_step_mex</var.cfi.lastOutputRoot>
     <var.cfi.preBuildChecksum>3053678067</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>sim_loop_rust</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2876861419&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2817071795&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -648,8 +648,8 @@
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
+    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType>option.tensorrt.datatype.fp32</param.tensorrt.DataType>
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches>0</param.tensorrt.NumCalibrationBatches>
@@ -783,8 +783,6 @@
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
       <var.cfiTargetLibSuppression />
-      <var.hasMatlabDeepLearningSupportPackage />
-      <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />
@@ -1153,7 +1151,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>5.15.0-78-generic</osver>
+      <osver>5.15.0-89-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

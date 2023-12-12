@@ -8,7 +8,7 @@ function [eta_dot] = flex_propogate(a_flex, b_flex, tau_applied, tau_flex, x0_fl
     tau_pitch = tau_applied(3) - (tau(4) + tau(5));
     % 
     
-    tau(1) = tau(1) + tau_yaw;
+    tau(1) = -tau(1) + tau_yaw;
     tau(2) = tau(2) + (tau_roll/2);
     tau(3) = tau(3) + (tau_roll/2);
     tau(4) = tau(4) + (tau_pitch/2);

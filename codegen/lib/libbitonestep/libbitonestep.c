@@ -6357,8 +6357,8 @@ void bit_one_step(const real_T x0[21], real_T tau_applied[9], const real_T
     tau_pitch_tmp = k1[23] / dt - (tau_flex[3] + tau_flex[4]);
 
     /*   */
-    /* 'flex_propogate:11' tau(1) = tau(1) + tau_yaw; */
-    tau_tmp = tau_flex[0] + (k1[21] / dt - tau_flex[0]);
+    /* 'flex_propogate:11' tau(1) = -tau(1) + tau_yaw; */
+    tau_tmp = -tau_flex[0] + (k1[21] / dt - tau_flex[0]);
     tau[0] = tau_tmp;
 
     /* 'flex_propogate:12' tau(2) = tau(2) + (tau_roll/2); */
@@ -6387,7 +6387,7 @@ void bit_one_step(const real_T x0[21], real_T tau_applied[9], const real_T
     /* 'flex_propogate:7' tau_roll = tau_applied(2) - (tau(2) + tau(3)); */
     /* 'flex_propogate:8' tau_pitch = tau_applied(3) - (tau(4) + tau(5)); */
     /*   */
-    /* 'flex_propogate:11' tau(1) = tau(1) + tau_yaw; */
+    /* 'flex_propogate:11' tau(1) = -tau(1) + tau_yaw; */
     b_tau[0] = tau_tmp;
 
     /* 'flex_propogate:12' tau(2) = tau(2) + (tau_roll/2); */
@@ -6437,7 +6437,7 @@ void bit_one_step(const real_T x0[21], real_T tau_applied[9], const real_T
     /* 'flex_propogate:7' tau_roll = tau_applied(2) - (tau(2) + tau(3)); */
     /* 'flex_propogate:8' tau_pitch = tau_applied(3) - (tau(4) + tau(5)); */
     /*   */
-    /* 'flex_propogate:11' tau(1) = tau(1) + tau_yaw; */
+    /* 'flex_propogate:11' tau(1) = -tau(1) + tau_yaw; */
     c_tau[0] = tau_tmp;
 
     /* 'flex_propogate:12' tau(2) = tau(2) + (tau_roll/2); */
@@ -6482,7 +6482,7 @@ void bit_one_step(const real_T x0[21], real_T tau_applied[9], const real_T
     /* 'flex_propogate:7' tau_roll = tau_applied(2) - (tau(2) + tau(3)); */
     /* 'flex_propogate:8' tau_pitch = tau_applied(3) - (tau(4) + tau(5)); */
     /*   */
-    /* 'flex_propogate:11' tau(1) = tau(1) + tau_yaw; */
+    /* 'flex_propogate:11' tau(1) = -tau(1) + tau_yaw; */
     d_tau[0] = tau_tmp;
 
     /* 'flex_propogate:12' tau(2) = tau(2) + (tau_roll/2); */
