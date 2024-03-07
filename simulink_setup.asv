@@ -25,7 +25,7 @@ addpath('./flexible_model_data/')
 % r_k = eye(3) * ((ARCSEC/3.0/5.0)^2);
 
 % theta_0 = 0*[0.,0.4*pi/180.0,0.4*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.,0.1,40*pi/180]';
-theta_0 = [0,0.5*pi/180,-0*pi/180,0,0,0.0,0,0,1*-40*pi/180]';
+theta_0 = [0,0.5*pi/180,-0.5*pi/180,0,0,0.0,0,0,1*-40*pi/180]';
 thet_pit_nom = 1* -40*pi/180
 
 %setting IC from past sim
