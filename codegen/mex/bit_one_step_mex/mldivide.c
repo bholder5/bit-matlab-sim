@@ -216,7 +216,7 @@ static emlrtRSInfo lc_emlrtRSI =
 /*
  *
  */
-void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
+void mldivide(const emlrtStack *sp, const real32_T A[81], real32_T B[9])
 {
   emlrtStack b_st;
   emlrtStack c_st;
@@ -231,8 +231,6 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
   emlrtStack l_st;
   emlrtStack m_st;
   emlrtStack st;
-  real_T b_A[81];
-  real_T smax;
   int32_T info;
   int32_T j;
   int32_T jA;
@@ -240,6 +238,8 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
   int32_T k;
   int32_T n;
   int32_T temp_tmp;
+  real32_T b_A[81];
+  real32_T smax;
   int8_T ipiv[9];
   st.prev = sp;
   st.tls = sp->tls;
@@ -273,7 +273,7 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
   d_st.site = &pb_emlrtRSI;
   e_st.site = &rb_emlrtRSI;
   f_st.site = &sb_emlrtRSI;
-  memcpy(&b_A[0], &A[0], 81U * sizeof(real_T));
+  memcpy(&b_A[0], &A[0], 81U * sizeof(real32_T));
   g_st.site = &ub_emlrtRSI;
   for (temp_tmp = 0; temp_tmp < 9; temp_tmp++) {
     ipiv[temp_tmp] = (int8_T)(temp_tmp + 1);
@@ -287,17 +287,17 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
     h_st.site = &vb_emlrtRSI;
     i_st.site = &yb_emlrtRSI;
     jA = 0;
-    smax = muDoubleScalarAbs(b_A[b_tmp]);
+    smax = muSingleScalarAbs(b_A[b_tmp]);
     j_st.site = &ac_emlrtRSI;
     for (k = 2; k <= n; k++) {
-      real_T s;
-      s = muDoubleScalarAbs(b_A[(b_tmp + k) - 1]);
+      real32_T s;
+      s = muSingleScalarAbs(b_A[(b_tmp + k) - 1]);
       if (s > smax) {
         jA = k - 1;
         smax = s;
       }
     }
-    if (b_A[b_tmp + jA] != 0.0) {
+    if (b_A[b_tmp + jA] != 0.0F) {
       if (jA != 0) {
         jA += j;
         ipiv[j] = (int8_T)(jA + 1);
@@ -326,7 +326,7 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
     l_st.site = &ec_emlrtRSI;
     for (jp1j = 0; jp1j <= n; jp1j++) {
       smax = b_A[(b_tmp + jp1j * 9) + 9];
-      if (smax != 0.0) {
+      if (smax != 0.0F) {
         temp_tmp = (jA - j) + 7;
         l_st.site = &fc_emlrtRSI;
         if ((jA <= temp_tmp) && (temp_tmp > 2147483646)) {
@@ -340,7 +340,7 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
       jA += 9;
     }
   }
-  if ((info == 0) && (!(b_A[80] != 0.0))) {
+  if ((info == 0) && (!(b_A[80] != 0.0F))) {
     info = 9;
   }
   f_st.site = &tb_emlrtRSI;
@@ -358,7 +358,7 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
   i_st.site = &jc_emlrtRSI;
   for (k = 0; k < 9; k++) {
     jA = 9 * k;
-    if (B[k] != 0.0) {
+    if (B[k] != 0.0F) {
       temp_tmp = k + 2;
       j_st.site = &kc_emlrtRSI;
       for (n = temp_tmp; n < 10; n++) {
@@ -371,7 +371,7 @@ void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9])
   for (k = 8; k >= 0; k--) {
     jA = 9 * k;
     smax = B[k];
-    if (smax != 0.0) {
+    if (smax != 0.0F) {
       smax /= b_A[k + jA];
       B[k] = smax;
       j_st.site = &lc_emlrtRSI;

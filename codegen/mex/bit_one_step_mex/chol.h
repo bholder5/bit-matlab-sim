@@ -22,6 +22,6 @@
 #include <string.h>
 
 /* Function Declarations */
-void chol(const emlrtStack *sp, real_T A[81]);
+void chol(const emlrtStack *sp, real32_T A[81]);
 
 /* End of code generation (chol.h) */

@@ -84,10 +84,10 @@ static emlrtRTEInfo f_emlrtRTEI = {
 /*
  *
  */
-void chol(const emlrtStack *sp, real_T A[81])
+void chol(const emlrtStack *sp, real32_T A[81])
 {
   static const char_T fname[19] = {'L', 'A', 'P', 'A', 'C', 'K', 'E',
-                                   '_', 'd', 'p', 'o', 't', 'r', 'f',
+                                   '_', 's', 'p', 'o', 't', 'r', 'f',
                                    '_', 'w', 'o', 'r', 'k'};
   ptrdiff_t info_t;
   emlrtStack b_st;
@@ -104,7 +104,7 @@ void chol(const emlrtStack *sp, real_T A[81])
   c_st.prev = &b_st;
   c_st.tls = b_st.tls;
   b_st.site = &kb_emlrtRSI;
-  info_t = LAPACKE_dpotrf_work(102, 'U', (ptrdiff_t)9, &A[0], (ptrdiff_t)9);
+  info_t = LAPACKE_spotrf_work(102, 'U', (ptrdiff_t)9, &A[0], (ptrdiff_t)9);
   info = (int32_T)info_t;
   c_st.site = &w_emlrtRSI;
   if (info < 0) {
@@ -129,7 +129,7 @@ void chol(const emlrtStack *sp, real_T A[81])
     st.site = &jb_emlrtRSI;
     if (a <= jmax + 2) {
       memset(&A[(j * 9 + a) + -1], 0,
-             (uint32_T)((jmax - a) + 3) * sizeof(real_T));
+             (uint32_T)((jmax - a) + 3) * sizeof(real32_T));
     }
   }
   if (info != 0) {

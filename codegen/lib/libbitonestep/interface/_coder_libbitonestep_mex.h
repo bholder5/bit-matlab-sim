@@ -2,17 +2,16 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: _coder_libbitonestep_mex.h
  *
- * _coder_libbitonestep_mex.h
- *
- * Code generation for function 'bit_one_step'
- *
+ * MATLAB Coder version            : 5.6
+ * C/C++ source code generated on  : 14-Mar-2024 11:31:39
  */
 
 #ifndef _CODER_LIBBITONESTEP_MEX_H
 #define _CODER_LIBBITONESTEP_MEX_H
 
-/* Include files */
+/* Include Files */
 #include "emlrt.h"
 #include "mex.h"
 #include "tmwtypes.h"
@@ -61,4 +60,8 @@ void rot2axis_C_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
 #endif
 
 #endif
-/* End of code generation (_coder_libbitonestep_mex.h) */
+/*
+ * File trailer for _coder_libbitonestep_mex.h
+ *
+ * [EOF]
+ */

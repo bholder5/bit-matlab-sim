@@ -2,11 +2,10 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: main.c
  *
- * main.c
- *
- * Code generation for function 'main'
- *
+ * MATLAB Coder version            : 5.6
+ * C/C++ source code generated on  : 14-Mar-2024 11:31:39
  */
 
 /*************************************************************************/
@@ -34,29 +33,32 @@
 /*                                                                       */
 /*************************************************************************/
 
-/* Include files */
+/* Include Files */
 #include "main.h"
 #include "libbitonestep.h"
 #include "libbitonestep_internal_types.h"
 #include <stdio.h>
-#include <string.h>
 
 /* Function Declarations */
-static void argInit_104x1_real_T(real_T result[104]);
+static void argInit_104x1_real32_T(real32_T result[104]);
 
 static void argInit_18x1_real_T(real_T result[18]);
 
-static void argInit_21x1_real_T(real_T result[21]);
+static void argInit_21x1_real32_T(real32_T result[21]);
 
 static void argInit_3x3_real_T(real_T result[3][3]);
 
 static void argInit_3x9_real_T(real_T result[9][3]);
 
-static void argInit_5x1_real_T(real_T result[5]);
+static void argInit_5x1_real32_T(real32_T result[5]);
+
+static void argInit_9x1_real32_T(real32_T result[9]);
 
 static void argInit_9x1_real_T(real_T result[9]);
 
 static boolean_T argInit_boolean_T(void);
+
+static real32_T argInit_real32_T(void);
 
 static real_T argInit_real_T(void);
 
@@ -65,17 +67,25 @@ static uint16_T argInit_uint16_T(void);
 static void b_rtErrorWithMessageID(const char_T *aFcnName, int32_T aLineNum);
 
 /* Function Definitions */
-static void argInit_104x1_real_T(real_T result[104])
+/*
+ * Arguments    : real32_T result[104]
+ * Return Type  : void
+ */
+static void argInit_104x1_real32_T(real32_T result[104])
 {
   int32_T idx0;
   /* Loop over the array to initialize each element. */
   for (idx0 = 0; idx0 < 104; idx0++) {
     /* Set the value of the array element.
 Change this value to the value that the application requires. */
-    result[idx0] = argInit_real_T();
+    result[idx0] = argInit_real32_T();
   }
 }
 
+/*
+ * Arguments    : real_T result[18]
+ * Return Type  : void
+ */
 static void argInit_18x1_real_T(real_T result[18])
 {
   int32_T idx0;
@@ -87,17 +97,25 @@ Change this value to the value that the application requires. */
   }
 }
 
-static void argInit_21x1_real_T(real_T result[21])
+/*
+ * Arguments    : real32_T result[21]
+ * Return Type  : void
+ */
+static void argInit_21x1_real32_T(real32_T result[21])
 {
   int32_T idx0;
   /* Loop over the array to initialize each element. */
   for (idx0 = 0; idx0 < 21; idx0++) {
     /* Set the value of the array element.
 Change this value to the value that the application requires. */
-    result[idx0] = argInit_real_T();
+    result[idx0] = argInit_real32_T();
   }
 }
 
+/*
+ * Arguments    : real_T result[3][3]
+ * Return Type  : void
+ */
 static void argInit_3x3_real_T(real_T result[3][3])
 {
   int32_T idx0;
@@ -112,6 +130,10 @@ Change this value to the value that the application requires. */
   }
 }
 
+/*
+ * Arguments    : real_T result[9][3]
+ * Return Type  : void
+ */
 static void argInit_3x9_real_T(real_T result[9][3])
 {
   int32_T idx0;
@@ -126,17 +148,40 @@ Change this value to the value that the application requires. */
   }
 }
 
-static void argInit_5x1_real_T(real_T result[5])
+/*
+ * Arguments    : real32_T result[5]
+ * Return Type  : void
+ */
+static void argInit_5x1_real32_T(real32_T result[5])
 {
   int32_T idx0;
   /* Loop over the array to initialize each element. */
   for (idx0 = 0; idx0 < 5; idx0++) {
     /* Set the value of the array element.
 Change this value to the value that the application requires. */
-    result[idx0] = argInit_real_T();
+    result[idx0] = argInit_real32_T();
   }
 }
 
+/*
+ * Arguments    : real32_T result[9]
+ * Return Type  : void
+ */
+static void argInit_9x1_real32_T(real32_T result[9])
+{
+  int32_T idx0;
+  /* Loop over the array to initialize each element. */
+  for (idx0 = 0; idx0 < 9; idx0++) {
+    /* Set the value of the array element.
+Change this value to the value that the application requires. */
+    result[idx0] = argInit_real32_T();
+  }
+}
+
+/*
+ * Arguments    : real_T result[9]
+ * Return Type  : void
+ */
 static void argInit_9x1_real_T(real_T result[9])
 {
   int32_T idx0;
@@ -148,31 +193,63 @@ Change this value to the value that the application requires. */
   }
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : boolean_T
+ */
 static boolean_T argInit_boolean_T(void)
 {
   return false;
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : real32_T
+ */
+static real32_T argInit_real32_T(void)
+{
+  return 0.0F;
+}
+
+/*
+ * Arguments    : void
+ * Return Type  : real_T
+ */
 static real_T argInit_real_T(void)
 {
   return 0.0;
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : uint16_T
+ */
 static uint16_T argInit_uint16_T(void)
 {
   return 0U;
 }
 
+/*
+ * Arguments    : const char_T *aFcnName
+ *                int32_T aLineNum
+ * Return Type  : void
+ */
 static void b_rtErrorWithMessageID(const char_T *aFcnName, int32_T aLineNum)
 {
-  fprintf(stderr, "Example main does not support command line arguments.");
-  fprintf(stderr, "\n");
-  fprintf(stderr, "Error in %s (line %d)", aFcnName, aLineNum);
-  fprintf(stderr, "\n");
-  fflush(stderr);
+  (void)fprintf(stderr,
+                "Example main does not support command line arguments.");
+  (void)fprintf(stderr, "\n");
+  (void)fprintf(stderr, "Error in %s (line %d)", aFcnName, aLineNum);
+  (void)fprintf(stderr, "\n");
+  (void)fflush(stderr);
   abort();
 }
 
+/*
+ * Arguments    : int32_T argc
+ *                char **argv
+ * Return Type  : int32_T
+ */
 int32_T main(int32_T argc, char **argv)
 {
   static rtRunTimeErrorInfo emlrtRTEI = {
@@ -201,36 +278,47 @@ You do not need to do this more than one time. */
   return 0;
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_bit_one_step(void)
 {
-  real_T dv1[104];
-  real_T y_flex[104];
-  real_T dv[21];
-  real_T y_true[21];
-  real_T b_tau_applied_tmp[9];
-  real_T tau_applied_tmp[9];
-  real_T dv2[5];
-  real_T w_piv_tmp;
+  int32_T b_i;
+  real32_T fv1[104];
+  real32_T fv[21];
+  real32_T b_tau_applied_tmp[9];
+  real32_T tau_applied_tmp[9];
+  real32_T fv2[5];
+  real32_T w_piv_tmp;
   boolean_T piv_flag_tmp;
   /* Initialize function 'bit_one_step' input arguments. */
   /* Initialize function input argument 'x0'. */
   /* Initialize function input argument 'tau_applied'. */
-  argInit_9x1_real_T(tau_applied_tmp);
+  argInit_9x1_real32_T(tau_applied_tmp);
   /* Initialize function input argument 'unlock'. */
-  w_piv_tmp = argInit_real_T();
+  w_piv_tmp = argInit_real32_T();
   piv_flag_tmp = argInit_boolean_T();
   /* Initialize function input argument 'x_flex0'. */
   /* Initialize function input argument 'tau_flex'. */
   /* Call the entry-point 'bit_one_step'. */
-  argInit_21x1_real_T(dv);
-  argInit_104x1_real_T(dv1);
-  argInit_5x1_real_T(dv2);
-  memcpy(&b_tau_applied_tmp[0], &tau_applied_tmp[0], 9U * sizeof(real_T));
-  bit_one_step(dv, b_tau_applied_tmp, tau_applied_tmp, w_piv_tmp, piv_flag_tmp,
-               w_piv_tmp, argInit_uint16_T(), w_piv_tmp, w_piv_tmp, dv1, dv2,
+  argInit_21x1_real32_T(fv);
+  argInit_104x1_real32_T(fv1);
+  argInit_5x1_real32_T(fv2);
+  for (b_i = 0; b_i < 9; b_i++) {
+    b_tau_applied_tmp[b_i] = tau_applied_tmp[b_i];
+  }
+  real32_T y_flex[104];
+  real32_T y_true[21];
+  bit_one_step(fv, b_tau_applied_tmp, tau_applied_tmp, w_piv_tmp, piv_flag_tmp,
+               w_piv_tmp, argInit_uint16_T(), w_piv_tmp, w_piv_tmp, fv1, fv2,
                piv_flag_tmp, y_true, y_flex);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_compute_angular_velocity_C(void)
 {
   real_T dv1[9][3];
@@ -245,6 +333,10 @@ void main_compute_angular_velocity_C(void)
   compute_angular_velocity_C(dv, dv1, omega);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_compute_angular_velocity_roll_C(void)
 {
   real_T dv1[9][3];
@@ -259,6 +351,10 @@ void main_compute_angular_velocity_roll_C(void)
   compute_angular_velocity_roll_C(dv, dv1, omega);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_compute_angular_velocity_yaw_C(void)
 {
   real_T dv1[9][3];
@@ -273,6 +369,10 @@ void main_compute_angular_velocity_yaw_C(void)
   compute_angular_velocity_yaw_C(dv, dv1, omega);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_compute_rotation_mat_C(void)
 {
   real_T dv[9][3];
@@ -287,6 +387,10 @@ void main_compute_rotation_mat_C(void)
   compute_rotation_mat_C(dv, dv1, C);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_compute_rotation_mat_roll_C(void)
 {
   real_T dv[9][3];
@@ -301,6 +405,10 @@ void main_compute_rotation_mat_roll_C(void)
   compute_rotation_mat_roll_C(dv, dv1, C);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_compute_rotation_mat_yaw_C(void)
 {
   real_T dv[9][3];
@@ -315,6 +423,10 @@ void main_compute_rotation_mat_yaw_C(void)
   compute_rotation_mat_yaw_C(dv, dv1, C);
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : void
+ */
 void main_rot2axis_C(void)
 {
   real_T dv[3][3];
@@ -327,4 +439,8 @@ void main_rot2axis_C(void)
   rot2axis_C(dv, v, &phi);
 }
 
-/* End of code generation (main.c) */
+/*
+ * File trailer for main.c
+ *
+ * [EOF]
+ */

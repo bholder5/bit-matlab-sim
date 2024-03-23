@@ -22,6 +22,6 @@
 #include <string.h>
 
 /* Function Declarations */
-void mass_mat_func_gb(const real_T in1[9], real_T M[81]);
+void mass_mat_func_gb(const real32_T in1[9], real32_T M[81]);
 
 /* End of code generation (mass_mat_func_gb.h) */

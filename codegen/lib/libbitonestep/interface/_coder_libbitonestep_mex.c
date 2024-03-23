@@ -2,18 +2,24 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: _coder_libbitonestep_mex.c
  *
- * _coder_libbitonestep_mex.c
- *
- * Code generation for function 'bit_one_step'
- *
+ * MATLAB Coder version            : 5.6
+ * C/C++ source code generated on  : 14-Mar-2024 11:31:39
  */
 
-/* Include files */
+/* Include Files */
 #include "_coder_libbitonestep_mex.h"
 #include "_coder_libbitonestep_api.h"
 
 /* Function Definitions */
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[2]
+ *                int32_T nrhs
+ *                const mxArray *prhs[12]
+ * Return Type  : void
+ */
 void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
                               const mxArray *prhs[12])
 {
@@ -24,7 +30,7 @@ void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
   };
   const mxArray *b_prhs[12];
   const mxArray *outputs[2];
-  int32_T i;
+  int32_T b_i;
   int32_T i1;
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
@@ -37,8 +43,8 @@ void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
                         "bit_one_step");
   }
   /* Call the function. */
-  for (i = 0; i < 12; i++) {
-    b_prhs[i] = prhs[i];
+  for (b_i = 0; b_i < 12; b_i++) {
+    b_prhs[b_i] = prhs[b_i];
   }
   bit_one_step_api(b_prhs, nlhs, outputs);
   /* Copy over outputs to the caller. */
@@ -50,6 +56,13 @@ void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
   emlrtReturnArrays(i1, &plhs[0], &outputs[0]);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[1]
+ *                int32_T nrhs
+ *                const mxArray *prhs[2]
+ * Return Type  : void
+ */
 void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                             int32_T nrhs,
                                             const mxArray *prhs[2])
@@ -79,6 +92,13 @@ void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[1]
+ *                int32_T nrhs
+ *                const mxArray *prhs[2]
+ * Return Type  : void
+ */
 void compute_angular_velocity_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                                  int32_T nrhs,
                                                  const mxArray *prhs[2])
@@ -108,6 +128,13 @@ void compute_angular_velocity_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[1]
+ *                int32_T nrhs
+ *                const mxArray *prhs[2]
+ * Return Type  : void
+ */
 void compute_angular_velocity_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                                 int32_T nrhs,
                                                 const mxArray *prhs[2])
@@ -137,6 +164,13 @@ void compute_angular_velocity_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[1]
+ *                int32_T nrhs
+ *                const mxArray *prhs[2]
+ * Return Type  : void
+ */
 void compute_rotation_mat_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                         int32_T nrhs, const mxArray *prhs[2])
 {
@@ -165,6 +199,13 @@ void compute_rotation_mat_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[1]
+ *                int32_T nrhs
+ *                const mxArray *prhs[2]
+ * Return Type  : void
+ */
 void compute_rotation_mat_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                              int32_T nrhs,
                                              const mxArray *prhs[2])
@@ -194,6 +235,13 @@ void compute_rotation_mat_roll_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[1]
+ *                int32_T nrhs
+ *                const mxArray *prhs[2]
+ * Return Type  : void
+ */
 void compute_rotation_mat_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                             int32_T nrhs,
                                             const mxArray *prhs[2])
@@ -223,6 +271,13 @@ void compute_rotation_mat_yaw_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[]
+ *                int32_T nrhs
+ *                const mxArray *prhs[]
+ * Return Type  : void
+ */
 void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
                  const mxArray *prhs[])
 {
@@ -245,7 +300,7 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
   st.tls = emlrtRootTLSGlobal;
   /* Dispatch the entry-point. */
   switch (emlrtGetEntryPointIndexR2016a(
-      &st, nrhs, &prhs[0], (const char_T **)&emlrtEntryPoints[0], 8)) {
+      &st, nrhs, &prhs[0], (const char_T **)(&emlrtEntryPoints[0]), 8)) {
   case 0:
     bit_one_step_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
     break;
@@ -270,11 +325,18 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
   case 7:
     rot2axis_C_mexFunction(nlhs, plhs, nrhs - 1, &prhs[1]);
     break;
+  default:
+    /* no actions */
+    break;
   }
   /* Module termination. */
   libbitonestep_terminate();
 }
 
+/*
+ * Arguments    : void
+ * Return Type  : emlrtCTX
+ */
 emlrtCTX mexFunctionCreateRootTLS(void)
 {
   emlrtCreateRootTLSR2022a(&emlrtRootTLSGlobal, &emlrtContextGlobal, NULL, 1,
@@ -282,6 +344,13 @@ emlrtCTX mexFunctionCreateRootTLS(void)
   return emlrtRootTLSGlobal;
 }
 
+/*
+ * Arguments    : int32_T nlhs
+ *                mxArray *plhs[2]
+ *                int32_T nrhs
+ *                const mxArray *prhs[1]
+ * Return Type  : void
+ */
 void rot2axis_C_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
                             const mxArray *prhs[1])
 {
@@ -291,7 +360,7 @@ void rot2axis_C_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
       NULL  /* prev */
   };
   const mxArray *outputs[2];
-  int32_T i;
+  int32_T b_i;
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
   if (nrhs != 1) {
@@ -306,11 +375,15 @@ void rot2axis_C_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
   rot2axis_C_api(prhs[0], nlhs, outputs);
   /* Copy over outputs to the caller. */
   if (nlhs < 1) {
-    i = 1;
+    b_i = 1;
   } else {
-    i = nlhs;
+    b_i = nlhs;
   }
-  emlrtReturnArrays(i, &plhs[0], &outputs[0]);
+  emlrtReturnArrays(b_i, &plhs[0], &outputs[0]);
 }
 
-/* End of code generation (_coder_libbitonestep_mex.c) */
+/*
+ * File trailer for _coder_libbitonestep_mex.c
+ *
+ * [EOF]
+ */

@@ -2,17 +2,16 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: _coder_libbitonestep_api.h
  *
- * _coder_libbitonestep_api.h
- *
- * Code generation for function 'bit_one_step'
- *
+ * MATLAB Coder version            : 5.6
+ * C/C++ source code generated on  : 14-Mar-2024 11:31:39
  */
 
 #ifndef _CODER_LIBBITONESTEP_API_H
 #define _CODER_LIBBITONESTEP_API_H
 
-/* Include files */
+/* Include Files */
 #include "emlrt.h"
 #include "tmwtypes.h"
 #include <string.h>
@@ -26,12 +25,12 @@ extern "C" {
 #endif
 
 /* Function Declarations */
-void bit_one_step(real_T x0[21], real_T tau_applied[9], real_T unlock[9],
-                  real_T w_piv, boolean_T piv_flag, real_T dt,
-                  uint16_T num_steps, real_T tau_max_piv, real_T thet_pit_nom,
-                  real_T x_flex0[104], real_T tau_flex[5],
-                  boolean_T flexure_flag, real_T y_true[21],
-                  real_T y_flex[104]);
+void bit_one_step(real32_T x0[21], real32_T tau_applied[9], real32_T unlock[9],
+                  real32_T w_piv, boolean_T piv_flag, real32_T dt,
+                  uint16_T num_steps, real32_T tau_max_piv,
+                  real32_T thet_pit_nom, real32_T x_flex0[104],
+                  real32_T tau_flex[5], boolean_T flexure_flag,
+                  real32_T y_true[21], real32_T y_flex[104]);
 
 void bit_one_step_api(const mxArray *const prhs[12], int32_T nlhs,
                       const mxArray *plhs[2]);
@@ -90,4 +89,8 @@ void rot2axis_C_api(const mxArray *prhs, int32_T nlhs, const mxArray *plhs[2]);
 #endif
 
 #endif
-/* End of code generation (_coder_libbitonestep_api.h) */
+/*
+ * File trailer for _coder_libbitonestep_api.h
+ *
+ * [EOF]
+ */

@@ -22,6 +22,6 @@
 #include <string.h>
 
 /* Function Declarations */
-void mldivide(const emlrtStack *sp, const real_T A[81], real_T B[9]);
+void mldivide(const emlrtStack *sp, const real32_T A[81], real32_T B[9]);
 
 /* End of code generation (mldivide.h) */

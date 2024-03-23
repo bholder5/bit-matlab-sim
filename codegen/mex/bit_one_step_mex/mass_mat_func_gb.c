@@ -14,121 +14,120 @@
 #include "bit_one_step_mex_data.h"
 #include "rt_nonfinite.h"
 #include "mwmathutil.h"
-#include <string.h>
 
 /* Function Declarations */
-static void ft_1(const real_T ct[334], real_T M[81]);
+static void ft_1(const real32_T ct[334], real32_T M[81]);
 
-static void ft_2(const real_T ct[570], real_T M[81]);
+static void ft_2(const real32_T ct[570], real32_T M[81]);
 
 /* Function Definitions */
 /*
  * function M = ft_1(ct)
  */
-static void ft_1(const real_T ct[334], real_T M[81])
+static void ft_1(const real32_T ct[334], real32_T M[81])
 {
-  real_T b_ct[570];
-  real_T b_ct_tmp;
-  real_T b_t901_tmp;
-  real_T c_ct_tmp;
-  real_T ct_tmp;
-  real_T d_ct_tmp;
-  real_T e_ct_tmp;
-  real_T f_ct_tmp;
-  real_T g_ct_tmp;
-  real_T h_ct_tmp;
-  real_T i_ct_tmp;
-  real_T j_ct_tmp;
-  real_T k_ct_tmp;
-  real_T l_ct_tmp;
-  real_T m_ct_tmp;
-  real_T t459;
-  real_T t466;
-  real_T t468;
-  real_T t470;
-  real_T t472;
-  real_T t473;
-  real_T t475;
-  real_T t476;
-  real_T t478;
-  real_T t489;
-  real_T t490;
-  real_T t526;
-  real_T t529;
-  real_T t545;
-  real_T t547;
-  real_T t548;
-  real_T t549;
-  real_T t557;
-  real_T t573;
-  real_T t573_tmp;
-  real_T t574;
-  real_T t577;
-  real_T t578;
-  real_T t581;
-  real_T t582;
-  real_T t583;
-  real_T t587;
-  real_T t589;
-  real_T t592;
-  real_T t592_tmp;
-  real_T t592_tmp_tmp;
-  real_T t595;
-  real_T t606;
-  real_T t607;
-  real_T t609;
-  real_T t624;
-  real_T t625;
-  real_T t629;
-  real_T t645;
-  real_T t646;
-  real_T t647;
-  real_T t648;
-  real_T t652;
-  real_T t653;
-  real_T t657;
-  real_T t666;
-  real_T t667;
-  real_T t673;
-  real_T t684;
-  real_T t684_tmp;
-  real_T t691;
-  real_T t702;
-  real_T t702_tmp;
-  real_T t710;
-  real_T t712;
-  real_T t723;
-  real_T t725;
-  real_T t728;
-  real_T t729;
-  real_T t736;
-  real_T t737;
-  real_T t740;
-  real_T t743;
-  real_T t744;
-  real_T t749;
-  real_T t752;
-  real_T t753;
-  real_T t773;
-  real_T t773_tmp;
-  real_T t780;
-  real_T t789;
-  real_T t794;
-  real_T t802;
-  real_T t816;
-  real_T t817;
-  real_T t818;
-  real_T t861;
-  real_T t883;
-  real_T t883_tmp;
-  real_T t901;
-  real_T t901_tmp;
-  real_T t929;
-  real_T t929_tmp;
-  real_T t945;
-  real_T t951;
-  real_T t998;
-  real_T t999;
+  real32_T b_ct[570];
+  real32_T b_ct_tmp;
+  real32_T b_t901_tmp;
+  real32_T c_ct_tmp;
+  real32_T ct_tmp;
+  real32_T d_ct_tmp;
+  real32_T e_ct_tmp;
+  real32_T f_ct_tmp;
+  real32_T g_ct_tmp;
+  real32_T h_ct_tmp;
+  real32_T i_ct_tmp;
+  real32_T j_ct_tmp;
+  real32_T k_ct_tmp;
+  real32_T l_ct_tmp;
+  real32_T m_ct_tmp;
+  real32_T t459;
+  real32_T t466;
+  real32_T t468;
+  real32_T t470;
+  real32_T t472;
+  real32_T t473;
+  real32_T t475;
+  real32_T t476;
+  real32_T t478;
+  real32_T t489;
+  real32_T t490;
+  real32_T t526;
+  real32_T t529;
+  real32_T t545;
+  real32_T t547;
+  real32_T t548;
+  real32_T t549;
+  real32_T t557;
+  real32_T t573;
+  real32_T t573_tmp;
+  real32_T t574;
+  real32_T t577;
+  real32_T t578;
+  real32_T t581;
+  real32_T t582;
+  real32_T t583;
+  real32_T t587;
+  real32_T t589;
+  real32_T t592;
+  real32_T t592_tmp;
+  real32_T t592_tmp_tmp;
+  real32_T t595;
+  real32_T t606;
+  real32_T t607;
+  real32_T t609;
+  real32_T t624;
+  real32_T t625;
+  real32_T t629;
+  real32_T t645;
+  real32_T t646;
+  real32_T t647;
+  real32_T t648;
+  real32_T t652;
+  real32_T t653;
+  real32_T t657;
+  real32_T t666;
+  real32_T t667;
+  real32_T t673;
+  real32_T t684;
+  real32_T t684_tmp;
+  real32_T t691;
+  real32_T t702;
+  real32_T t702_tmp;
+  real32_T t710;
+  real32_T t712;
+  real32_T t723;
+  real32_T t725;
+  real32_T t728;
+  real32_T t729;
+  real32_T t736;
+  real32_T t737;
+  real32_T t740;
+  real32_T t743;
+  real32_T t744;
+  real32_T t749;
+  real32_T t752;
+  real32_T t753;
+  real32_T t773;
+  real32_T t773_tmp;
+  real32_T t780;
+  real32_T t789;
+  real32_T t794;
+  real32_T t802;
+  real32_T t816;
+  real32_T t817;
+  real32_T t818;
+  real32_T t861;
+  real32_T t883;
+  real32_T t883_tmp;
+  real32_T t901;
+  real32_T t901_tmp;
+  real32_T t929;
+  real32_T t929_tmp;
+  real32_T t945;
+  real32_T t951;
+  real32_T t998;
+  real32_T t999;
   covrtLogFcn(&emlrtCoverageInstance, 11U, 1U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 1U);
   /* 'mass_mat_func_gb:511'
@@ -137,7 +136,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:512' t572 = t44.*t45.*t355.*2.46e+2; */
   /* 'mass_mat_func_gb:513' t573 = t43.*t44.*t355.*4.55e+2; */
   t573_tmp = ct[214] * ct[225];
-  t573 = t573_tmp * ct[150] * 455.0;
+  t573 = t573_tmp * ct[150] * 455.0F;
   /* 'mass_mat_func_gb:514' t583 = t254+t255; */
   t583 = ct[73] + ct[74];
   /* 'mass_mat_func_gb:515' t585 = t32.*t40.*t355.*5.39e+2; */
@@ -146,11 +145,11 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:517' t592 = t36.*t40.*t355.*4.05e+2; */
   t592_tmp_tmp = ct[153] * ct[184];
   t592_tmp = t592_tmp_tmp * ct[150];
-  t592 = t592_tmp * 405.0;
+  t592 = t592_tmp * 405.0F;
   /* 'mass_mat_func_gb:518' t595 = t228+t326; */
   t595 = ct[58] + ct[127];
   /* 'mass_mat_func_gb:519' t607 = t35.*t422.*4.55e+2; */
-  t607 = ct[145] * ct[206] * 455.0;
+  t607 = ct[145] * ct[206] * 455.0F;
   /* 'mass_mat_func_gb:520' t610 = t37.*t38.*t374.*2.44e+2; */
   /* 'mass_mat_func_gb:521' t615 = t37.*t46.*t375.*2.13e+2; */
   /* 'mass_mat_func_gb:522' t620 = t44.*t427.*4.55e+2; */
@@ -160,7 +159,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:526' t624 = t217+t319; */
   t624 = ct[52] + ct[124];
   /* 'mass_mat_func_gb:527' t625 = t36.*t40.*t355.*-1.34e+2; */
-  t625 = t592_tmp * -134.0;
+  t625 = t592_tmp * -134.0F;
   /* 'mass_mat_func_gb:528' t629 = t218+t346; */
   t629 = ct[53] + ct[141];
   /* 'mass_mat_func_gb:529' t650 = -t619; */
@@ -175,18 +174,18 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:536' t684 = t35.*t36.*t40.*t355.*4.453e+3; */
   t592_tmp = ct[145] * ct[153];
   t684_tmp = t592_tmp * ct[184] * ct[150];
-  t684 = t684_tmp * 4453.0;
+  t684 = t684_tmp * 4453.0F;
   /* 'mass_mat_func_gb:537' t685 = -t22.*(t103-t383); */
   /* 'mass_mat_func_gb:538' t691 = t35.*t36.*t48.*t355.*4.453e+3; */
-  t691 = t592_tmp * ct[254] * ct[150] * 4453.0;
+  t691 = t592_tmp * ct[254] * ct[150] * 4453.0F;
   /* 'mass_mat_func_gb:539' t693 = -t23.*(t64-t384); */
   /* 'mass_mat_func_gb:540' t696 = t44.*t84.*t355.*4.453e+3; */
   /* 'mass_mat_func_gb:541' t702 = t34.*t43.*t422.*4.55e+2; */
   t702_tmp = ct[137] * ct[214];
-  t702 = t702_tmp * ct[206] * 455.0;
+  t702 = t702_tmp * ct[206] * 455.0F;
   /* 'mass_mat_func_gb:542' t704 = t36.*t43.*t427.*4.55e+2; */
   /* 'mass_mat_func_gb:543' t710 = t35.*t36.*t40.*t355.*9.15e+3; */
-  t710 = t684_tmp * 9150.0;
+  t710 = t684_tmp * 9150.0F;
   /* 'mass_mat_func_gb:544' t718 = t44.*t91.*t355.*(5.11e+2./5.0); */
   /* 'mass_mat_func_gb:545' t721 = t44.*t99.*t355.*(5.11e+2./5.0); */
   /* 'mass_mat_func_gb:546' t735 = t31.*(t64-t384); */
@@ -197,7 +196,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:551' t771 = t34.*t36.*t40.*t43.*t355.*4.453e+3; */
   /* 'mass_mat_func_gb:552' t773 = t34.*t36.*t43.*t48.*t355.*4.453e+3; */
   t773_tmp = ct[137] * ct[153];
-  t773 = t773_tmp * ct[214] * ct[254] * ct[150] * 4453.0;
+  t773 = t773_tmp * ct[214] * ct[254] * ct[150] * 4453.0F;
   /* 'mass_mat_func_gb:553' t774 = -t748; */
   /* 'mass_mat_func_gb:554' t780 = t197+t450; */
   t780 = ct[42] + ct[236];
@@ -209,13 +208,13 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:559' t806 = -t782; */
   /* 'mass_mat_func_gb:560' t836 = -t23.*(t194-t451); */
   /* 'mass_mat_func_gb:561' t861 = t355.*t364.*4.55e+2; */
-  t861 = ct[150] * ct[158] * 455.0;
+  t861 = ct[150] * ct[158] * 455.0F;
   /* 'mass_mat_func_gb:562' t870 = -t32.*(t354-t386); */
   /* 'mass_mat_func_gb:563' t873 = t372.*t374.*2.44e+2; */
   /* 'mass_mat_func_gb:564' t901 = t40.*t355.*t364.*4.05e+2; */
   t901_tmp = ct[150] * ct[184];
   b_t901_tmp = t901_tmp * ct[158];
-  t901 = b_t901_tmp * 405.0;
+  t901 = b_t901_tmp * 405.0F;
   /* 'mass_mat_func_gb:565' t909 = t48.*t355.*t364.*3.39e+2; */
   /* 'mass_mat_func_gb:566' t922 = t40.*t355.*t364.*-1.34e+2; */
   /* 'mass_mat_func_gb:567' t940 = t207+t337+t338; */
@@ -270,7 +269,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:605' t516 = -t460; */
   /* 'mass_mat_func_gb:606' t518 = -t463; */
   /* 'mass_mat_func_gb:607' t526 = t458.*3.39e+2; */
-  t526 = ct[244] * 339.0;
+  t526 = ct[244] * 339.0F;
   /* 'mass_mat_func_gb:608' t529 = t35.*t445; */
   t529 = ct[145] * ct[231];
   /* 'mass_mat_func_gb:609' t530 = t39.*t445; */
@@ -303,15 +302,15 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:627' t584 = -t546; */
   /* 'mass_mat_func_gb:628' t586 = t29.*t480; */
   /* 'mass_mat_func_gb:629' t589 = t487.*4.08e+2; */
-  t589 = ct[262] * 408.0;
+  t589 = ct[262] * 408.0F;
   /* 'mass_mat_func_gb:630' t590 = t487.*4.09e+2; */
   /* 'mass_mat_func_gb:631' t604 = t507.*1.34e+2; */
   /* 'mass_mat_func_gb:632' t605 = t41.*t458.*2.44e+2; */
   /* 'mass_mat_func_gb:633' t606 = t507.*4.05e+2; */
-  t606 = ct[272] * 405.0;
+  t606 = ct[272] * 405.0F;
   /* 'mass_mat_func_gb:634' t608 = t508.*(7.0./5.0); */
   /* 'mass_mat_func_gb:635' t609 = t49.*t458.*2.13e+2; */
-  t609 = ct[244] * ct[263] * 213.0;
+  t609 = ct[244] * ct[263] * 213.0F;
   /* 'mass_mat_func_gb:636' t611 = t509.*3.39e+2; */
   /* 'mass_mat_func_gb:637' t612 = t40.*t440.*1.34e+2; */
   /* 'mass_mat_func_gb:638' t616 = t40.*t440.*4.05e+2; */
@@ -335,7 +334,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   t648 = ct[245] * ct[280];
   /* 'mass_mat_func_gb:653' t651 = t21.*t28.*t480; */
   /* 'mass_mat_func_gb:654' t652 = t36.*t443.*7.3e+1; */
-  t652 = ct[153] * ct[229] * 73.0;
+  t652 = ct[153] * ct[229] * 73.0F;
   /* 'mass_mat_func_gb:655' t655 = t40.*t461.*(7.0./5.0); */
   /* 'mass_mat_func_gb:656' t656 = t35.*t461.*1.51e+2; */
   /* 'mass_mat_func_gb:657' t658 = t35.*t461.*2.46e+2; */
@@ -451,7 +450,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   t945 = ct[216] + ct[222];
   /* 'mass_mat_func_gb:751' t947 = t408.*t411.*2.44e+2; */
   /* 'mass_mat_func_gb:752' t951 = t364.*t443.*7.3e+1; */
-  t951 = ct[158] * ct[229] * 73.0;
+  t951 = ct[158] * ct[229] * 73.0F;
   /* 'mass_mat_func_gb:753' t968 = t405.*t418.*7.3e+1; */
   /* 'mass_mat_func_gb:754' t970 = t40.*t355.*t405.*(5.11e+2./5.0); */
   /* 'mass_mat_func_gb:755' t971 = t48.*t355.*t405.*(5.11e+2./5.0); */
@@ -525,7 +524,7 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:819' t643 = -t580; */
   /* 'mass_mat_func_gb:820' t649 = -t618; */
   /* 'mass_mat_func_gb:821' t657 = t574.*2.13e+2; */
-  t657 = t574 * 213.0;
+  t657 = t574 * 213.0F;
   /* 'mass_mat_func_gb:822' t660 = t577.*(7.0./5.0); */
   /* 'mass_mat_func_gb:823' t662 = t40.*t468.*1.34e+2; */
   /* 'mass_mat_func_gb:824' t664 = t578.*2.44e+2; */
@@ -549,9 +548,9 @@ static void ft_1(const real_T ct[334], real_T M[81])
   /* 'mass_mat_func_gb:840' t732 = t42.*t545.*3.5e+2; */
   /* 'mass_mat_func_gb:841' t736 = t48.*t547.*7.3e+1; */
   t592_tmp = ct[254] * t547;
-  t736 = t592_tmp * 73.0;
+  t736 = t592_tmp * 73.0F;
   /* 'mass_mat_func_gb:842' t737 = t48.*t547.*1.5e+2; */
-  t737 = t592_tmp * 150.0;
+  t737 = t592_tmp * 150.0F;
   /* 'mass_mat_func_gb:843' t739 = t48.*t574.*(7.0./5.0); */
   /* 'mass_mat_func_gb:844' t745 = t48.*t578.*(7.0./5.0); */
   /* 'mass_mat_func_gb:845' t751 = t48.*t581.*(7.0./5.0); */
@@ -734,13 +733,13 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[0] = ct[0];
   ct_tmp = t702_tmp * ct[225];
   b_ct_tmp = ct_tmp * t749;
-  b_ct[1] = b_ct_tmp * 9150.0;
+  b_ct[1] = b_ct_tmp * 9150.0F;
   b_ct[2] = -(ct[125] * ct[332]);
   b_ct[3] = -(ct[125] * ((ct[47] + ct[134]) + ct[135]));
   b_ct[4] = ct[256] + ct[278];
-  b_ct[5] = ct[259] + ct[125] * ct[199] * 1.4;
+  b_ct[5] = ct[259] + ct[125] * ct[199] * 1.4F;
   c_ct_tmp = ct[184] * ct[189] * ct[250];
-  b_ct[6] = c_ct_tmp * 210.0;
+  b_ct[6] = c_ct_tmp * 210.0F;
   b_ct[7] = ct[1];
   b_ct[8] = ct[2];
   b_ct[9] = ct[60] * t998;
@@ -748,133 +747,135 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[11] = ct[68] * t999;
   b_ct[12] = ct[130] * t999;
   d_ct_tmp = ct[163] * t945;
-  b_ct[13] = d_ct_tmp * 244.0;
-  b_ct[14] = ct[222] * 1.4 + t549;
-  b_ct[15] = -(ct[189] * t587 * 73.0);
-  b_ct[16] = c_ct_tmp * 102.2;
-  b_ct[17] = ct[189] * ct[254] * ct[250] * 102.2;
+  b_ct[13] = d_ct_tmp * 244.0F;
+  b_ct[14] = ct[222] * 1.4F + t549;
+  b_ct[15] = -(ct[189] * t587 * 73.0F);
+  b_ct[16] = c_ct_tmp * 102.2F;
+  b_ct[17] = ct[189] * ct[254] * ct[250] * 102.2F;
   c_ct_tmp = ct[62] * ct[94];
   b_ct[18] = c_ct_tmp * (ct[34] + ct[291]);
   b_ct[19] = c_ct_tmp * (ct[35] + ct[292]);
   e_ct_tmp = ct[226] - t468;
   b_ct[20] = -ct[254] * e_ct_tmp;
   f_ct_tmp = ct[225] * ct[250];
-  b_ct[21] = ct[238] + f_ct_tmp * 151.0;
-  b_ct[22] = ct[265] + ct[196] * ct[245] * 213.0;
-  b_ct[23] = ct[240] + f_ct_tmp * 246.0;
-  b_ct[24] = ct[271] + ct[169] * ct[197] * 244.0;
+  b_ct[21] = ct[238] + f_ct_tmp * 151.0F;
+  b_ct[22] = ct[265] + ct[196] * ct[245] * 213.0F;
+  b_ct[23] = ct[240] + f_ct_tmp * 246.0F;
+  b_ct[24] = ct[271] + ct[169] * ct[197] * 244.0F;
   f_ct_tmp = ct[142] + ct[107] * t684_tmp;
   b_ct[25] = -ct[60] * f_ct_tmp;
-  b_ct[26] = d_ct_tmp * 9150.0;
+  b_ct[26] = d_ct_tmp * 9150.0F;
   d_ct_tmp = ct[94] * ct[125];
   b_ct[27] = -(d_ct_tmp * (ct[29] + ct[266]));
   g_ct_tmp = ct[225] * ct[235];
-  b_ct[28] = g_ct_tmp * t945 * 244.0;
+  b_ct[28] = g_ct_tmp * t945 * 244.0F;
   b_ct[29] = -ct[125] * (ct[257] - ct[276]);
   b_ct[30] = ct[116] * f_ct_tmp;
   f_ct_tmp = ct[184] * e_ct_tmp;
-  b_ct[31] = f_ct_tmp * -134.0;
-  b_ct[32] = ct[254] * e_ct_tmp * -339.0;
-  b_ct[33] = ct[204] * e_ct_tmp * -455.0;
+  b_ct[31] = f_ct_tmp * -134.0F;
+  b_ct[32] = ct[254] * e_ct_tmp * -339.0F;
+  b_ct[33] = ct[204] * e_ct_tmp * -455.0F;
   h_ct_tmp = ct[189] * t749;
-  b_ct[34] = h_ct_tmp * 134.0;
-  b_ct[35] = h_ct_tmp * 405.0;
+  b_ct[34] = h_ct_tmp * 134.0F;
+  b_ct[35] = h_ct_tmp * 405.0F;
   h_ct_tmp = ct[225] * ct[324];
-  b_ct[36] = h_ct_tmp * t945 * 9150.0;
-  b_ct[37] = ct[254] * ct[263] * e_ct_tmp * -213.0;
+  b_ct[36] = h_ct_tmp * t945 * 9150.0F;
+  b_ct[37] = ct[254] * ct[263] * e_ct_tmp * -213.0F;
   e_ct_tmp = ct[114] * ct[254];
-  b_ct[38] = e_ct_tmp * t929_tmp * 339.0;
+  b_ct[38] = e_ct_tmp * t929_tmp * 339.0F;
   i_ct_tmp = ct[320] - ct[277];
-  b_ct[39] = ct[189] * i_ct_tmp * 339.0;
+  b_ct[39] = ct[189] * i_ct_tmp * 339.0F;
   j_ct_tmp = ct[306] - ct[171];
   b_ct[40] = t647 + -ct[60] * j_ct_tmp;
-  k_ct_tmp = ct[228] * 1.4 - t548;
-  b_ct[41] = ct[153] * k_ct_tmp * 150.0;
+  k_ct_tmp = ct[228] * 1.4F - t548;
+  b_ct[41] = ct[153] * k_ct_tmp * 150.0F;
   b_ct[42] = ct[37] * (ct[238] + ct[297]);
-  b_ct[43] = ct[37] * (ct[240] + g_ct_tmp * ct[150] * 246.0);
+  b_ct[43] = ct[37] * (ct[240] + g_ct_tmp * ct[150] * 246.0F);
   l_ct_tmp = ct[21] - t466;
-  b_ct[44] = ct[197] * l_ct_tmp * 244.0;
+  b_ct[44] = ct[197] * l_ct_tmp * 244.0F;
   b_ct[45] = ct[60] * ct[288] + ct[116] * j_ct_tmp;
   m_ct_tmp = ct[150] * ct[254];
-  b_ct[46] = m_ct_tmp * t929_tmp * -102.2;
+  b_ct[46] = m_ct_tmp * t929_tmp * -102.2F;
   b_ct[47] = -ct[130] * ((ct[185] + ct[188]) - ct[210]);
-  b_ct[48] = t573_tmp * k_ct_tmp * 150.0;
+  b_ct[48] = t573_tmp * k_ct_tmp * 150.0F;
   b_ct[49] = ct[218] + -ct[169] * t929_tmp;
   b_ct[50] = ct[5];
   b_ct[51] = ct[94] * (ct[261] + ct[287]);
   b_ct[52] = ct[174] * t595 + ct[252] * t629;
   b_ct[53] = t582 + -ct[195] * i_ct_tmp;
   t592_tmp = ct[150] * ct[190];
-  b_ct[54] = ct[269] + t592_tmp * 151.0;
-  b_ct[55] = ct[270] + t592_tmp * 246.0;
-  b_ct[56] = ct[190] * t945 * 244.0;
+  b_ct[54] = ct[269] + t592_tmp * 151.0F;
+  b_ct[55] = ct[270] + t592_tmp * 246.0F;
+  b_ct[56] = ct[190] * t945 * 244.0F;
   t592_tmp = ct[242] + t929;
   b_ct[57] = -ct[174] * t592_tmp;
-  b_ct[58] = -ct[118] * (ct[261] - ct[211] * ct[225] * 455.0);
+  b_ct[58] = -ct[118] * (ct[261] - ct[211] * ct[225] * 455.0F);
   b_ct[59] = (ct[88] + ct[303]) - t592;
-  b_ct[60] = (ct[233] + ct[310]) + ct[125] * t802 * 1.4;
+  b_ct[60] = (ct[233] + ct[310]) + ct[125] * t802 * 1.4F;
   b_ct[61] = ct[7];
   b_ct[62] = -ct[254] * (t723 - t740);
-  b_ct[63] = (ct[4] + ct[232]) + ct[62] * t802 * 1.4;
+  b_ct[63] = (ct[4] + ct[232]) + ct[62] * t802 * 1.4F;
   b_ct[64] = ct[252] * t592_tmp;
-  b_ct[65] = ct[280] * t945 * 150.0;
-  b_ct[66] = -ct[125] * (ct[23] * 134.0 + f_ct_tmp * 134.0);
-  b_ct[67] = -ct[125] * (ct[88] + f_ct_tmp * 405.0);
-  b_ct[68] = ct[158] * k_ct_tmp * -150.0;
+  b_ct[65] = ct[280] * t945 * 150.0F;
+  b_ct[66] = -ct[125] * (ct[23] * 134.0F + f_ct_tmp * 134.0F);
+  b_ct[67] = -ct[125] * (ct[88] + f_ct_tmp * 405.0F);
+  b_ct[68] = ct[158] * k_ct_tmp * -150.0F;
   f_ct_tmp = ct[48] * ct[55];
   b_ct[69] = f_ct_tmp * ((((ct[9] + ct[25]) + ct[110]) + ct[122]) + ct[181]);
-  b_ct[70] = ct[137] * (t728 - t753) * 350.0;
+  b_ct[70] = ct[137] * (t728 - t753) * 350.0F;
   k_ct_tmp = ct[174] * ct[184] * t592_tmp;
-  b_ct[71] = k_ct_tmp * -134.0;
-  b_ct[72] = k_ct_tmp * -405.0;
+  b_ct[71] = k_ct_tmp * -134.0F;
+  b_ct[72] = k_ct_tmp * -405.0F;
   b_ct[73] = ct[116] * t780 + -ct[60] * (ct[40] - ct[237]);
   k_ct_tmp = ct[48] * ct[107];
   b_ct[74] = k_ct_tmp * ((((ct[13] + ct[57]) + ct[111]) + ct[126]) + ct[161]);
   t684_tmp = t581 + ct[263] * i_ct_tmp;
   t629 = ct[153] * ct[214];
-  b_ct[75] = t629 * t684_tmp * -213.0;
-  b_ct[76] = ct[94] * (t573 - ct[114] * ct[190] * 455.0);
-  b_ct[77] = ct_tmp * t684_tmp * 9150.0;
+  b_ct[75] = t629 * t684_tmp * -213.0F;
+  b_ct[76] = ct[94] * (t573 - ct[114] * ct[190] * 455.0F);
+  b_ct[77] = ct_tmp * t684_tmp * 9150.0F;
   b_ct[78] = c_ct_tmp * ((ct[83] + ct[301]) + t625);
   b_ct[79] = d_ct_tmp * ((ct[76] + ct[295]) - ct[304]);
-  b_ct[80] = (ct[282] + t652) - g_ct_tmp * ct[202] * 73.0;
+  b_ct[80] = (ct[282] + t652) - g_ct_tmp * ct[202] * 73.0F;
   b_ct[81] = ct[9];
-  b_ct[82] = (t573 - t607) + t629 * ct[211] * 455.0;
-  b_ct[83] = ct[167] * t592_tmp * 213.0;
+  b_ct[82] = (t573 - t607) + t629 * ct[211] * 455.0F;
+  b_ct[83] = ct[167] * t592_tmp * 213.0F;
   b_ct[84] = ct[10];
-  b_ct[85] = ct[189] * t684_tmp * 213.0;
+  b_ct[85] = ct[189] * t684_tmp * 213.0F;
   b_ct[86] = ct[11];
-  b_ct[87] = -ct[253] * (ct[295] + ct[225] * i_ct_tmp * 339.0);
+  b_ct[87] = -ct[253] * (ct[295] + ct[225] * i_ct_tmp * 339.0F);
   c_ct_tmp = ct[150] * t929_tmp;
-  b_ct[88] = ct[322] + c_ct_tmp * -151.0;
-  b_ct[89] = ct[323] + c_ct_tmp * -246.0;
-  c_ct_tmp = t573_tmp * ct[254] * ct[150] * 339.0;
-  b_ct[90] = (t526 - c_ct_tmp) + e_ct_tmp * ct[190] * 339.0;
-  b_ct[91] = (ct[139] + ct[165] * ct[196] * 213.0) + ct[167] * ct[193] * 213.0;
+  b_ct[88] = ct[322] + c_ct_tmp * -151.0F;
+  b_ct[89] = ct[323] + c_ct_tmp * -246.0F;
+  c_ct_tmp = t573_tmp * ct[254] * ct[150] * 339.0F;
+  b_ct[90] = (t526 - c_ct_tmp) + e_ct_tmp * ct[190] * 339.0F;
+  b_ct[91] =
+      (ct[139] + ct[165] * ct[196] * 213.0F) + ct[167] * ct[193] * 213.0F;
   d_ct_tmp = ct[184] * ct[225] * ct[250];
   g_ct_tmp = ct[96] + ct[284];
-  b_ct[92] = (g_ct_tmp + ct[272] * 9150.0) + d_ct_tmp * 210.0;
-  b_ct[93] = (ct[152] + ct[165] * ct[166] * 244.0) + ct[193] * ct[197] * 244.0;
-  b_ct[94] = ((ct[46] + ct[296]) + ct[274] * 4453.0) +
-             ct[225] * ct[254] * ct[250] * 102.2;
-  b_ct[95] = ((ct[65] + ct[298]) + ct[272] * 4453.0) + d_ct_tmp * 102.2;
+  b_ct[92] = (g_ct_tmp + ct[272] * 9150.0F) + d_ct_tmp * 210.0F;
+  b_ct[93] =
+      (ct[152] + ct[165] * ct[166] * 244.0F) + ct[193] * ct[197] * 244.0F;
+  b_ct[94] = ((ct[46] + ct[296]) + ct[274] * 4453.0F) +
+             ct[225] * ct[254] * ct[250] * 102.2F;
+  b_ct[95] = ((ct[65] + ct[298]) + ct[272] * 4453.0F) + d_ct_tmp * 102.2F;
   b_ct[96] = ct[13];
   b_ct[97] = ct[14];
   b_ct[98] = ct[15];
-  b_ct[99] = ct[94] * (t861 + ct[114] * t929_tmp * 455.0);
+  b_ct[99] = ct[94] * (t861 + ct[114] * t929_tmp * 455.0F);
   d_ct_tmp = ct[37] * ct[62];
   t592_tmp = ct[225] * ct[329] * ct[150];
-  b_ct[100] = d_ct_tmp * ((g_ct_tmp + ct[299]) + t592_tmp * 210.0) * 1.4;
+  b_ct[100] = d_ct_tmp * ((g_ct_tmp + ct[299]) + t592_tmp * 210.0F) * 1.4F;
   b_ct[101] = ct[16];
   b_ct[102] =
       ct[37] * ct[125] *
-      (((ct[46] + ct[285]) + ct[296]) + ct[225] * ct[333] * ct[150] * 102.2) *
-      1.4;
+      (((ct[46] + ct[285]) + ct[296]) + ct[225] * ct[333] * ct[150] * 102.2F) *
+      1.4F;
   b_ct[103] = ct[17];
   b_ct[104] =
-      d_ct_tmp * (((ct[65] + ct[294]) + ct[298]) + t592_tmp * 102.2) * 1.4;
-  b_ct[105] = -ct[205] * (((ct[97] - ct[105]) + t652) - ct[225] * t587 * 73.0);
-  b_ct[106] = (t702 + t861) - ct[189] * ct[211] * 455.0;
+      d_ct_tmp * (((ct[65] + ct[294]) + ct[298]) + t592_tmp * 102.2F) * 1.4F;
+  b_ct[105] = -ct[205] * (((ct[97] - ct[105]) + t652) - ct[225] * t587 * 73.0F);
+  b_ct[106] = (t702 + t861) - ct[189] * ct[211] * 455.0F;
   b_ct[107] = ((((ct[115] + ct[120]) + ct[178]) + ct[213]) + ct[218]) +
               ct[169] * ct[251];
   b_ct[108] = ct[20];
@@ -884,16 +885,26 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[112] = ct[24];
   b_ct[113] = ct[25];
   d_ct_tmp = t901_tmp * ct[190];
-  b_ct[114] = (((ct[179] + ct[302]) + t710) - ct[313]) + d_ct_tmp * 210.0;
+  b_ct[114] = (((ct[179] + ct[302]) + t710) - ct[313]) + d_ct_tmp * 210.0F;
   b_ct[115] = ct[26];
   b_ct[116] =
-      (((ct[154] + ct[309]) + t691) - ct[312]) + m_ct_tmp * ct[190] * 102.2;
-  b_ct[117] = (((ct[162] + ct[308]) + t684) - ct[311]) + d_ct_tmp * 102.2;
-  b_ct[118] =
-      ((ct[305] + t951) + ct[150] * ct[280] * 73.0) + ct[202] * t929_tmp * 73.0;
+      (((ct[154] + ct[309]) + t691) - ct[312]) + m_ct_tmp * ct[190] * 102.2F;
+  b_ct[117] = (((ct[162] + ct[308]) + t684) - ct[311]) + d_ct_tmp * 102.2F;
+  b_ct[118] = ((ct[305] + t951) + ct[150] * ct[280] * 73.0F) +
+              ct[202] * t929_tmp * 73.0F;
   b_ct[119] = ct[27];
   b_ct[120] = ct[28];
-  memcpy(&b_ct[121], &ct[30], 11U * sizeof(real_T));
+  b_ct[121] = ct[30];
+  b_ct[122] = ct[31];
+  b_ct[123] = ct[32];
+  b_ct[124] = ct[33];
+  b_ct[125] = ct[34];
+  b_ct[126] = ct[35];
+  b_ct[127] = ct[36];
+  b_ct[128] = ct[37];
+  b_ct[129] = ct[38];
+  b_ct[130] = ct[39];
+  b_ct[131] = ct[40];
   b_ct[132] = ct[41];
   b_ct[133] = ct[43];
   b_ct[134] = ct[44];
@@ -922,14 +933,29 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[157] = ct[86];
   b_ct[158] = ct[87];
   b_ct[159] = ct[88];
-  memcpy(&b_ct[160], &ct[90], 9U * sizeof(real_T));
+  b_ct[160] = ct[90];
+  b_ct[161] = ct[91];
+  b_ct[162] = ct[92];
+  b_ct[163] = ct[93];
+  b_ct[164] = ct[94];
+  b_ct[165] = ct[95];
+  b_ct[166] = ct[96];
+  b_ct[167] = ct[97];
+  b_ct[168] = ct[98];
   b_ct[169] = ct[99];
   b_ct[170] = ct[101];
   b_ct[171] = ct[102];
   b_ct[172] = ct[103];
   b_ct[173] = ct[105];
   b_ct[174] = ct[107];
-  memcpy(&b_ct[175], &ct[110], 8U * sizeof(real_T));
+  b_ct[175] = ct[110];
+  b_ct[176] = ct[111];
+  b_ct[177] = ct[112];
+  b_ct[178] = ct[113];
+  b_ct[179] = ct[114];
+  b_ct[180] = ct[115];
+  b_ct[181] = ct[116];
+  b_ct[182] = ct[117];
   b_ct[183] = ct[118];
   b_ct[184] = ct[120];
   b_ct[185] = ct[121];
@@ -949,7 +975,15 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[199] = ct[150];
   b_ct[200] = ct[151];
   b_ct[201] = -ct[132];
-  memcpy(&b_ct[202], &ct[152], 9U * sizeof(real_T));
+  b_ct[202] = ct[152];
+  b_ct[203] = ct[153];
+  b_ct[204] = ct[154];
+  b_ct[205] = ct[155];
+  b_ct[206] = ct[156];
+  b_ct[207] = ct[157];
+  b_ct[208] = ct[158];
+  b_ct[209] = ct[159];
+  b_ct[210] = ct[160];
   b_ct[211] = ct[161];
   b_ct[212] = ct[163];
   b_ct[213] = ct[164];
@@ -1022,11 +1056,11 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[280] = ct[263];
   b_ct[281] = t490;
   b_ct[282] = ct[184] * ct[191];
-  b_ct[283] = ct[221] * 1.4;
+  b_ct[283] = ct[221] * 1.4F;
   b_ct[284] = ct[264];
-  b_ct[285] = ct[220] * 151.0;
+  b_ct[285] = ct[220] * 151.0F;
   b_ct[286] = ct[267];
-  b_ct[287] = ct[223] * 1.4;
+  b_ct[287] = ct[223] * 1.4F;
   b_ct[288] = ct[268];
   b_ct[289] = ct[269];
   b_ct[290] = ct[270];
@@ -1046,26 +1080,26 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[304] = ct[286];
   b_ct[305] = ct[198] + ct[300];
   b_ct[306] = -t476;
-  b_ct[307] = -(ct[224] * 1.4);
-  b_ct[308] = -(ct[226] * 1.4);
+  b_ct[307] = -(ct[224] * 1.4F);
+  b_ct[308] = -(ct[226] * 1.4F);
   b_ct[309] = ct[231] * ct[252];
   b_ct[310] = ct[288];
-  b_ct[311] = -(ct[125] * ct[200] * 1.4);
+  b_ct[311] = -(ct[125] * ct[200] * 1.4F);
   b_ct[312] = t545;
   b_ct[313] = t547;
   b_ct[314] = t548;
   b_ct[315] = t549;
   b_ct[316] = ct[290];
   b_ct[317] = ct[293];
-  b_ct[318] = t468 * 1.4;
+  b_ct[318] = t468 * 1.4F;
   b_ct[319] = t557;
   b_ct[320] = ct[174] * t459;
-  b_ct[321] = t472 * 1.4;
-  b_ct[322] = t473 * 1.4;
-  b_ct[323] = t478 * 1.4;
+  b_ct[321] = t472 * 1.4F;
+  b_ct[322] = t473 * 1.4F;
+  b_ct[323] = t478 * 1.4F;
   b_ct[324] = ct[252] * t459;
-  b_ct[325] = t475 * 151.0;
-  b_ct[326] = t478 * 213.0;
+  b_ct[325] = t475 * 151.0F;
+  b_ct[326] = t478 * 213.0F;
   b_ct[327] = t574;
   b_ct[328] = ct[68] * ct[253];
   b_ct[329] = t577;
@@ -1073,33 +1107,33 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[331] = t581;
   b_ct[332] = t583;
   b_ct[333] = -ct[289];
-  b_ct[334] = ct[125] * ct[184] * ct[150] * 539.0;
+  b_ct[334] = ct[125] * ct[184] * ct[150] * 539.0F;
   b_ct[335] = ct[99] * ct[255];
-  b_ct[336] = t489 * 408.0;
+  b_ct[336] = t489 * 408.0F;
   b_ct[337] = t592;
-  b_ct[338] = -(t470 * 1.4);
-  b_ct[339] = -(t470 * 244.0);
-  b_ct[340] = -(t476 * 1.4);
-  b_ct[341] = ct[195] * ct[244] * 244.0;
+  b_ct[338] = -(t470 * 1.4F);
+  b_ct[339] = -(t470 * 244.0F);
+  b_ct[340] = -(t476 * 1.4F);
+  b_ct[341] = ct[195] * ct[244] * 244.0F;
   b_ct[342] = t606;
   b_ct[343] = t607;
-  b_ct[344] = ct[273] * 1.4;
+  b_ct[344] = ct[273] * 1.4F;
   b_ct[345] = t609;
   d_ct_tmp = ct[163] * ct[169];
-  b_ct[346] = d_ct_tmp * ct[166] * 244.0;
+  b_ct[346] = d_ct_tmp * ct[166] * 244.0F;
   g_ct_tmp = ct[184] * ct[226];
-  b_ct[347] = g_ct_tmp * 134.0;
+  b_ct[347] = g_ct_tmp * 134.0F;
   b_ct[348] = ct[302];
   t592_tmp = ct[163] * ct[245];
-  b_ct[349] = t592_tmp * ct[167] * 213.0;
-  b_ct[350] = g_ct_tmp * 405.0;
+  b_ct[349] = t592_tmp * ct[167] * 213.0F;
+  b_ct[350] = g_ct_tmp * 405.0F;
   b_ct[351] = t624;
   b_ct[352] = t625;
   b_ct[353] = -t589;
-  b_ct[354] = -(ct[262] * 409.0);
-  b_ct[355] = t529 * 1.4;
+  b_ct[354] = -(ct[262] * 409.0F);
+  b_ct[355] = t529 * 1.4F;
   b_ct[356] = ct[184] * ct[279];
-  b_ct[357] = -(ct[272] * 134.0);
+  b_ct[357] = -(ct[272] * 134.0F);
   b_ct[358] = ct[62] * ct[286];
   b_ct[359] = ct[254] * ct[279];
   b_ct[360] = -t609;
@@ -1108,227 +1142,227 @@ static void ft_1(const real_T ct[334], real_T M[81])
   b_ct[363] = ct[125] * ct[286];
   b_ct[364] = -(ct[245] * ct[251]);
   b_ct[365] = t646;
-  b_ct[366] = -(ct[226] * ct[254] * 339.0);
+  b_ct[366] = -(ct[226] * ct[254] * 339.0F);
   b_ct[367] = t653;
-  b_ct[368] = t557 * 1.4;
-  b_ct[369] = ct[184] * ct[247] * 1.4;
+  b_ct[368] = t557 * 1.4F;
+  b_ct[369] = ct[184] * ct[247] * 1.4F;
   g_ct_tmp = ct[145] * ct[247];
-  b_ct[370] = g_ct_tmp * 151.0;
+  b_ct[370] = g_ct_tmp * 151.0F;
   b_ct[371] = t657;
-  b_ct[372] = g_ct_tmp * 246.0;
+  b_ct[372] = g_ct_tmp * 246.0F;
   b_ct[373] = ct[307];
-  b_ct[374] = t577 * 1.4;
-  b_ct[375] = ct[247] * ct[254] * 1.4;
-  b_ct[376] = t578 * 244.0;
+  b_ct[374] = t577 * 1.4F;
+  b_ct[375] = ct[247] * ct[254] * 1.4F;
+  b_ct[376] = t578 * 244.0F;
   b_ct[377] = t666;
   b_ct[378] = t573_tmp * ct[260];
-  b_ct[379] = ct[254] * t468 * 339.0;
-  b_ct[380] = ct[184] * ct[214] * ct[225] * ct[150] * 405.0;
+  b_ct[379] = ct[254] * t468 * 339.0F;
+  b_ct[380] = ct[184] * ct[214] * ct[225] * ct[150] * 405.0F;
   b_ct[381] = t673;
   b_ct[382] = ct[308];
   b_ct[383] = ct[309];
-  b_ct[384] = ct[99] * t547 * 61.0;
+  b_ct[384] = ct[99] * t547 * 61.0F;
   b_ct[385] = ct[195] * t583;
   b_ct[386] = -t657;
   b_ct[387] = t684;
   b_ct[388] = ct[263] * t583;
   g_ct_tmp = ct[184] * t468;
-  b_ct[389] = -(g_ct_tmp * 134.0);
-  b_ct[390] = -(d_ct_tmp * ct[196] * 213.0);
-  b_ct[391] = -(g_ct_tmp * 405.0);
-  b_ct[392] = ct[204] * ct[247] * 4453.0;
+  b_ct[389] = -(g_ct_tmp * 134.0F);
+  b_ct[390] = -(d_ct_tmp * ct[196] * 213.0F);
+  b_ct[391] = -(g_ct_tmp * 405.0F);
+  b_ct[392] = ct[204] * ct[247] * 4453.0F;
   b_ct[393] = t691;
   b_ct[394] = ct[195] * t587;
-  b_ct[395] = -(t592_tmp * ct[197] * 244.0);
-  b_ct[396] = h_ct_tmp * ct[150] * 4453.0;
+  b_ct[395] = -(t592_tmp * ct[197] * 244.0F);
+  b_ct[396] = h_ct_tmp * ct[150] * 4453.0F;
   b_ct[397] = ct[263] * t587;
   b_ct[398] = -c_ct_tmp;
   c_ct_tmp = ct[48] * ct[91];
   b_ct[399] = -(c_ct_tmp * ct[255]);
-  b_ct[400] = ct[195] * ct[274] * 244.0;
+  b_ct[400] = ct[195] * ct[274] * 244.0F;
   b_ct[401] = t702;
-  b_ct[402] = ct[263] * ct[274] * 213.0;
+  b_ct[402] = ct[263] * ct[274] * 213.0F;
   b_ct[403] = ct[125] * (ct[69] + ct[100]);
   b_ct[404] = ct[125] * (ct[71] + ct[104]);
   b_ct[405] = t710;
   b_ct[406] = t712;
-  b_ct[407] = ct[204] * ct[279] * 350.0;
-  b_ct[408] = t578 * 9150.0;
+  b_ct[407] = ct[204] * ct[279] * 350.0F;
+  b_ct[408] = t578 * 9150.0F;
   b_ct[409] = -t667;
-  b_ct[410] = t645 * 1.4;
-  b_ct[411] = t646 * 1.4;
-  b_ct[412] = t647 * 1.4;
-  b_ct[413] = t648 * 1.4;
+  b_ct[410] = t645 * 1.4F;
+  b_ct[411] = t646 * 1.4F;
+  b_ct[412] = t647 * 1.4F;
+  b_ct[413] = t648 * 1.4F;
   b_ct[414] = ct[174] * t624;
   b_ct[415] = t723;
   b_ct[416] = t725;
   b_ct[417] = t728;
   b_ct[418] = t729;
-  b_ct[419] = -(t573_tmp * ct[229] * 73.0);
-  b_ct[420] = -(t574 * 9150.0);
-  b_ct[421] = ct[204] * t545 * 350.0;
-  b_ct[422] = t667 * 1.4;
-  b_ct[423] = t666 * 73.0;
+  b_ct[419] = -(t573_tmp * ct[229] * 73.0F);
+  b_ct[420] = -(t574 * 9150.0F);
+  b_ct[421] = ct[204] * t545 * 350.0F;
+  b_ct[422] = t667 * 1.4F;
+  b_ct[423] = t666 * 73.0F;
   b_ct[424] = t736;
   b_ct[425] = t737;
   d_ct_tmp = ct[145] * ct[184] * ct[247];
-  b_ct[426] = d_ct_tmp * 210.0;
+  b_ct[426] = d_ct_tmp * 210.0F;
   b_ct[427] = t740;
-  b_ct[428] = ct[254] * t578 * 1.4;
+  b_ct[428] = ct[254] * t578 * 1.4F;
   b_ct[429] = ct[252] * t653;
   b_ct[430] = ct[314];
   b_ct[431] = ct[107] * t673;
   b_ct[432] = t753;
-  b_ct[433] = ct[254] * t582 * 1.4;
+  b_ct[433] = ct[254] * t582 * 1.4F;
   b_ct[434] = ct[315];
   b_ct[435] = -(ct[62] * (ct[77] + ct[106]));
   b_ct[436] = ct[108] + ct[175];
-  b_ct[437] = ct[145] * t583 * 73.0;
-  b_ct[438] = ct[60] * j_ct_tmp * -1.4;
+  b_ct[437] = ct[145] * t583 * 73.0F;
+  b_ct[438] = ct[60] * j_ct_tmp * -1.4F;
   b_ct[439] = -t736;
   b_ct[440] = -t737;
-  b_ct[441] = -(ct[254] * t574 * 1.4);
+  b_ct[441] = -(ct[254] * t574 * 1.4F);
   g_ct_tmp = t702_tmp * ct[247];
-  b_ct[442] = -(g_ct_tmp * 151.0);
+  b_ct[442] = -(g_ct_tmp * 151.0F);
   b_ct[443] = ct[316];
-  b_ct[444] = -(g_ct_tmp * 246.0);
+  b_ct[444] = -(g_ct_tmp * 246.0F);
   g_ct_tmp = t773_tmp * ct[184] * ct[214] * ct[150];
-  b_ct[445] = g_ct_tmp * 4453.0;
+  b_ct[445] = g_ct_tmp * 4453.0F;
   b_ct[446] = t773;
-  b_ct[447] = -(ct[254] * t581 * 1.4);
+  b_ct[447] = -(ct[254] * t581 * 1.4F);
   h_ct_tmp = t629 * ct[250];
-  b_ct[448] = -(h_ct_tmp * 151.0);
-  b_ct[449] = -(h_ct_tmp * 246.0);
+  b_ct[448] = -(h_ct_tmp * 151.0F);
+  b_ct[449] = -(h_ct_tmp * 246.0F);
   h_ct_tmp = ct[145] * ct[225];
-  b_ct[450] = h_ct_tmp * ct[250] * 4453.0;
+  b_ct[450] = h_ct_tmp * ct[250] * 4453.0F;
   b_ct[451] = ct[317];
   b_ct[452] = t780;
-  b_ct[453] = ct[37] * ct[163] * ct[150] * 397.0;
+  b_ct[453] = ct[37] * ct[163] * ct[150] * 397.0F;
   b_ct[454] = f_ct_tmp * t673;
-  b_ct[455] = d_ct_tmp * 102.2;
+  b_ct[455] = d_ct_tmp * 102.2F;
   b_ct[456] = ct[55] * t712;
-  b_ct[457] = ct[145] * ct[254] * ct[247] * 102.2;
-  b_ct[458] = g_ct_tmp * 9150.0;
+  b_ct[457] = ct[145] * ct[254] * ct[247] * 102.2F;
+  b_ct[458] = g_ct_tmp * 9150.0F;
   b_ct[459] = t789;
   b_ct[460] = ct[319];
   b_ct[461] = ct[19] + t489;
   b_ct[462] = -t773;
   b_ct[463] = t794;
   b_ct[464] = -t752;
-  b_ct[465] = t725 * 1.4;
+  b_ct[465] = t725 * 1.4F;
   b_ct[466] = ct[320];
   d_ct_tmp = ct[91] * ct[268];
-  b_ct[467] = d_ct_tmp * t547 * 61.0;
+  b_ct[467] = d_ct_tmp * t547 * 61.0F;
   b_ct[468] = t802;
   b_ct[469] = ct[109] + ct[201];
   b_ct[470] = -ct[318];
-  b_ct[471] = ct[195] * t666 * 150.0;
+  b_ct[471] = ct[195] * t666 * 150.0F;
   b_ct[472] = ct[321];
-  b_ct[473] = ct[263] * t666 * 150.0;
+  b_ct[473] = ct[263] * t666 * 150.0F;
   f_ct_tmp = ct[137] * ct[184] * ct[214] * ct[247];
-  b_ct[474] = f_ct_tmp * 210.0;
-  b_ct[475] = ct[99] * t729 * 61.0;
+  b_ct[474] = f_ct_tmp * 210.0F;
+  b_ct[475] = ct[99] * t729 * 61.0F;
   b_ct[476] = ct[60] * t780;
   b_ct[477] = t816;
   b_ct[478] = t817;
   b_ct[479] = t818;
   b_ct[480] = ct[252] * t743;
   b_ct[481] = ct[263] * t744;
-  b_ct[482] = t702_tmp * t583 * 73.0;
+  b_ct[482] = t702_tmp * t583 * 73.0F;
   b_ct[483] = ct[57] + t466;
-  b_ct[484] = -(t752 * 1.4);
+  b_ct[484] = -(t752 * 1.4F);
   g_ct_tmp = t592_tmp_tmp * ct[214] * ct[250];
-  b_ct[485] = -(g_ct_tmp * 210.0);
+  b_ct[485] = -(g_ct_tmp * 210.0F);
   b_ct[486] = ct[322];
   b_ct[487] = ct[323];
-  b_ct[488] = ct_tmp * ct[250] * 4453.0;
+  b_ct[488] = ct_tmp * ct[250] * 4453.0F;
   b_ct[489] = ct[68] * t802;
   b_ct[490] = ct[130] * t802;
   b_ct[491] = ct[324];
-  b_ct[492] = -(t629 * t587 * 73.0);
-  b_ct[493] = f_ct_tmp * 102.2;
-  b_ct[494] = t702_tmp * ct[254] * ct[247] * 102.2;
+  b_ct[492] = -(t629 * t587 * 73.0F);
+  b_ct[493] = f_ct_tmp * 102.2F;
+  b_ct[494] = t702_tmp * ct[254] * ct[247] * 102.2F;
   b_ct[495] = ct[99] * t789;
   b_ct[496] = ct[184] * t789;
   b_ct[497] = ct[174] * t794;
   b_ct[498] = -ct[252] * t883_tmp;
   b_ct[499] = ct[252] * t794;
   b_ct[500] = -(k_ct_tmp * t712);
-  b_ct[501] = ct[29] + ct[274] * 339.0;
+  b_ct[501] = ct[29] + ct[274] * 339.0F;
   b_ct[502] = ct[325];
-  b_ct[503] = -(g_ct_tmp * 102.2);
-  b_ct[504] = -(t629 * ct[254] * ct[250] * 102.2);
-  b_ct[505] = t816 * 1.4;
-  b_ct[506] = t817 * 1.4;
+  b_ct[503] = -(g_ct_tmp * 102.2F);
+  b_ct[504] = -(t629 * ct[254] * ct[250] * 102.2F);
+  b_ct[505] = t816 * 1.4F;
+  b_ct[506] = t817 * 1.4F;
   b_ct[507] = ct[326];
-  b_ct[508] = t818 * 244.0;
-  b_ct[509] = ct[145] * t744 * 339.0;
+  b_ct[508] = t818 * 244.0F;
+  b_ct[509] = ct[145] * t744 * 339.0F;
   ct_tmp = ct[225] * t749;
-  b_ct[510] = ct_tmp * 134.0;
-  b_ct[511] = ct_tmp * 405.0;
+  b_ct[510] = ct_tmp * 134.0F;
+  b_ct[511] = ct_tmp * 405.0F;
   b_ct[512] = c_ct_tmp * ((ct[18] + ct[19]) + ct[119]);
   b_ct[513] = t883;
   b_ct[514] = -ct[174] * l_ct_tmp;
-  b_ct[515] = ct[204] * t744 * 4453.0;
+  b_ct[515] = ct[204] * t744 * 4453.0F;
   b_ct[516] = ct[85] + t589;
-  b_ct[517] = d_ct_tmp * t729 * 61.0;
+  b_ct[517] = d_ct_tmp * t729 * 61.0F;
   b_ct[518] = ct[182] + ct[217];
   b_ct[519] = ct[158] * ct[260];
   b_ct[520] = t901;
   b_ct[521] = ct[328];
-  b_ct[522] = ct[252] * t883_tmp * -1.4;
+  b_ct[522] = ct[252] * t883_tmp * -1.4F;
   b_ct[523] = ct[314] * t789;
-  b_ct[524] = m_ct_tmp * ct[158] * 339.0;
+  b_ct[524] = m_ct_tmp * ct[158] * 339.0F;
   ct_tmp = ct[254] * t789;
-  b_ct[525] = ct_tmp * 405.0;
+  b_ct[525] = ct_tmp * 405.0F;
   b_ct[526] = ct[330];
-  b_ct[527] = t883 * 1.4;
-  b_ct[528] = b_t901_tmp * -134.0;
+  b_ct[527] = t883 * 1.4F;
+  b_ct[528] = b_t901_tmp * -134.0F;
   t592_tmp = ct[114] * ct[184];
   c_ct_tmp = t592_tmp * ct[190];
-  b_ct[529] = -(c_ct_tmp * 134.0);
+  b_ct[529] = -(c_ct_tmp * 134.0F);
   d_ct_tmp = ct[145] * (ct[333] - ct[272]);
-  b_ct[530] = d_ct_tmp * 134.0;
+  b_ct[530] = d_ct_tmp * 134.0F;
   b_ct[531] = -t901;
-  b_ct[532] = -(c_ct_tmp * 405.0);
-  b_ct[533] = d_ct_tmp * 405.0;
+  b_ct[532] = -(c_ct_tmp * 405.0F);
+  b_ct[533] = d_ct_tmp * 405.0F;
   b_ct[534] = t929;
-  b_ct[535] = ct_tmp * -134.0;
+  b_ct[535] = ct_tmp * -134.0F;
   b_ct[536] = ct[252] * l_ct_tmp;
-  b_ct[537] = t702_tmp * t744 * 339.0;
+  b_ct[537] = t702_tmp * t744 * 339.0F;
   ct_tmp = t629 * t749;
-  b_ct[538] = ct_tmp * 134.0;
-  b_ct[539] = ct_tmp * 405.0;
+  b_ct[538] = ct_tmp * 134.0F;
+  b_ct[539] = ct_tmp * 405.0F;
   b_ct[540] = (ct[85] + ct[87]) - ct[131];
-  b_ct[541] = ct[174] * l_ct_tmp * -1.4;
+  b_ct[541] = ct[174] * l_ct_tmp * -1.4F;
   b_ct[542] = ct[183] + t478;
   b_ct[543] = t945;
   ct_tmp = h_ct_tmp * t749;
-  b_ct[544] = ct_tmp * 4453.0;
-  b_ct[545] = ct[125] * ct[327] * ct[37] * ct[150] * 143.08;
+  b_ct[544] = ct_tmp * 4453.0F;
+  b_ct[545] = ct[125] * ct[327] * ct[37] * ct[150] * 143.08F;
   b_ct[546] = t951;
   b_ct[547] = ct[123] + t645;
-  b_ct[548] = ct[62] * ct[320] * ct[37] * ct[150] * 437.08;
-  b_ct[549] = ct_tmp * 9150.0;
+  b_ct[548] = ct[62] * ct[320] * ct[37] * ct[150] * 437.08F;
+  b_ct[549] = ct_tmp * 9150.0F;
   b_ct[550] = ct[125] * (ct[35] - t606);
-  b_ct[551] = ct[190] * ct[202] * 73.0;
+  b_ct[551] = ct[190] * ct[202] * 73.0F;
   b_ct[552] = ct[133] + t648;
   b_ct[553] = ct[212] - ct[228];
   b_ct[554] = ct[62] * ct[331];
-  b_ct[555] = -(ct[163] * ct[168] * ct[202] * 73.0);
+  b_ct[555] = -(ct[163] * ct[168] * ct[202] * 73.0F);
   ct_tmp = ct[189] * ct[250];
-  b_ct[556] = ct_tmp * 151.0;
+  b_ct[556] = ct_tmp * 151.0F;
   c_ct_tmp = t592_tmp * ct[280];
-  b_ct[557] = c_ct_tmp * 73.0;
-  b_ct[558] = ct_tmp * 246.0;
+  b_ct[557] = c_ct_tmp * 73.0F;
+  b_ct[558] = ct_tmp * 246.0F;
   b_ct[559] = ct[333];
-  b_ct[560] = c_ct_tmp * 150.0;
-  b_ct[561] = ct[174] * ct[254] * l_ct_tmp * -339.0;
-  b_ct[562] = h_ct_tmp * i_ct_tmp * 4453.0;
+  b_ct[560] = c_ct_tmp * 150.0F;
+  b_ct[561] = ct[174] * ct[254] * l_ct_tmp * -339.0F;
+  b_ct[562] = h_ct_tmp * i_ct_tmp * 4453.0F;
   b_ct[563] = ct[220] + t475;
   b_ct[564] = ct[227] + ct[174] * ct[194];
-  b_ct[565] = e_ct_tmp * ct[280] * 73.0;
-  b_ct[566] = b_ct_tmp * 4453.0;
+  b_ct[565] = e_ct_tmp * ct[280] * 73.0F;
+  b_ct[566] = b_ct_tmp * 4453.0F;
   b_ct[567] = ct[199] + ct[130] * ct[253];
   b_ct[568] = t998;
   b_ct[569] = t999;
@@ -1338,172 +1372,172 @@ static void ft_1(const real_T ct[334], real_T M[81])
 /*
  * function M = ft_2(ct)
  */
-static void ft_2(const real_T ct[570], real_T M[81])
+static void ft_2(const real32_T ct[570], real32_T M[81])
 {
-  real_T b_ct_idx_305_tmp;
-  real_T b_t1738_tmp;
-  real_T b_t1982_tmp;
-  real_T ct_idx_103;
-  real_T ct_idx_124;
-  real_T ct_idx_133;
-  real_T ct_idx_143;
-  real_T ct_idx_147;
-  real_T ct_idx_154;
-  real_T ct_idx_164;
-  real_T ct_idx_166;
-  real_T ct_idx_167;
-  real_T ct_idx_172;
-  real_T ct_idx_2;
-  real_T ct_idx_240;
-  real_T ct_idx_245;
-  real_T ct_idx_250;
-  real_T ct_idx_259;
-  real_T ct_idx_261;
-  real_T ct_idx_264;
-  real_T ct_idx_305;
-  real_T ct_idx_305_tmp;
-  real_T ct_idx_306;
-  real_T ct_idx_307;
-  real_T ct_idx_327;
-  real_T ct_idx_35;
-  real_T ct_idx_39;
-  real_T ct_idx_6;
-  real_T ct_idx_69;
-  real_T ct_idx_70;
-  real_T ct_idx_82;
-  real_T t1005;
-  real_T t1013;
-  real_T t1021;
-  real_T t1022;
-  real_T t1023;
-  real_T t1024;
-  real_T t1025;
-  real_T t1027;
-  real_T t1036;
-  real_T t1052;
-  real_T t1062;
-  real_T t1065;
-  real_T t1068;
-  real_T t1068_tmp;
-  real_T t1070;
-  real_T t1070_tmp;
-  real_T t1071;
-  real_T t1073;
-  real_T t1075;
-  real_T t1077;
-  real_T t1078;
-  real_T t1089;
-  real_T t1093;
-  real_T t1126;
-  real_T t1126_tmp;
-  real_T t1175;
-  real_T t1177;
-  real_T t1178;
-  real_T t1182;
-  real_T t1184;
-  real_T t1185;
-  real_T t1186;
-  real_T t1189;
-  real_T t1192;
-  real_T t1201;
-  real_T t1203;
-  real_T t1204;
-  real_T t1205;
-  real_T t1206;
-  real_T t1213;
-  real_T t1219;
-  real_T t1227;
-  real_T t1245;
-  real_T t1256;
-  real_T t1306;
-  real_T t1306_tmp;
-  real_T t1332;
-  real_T t1332_tmp;
-  real_T t1333;
-  real_T t1346;
-  real_T t1353;
-  real_T t1356;
-  real_T t1359;
-  real_T t1371;
-  real_T t1381;
-  real_T t1420;
-  real_T t1430;
-  real_T t1430_tmp;
-  real_T t1433_tmp;
-  real_T t1447;
-  real_T t1459;
-  real_T t1472;
-  real_T t1472_tmp;
-  real_T t1480;
-  real_T t1484;
-  real_T t1487;
-  real_T t1526;
-  real_T t1541;
-  real_T t1542;
-  real_T t1543;
-  real_T t1544;
-  real_T t1551;
-  real_T t1583;
-  real_T t1604;
-  real_T t1605;
-  real_T t1609;
-  real_T t1610;
-  real_T t1610_tmp;
-  real_T t1616;
-  real_T t1629;
-  real_T t1642;
-  real_T t1646;
-  real_T t1648;
-  real_T t1676;
-  real_T t1686;
-  real_T t1690;
-  real_T t1717;
-  real_T t1735;
-  real_T t1735_tmp;
-  real_T t1738;
-  real_T t1738_tmp;
-  real_T t1740;
-  real_T t1755;
-  real_T t1756;
-  real_T t1757;
-  real_T t1759;
-  real_T t1762;
-  real_T t1763;
-  real_T t1767;
-  real_T t1811;
-  real_T t1813;
-  real_T t1865;
-  real_T t1869;
-  real_T t1888;
-  real_T t1888_tmp;
-  real_T t1897;
-  real_T t1900;
-  real_T t1900_tmp;
-  real_T t1915;
-  real_T t1918;
-  real_T t1948;
-  real_T t1957;
-  real_T t1968;
-  real_T t1968_tmp_tmp;
-  real_T t1973;
-  real_T t1973_tmp;
-  real_T t1974;
-  real_T t1976;
-  real_T t1976_tmp;
-  real_T t1977;
-  real_T t1978;
-  real_T t1980;
-  real_T t1981;
-  real_T t1981_tmp;
-  real_T t1982;
-  real_T t1982_tmp;
-  real_T t1983;
-  real_T t1984;
-  real_T t875;
-  real_T t900;
-  real_T t954;
-  real_T t957;
-  real_T t973;
+  real32_T b_ct_idx_305_tmp;
+  real32_T b_t1738_tmp;
+  real32_T b_t1982_tmp;
+  real32_T ct_idx_103;
+  real32_T ct_idx_124;
+  real32_T ct_idx_133;
+  real32_T ct_idx_143;
+  real32_T ct_idx_147;
+  real32_T ct_idx_154;
+  real32_T ct_idx_164;
+  real32_T ct_idx_166;
+  real32_T ct_idx_167;
+  real32_T ct_idx_172;
+  real32_T ct_idx_2;
+  real32_T ct_idx_240;
+  real32_T ct_idx_245;
+  real32_T ct_idx_250;
+  real32_T ct_idx_259;
+  real32_T ct_idx_261;
+  real32_T ct_idx_264;
+  real32_T ct_idx_305;
+  real32_T ct_idx_305_tmp;
+  real32_T ct_idx_306;
+  real32_T ct_idx_307;
+  real32_T ct_idx_327;
+  real32_T ct_idx_35;
+  real32_T ct_idx_39;
+  real32_T ct_idx_6;
+  real32_T ct_idx_69;
+  real32_T ct_idx_70;
+  real32_T ct_idx_82;
+  real32_T t1005;
+  real32_T t1013;
+  real32_T t1021;
+  real32_T t1022;
+  real32_T t1023;
+  real32_T t1024;
+  real32_T t1025;
+  real32_T t1027;
+  real32_T t1036;
+  real32_T t1052;
+  real32_T t1062;
+  real32_T t1065;
+  real32_T t1068;
+  real32_T t1068_tmp;
+  real32_T t1070;
+  real32_T t1070_tmp;
+  real32_T t1071;
+  real32_T t1073;
+  real32_T t1075;
+  real32_T t1077;
+  real32_T t1078;
+  real32_T t1089;
+  real32_T t1093;
+  real32_T t1126;
+  real32_T t1126_tmp;
+  real32_T t1175;
+  real32_T t1177;
+  real32_T t1178;
+  real32_T t1182;
+  real32_T t1184;
+  real32_T t1185;
+  real32_T t1186;
+  real32_T t1189;
+  real32_T t1192;
+  real32_T t1201;
+  real32_T t1203;
+  real32_T t1204;
+  real32_T t1205;
+  real32_T t1206;
+  real32_T t1213;
+  real32_T t1219;
+  real32_T t1227;
+  real32_T t1245;
+  real32_T t1256;
+  real32_T t1306;
+  real32_T t1306_tmp;
+  real32_T t1332;
+  real32_T t1332_tmp;
+  real32_T t1333;
+  real32_T t1346;
+  real32_T t1353;
+  real32_T t1356;
+  real32_T t1359;
+  real32_T t1371;
+  real32_T t1381;
+  real32_T t1420;
+  real32_T t1430;
+  real32_T t1430_tmp;
+  real32_T t1433_tmp;
+  real32_T t1447;
+  real32_T t1459;
+  real32_T t1472;
+  real32_T t1472_tmp;
+  real32_T t1480;
+  real32_T t1484;
+  real32_T t1487;
+  real32_T t1526;
+  real32_T t1541;
+  real32_T t1542;
+  real32_T t1543;
+  real32_T t1544;
+  real32_T t1551;
+  real32_T t1583;
+  real32_T t1604;
+  real32_T t1605;
+  real32_T t1609;
+  real32_T t1610;
+  real32_T t1610_tmp;
+  real32_T t1616;
+  real32_T t1629;
+  real32_T t1642;
+  real32_T t1646;
+  real32_T t1648;
+  real32_T t1676;
+  real32_T t1686;
+  real32_T t1690;
+  real32_T t1717;
+  real32_T t1735;
+  real32_T t1735_tmp;
+  real32_T t1738;
+  real32_T t1738_tmp;
+  real32_T t1740;
+  real32_T t1755;
+  real32_T t1756;
+  real32_T t1757;
+  real32_T t1759;
+  real32_T t1762;
+  real32_T t1763;
+  real32_T t1767;
+  real32_T t1811;
+  real32_T t1813;
+  real32_T t1865;
+  real32_T t1869;
+  real32_T t1888;
+  real32_T t1888_tmp;
+  real32_T t1897;
+  real32_T t1900;
+  real32_T t1900_tmp;
+  real32_T t1915;
+  real32_T t1918;
+  real32_T t1948;
+  real32_T t1957;
+  real32_T t1968;
+  real32_T t1968_tmp_tmp;
+  real32_T t1973;
+  real32_T t1973_tmp;
+  real32_T t1974;
+  real32_T t1976;
+  real32_T t1976_tmp;
+  real32_T t1977;
+  real32_T t1978;
+  real32_T t1980;
+  real32_T t1981;
+  real32_T t1981_tmp;
+  real32_T t1982;
+  real32_T t1982_tmp;
+  real32_T t1983;
+  real32_T t1984;
+  real32_T t875;
+  real32_T t900;
+  real32_T t954;
+  real32_T t957;
+  real32_T t973;
   covrtLogFcn(&emlrtCoverageInstance, 11U, 2U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 2U);
   /* 'mass_mat_func_gb:1015'
@@ -1515,16 +1549,16 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1018' t878 = -t843; */
   /* 'mass_mat_func_gb:1019' t891 = t271+t591; */
   /* 'mass_mat_func_gb:1020' t900 = t847.*3.39e+2; */
-  t900 = ct[496] * 339.0;
+  t900 = ct[496] * 339.0F;
   /* 'mass_mat_func_gb:1021' t905 = t818.*9.15e+3; */
   /* 'mass_mat_func_gb:1022' t913 = t820.*9.15e+3; */
   /* 'mass_mat_func_gb:1023' t918 = t24.*t857; */
   /* 'mass_mat_func_gb:1024' t950 = t29.*t890; */
   /* 'mass_mat_func_gb:1025' t953 = t932.*1.51e+2; */
   /* 'mass_mat_func_gb:1026' t954 = t41.*t847.*2.44e+2; */
-  t954 = ct[233] * ct[496] * 244.0;
+  t954 = ct[233] * ct[496] * 244.0F;
   /* 'mass_mat_func_gb:1027' t957 = t49.*t847.*2.13e+2; */
-  t957 = ct[280] * ct[496] * 213.0;
+  t957 = ct[280] * ct[496] * 213.0F;
   /* 'mass_mat_func_gb:1028' t963 = -t948; */
   /* 'mass_mat_func_gb:1029' t973 = t402+t528; */
   t973 = ct[228] + ct[301];
@@ -1550,7 +1584,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1043' t1027 = t483+t543; */
   t1027 = ct[278] + ct[311];
   /* 'mass_mat_func_gb:1044' t1036 = t36.*t944.*2.13e+2; */
-  t1036 = ct[203] * ct[542] * 213.0;
+  t1036 = ct[203] * ct[542] * 213.0F;
   /* 'mass_mat_func_gb:1045' t1052 = t520+t566; */
   t1052 = ct[298] + ct[323];
   /* 'mass_mat_func_gb:1046' t1060 = -t1033; */
@@ -1559,13 +1593,13 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1049' t1067 = t48.*t993.*(7.0./5.0); */
   /* 'mass_mat_func_gb:1050' t1068 = t42.*t993.*1.51e+2; */
   t1068_tmp = ct[238] * ct[563];
-  t1068 = t1068_tmp * 151.0;
+  t1068 = t1068_tmp * 151.0F;
   /* 'mass_mat_func_gb:1051' t1069 = t43.*t994.*1.51e+2; */
   /* 'mass_mat_func_gb:1052' t1070 = t43.*t44.*t944.*2.13e+2; */
   t1070_tmp = ct[245] * ct[251];
-  t1070 = t1070_tmp * ct[542] * 213.0;
+  t1070 = t1070_tmp * ct[542] * 213.0F;
   /* 'mass_mat_func_gb:1053' t1071 = t42.*t993.*2.46e+2; */
-  t1071 = t1068_tmp * 246.0;
+  t1071 = t1068_tmp * 246.0F;
   /* 'mass_mat_func_gb:1054' t1072 = t43.*t994.*2.46e+2; */
   /* 'mass_mat_func_gb:1055' t1078 = t530+t567; */
   t1078 = ct[303] + ct[324];
@@ -1573,7 +1607,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1057' t1087 = t37.*t972.*9.15e+3; */
   /* 'mass_mat_func_gb:1058' t1089 = t35.*t36.*t944.*9.15e+3; */
   t1068_tmp = ct[195] * ct[203];
-  t1089 = t1068_tmp * ct[542] * 9150.0;
+  t1089 = t1068_tmp * ct[542] * 9150.0F;
   /* 'mass_mat_func_gb:1059' t1092 = t44.*t45.*t972.*2.13e+2; */
   /* 'mass_mat_func_gb:1060' t1104 = t34.*t35.*t994.*1.51e+2; */
   /* 'mass_mat_func_gb:1061' t1105 = t34.*t35.*t994.*2.46e+2; */
@@ -1583,7 +1617,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1065' t1120 = t24.*t33.*t1055; */
   /* 'mass_mat_func_gb:1066' t1126 = t34.*t36.*t43.*t944.*9.15e+3; */
   t1126_tmp = ct[191] * ct[203] * ct[245];
-  t1126 = t1126_tmp * ct[542] * 9150.0;
+  t1126 = t1126_tmp * ct[542] * 9150.0F;
   /* 'mass_mat_func_gb:1067' t1128 = t410.*t794.*2.13e+2; */
   /* 'mass_mat_func_gb:1068' t1130 = t40.*t43.*t994.*(5.11e+2./5.0); */
   /* 'mass_mat_func_gb:1069' t1133 = t43.*t48.*t994.*(5.11e+2./5.0); */
@@ -1607,7 +1641,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1084' t1184 = t578+t818; */
   t1184 = ct[330] + ct[479];
   /* 'mass_mat_func_gb:1085' t1185 = t364.*t944.*2.13e+2; */
-  t1185 = ct[208] * ct[542] * 213.0;
+  t1185 = ct[208] * ct[542] * 213.0F;
   /* 'mass_mat_func_gb:1086' t1187 = t25.*t1159; */
   /* 'mass_mat_func_gb:1087' t1188 = t33.*t1159; */
   /* 'mass_mat_func_gb:1088' t1193 = t253+t529+t537; */
@@ -1643,11 +1677,11 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1113' t1305 = t519.*t972.*1.5e+2; */
   /* 'mass_mat_func_gb:1114' t1306 = t35.*(t574-t820).*2.13e+2; */
   t1306_tmp = ct[327] - ct[481];
-  t1306 = ct[195] * t1306_tmp * 213.0;
+  t1306 = ct[195] * t1306_tmp * 213.0F;
   /* 'mass_mat_func_gb:1115' t1331 = t42.*(t574-t820).*9.15e+3; */
   /* 'mass_mat_func_gb:1116' t1332 = t34.*t43.*(t574-t820).*-2.13e+2; */
   t1332_tmp = ct[191] * ct[245];
-  t1332 = t1332_tmp * t1306_tmp * -213.0;
+  t1332 = t1332_tmp * t1306_tmp * -213.0F;
   /* 'mass_mat_func_gb:1117' t1333 = t817+t851; */
   t1333 = ct[478] + ct[498];
   /* 'mass_mat_func_gb:1118' t1334 = t36.*t43.*t1196.*2.44e+2; */
@@ -1768,11 +1802,11 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1206' t1049 = t48.*t1005; */
   /* 'mass_mat_func_gb:1207' t1053 = t25.*t1013; */
   /* 'mass_mat_func_gb:1208' t1062 = t36.*t973.*2.44e+2; */
-  t1062 = ct[203] * t973 * 244.0;
+  t1062 = ct[203] * t973 * 244.0F;
   /* 'mass_mat_func_gb:1209' t1065 = t1021.*2.13e+2; */
-  t1065 = t1021 * 213.0;
+  t1065 = t1021 * 213.0F;
   /* 'mass_mat_func_gb:1210' t1073 = t1023.*2.44e+2; */
-  t1073 = t1023 * 244.0;
+  t1073 = t1023 * 244.0F;
   /* 'mass_mat_func_gb:1211' t1075 = t523+t596; */
   t1075 = ct[299] + ct[338];
   /* 'mass_mat_func_gb:1212' t1077 = t492+t600; */
@@ -1780,7 +1814,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1213' t1082 = t24.*t33.*t1013; */
   /* 'mass_mat_func_gb:1214' t1083 = t281.*t891; */
   /* 'mass_mat_func_gb:1215' t1093 = t43.*t44.*t973.*2.44e+2; */
-  t1093 = t1070_tmp * t973 * 244.0;
+  t1093 = t1070_tmp * t973 * 244.0F;
   /* 'mass_mat_func_gb:1216' t1096 = t43.*t1005.*4.55e+2; */
   /* 'mass_mat_func_gb:1217' t1107 = t48.*t1022.*(7.0./5.0); */
   /* 'mass_mat_func_gb:1218' t1110 = t48.*t1024.*(7.0./5.0); */
@@ -1797,7 +1831,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1228' t1189 = t698+t775; */
   t1189 = ct[397] + ct[447];
   /* 'mass_mat_func_gb:1229' t1201 = t364.*t973.*2.44e+2; */
-  t1201 = ct[208] * t973 * 244.0;
+  t1201 = ct[208] * t973 * 244.0F;
   /* 'mass_mat_func_gb:1230' t1205 = t41.*t1177; */
   t1205 = ct[233] * t1177;
   /* 'mass_mat_func_gb:1231' t1206 = t49.*t1177; */
@@ -1809,7 +1843,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1245 = ct[376] + ct[508];
   /* 'mass_mat_func_gb:1236' t1246 = t44.*t1182.*1.5e+2; */
   /* 'mass_mat_func_gb:1237' t1256 = t35.*t1184.*2.44e+2; */
-  t1256 = ct[195] * t1184 * 244.0;
+  t1256 = ct[195] * t1184 * 244.0F;
   /* 'mass_mat_func_gb:1238' t1257 = t30.*t1213; */
   /* 'mass_mat_func_gb:1239' t1258 = t35.*t1178.*1.5e+2; */
   /* 'mass_mat_func_gb:1240' t1263 = t265+t612+t687; */
@@ -1858,7 +1892,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1279' t1429 = t839+t1060; */
   /* 'mass_mat_func_gb:1280' t1430 = t124+t637+t1067; */
   t1430_tmp = ct[275] * ct[563];
-  t1430 = (ct[61] + ct[359]) + t1430_tmp * 1.4;
+  t1430 = (ct[61] + ct[359]) + t1430_tmp * 1.4F;
   /* 'mass_mat_func_gb:1281' t1433 = t186+t632+t1064; */
   t1433_tmp = ct[225] * ct[563];
   /* 'mass_mat_func_gb:1282' t1436 = t1052.*(t144-t465).*1.5e+2; */
@@ -1899,7 +1933,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1314' t1612 = -t1606; */
   /* 'mass_mat_func_gb:1315' t1628 = -t1624; */
   /* 'mass_mat_func_gb:1316' t1629 = t195+t1085+t1215; */
-  t1629 = (ct[29] + ct[132]) + ct[45] * ct[186] * 1.4;
+  t1629 = (ct[29] + ct[132]) + ct[45] * ct[186] * 1.4F;
   /* 'mass_mat_func_gb:1317' t1635 = t356.*t1566; */
   /* 'mass_mat_func_gb:1318' t1636 = t356.*t1567; */
   /* 'mass_mat_func_gb:1319' t1639 = t444.*t1548; */
@@ -1984,7 +2018,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1390' t1414 = -t1410; */
   /* 'mass_mat_func_gb:1391' t1415 = t404.*t1189.*1.5e+2; */
   /* 'mass_mat_func_gb:1392' t1420 = t41.*t1371.*2.13e+2; */
-  t1420 = ct[233] * t1371 * 213.0;
+  t1420 = ct[233] * t1371 * 213.0F;
   /* 'mass_mat_func_gb:1393' t1421 = t48.*t1371.*(7.0./5.0); */
   /* 'mass_mat_func_gb:1394' t1422 = t49.*t1371.*2.44e+2; */
   /* 'mass_mat_func_gb:1395' t1423 = t34.*t43.*t1353.*7.3e+1; */
@@ -2123,39 +2157,39 @@ static void ft_2(const real_T ct[570], real_T M[81])
    */
   ct_idx_2 = ct[221] * ct[547];
   ct_idx_6 = ct[270] * ct[552];
-  t1984 = t1068_tmp * t973 * 9150.0;
-  ct_idx_35 = ct[14] * ct[203] * 150.0;
-  ct_idx_39 = t1126_tmp * t973 * 9150.0;
-  t1977 = -(t1070_tmp * ct[14] * 150.0);
-  ct_idx_69 = ct[238] * t1177 * 339.0;
+  t1984 = t1068_tmp * t973 * 9150.0F;
+  ct_idx_35 = ct[14] * ct[203] * 150.0F;
+  ct_idx_39 = t1126_tmp * t973 * 9150.0F;
+  t1977 = -(t1070_tmp * ct[14] * 150.0F);
+  ct_idx_69 = ct[238] * t1177 * 339.0F;
   ct_idx_70 = ct[31] + ct[168];
-  ct_idx_82 = ct[14] * ct[208] * 150.0;
-  ct_idx_103 = -(t1332_tmp * t1184 * 244.0);
+  ct_idx_82 = ct[14] * ct[208] * 150.0F;
+  ct_idx_103 = -(t1332_tmp * t1184 * 244.0F);
   ct_idx_124 = ct[233] * t1346;
-  ct_idx_133 = ct[238] * t1346 * 73.0;
+  ct_idx_133 = ct[238] * t1346 * 73.0F;
   ct_idx_143 = ct[12] + ct[489];
-  ct_idx_147 = ct[280] * t1371 * 244.0;
+  ct_idx_147 = ct[280] * t1371 * 244.0F;
   ct_idx_154 = ct[490] - ct[11];
-  ct_idx_164 = ct[238] * t1430 * 73.0;
-  t1068_tmp = ct[238] * ((ct[124] + ct[356]) + t1433_tmp * 1.4);
-  ct_idx_166 = t1068_tmp * 73.0;
-  ct_idx_167 = t1068_tmp * 150.0;
+  ct_idx_164 = ct[238] * t1430 * 73.0F;
+  t1068_tmp = ct[238] * ((ct[124] + ct[356]) + t1433_tmp * 1.4F);
+  ct_idx_166 = t1068_tmp * 73.0F;
+  ct_idx_167 = t1068_tmp * 150.0F;
   ct_idx_172 = ct[275] * t1459;
   t1983 = ct[262] + t1381;
   ct_idx_240 = ct[363] + ct[145] * t1480;
   ct_idx_245 = ct[47] + ct[60] * ct[148];
   ct_idx_250 = ct[275] * t1642;
   t1068_tmp = ct[225] * t1642;
-  t1126_tmp = t1068_tmp * 134.0;
-  ct_idx_259 = ct[233] * t1648 * 213.0;
-  ct_idx_261 = ct[280] * t1648 * 244.0;
-  ct_idx_264 = ((ct[414] + ct[429]) + ct[499] * 1.4) + ct[541];
+  t1126_tmp = t1068_tmp * 134.0F;
+  ct_idx_259 = ct[233] * t1648 * 213.0F;
+  ct_idx_261 = ct[280] * t1648 * 244.0F;
+  ct_idx_264 = ((ct[414] + ct[429]) + ct[499] * 1.4F) + ct[541];
   ct_idx_305_tmp = ct[145] * ct[148];
   b_ct_idx_305_tmp = ct[145] * ct[189];
   ct_idx_305 = (((ct[403] + ct[404]) + ct[435]) + ct_idx_305_tmp * ct[24]) -
                b_ct_idx_305_tmp * ct[22];
-  ct_idx_306 = (ct[265] + ct[73] * ct[186]) + ct[186] * t1487 * 1.4;
-  ct_idx_307 = (ct[296] + ct[73] * ct[145]) + ct[145] * t1487 * 1.4;
+  ct_idx_306 = (ct[265] + ct[73] * ct[186]) + ct[186] * t1487 * 1.4F;
+  ct_idx_307 = (ct[296] + ct[73] * ct[145]) + ct[145] * t1487 * 1.4F;
   ct_idx_327 = ((((ct[443] + ct[554]) + ct[2]) + ct[3]) +
                 ct_idx_305_tmp * ((ct[151] + ct[346]) + ct[395])) +
                b_ct_idx_305_tmp * ((ct[156] + ct[349]) + ct[390]);
@@ -2167,15 +2201,15 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1520' t1515 = t34.*t1484.*3.39e+2; */
   /* 'mass_mat_func_gb:1521' t1525 = -t1520; */
   /* 'mass_mat_func_gb:1522' t1543 = t1107+t1115; */
-  t1543 = ct[275] * t1022 * 1.4 + ct[280] * t1077;
+  t1543 = ct[275] * t1022 * 1.4F + ct[280] * t1077;
   /* 'mass_mat_func_gb:1523' t1572 = t403.*t1451; */
   /* 'mass_mat_func_gb:1524' t1579 = t24.*t1562; */
   /* 'mass_mat_func_gb:1525' t1584 = t1023+t1225; */
   /* 'mass_mat_func_gb:1526' t1596 = t43.*(t1110-t1114).*1.5e+2; */
   /* 'mass_mat_func_gb:1527' t1604 = t1065+t1239; */
-  t1604 = t1065 + t1206 * 213.0;
+  t1604 = t1065 + t1206 * 213.0F;
   /* 'mass_mat_func_gb:1528' t1605 = t42.*t1576.*2.13e+2; */
-  t1605 = (t1021 + t1206) * ct[238] * 213.0;
+  t1605 = (t1021 + t1206) * ct[238] * 213.0F;
   /* 'mass_mat_func_gb:1529' t1607 = t34.*t35.*(t1110-t1114).*-1.5e+2; */
   /* 'mass_mat_func_gb:1530' t1610 = t177+t178+t1053+t1076; */
   t1610_tmp = ct[119] + ct[120];
@@ -2201,11 +2235,11 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1545' t1721 = t1133+t1505; */
   /* 'mass_mat_func_gb:1546' t1735 = t315+t1247+t1421; */
   t1735_tmp = ct[275] * t1371;
-  t1735 = (ct[62] + ct[185]) + t1735_tmp * 1.4;
+  t1735 = (ct[62] + ct[185]) + t1735_tmp * 1.4F;
   /* 'mass_mat_func_gb:1547' t1737 = -t1613.*(t414-t575); */
   /* 'mass_mat_func_gb:1548' t1738 = t251+t291+t1282+t1329; */
   t1738_tmp = ct[149] + ct[170];
-  b_t1738_tmp = ct[371] - ct[481] * 213.0;
+  b_t1738_tmp = ct[371] - ct[481] * 213.0F;
   t1738 = (t1738_tmp + ct[189] * t1245) + ct[148] * b_t1738_tmp;
   /* 'mass_mat_func_gb:1549' t1740 = t1370+t1445; */
   t1740 = ct[280] * t1346 + ct[233] * t1430;
@@ -2213,7 +2247,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1551' t1756 = t907+t1667; */
   t1756 = t1126_tmp + ct[523];
   /* 'mass_mat_func_gb:1552' t1757 = t911+t1668; */
-  t1757 = t1068_tmp * 405.0 + ct[525];
+  t1757 = t1068_tmp * 405.0F + ct[525];
   /* 'mass_mat_func_gb:1553' t1758 = t803.*t1693; */
   /* 'mass_mat_func_gb:1554' t1767 = t1375+t1488; */
   t1767 = ct[233] * t1353 + ct[280] * t1472;
@@ -2236,7 +2270,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1570' t1882 = t449+t1113+t1131+t1161+t1335; */
   /* 'mass_mat_func_gb:1571' t1888 = t666+t1478+t1678; */
   t1888_tmp = ct[275] * t1648;
-  t1888 = (ct_idx_172 + ct[377]) + t1888_tmp * 1.4;
+  t1888 = (ct_idx_172 + ct[377]) + t1888_tmp * 1.4F;
   /* 'mass_mat_func_gb:1572' t1893 = -t1891; */
   /* 'mass_mat_func_gb:1573' t1897 = t76+t918+t966+t967+t1351+t1358; */
   t1897 = ((((ct[434] + ct[145] * ct[501]) + ct[186] * t875) + ct[550]) +
@@ -2262,26 +2296,26 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1583' t1250 = -t1223; */
   /* 'mass_mat_func_gb:1584' t1284 = -t1270; */
   /* 'mass_mat_func_gb:1585' t1526 = t526+t1407; */
-  t1526 = t1381 * 339.0 + ct[300];
+  t1526 = t1381 * 339.0F + ct[300];
   /* 'mass_mat_func_gb:1586' t1528 = t34.*t1495.*1.34e+2; */
   /* 'mass_mat_func_gb:1587' t1529 = t34.*t1495.*4.05e+2; */
   /* 'mass_mat_func_gb:1588' t1531 = t41.*t1498.*2.44e+2; */
   /* 'mass_mat_func_gb:1589' t1532 = t49.*t1498.*2.13e+2; */
   /* 'mass_mat_func_gb:1590' t1541 = t494+t1412; */
   t1068_tmp = ct[225] * t1359;
-  t1541 = -(t1068_tmp * 134.0) + ct[284];
+  t1541 = -(t1068_tmp * 134.0F) + ct[284];
   /* 'mass_mat_func_gb:1591' t1542 = t498+t1413; */
-  t1542 = -(t1068_tmp * 405.0) + ct[286];
+  t1542 = -(t1068_tmp * 405.0F) + ct[286];
   /* 'mass_mat_func_gb:1592' t1580 = -t1572; */
   /* 'mass_mat_func_gb:1593' t1583 = t1022+t1224; */
   t1583 = t1022 + ct[280] * t1192;
   /* 'mass_mat_func_gb:1594' t1585 = t43.*t1543.*1.5e+2; */
   /* 'mass_mat_func_gb:1595' t1602 = t34.*t35.*t1543.*1.5e+2; */
   /* 'mass_mat_func_gb:1596' t1609 = t1073+t1252; */
-  t1609 = t1073 - t1205 * 244.0;
+  t1609 = t1073 - t1205 * 244.0F;
   /* 'mass_mat_func_gb:1597' t1614 = t25.*t1604; */
   /* 'mass_mat_func_gb:1598' t1616 = t42.*t1584.*2.44e+2; */
-  t1616 = ct[238] * (t1023 - t1205) * 244.0;
+  t1616 = ct[238] * (t1023 - t1205) * 244.0F;
   /* 'mass_mat_func_gb:1599' t1634 = -t1627; */
   /* 'mass_mat_func_gb:1600' t1674 = -t1670; */
   /* 'mass_mat_func_gb:1601' t1684 = -t1683; */
@@ -2295,7 +2329,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1346 = ct[496] - ct_idx_250;
   /* 'mass_mat_func_gb:1608' t1750 = t1240+t1515; */
   /* 'mass_mat_func_gb:1609' t1755 = t42.*t1740.*1.5e+2; */
-  t1755 = ct[238] * t1740 * 150.0;
+  t1755 = ct[238] * t1740 * 150.0F;
   /* 'mass_mat_func_gb:1610' t1763 = t930+t1673; */
   t1763 = ct[535] - t1126_tmp;
   /* 'mass_mat_func_gb:1611' t1764 = t933+t1240+t1321; */
@@ -2350,14 +2384,14 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1968_tmp_tmp = ct[109] - ct[267];
   t1126_tmp = ct[221] * ct[225] * t1968_tmp_tmp;
   t1968 = (((((ct[122] + ct[154]) +
-              ((ct[300] + ct[275] * ct[499] * 339.0) + ct[561]) * ct[145]) +
-             ct[186] * ((-(t1068_tmp * 134.0) + ct[209] * ct[275] * 134.0) +
-                        t1126_tmp * 134.0)) +
-            ct[186] * ((ct[286] - t1068_tmp * 405.0) + t1126_tmp * 405.0)) +
-           ct_idx_305_tmp * ((ct[341] + ct[214] * ct[463] * 244.0) + ct[44])) +
+              ((ct[300] + ct[275] * ct[499] * 339.0F) + ct[561]) * ct[145]) +
+             ct[186] * ((-(t1068_tmp * 134.0F) + ct[209] * ct[275] * 134.0F) +
+                        t1126_tmp * 134.0F)) +
+            ct[186] * ((ct[286] - t1068_tmp * 405.0F) + t1126_tmp * 405.0F)) +
+           ct_idx_305_tmp * ((ct[341] + ct[214] * ct[463] * 244.0F) + ct[44])) +
           -ct[145] * ct[189] *
-              ((ct[360] + ct[234] * ct[463] * 213.0) +
-               ct[215] * t1968_tmp_tmp * 213.0);
+              ((ct[360] + ct[234] * ct[463] * 213.0F) +
+               ct[215] * t1968_tmp_tmp * 213.0F);
   /* 'mass_mat_func_gb:1647' t1973 =
    * t118+t193+t781+t806+t949+t955+t984+t1045+t1046+t1066+t1464+t1469+t1474+t1475;
    */
@@ -2370,9 +2404,9 @@ static void ft_2(const real_T ct[570], real_T M[81])
                ct[19]) +
               ct[27]) +
              ct[469] * (ct[13] + ct[151])) +
-            -ct[436] * (ct[156] - t1021 * 213.0)) +
-           ct[212] * t1052 * t1973_tmp * 150.0) -
-          ct[212] * ct[518] * t1075 * 150.0;
+            -ct[436] * (ct[156] - t1021 * 213.0F)) +
+           ct[212] * t1052 * t1973_tmp * 150.0F) -
+          ct[212] * ct[518] * t1075 * 150.0F;
   /* 'mass_mat_func_gb:1648' t1538 = t869+t1284; */
   /* 'mass_mat_func_gb:1649' t1550 = -t1532; */
   /* 'mass_mat_func_gb:1650' t1553 = t24.*t1526; */
@@ -2386,9 +2420,9 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1657' t1718 = -t1714; */
   /* 'mass_mat_func_gb:1658' t1719 = -t1716; */
   /* 'mass_mat_func_gb:1659' t1759 = t900+t1674; */
-  t1759 = t900 - ct_idx_250 * 339.0;
+  t1759 = t900 - ct_idx_250 * 339.0F;
   /* 'mass_mat_func_gb:1660' t1762 = t42.*t1747.*1.5e+2; */
-  t1762 = ct[238] * (ct_idx_124 - t1447) * 150.0;
+  t1762 = ct[238] * (ct_idx_124 - t1447) * 150.0F;
   /* 'mass_mat_func_gb:1661' t1768 = t41.*t1749.*2.44e+2; */
   /* 'mass_mat_func_gb:1662' t1769 = t49.*t1749.*2.13e+2; */
   /* 'mass_mat_func_gb:1663' t1778 = -t1765; */
@@ -2397,7 +2431,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1666' t1796 = t34.*t1777.*2.44e+2; */
   /* 'mass_mat_func_gb:1667' t1804 = t34.*t43.*t1780.*1.5e+2; */
   /* 'mass_mat_func_gb:1668' t1811 = t1422+t1531; */
-  t1811 = ct_idx_147 + t1983 * ct[233] * 244.0;
+  t1811 = ct_idx_147 + t1983 * ct[233] * 244.0F;
   /* 'mass_mat_func_gb:1669' t1823 = -t1685.*(t400+t403-t426); */
   /* 'mass_mat_func_gb:1670' t1825 = t24.*t25.*t1821; */
   /* 'mass_mat_func_gb:1671' t1826 = t24.*t33.*t1822; */
@@ -2422,7 +2456,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1957 =
       ((((ct[66] + ct[134]) + ct[67]) - ct[145] * t1227) -
        b_ct_idx_305_tmp * ((ct[192] + t1065) + ct[37])) +
-      ct_idx_305_tmp * ((ct[202] + t1073) + ct[233] * ct[275] * t1022 * 244.0);
+      ct_idx_305_tmp * ((ct[202] + t1073) + ct[233] * ct[275] * t1022 * 244.0F);
   /* 'mass_mat_func_gb:1687' t1958 = t1015.*t1947; */
   /* 'mass_mat_func_gb:1688' t1961 = -t1960; */
   /* 'mass_mat_func_gb:1689' t1965 = t1755+t1917; */
@@ -2430,13 +2464,13 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1068_tmp = ct[225] * t1204;
   t1976_tmp = ct[260] + ct[534];
   t1976 = (((((ct[172] + ct[354]) +
-              -ct[145] * ((t900 - ct[275] * t1204 * 339.0) +
-                          ct[221] * ct[275] * t1976_tmp * 339.0)) -
-             ((ct[523] + t1068_tmp * 134.0) + ct[71]) * ct[186]) -
-            ((ct[525] + t1068_tmp * 405.0) + ct[72]) * ct[186]) +
-           ct_idx_305_tmp * ((-t954 + ct[49] * ct[214] * 244.0) +
-                             ct[235] * t1976_tmp * 244.0)) -
-          b_ct_idx_305_tmp * ((t957 + ct[49] * ct[234] * 213.0) + ct[83]);
+              -ct[145] * ((t900 - ct[275] * t1204 * 339.0F) +
+                          ct[221] * ct[275] * t1976_tmp * 339.0F)) -
+             ((ct[523] + t1068_tmp * 134.0F) + ct[71]) * ct[186]) -
+            ((ct[525] + t1068_tmp * 405.0F) + ct[72]) * ct[186]) +
+           ct_idx_305_tmp * ((-t954 + ct[49] * ct[214] * 244.0F) +
+                             ct[235] * t1976_tmp * 244.0F)) -
+          b_ct_idx_305_tmp * ((t957 + ct[49] * ct[234] * 213.0F) + ct[83]);
   /* 'mass_mat_func_gb:1691' t1982 =
    * t1492+t1493+t1514+t1563+t1571+t1705+t1710+t1711+t1799+t1839+t1841+t1842+t1844+t1846+t1934+t1935;
    */
@@ -2454,21 +2488,22 @@ static void ft_2(const real_T ct[570], real_T M[81])
                   -ct[174] * b_t1982_tmp) +
                  ct[140] * t1544) +
                 t1642 * ((t900 + ct[524]) + ct[38])) +
-               t1070_tmp * ((ct[519] - ct[523]) + t1126_tmp * 134.0)) +
-              t1070_tmp * ((ct[520] - ct[525]) + t1126_tmp * 405.0)) +
+               t1070_tmp * ((ct[519] - ct[523]) + t1126_tmp * 134.0F)) +
+              t1070_tmp * ((ct[520] - ct[525]) + t1126_tmp * 405.0F)) +
              ct[118] * ct[216]) +
-            ct[436] * ((t957 + t1185) + ct[553] * t1068_tmp * -213.0)) +
+            ct[436] * ((t957 + t1185) + ct[553] * t1068_tmp * -213.0F)) +
            t1177 *
-               ((((ct[425] + ct[458]) - ct[507]) - ct[560]) + t973 * 210.0) *
-               -1.4) +
-          -ct[469] * ((t954 - t1201) + ct[543] * t1068_tmp * 244.0)) +
-         t1206 * ((((ct[423] + ct[462]) + ct[526]) + ct[565]) + ct[46]) * 1.4) +
-        t1177 * ((((ct[424] + ct[445]) - ct[521]) - ct[557]) + t973 * 102.2) *
-            -1.4) +
+               ((((ct[425] + ct[458]) - ct[507]) - ct[560]) + t973 * 210.0F) *
+               -1.4F) +
+          -ct[469] * ((t954 - t1201) + ct[543] * t1068_tmp * 244.0F)) +
+         t1206 * ((((ct[423] + ct[462]) + ct[526]) + ct[565]) + ct[46]) *
+             1.4F) +
+        t1177 * ((((ct[424] + ct[445]) - ct[521]) - ct[557]) + t973 * 102.2F) *
+            -1.4F) +
        ct[518] * ((((ct_idx_39 + ct[471]) + ct[65]) + ct_idx_82) +
-                  t1075 * t1068_tmp * 150.0)) +
-      -((((-ct[473] + t1126) + ct[68]) + ct[297] * ct[553] * 150.0) +
-        t1052 * t1068_tmp * 150.0) *
+                  t1075 * t1068_tmp * 150.0F)) +
+      -((((-ct[473] + t1126) + ct[68]) + ct[297] * ct[553] * 150.0F) +
+        t1052 * t1068_tmp * 150.0F) *
           t1973_tmp;
   /* 'mass_mat_func_gb:1692' t1622 = t43.*t1593.*2.44e+2; */
   /* 'mass_mat_func_gb:1693' t1625 = t34.*t35.*t1593.*2.44e+2; */
@@ -2477,7 +2512,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1696' t1774 = -t1768; */
   /* 'mass_mat_func_gb:1697' t1798 = -t1796; */
   /* 'mass_mat_func_gb:1698' t1813 = t1420+t1550; */
-  t1813 = t1420 - t1983 * ct[280] * 213.0;
+  t1813 = t1420 - t1983 * ct[280] * 213.0F;
   /* 'mass_mat_func_gb:1699' t1817 = t33.*t1811; */
   /* 'mass_mat_func_gb:1700' t1868 = -t1862; */
   /* 'mass_mat_func_gb:1701' t1871 = -t1870; */
@@ -2489,7 +2524,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1900 = (t1900_tmp + ct[148] * t1604) + ct[189] * t1609;
   /* 'mass_mat_func_gb:1706' t1911 = t1332+t1605+t1623; */
   /* 'mass_mat_func_gb:1707' t1915 = t1677+t1769; */
-  t1915 = ct_idx_259 + ct[280] * t1346 * 213.0;
+  t1915 = ct_idx_259 + ct[280] * t1346 * 213.0F;
   /* 'mass_mat_func_gb:1708' t1925 = t24.*t33.*t1920; */
   /* 'mass_mat_func_gb:1709' t1952 = t1643.*(t1585-t1794); */
   /* 'mass_mat_func_gb:1710' t1953 = t1904.*(t1292+t25.*(t400+t403-t426)); */
@@ -2502,8 +2537,8 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1717' t1974 = t480+t1553+t1560+t1561+t1825+t1826; */
   t1974 =
       ((((ct[276] + ct[145] * t1526) + ct[186] * t1541) + ct[186] * t1542) +
-       ct_idx_305_tmp * ((ct_idx_147 + ct[341]) + ct[233] * t1381 * 244.0)) +
-      b_ct_idx_305_tmp * ((-t1420 + ct[345]) + ct[280] * t1381 * 213.0);
+       ct_idx_305_tmp * ((ct_idx_147 + ct[341]) + ct[233] * t1381 * 244.0F)) +
+      b_ct_idx_305_tmp * ((-t1420 + ct[345]) + ct[280] * t1381 * 213.0F);
   /* 'mass_mat_func_gb:1718' t1978 =
    * t750+t785+t1153+t1154+t1180+t1394+t1408+t1409+t1481+t1516+t1522+t1530+t1700+t1706+t1840+t1847;
    */
@@ -2516,12 +2551,12 @@ static void ft_2(const real_T ct[570], real_T M[81])
             ct[100]) +
            ct[102]) +
           ct[104]) +
-         ct[436] * ((ct[192] + t1036) + t1068_tmp * ct[553] * 213.0)) +
+         ct[436] * ((ct[192] + t1036) + t1068_tmp * ct[553] * 213.0F)) +
         ((ct[202] + t1062) + ct[28]) * ct[469]) +
        ct[518] *
-           (((ct[26] + ct[178]) + ct_idx_35) - t1068_tmp * t1075 * 150.0)) +
+           (((ct[26] + ct[178]) + ct_idx_35) - t1068_tmp * t1075 * 150.0F)) +
       t1973_tmp *
-          (((ct[182] - t1021 * 9150.0) + ct[41]) + t1068_tmp * t1052 * 150.0);
+          (((ct[182] - t1021 * 9150.0F) + ct[41]) + t1068_tmp * t1052 * 150.0F);
   /* 'mass_mat_func_gb:1719' t1980 =
    * t1257+t1304+t1342+t1343+t1374+t1533+t1534+t1559+t1698+t1728+t1730+t1731+t1752+t1758+t1903+t1905;
    */
@@ -2533,15 +2568,15 @@ static void ft_2(const real_T ct[570], real_T M[81])
                t1070_tmp * ((ct[286] + ct[380]) + ct[532])) -
               t1642 * ct[90]) -
              ct[216] * (((ct[317] + ct[396]) + ct[419]) + ct[551])) +
-            t1206 * ct[116] * 1.4) +
-           t1177 * ct[114] * 1.4) +
-          t1177 * ct[117] * 1.4) +
-         ct[436] * ((ct[360] + t1070) + ct[231] * ct[553] * 213.0)) +
+            t1206 * ct[116] * 1.4F) +
+           t1177 * ct[114] * 1.4F) +
+          t1177 * ct[117] * 1.4F) +
+         ct[436] * ((ct[360] + t1070) + ct[231] * ct[553] * 213.0F)) +
         ((ct[341] + t1093) + ct[56]) * ct[469]) -
-       ct[518] *
-           ((((t1984 + ct[255]) + ct[36]) + t1977) + ct[231] * t1075 * 150.0)) +
-      ((((ct[241] + t1089) + ct[251] * ct[491] * ct[553] * 9150.0) + ct[48]) +
-       ct[231] * t1052 * 150.0) *
+       ct[518] * ((((t1984 + ct[255]) + ct[36]) + t1977) +
+                  ct[231] * t1075 * 150.0F)) +
+      ((((ct[241] + t1089) + ct[251] * ct[491] * ct[553] * 9150.0F) + ct[48]) +
+       ct[231] * t1052 * 150.0F) *
           t1973_tmp;
   /* 'mass_mat_func_gb:1720' t1981 =
    * t424+t586+t1307+t1327+t1482+t1501+t1502+t1658+t1659+t1660+t1753+t1795+t1806+t1814+t1861+t1866+t1937+t1938;
@@ -2560,23 +2595,24 @@ static void ft_2(const real_T ct[570], real_T M[81])
                  ct[200] * ((ct[290] + ct[372]) + ct[449])) +
                 ct[305] * ((ct[378] + ct[530]) + ct[538])) +
                ct[305] * ((ct[380] + ct[533]) + ct[539])) +
-              ct[271] * ((ct[398] + ct[509]) + t1068_tmp * t1177 * 339.0)) +
+              ct[271] * ((ct[398] + ct[509]) + t1068_tmp * t1177 * 339.0F)) +
              ct[239] *
                  ((((ct[317] + ct[419]) + ct[437]) + ct[450]) + ct[492])) -
             t1070_tmp *
-                ((((ct[348] + ct[405]) + ct[426]) + ct[485]) - ct[549]) * 1.4) -
+                ((((ct[348] + ct[405]) + ct[426]) + ct[485]) - ct[549]) *
+                1.4F) -
            t1070_tmp * ((((ct[382] + ct[387]) + ct[455]) + ct[503]) - ct[544]) *
-               1.4) -
+               1.4F) -
           t1642 * ((((ct[383] + ct[393]) + ct[457]) + ct[504]) + ct[562]) *
-              1.4) +
-         -((t1093 + t1256) - t1068_tmp * ct[53] * 244.0) * t1981_tmp) -
+              1.4F) +
+         -((t1093 + t1256) - t1068_tmp * ct[53] * 244.0F) * t1981_tmp) -
         ct[567] * ((t1070 + t1306) + ct[75])) +
-       ct[5] * ((((t1984 + t1977) + ct[195] * t1186 * 150.0) -
-                 t1068_tmp * t1189 * 150.0) +
-                t1126_tmp * ct[53] * 9150.0)) +
-      t1027 * ((((t1089 + ct[48]) + ct[195] * t1178 * 150.0) -
-                t1068_tmp * t1182 * 150.0) +
-               t1126_tmp * t973 * 9150.0);
+       ct[5] * ((((t1984 + t1977) + ct[195] * t1186 * 150.0F) -
+                 t1068_tmp * t1189 * 150.0F) +
+                t1126_tmp * ct[53] * 9150.0F)) +
+      t1027 * ((((t1089 + ct[48]) + ct[195] * t1178 * 150.0F) -
+                t1068_tmp * t1182 * 150.0F) +
+               t1126_tmp * t973 * 9150.0F);
   /* 'mass_mat_func_gb:1721' t1715 = -t1712; */
   /* 'mass_mat_func_gb:1722' t1782 = -t1770; */
   /* 'mass_mat_func_gb:1723' t1803 = t1256+t1622; */
@@ -2584,7 +2620,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   /* 'mass_mat_func_gb:1725' t1909 = t1616+t1798; */
   /* 'mass_mat_func_gb:1726' t1913 = t1326+t1616+t1625; */
   /* 'mass_mat_func_gb:1727' t1918 = t1679+t1774; */
-  t1918 = ct_idx_261 - ct[233] * t1346 * 244.0;
+  t1918 = ct_idx_261 - ct[233] * t1346 * 244.0F;
   /* 'mass_mat_func_gb:1728' t1921 = t25.*t1915; */
   /* 'mass_mat_func_gb:1729' t1929 = -t1925; */
   /* 'mass_mat_func_gb:1730' t1945 = t1416.*t1911; */
@@ -2602,15 +2638,15 @@ static void ft_2(const real_T ct[570], real_T M[81])
                    ct[305] * (ct[352] + ct[510])) +
                   ct[305] * (ct[337] - ct[511])) +
                  ct[105]) -
-                t1070_tmp * ct[92] * 1.4) -
-               t1642 * ct[94] * 1.4) -
-              t1070_tmp * ct[95] * 1.4) +
-             -ct[567] * (t1036 + ct[251] * t973 * 213.0)) +
-            -(t1062 + ct[53] * ct[251] * 244.0) * t1981_tmp) +
-           t1027 * (((ct[420] + ct[481] * 9150.0) + ct[41]) +
-                    ct[251] * t1182 * 150.0)) -
-          ct[5] * (((ct[408] + ct[479] * 9150.0) + ct_idx_35) -
-                   ct[251] * t1189 * 150.0);
+                t1070_tmp * ct[92] * 1.4F) -
+               t1642 * ct[94] * 1.4F) -
+              t1070_tmp * ct[95] * 1.4F) +
+             -ct[567] * (t1036 + ct[251] * t973 * 213.0F)) +
+            -(t1062 + ct[53] * ct[251] * 244.0F) * t1981_tmp) +
+           t1027 * (((ct[420] + ct[481] * 9150.0F) + ct[41]) +
+                    ct[251] * t1182 * 150.0F)) -
+          ct[5] * (((ct[408] + ct[479] * 9150.0F) + ct_idx_35) -
+                   ct[251] * t1189 * 150.0F);
   /* 'mass_mat_func_gb:1736' t1984 =
    * t878+t981+t1595+t1599+t1628+t1644+t1645+t1724+t1725+t1726+t1858+t1880+t1886+t1887+t1892+t1893+t1959+t1961;
    */
@@ -2621,8 +2657,8 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1070 = ct[137] * ct[140];
   ct_idx_35 = ct[137] * ct[174];
   t1346 = ct[160] + ct[177];
-  t1430 = t1359 * 134.0;
-  t1359 *= 405.0;
+  t1430 = t1359 * 134.0F;
+  t1359 *= 405.0F;
   t1984 =
       ((((((((((((((((-ct[495] - ct[169] * ct[516]) + t1070 * ct[107]) -
                     ct_idx_35 *
@@ -2638,42 +2674,42 @@ static void ft_2(const real_T ct[570], real_T M[81])
                   ct[15])) +
             t1070_tmp *
                 (((((ct[458] + ct[474]) - ct[507]) - ct[1]) - ct[6]) +
-                 t1068_tmp * 9150.0) *
-                1.4) +
+                 t1068_tmp * 9150.0F) *
+                1.4F) +
            t1070_tmp *
                (((((ct[445] + ct[493]) - ct[521]) - ct[566]) - ct[16]) +
-                t1068_tmp * 4453.0) *
-               1.4) +
+                t1068_tmp * 4453.0F) *
+               1.4F) +
           t1642 *
               (((((ct[446] + ct[494]) - ct[515]) - ct[526]) - ct[17]) +
-               t1126_tmp * t1177 * 4453.0) *
-              1.4) +
-         -((t1201 + ct_idx_103) + ct[53] * ct[230] * 244.0) * t1981_tmp) -
+               t1126_tmp * t1177 * 4453.0F) *
+              1.4F) +
+         -((t1201 + ct_idx_103) + ct[53] * ct[230] * 244.0F) * t1981_tmp) -
         ct[567] * ((t1185 + t1332) + ct[85])) -
-       ct[5] * (((((ct_idx_39 + ct_idx_82) + ct[238] * t1184 * 9150.0) +
-                  t1332_tmp * t1186 * 150.0) +
-                 t1126_tmp * ct[53] * 9150.0) -
-                ct[230] * t1189 * 150.0)) -
-      t1027 * (((((t1126 + ct[68]) + t1332_tmp * t1178 * 150.0) +
-                 ct[238] * t1306_tmp * 9150.0) +
+       ct[5] * (((((ct_idx_39 + ct_idx_82) + ct[238] * t1184 * 9150.0F) +
+                  t1332_tmp * t1186 * 150.0F) +
+                 t1126_tmp * ct[53] * 9150.0F) -
+                ct[230] * t1189 * 150.0F)) -
+      t1027 * (((((t1126 + ct[68]) + t1332_tmp * t1178 * 150.0F) +
+                 ct[238] * t1306_tmp * 9150.0F) +
                 ct[77]) -
-               ct[230] * t1182 * 150.0);
+               ct[230] * t1182 * 150.0F);
   /* 'mass_mat_func_gb:1737' t1895 = t1429.*t1803; */
   /* 'mass_mat_func_gb:1738' t1923 = t33.*t1918; */
   /* 'mass_mat_func_gb:1739' t1946 = t1429.*t1913; */
   /* 'mass_mat_func_gb:1740' t1954 = t1686.*t1909; */
   /* 'mass_mat_func_gb:1741' t1956 = t908+t953+t1817+t1820; */
-  t1089 = ct[497] * 151.0 + ct[536] * 151.0;
+  t1089 = ct[497] * 151.0F + ct[536] * 151.0F;
   t1093 = (t1089 + ct[189] * t1811) + ct[148] * t1813;
   /* 'mass_mat_func_gb:1742' t1970 = -t1969; */
   /* 'mass_mat_func_gb:1743' t1977 = t293+t626+t1778+t1779+t1782+t1924+t1929; */
   t1977 =
       (((((ct[171] + ct[353]) - ct[186] * t1756) - ct[186] * t1757) -
         ct[145] * t1759) +
-       ct_idx_305_tmp * ((ct_idx_261 - t954) + ct_idx_250 * ct[233] * 244.0)) -
-      b_ct_idx_305_tmp * ((ct_idx_259 + t957) - ct_idx_250 * ct[280] * 213.0);
+       ct_idx_305_tmp * ((ct_idx_261 - t954) + ct_idx_250 * ct[233] * 244.0F)) -
+      b_ct_idx_305_tmp * ((ct_idx_259 + t957) - ct_idx_250 * ct[280] * 213.0F);
   /* 'mass_mat_func_gb:1744' t1975 = t1231+t1283+t1921+t1923; */
-  t900 = t1203 * 151.0 + ct[64] * 151.0;
+  t900 = t1203 * 151.0F + ct[64] * 151.0F;
   t1381 = (t900 + ct[148] * t1915) + ct[189] * t1918;
   /* 'mass_mat_func_gb:1745' t1983 =
    * t391+t516+t700+t1295+t1309+t1344+t1357+t1363+t1364+t1577+t1578+t1586+t1715+t1718+t1719+t1823+t1850+t1852+t1855+t1895+t1896+t1952+t1953;
@@ -2686,31 +2722,31 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1642 = (ct[144] - ct[369]) + ct[225] * t1472_tmp;
   t1070_tmp = ct[195] * t1642;
   t1052 = (ct[226] + ct[229]) - ct[244];
-  t1206 = ct[275] * t1024 * 1.4 - ct[233] * t1077;
+  t1206 = ct[275] * t1024 * 1.4F - ct[233] * t1077;
   ct_idx_147 = ct[60] * ct[189] + ct[148] * t1052;
   t1983 =
       (((((((((((((((((((((ct[222] + ct[295]) + ct[399]) -
-                         t1070 * ((ct[150] + ct[302]) + ct[307]) * 61.0) +
-                        ct_idx_35 * ((ct[147] + ct[319]) + ct[322]) * 61.0) +
+                         t1070 * ((ct[150] + ct[302]) + ct[307]) * 61.0F) +
+                        ct_idx_35 * ((ct[147] + ct[319]) + ct[322]) * 61.0F) +
                        ct[163] * ((ct[81] + ct[273]) + ct[368])) +
-                      ct[195] * ct[229] * t1078 * 350.0) +
-                     ct[195] * ct[223] * t1472_tmp * -350.0) -
+                      ct[195] * ct[229] * t1078 * 350.0F) +
+                     ct[195] * ct[223] * t1472_tmp * -350.0F) -
                     ct[188] * ((ct[96] + ct[274]) + ct[355])) +
-                   ct[468] * (ct[370] + t1068_tmp * 151.0)) +
-                  ct[468] * (ct[372] + t1068_tmp * 246.0)) +
-                 t1420 * (ct[343] - ct[245] * t1005 * 455.0)) -
-                ct[569] * (ct[509] - ct[245] * t1192 * 339.0)) -
-               (t1126_tmp * 134.0 + ct[530]) * t1075) -
-              (t1126_tmp * 405.0 + ct[533]) * t1075) +
-             -(ct[245] * t1077 * 73.0 - ct[195] * t1353 * 73.0) * t1052) +
-            ct[60] * (ct[245] * ct[275] * ct[564] * 102.2 +
-                      ct[195] * t1472 * 73.0)) +
-           ct[63] * (t973 * 210.0 + t1070_tmp * -150.0)) +
-          ct[63] * (t973 * 102.2 + t1070_tmp * -73.0)) +
-         ct_idx_154 * (t1256 + ct[245] * t1205 * 244.0)) +
-        ct_idx_143 * (t1306 + ct[245] * t1583 * 213.0)) +
-       ct_idx_245 * (ct[245] * t1543 * 150.0 - ct[195] * t1023 * 150.0)) +
-      (ct[245] * t1206 * 150.0 + ct[195] * t1767 * 150.0) * ct_idx_147;
+                   ct[468] * (ct[370] + t1068_tmp * 151.0F)) +
+                  ct[468] * (ct[372] + t1068_tmp * 246.0F)) +
+                 t1420 * (ct[343] - ct[245] * t1005 * 455.0F)) -
+                ct[569] * (ct[509] - ct[245] * t1192 * 339.0F)) -
+               (t1126_tmp * 134.0F + ct[530]) * t1075) -
+              (t1126_tmp * 405.0F + ct[533]) * t1075) +
+             -(ct[245] * t1077 * 73.0F - ct[195] * t1353 * 73.0F) * t1052) +
+            ct[60] * (ct[245] * ct[275] * ct[564] * 102.2F +
+                      ct[195] * t1472 * 73.0F)) +
+           ct[63] * (t973 * 210.0F + t1070_tmp * -150.0F)) +
+          ct[63] * (t973 * 102.2F + t1070_tmp * -73.0F)) +
+         ct_idx_154 * (t1256 + ct[245] * t1205 * 244.0F)) +
+        ct_idx_143 * (t1306 + ct[245] * t1583 * 213.0F)) +
+       ct_idx_245 * (ct[245] * t1543 * 150.0F - ct[195] * t1023 * 150.0F)) +
+      (ct[245] * t1206 * 150.0F + ct[195] * t1767 * 150.0F) * ct_idx_147;
   /* 'mass_mat_func_gb:1746' t1985 =
    * t192+t680+t813+t881+t1001+t1574+t1575+t1580+t1592+t1600+t1611+t1744+t1745+t1751+t1848+t1853+t1854+t1898+t1926+t1928+t1931+t1945+t1946+t1966+t1967;
    */
@@ -2721,8 +2757,8 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1021 = ct[238] * (ct[111] + t1073);
   t1126_tmp = t1070_tmp * ct[225] * ct[564];
   t1068_tmp = t1332_tmp * t1642;
-  t1642 = t1021 * 134.0;
-  t1021 *= 405.0;
+  t1642 = t1021 * 134.0F;
+  t1021 *= 405.0F;
   t1065 = ct[137] * ct[161];
   t1430 =
       (((((((((((((((((((((((ct[129] + ct[384]) + ct[475]) + ct[512]) +
@@ -2730,34 +2766,35 @@ static void ft_2(const real_T ct[570], real_T M[81])
                          t1070 *
                              ((((ct[139] + ct[190]) + ct[321]) + ct[344]) +
                               ct[365]) *
-                             61.0) +
-                        ct[223] * (ct[407] + t1332_tmp * t1472_tmp * 350.0)) -
-                       (ct[421] + t1332_tmp * t1078 * 350.0) * ct[229]) +
+                             61.0F) +
+                        ct[223] * (ct[407] + t1332_tmp * t1472_tmp * 350.0F)) -
+                       (ct[421] + t1332_tmp * t1078 * 350.0F) * ct[229]) +
                       ct_idx_35 *
                           ((((ct[142] + ct[201]) + ct[287]) + ct[374]) +
                            ct[409]) *
-                          61.0) +
+                          61.0F) +
                      ct[188] * (((t1346 + ct[272]) + ct[292]) + ct[411])) +
                     ((((ct[180] + ct[184]) + ct[250]) + ct[329]) - ct[422]) *
                         ct[163]) +
-                   ct[468] * ((ct[442] + t1068) + t1177 * 151.0)) +
-                  ct[468] * ((ct[444] + t1071) + t1177 * 246.0)) +
-                 -((ct[33] + ct[401]) + t1070_tmp * t1005 * 455.0) * t1420) +
-                ct[569] * ((ct_idx_69 + ct[537]) + t1070_tmp * t1192 * 339.0)) +
-               t1075 * ((-(t973 * 134.0) + t1642) + t1430)) +
-              t1075 * ((-(t973 * 405.0) + t1021) + t1359)) +
-             -((t1070_tmp * t1077 * 73.0 + ct_idx_133) +
-               t1332_tmp * t1353 * 73.0) *
+                   ct[468] * ((ct[442] + t1068) + t1177 * 151.0F)) +
+                  ct[468] * ((ct[444] + t1071) + t1177 * 246.0F)) +
+                 -((ct[33] + ct[401]) + t1070_tmp * t1005 * 455.0F) * t1420) +
+                ct[569] *
+                    ((ct_idx_69 + ct[537]) + t1070_tmp * t1192 * 339.0F)) +
+               t1075 * ((-(t973 * 134.0F) + t1642) + t1430)) +
+              t1075 * ((-(t973 * 405.0F) + t1021) + t1359)) +
+             -((t1070_tmp * t1077 * 73.0F + ct_idx_133) +
+               t1332_tmp * t1353 * 73.0F) *
                  t1052) +
-            ct[60] * ((t1070_tmp * ct[275] * ct[564] * 102.2 + ct_idx_164) -
-                      t1332_tmp * t1472 * 73.0)) +
-           ct[63] * ((t1126_tmp * 210.0 + ct_idx_167) + t1068_tmp * 150.0)) +
-          ct[63] * ((t1126_tmp * 102.2 + ct_idx_166) + t1068_tmp * 73.0)) +
-         ct_idx_143 * ((t1332 + t1605) + t1070_tmp * t1583 * 213.0)) +
-        ct_idx_154 * ((ct_idx_103 + t1616) + t1070_tmp * t1205 * 244.0)) +
-       ct_idx_245 *
-           ((t1070_tmp * t1543 * 150.0 + t1755) + t1332_tmp * t1023 * 150.0)) +
-      -((t1070_tmp * t1206 * -150.0 + t1762) + t1332_tmp * t1767 * 150.0) *
+            ct[60] * ((t1070_tmp * ct[275] * ct[564] * 102.2F + ct_idx_164) -
+                      t1332_tmp * t1472 * 73.0F)) +
+           ct[63] * ((t1126_tmp * 210.0F + ct_idx_167) + t1068_tmp * 150.0F)) +
+          ct[63] * ((t1126_tmp * 102.2F + ct_idx_166) + t1068_tmp * 73.0F)) +
+         ct_idx_143 * ((t1332 + t1605) + t1070_tmp * t1583 * 213.0F)) +
+        ct_idx_154 * ((ct_idx_103 + t1616) + t1070_tmp * t1205 * 244.0F)) +
+       ct_idx_245 * ((t1070_tmp * t1543 * 150.0F + t1755) +
+                     t1332_tmp * t1023 * 150.0F)) +
+      -((t1070_tmp * t1206 * -150.0F + t1762) + t1332_tmp * t1767 * 150.0F) *
           ct_idx_147;
   /* 'mass_mat_func_gb:1747' t1986 =
    * t352+t362+t800+t892+t1028+t1102+t1632+t1639+t1656+t1657+t1704+t1709+t1808+t1809+t1810+t1871+t1874+t1875+t1933+t1940+t1943+t1944+t1954+t1955+t1970+t1972;
@@ -2769,9 +2806,9 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1070_tmp = ct[417] - ct[432];
   t1022 = ct[277] - ct[293];
   t1177 =
-      ct[191] * ((ct[187] + ct[225] * t1068_tmp * 1.4) + ct[225] * t1070_tmp);
-  t1205 = (ct[133] - ct[45] * ct[145] * 1.4) + ct[145] * t1022;
-  t1070_tmp = (ct[275] * t1068_tmp * 1.4 - ct[98] * ct[245] * 61.0) +
+      ct[191] * ((ct[187] + ct[225] * t1068_tmp * 1.4F) + ct[225] * t1070_tmp);
+  t1205 = (ct[133] - ct[45] * ct[145] * 1.4F) + ct[145] * t1022;
+  t1070_tmp = (ct[275] * t1068_tmp * 1.4F - ct[98] * ct[245] * 61.0F) +
               ct[275] * t1070_tmp;
   t1023 = ct[362] - ct[219];
   t1346 =
@@ -2783,26 +2820,26 @@ static void ft_2(const real_T ct[570], real_T M[81])
                         ct[254] * (((ct[142] + ct[287]) + ct[464]) + ct[527])) +
                        (((ct[177] + ct[272]) + ct[465]) + ct[477]) * t1023) +
                       ct[310] * (((ct[180] + ct[250]) + ct[484]) + ct[513])) -
-                     ct[4] * (ct[421] + ct[52] * ct[191] * 350.0)) +
+                     ct[4] * (ct[421] + ct[52] * ct[191] * 350.0F)) +
                     -(ct[70] + ct[407]) * t1022) -
-                   ct[40] * (ct[33] + ct[191] * t1333 * 455.0)) +
-                  ct[45] * (t1068 + t1126_tmp * 151.0)) +
-                 ct[45] * (t1071 + t1126_tmp * 246.0)) -
-                t1356 * (ct_idx_69 + t1484 * ct[191] * 339.0)) -
-               t1359 * (t973 * 134.0 + t1642)) -
-              t1359 * (t973 * 405.0 + t1021)) -
-             t1551 * (ct_idx_133 + ct[191] * t1676 * 73.0)) +
-            t1629 * (ct_idx_164 + ct[191] * t1070_tmp * 73.0)) -
-           (ct_idx_166 + t1177 * 73.0) * t1205) -
-          (ct_idx_167 + t1177 * 150.0) * t1205) +
-         t1686 * (t1616 -
-                  ct[191] * (-ct[280] * t1068_tmp + ct[233] * t1484) * 244.0)) +
+                   ct[40] * (ct[33] + ct[191] * t1333 * 455.0F)) +
+                  ct[45] * (t1068 + t1126_tmp * 151.0F)) +
+                 ct[45] * (t1071 + t1126_tmp * 246.0F)) -
+                t1356 * (ct_idx_69 + t1484 * ct[191] * 339.0F)) -
+               t1359 * (t973 * 134.0F + t1642)) -
+              t1359 * (t973 * 405.0F + t1021)) -
+             t1551 * (ct_idx_133 + ct[191] * t1676 * 73.0F)) +
+            t1629 * (ct_idx_164 + ct[191] * t1070_tmp * 73.0F)) -
+           (ct_idx_166 + t1177 * 73.0F) * t1205) -
+          (ct_idx_167 + t1177 * 150.0F) * t1205) +
+         t1686 * (t1616 - ct[191] * (-ct[280] * t1068_tmp + ct[233] * t1484) *
+                              244.0F)) +
         t1690 * (t1605 +
-                 ct[191] * (ct[280] * t1484 + ct[233] * t1068_tmp) * 213.0)) -
+                 ct[191] * (ct[280] * t1484 + ct[233] * t1068_tmp) * 213.0F)) -
        t1865 * (t1762 +
-                ct[191] * (ct[233] * t1676 + -ct[280] * t1070_tmp) * 150.0)) -
+                ct[191] * (ct[233] * t1676 + -ct[280] * t1070_tmp) * 150.0F)) -
       t1869 *
-          (t1755 + ct[191] * (ct[280] * t1676 + ct[233] * t1070_tmp) * 150.0);
+          (t1755 + ct[191] * (ct[280] * t1676 + ct[233] * t1070_tmp) * 150.0F);
   /* 'mass_mat_func_gb:1748' et1 =
    * t1487.*(t1231+t1283)+t1544.*(t347+t30.*(t103-t383))+t1480.*(t1204.*4.55e+2-t39.*(t456+t929).*4.55e+2)-(t194-t451).*(t433.*(7.0./5.0)+t969-t38.*(t144-t465).*(7.0./5.0))+(t41.*t1888.*1.5e+2+t49.*(t1007-t1020-t1235+t39.*(t456+t929).*(7.0./5.0)).*1.5e+2).*(t33.*(t814-t1080+t23.*(t347+t30.*(t103-t383)).*(7.0./5.0)+t31.*(t194-t451))+t25.*t1827)-(t49.*t1888.*1.5e+2-t41.*(t1007-t1020-t1235+t39.*(t456+t929).*(7.0./5.0)).*1.5e+2).*(t25.*(t814-t1080+t23.*(t347+t30.*(t103-t383)).*(7.0./5.0)+t31.*(t194-t451))-t33.*t1827);
    */
@@ -2834,42 +2871,43 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1068_tmp = ct[221] * t1976_tmp;
   t1126_tmp = ct[193] + ct[174] * (ct[7] - ct[218]);
   t973 = ct[131] - ct[257];
-  t1070_tmp = ((ct_idx_2 - ct_idx_6) - t1204 * 1.4) + t1068_tmp * 1.4;
+  t1070_tmp = ((ct_idx_2 - ct_idx_6) - t1204 * 1.4F) + t1068_tmp * 1.4F;
   t1177 = ct[181] * t973;
-  t1642 = ((ct[476] - ct[10] * 1.4) + ct[143] * t1126_tmp * 1.4) + t1177;
+  t1642 = ((ct[476] - ct[10] * 1.4F) + ct[143] * t1126_tmp * 1.4F) + t1177;
   t1206 = t1459 * ct[225];
   t1021 = t1648 * ct[225];
-  M[0] = ((((((t1487 * t900 + t1544 * t1126_tmp) +
-              t1480 * (t1204 * 455.0 - t1068_tmp * 455.0)) -
-             t973 * ((ct[247] * 1.4 + ct[552]) - t1982_tmp * 1.4)) +
-            (ct[233] * t1888 * 150.0 + ct[280] * t1070_tmp * 150.0) *
-                (ct[189] * t1642 + ct_idx_306 * ct[148])) -
-           (ct[280] * t1888 * 150.0 - ct[233] * t1070_tmp * 150.0) *
-               (ct[148] * t1642 - ct_idx_306 * ct[189])) +
-          ((((((((((((((((ct_idx_307 *
-                              ((ct[440] + t1206 * 150.0) + t1021 * 210.0) +
-                          ct_idx_307 *
-                              ((ct[439] + t1206 * 73.0) + t1021 * 102.2)) +
-                         ct[129] * ct[153]) +
-                        ct[232] * ct[313]) +
-                       ct[232] * ct[418]) +
-                      ct[304] * ct[459]) +
-                     ct[304] * ct[516]) +
-                    ct[73] * t1459 * 350.0) +
-                   t1487 * t1648 * 246.0) +
-                  ct_idx_240 * t1756) +
-                 ct_idx_240 * t1757) +
-                t1646 * t1759) +
-               ct[452] * ((ct[260] * 1.4 + ct[534] * 1.4) + ct[547])) +
-              t1642 * (((ct_idx_2 * 73.0 - ct_idx_6 * 73.0) - t1204 * 102.2) +
-                       t1068_tmp * 102.2)) +
-             (ct_idx_2 * 350.0 - ct_idx_6 * 350.0) * (ct[476] + t1177)) +
-            t1915 * (t1487 * ct[148] + ct[189] * t1646)) +
-           t1918 * (t1487 * ct[189] - ct[148] * t1646))) +
-         (((ct_idx_306 * ((ct[423] + ct_idx_172 * 73.0) + t1888_tmp * 102.2) -
-            ct[568] * b_t1982_tmp) +
-           ct[121] * ct[127] * ct[191] * ct[195] * 5.448E+6) +
-          ct[121] * ct[157] * ct[191] * ct[245] * 5.448E+6);
+  M[0] =
+      ((((((t1487 * t900 + t1544 * t1126_tmp) +
+           t1480 * (t1204 * 455.0F - t1068_tmp * 455.0F)) -
+          t973 * ((ct[247] * 1.4F + ct[552]) - t1982_tmp * 1.4F)) +
+         (ct[233] * t1888 * 150.0F + ct[280] * t1070_tmp * 150.0F) *
+             (ct[189] * t1642 + ct_idx_306 * ct[148])) -
+        (ct[280] * t1888 * 150.0F - ct[233] * t1070_tmp * 150.0F) *
+            (ct[148] * t1642 - ct_idx_306 * ct[189])) +
+       ((((((((((((((((ct_idx_307 *
+                           ((ct[440] + t1206 * 150.0F) + t1021 * 210.0F) +
+                       ct_idx_307 *
+                           ((ct[439] + t1206 * 73.0F) + t1021 * 102.2F)) +
+                      ct[129] * ct[153]) +
+                     ct[232] * ct[313]) +
+                    ct[232] * ct[418]) +
+                   ct[304] * ct[459]) +
+                  ct[304] * ct[516]) +
+                 ct[73] * t1459 * 350.0F) +
+                t1487 * t1648 * 246.0F) +
+               ct_idx_240 * t1756) +
+              ct_idx_240 * t1757) +
+             t1646 * t1759) +
+            ct[452] * ((ct[260] * 1.4F + ct[534] * 1.4F) + ct[547])) +
+           t1642 * (((ct_idx_2 * 73.0F - ct_idx_6 * 73.0F) - t1204 * 102.2F) +
+                    t1068_tmp * 102.2F)) +
+          (ct_idx_2 * 350.0F - ct_idx_6 * 350.0F) * (ct[476] + t1177)) +
+         t1915 * (t1487 * ct[148] + ct[189] * t1646)) +
+        t1918 * (t1487 * ct[189] - ct[148] * t1646))) +
+      (((ct_idx_306 * ((ct[423] + ct_idx_172 * 73.0F) + t1888_tmp * 102.2F) -
+         ct[568] * b_t1982_tmp) +
+        ct[121] * ct[127] * ct[191] * ct[195] * 5.448E+6F) +
+       ct[121] * ct[157] * ct[191] * ct[245] * 5.448E+6F);
   M[1] = t1346;
   M[2] = t1430;
   M[3] = t1984;
@@ -2884,35 +2922,36 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1126_tmp = ct[225] * t1177;
   t973 = ct[221] * t1968_tmp_tmp;
   M[10] =
-      (((((((((((((((ct[415] * 350.0 - ct[427] * 350.0) * t1022 +
+      (((((((((((((((ct[415] * 350.0F - ct[427] * 350.0F) * t1022 +
                     t1205 *
-                        ((ct[213] - t1068_tmp * 210.0) + t1126_tmp * 150.0)) +
-                   t1205 * ((ct[205] - t1068_tmp * 102.2) + t1126_tmp * 73.0)) +
+                        ((ct[213] - t1068_tmp * 210.0F) + t1126_tmp * 150.0F)) +
+                   t1205 *
+                       ((ct[205] - t1068_tmp * 102.2F) + t1126_tmp * 73.0F)) +
                   ct[45] * t1089) +
                  t1551 *
-                     (((ct[414] * 73.0 + ct[429] * 73.0) + ct[499] * 102.2) -
-                      t973 * 102.2)) +
-                ct[127] * ct[195] * 5.448E+6) +
-               ct[157] * ct[245] * 5.448E+6) +
+                     (((ct[414] * 73.0F + ct[429] * 73.0F) + ct[499] * 102.2F) -
+                      t973 * 102.2F)) +
+                ct[127] * ct[195] * 5.448E+6F) +
+               ct[157] * ct[245] * 5.448E+6F) +
               ct[162] * ct[209]) +
              ct[162] * ct[276]) +
             t1213 * ct[310]) +
-           ct[45] * t1371 * 246.0) +
+           ct[45] * t1371 * 246.0F) +
           t1356 * t1526) +
          t1686 * t1811) +
         t1690 * t1813) +
-       ct[237] * ((ct[109] * -1.4 + ct[267] * 1.4) + ct[351])) +
-      (((((((((ct[254] * ((ct[113] * 1.4 + ct[281] * 1.4) + ct[367]) +
+       ct[237] * ((ct[109] * -1.4F + ct[267] * 1.4F) + ct[351])) +
+      (((((((((ct[254] * ((ct[113] * 1.4F + ct[281] * 1.4F) + ct[367]) +
                t1629 *
-                   ((ct[204] + t1735_tmp * 102.2) - ct[275] * t1177 * 73.0)) -
+                   ((ct[204] + t1735_tmp * 102.2F) - ct[275] * t1177 * 73.0F)) -
               t1219 * t1023) +
              t1541 * t1359) +
             t1542 * t1359) +
-           ct[40] * (ct[499] * 455.0 - t973 * 455.0)) +
-          t1865 * (ct_idx_264 * ct[233] * 150.0 + ct[280] * t1735 * 150.0)) +
-         t1869 * (ct_idx_264 * ct[280] * 150.0 - ct[233] * t1735 * 150.0)) +
-        ct[4] * (ct[414] * 350.0 + ct[429] * 350.0)) +
-       ct[161] * ct[251] * ct[288] * ct[451] * 1.306071E+6);
+           ct[40] * (ct[499] * 455.0F - t973 * 455.0F)) +
+          t1865 * (ct_idx_264 * ct[233] * 150.0F + ct[280] * t1735 * 150.0F)) +
+         t1869 * (ct_idx_264 * ct[280] * 150.0F - ct[233] * t1735 * 150.0F)) +
+        ct[4] * (ct[414] * 350.0F + ct[429] * 350.0F)) +
+       ct[161] * ct[251] * ct[288] * ct[451] * 1.306071E+6F);
   M[11] = t1983;
   M[12] = t1981;
   M[13] = t1980;
@@ -2923,33 +2962,34 @@ static void ft_2(const real_T ct[570], real_T M[81])
   M[18] = t1430;
   M[19] = t1983;
   M[20] =
-      ((((((((((((((((ct[252] * 455.0 - ct[269] * 455.0) * t1420 +
+      ((((((((((((((((ct[252] * 455.0F - ct[269] * 455.0F) * t1420 +
                      ct[468] * t1900_tmp) -
-                    (ct_idx_124 * 150.0 - t1447 * 150.0) * ct_idx_147) +
-                   ct[169] * ct[256] * 1.306071E+6) +
-                  ct[223] * ct[240] * 21350.0) +
+                    (ct_idx_124 * 150.0F - t1447 * 150.0F) * ct_idx_147) +
+                   ct[169] * ct[256] * 1.306071E+6F) +
+                  ct[223] * ct[240] * 21350.0F) +
                  ct[163] * ct[381]) +
                 ct[188] * ct[406]) +
-               ct[468] * ct[563] * 246.0) +
+               ct[468] * ct[563] * 246.0F) +
               t1227 * ct[569]) +
              ct_idx_143 * t1604) +
             ct_idx_154 * t1609) +
-           ct_idx_245 * t1740 * 150.0) +
-          t1075 * (ct[111] * 134.0 + t1073 * 134.0)) +
-         ct[63] * ((ct[166] + ct[356] * 150.0) + t1433_tmp * 210.0)) +
-        ct[60] * ((ct[136] + ct[359] * 73.0) + t1430_tmp * 102.2)) +
-       ct[63] * ((ct[146] + ct[356] * 73.0) + t1433_tmp * 102.2)) +
+           ct_idx_245 * t1740 * 150.0F) +
+          t1075 * (ct[111] * 134.0F + t1073 * 134.0F)) +
+         ct[63] * ((ct[166] + ct[356] * 150.0F) + t1433_tmp * 210.0F)) +
+        ct[60] * ((ct[136] + ct[359] * 73.0F) + t1430_tmp * 102.2F)) +
+       ct[63] * ((ct[146] + ct[356] * 73.0F) + t1433_tmp * 102.2F)) +
       ((((((-t1052 *
-                (((ct[167] - ct[173]) - ct[252] * 102.2) + ct[269] * 102.2) -
-            ct[229] * (ct[84] * 21350.0 - ct[112] * 21350.0)) +
-           t1075 * (ct[159] + t1073 * 405.0)) +
-          t1070 * ((ct[460] * 1.4 - ct[115] * 1.4) + ct[212] * ct[217] * 61.0) *
-              61.0) +
+                (((ct[167] - ct[173]) - ct[252] * 102.2F) + ct[269] * 102.2F) -
+            ct[229] * (ct[84] * 21350.0F - ct[112] * 21350.0F)) +
+           t1075 * (ct[159] + t1073 * 405.0F)) +
+          t1070 *
+              ((ct[460] * 1.4F - ct[115] * 1.4F) + ct[212] * ct[217] * 61.0F) *
+              61.0F) +
          ct_idx_35 *
-             ((ct[502] * 1.4 + ct[110] * 1.4) + ct[212] * ct[263] * 61.0) *
-             61.0) +
+             ((ct[502] * 1.4F + ct[110] * 1.4F) + ct[212] * ct[263] * 61.0F) *
+             61.0F) +
         t1065 * ct[123]) +
-       5.448E+6);
+       5.448E+6F);
   M[21] = t1062;
   M[22] = t1978;
   M[23] = t1948;
@@ -2962,20 +3002,20 @@ static void ft_2(const real_T ct[570], real_T M[81])
   t1068_tmp = ct[145] * ct[225];
   t1126_tmp = ct[186] * ct[275];
   M[30] = ((((((((((((((-ct[200] * t1738_tmp + ct[169] * ct[443]) +
-                       ct[183] * ct[240] * 455.0) +
+                       ct[183] * ct[240] * 455.0F) +
                       ct[271] * ct[501]) +
                      ct[305] * t875) +
-                    ct[5] * (ct[388] * 150.0 - ct[275] * ct[327] * 210.0)) +
-                   t1027 * (ct[385] * 150.0 + ct[275] * ct[330] * 210.0)) +
+                    ct[5] * (ct[388] * 150.0F - ct[275] * ct[327] * 210.0F)) +
+                   t1027 * (ct[385] * 150.0F + ct[275] * ct[330] * 210.0F)) +
                   ct[305] * (ct[126] - ct[342])) -
                  t1245 * t1981_tmp) -
                 ct[567] * b_t1738_tmp) -
-               ct[200] * (ct[84] * 246.0 - ct[112] * 246.0)) +
-              ct[239] * (ct[101] * 102.2 + ct[103] * 102.2)) +
+               ct[200] * (ct[84] * 246.0F - ct[112] * 246.0F)) +
+              ct[239] * (ct[101] * 102.2F + ct[103] * 102.2F)) +
              t1070 * ct[212] * ct[217]) +
             ct_idx_35 * ct[212] * ct[263]) -
-           t1068_tmp * ct[200] * ct[264] * 437.08) -
-          t1126_tmp * ct[200] * ct[264] * 143.08;
+           t1068_tmp * ct[200] * ct[264] * 437.08F) -
+          t1126_tmp * ct[200] * ct[264] * 143.08F;
   M[31] = t1973;
   M[32] = ct_idx_327;
   M[33] = t1897;
@@ -2985,20 +3025,20 @@ static void ft_2(const real_T ct[570], real_T M[81])
   M[37] = t1980;
   M[38] = t1978;
   M[39] = t1973;
-  M[40] = (((((((((((((ct[253] * 210.0 - ct[314] * 150.0) * t1973_tmp +
+  M[40] = (((((((((((((ct[253] * 210.0F - ct[314] * 150.0F) * t1973_tmp +
                       ct[128] * t1610_tmp) +
                      ct[140] * ct[217]) +
                     ct[174] * ct[263]) +
-                   ct[128] * ct[179] * 246.0) +
+                   ct[128] * ct[179] * 246.0F) +
                   t1013 * ct[436]) +
                  t1025 * ct[469]) +
-                ct[164] * (ct[472] * 455.0 - ct[0] * 455.0)) +
-               ct[216] * (ct[472] * 102.2 - ct[0] * 102.2)) +
-              ct[518] * (ct[249] * 210.0 + ct[315] * 150.0)) +
-             t1068_tmp * ct[128] * ct[179] * 437.08) +
-            t1126_tmp * ct[128] * ct[179] * 143.08) +
-           t1068_tmp * ct[164] * ct[199] * 539.0) +
-          t1126_tmp * ct[164] * ct[199] * 339.0;
+                ct[164] * (ct[472] * 455.0F - ct[0] * 455.0F)) +
+               ct[216] * (ct[472] * 102.2F - ct[0] * 102.2F)) +
+              ct[518] * (ct[249] * 210.0F + ct[315] * 150.0F)) +
+             t1068_tmp * ct[128] * ct[179] * 437.08F) +
+            t1126_tmp * ct[128] * ct[179] * 143.08F) +
+           t1068_tmp * ct[164] * ct[199] * 539.0F) +
+          t1126_tmp * ct[164] * ct[199] * 339.0F;
   M[41] = ct_idx_305;
   M[42] = t1717;
   M[43] = t1610;
@@ -3008,7 +3048,7 @@ static void ft_2(const real_T ct[570], real_T M[81])
   M[47] = t1948;
   M[48] = ct_idx_327;
   M[49] = ct_idx_305;
-  M[50] = ct[8] + 1.0;
+  M[50] = ct[8] + 1.0F;
   M[51] = ct[8];
   M[52] = ct[316];
   M[53] = ct[430];
@@ -3028,8 +3068,8 @@ static void ft_2(const real_T ct[570], real_T M[81])
   M[67] = t1610;
   M[68] = ct[316];
   M[69] = ct[316];
-  M[70] = (ct[148] * ct[233] * 213.0 + ct[189] * ct[280] * 244.0) + 151.0;
-  M[71] = 0.0;
+  M[70] = (ct[148] * ct[233] * 213.0F + ct[189] * ct[280] * 244.0F) + 151.0F;
+  M[71] = 0.0F;
   M[72] = t1763;
   M[73] = t1541;
   M[74] = ct_idx_70;
@@ -3037,137 +3077,137 @@ static void ft_2(const real_T ct[570], real_T M[81])
   M[76] = ct[279];
   M[77] = ct[430];
   M[78] = ct[430];
-  M[79] = 0.0;
-  M[80] = 134.0;
+  M[79] = 0.0F;
+  M[80] = 134.0F;
 }
 
 /*
  * function M = mass_mat_func_gb(in1)
  */
-void mass_mat_func_gb(const real_T in1[9], real_T M[81])
+void mass_mat_func_gb(const real32_T in1[9], real32_T M[81])
 {
-  real_T t100[334];
-  real_T b_t100_tmp;
-  real_T b_t280_tmp;
-  real_T b_t283_tmp;
-  real_T b_t419_tmp;
-  real_T c_t100_tmp;
-  real_T d_t100_tmp;
-  real_T t100_tmp;
-  real_T t100_tmp_tmp;
-  real_T t100_tmp_tmp_tmp;
-  real_T t101;
-  real_T t103;
-  real_T t106_tmp;
-  real_T t107_tmp;
-  real_T t121;
-  real_T t122_tmp;
-  real_T t123;
-  real_T t139;
-  real_T t140;
-  real_T t144;
-  real_T t146;
-  real_T t148;
-  real_T t151_tmp;
-  real_T t156;
-  real_T t157;
-  real_T t160;
-  real_T t163;
-  real_T t165;
-  real_T t166;
-  real_T t170;
-  real_T t179;
-  real_T t183;
-  real_T t183_tmp;
-  real_T t188;
-  real_T t18_tmp;
-  real_T t191_tmp;
-  real_T t19_tmp;
-  real_T t20_tmp;
-  real_T t21_tmp;
-  real_T t228;
-  real_T t22_tmp;
-  real_T t23_tmp;
-  real_T t241;
-  real_T t241_tmp;
-  real_T t244;
-  real_T t244_tmp;
-  real_T t24_tmp;
-  real_T t25_tmp;
-  real_T t26_tmp;
-  real_T t278;
-  real_T t27_tmp;
-  real_T t280_tmp;
-  real_T t281;
-  real_T t283_tmp;
-  real_T t284_tmp;
-  real_T t28_tmp;
-  real_T t29_tmp;
-  real_T t301_tmp;
-  real_T t302_tmp;
-  real_T t30_tmp;
-  real_T t311_tmp;
-  real_T t31_tmp;
-  real_T t321_tmp;
-  real_T t322;
-  real_T t328;
-  real_T t328_tmp;
-  real_T t32_tmp;
-  real_T t33_tmp;
-  real_T t354_tmp;
-  real_T t356;
-  real_T t361;
-  real_T t361_tmp;
-  real_T t361_tmp_tmp;
-  real_T t363;
-  real_T t363_tmp;
-  real_T t365;
-  real_T t366;
-  real_T t370;
-  real_T t373;
-  real_T t374;
-  real_T t375;
-  real_T t379_tmp;
-  real_T t386;
-  real_T t392_tmp;
-  real_T t394;
-  real_T t407;
-  real_T t418;
-  real_T t419;
-  real_T t419_tmp;
-  real_T t419_tmp_tmp;
-  real_T t420;
-  real_T t427;
-  real_T t444;
-  real_T t444_tmp;
-  real_T t444_tmp_tmp;
-  real_T t50_tmp;
-  real_T t51_tmp;
-  real_T t52_tmp;
-  real_T t54_tmp;
-  real_T t55_tmp;
-  real_T t56_tmp;
-  real_T t57_tmp;
-  real_T t58_tmp;
-  real_T t60_tmp;
-  real_T t61_tmp;
-  real_T t62;
-  real_T t62_tmp;
-  real_T t67_tmp;
-  real_T t75;
-  real_T t76;
-  real_T t77;
-  real_T t80;
-  real_T t82;
-  real_T t85;
-  real_T t87_tmp;
-  real_T t88;
-  real_T t92;
-  real_T t93;
-  real_T t95_tmp;
-  real_T t96_tmp;
-  real_T t97;
-  real_T t98_tmp;
+  real32_T t100[334];
+  real32_T b_t100_tmp;
+  real32_T b_t280_tmp;
+  real32_T b_t283_tmp;
+  real32_T b_t419_tmp;
+  real32_T c_t100_tmp;
+  real32_T d_t100_tmp;
+  real32_T t100_tmp;
+  real32_T t100_tmp_tmp;
+  real32_T t100_tmp_tmp_tmp;
+  real32_T t101;
+  real32_T t103;
+  real32_T t106_tmp;
+  real32_T t107_tmp;
+  real32_T t121;
+  real32_T t122_tmp;
+  real32_T t123;
+  real32_T t139;
+  real32_T t140;
+  real32_T t144;
+  real32_T t146;
+  real32_T t148;
+  real32_T t151_tmp;
+  real32_T t156;
+  real32_T t157;
+  real32_T t160;
+  real32_T t163;
+  real32_T t165;
+  real32_T t166;
+  real32_T t170;
+  real32_T t179;
+  real32_T t183;
+  real32_T t183_tmp;
+  real32_T t188;
+  real32_T t18_tmp;
+  real32_T t191_tmp;
+  real32_T t19_tmp;
+  real32_T t20_tmp;
+  real32_T t21_tmp;
+  real32_T t228;
+  real32_T t22_tmp;
+  real32_T t23_tmp;
+  real32_T t241;
+  real32_T t241_tmp;
+  real32_T t244;
+  real32_T t244_tmp;
+  real32_T t24_tmp;
+  real32_T t25_tmp;
+  real32_T t26_tmp;
+  real32_T t278;
+  real32_T t27_tmp;
+  real32_T t280_tmp;
+  real32_T t281;
+  real32_T t283_tmp;
+  real32_T t284_tmp;
+  real32_T t28_tmp;
+  real32_T t29_tmp;
+  real32_T t301_tmp;
+  real32_T t302_tmp;
+  real32_T t30_tmp;
+  real32_T t311_tmp;
+  real32_T t31_tmp;
+  real32_T t321_tmp;
+  real32_T t322;
+  real32_T t328;
+  real32_T t328_tmp;
+  real32_T t32_tmp;
+  real32_T t33_tmp;
+  real32_T t354_tmp;
+  real32_T t356;
+  real32_T t361;
+  real32_T t361_tmp;
+  real32_T t361_tmp_tmp;
+  real32_T t363;
+  real32_T t363_tmp;
+  real32_T t365;
+  real32_T t366;
+  real32_T t370;
+  real32_T t373;
+  real32_T t374;
+  real32_T t375;
+  real32_T t379_tmp;
+  real32_T t386;
+  real32_T t392_tmp;
+  real32_T t394;
+  real32_T t407;
+  real32_T t418;
+  real32_T t419;
+  real32_T t419_tmp;
+  real32_T t419_tmp_tmp;
+  real32_T t420;
+  real32_T t427;
+  real32_T t444;
+  real32_T t444_tmp;
+  real32_T t444_tmp_tmp;
+  real32_T t50_tmp;
+  real32_T t51_tmp;
+  real32_T t52_tmp;
+  real32_T t54_tmp;
+  real32_T t55_tmp;
+  real32_T t56_tmp;
+  real32_T t57_tmp;
+  real32_T t58_tmp;
+  real32_T t60_tmp;
+  real32_T t61_tmp;
+  real32_T t62;
+  real32_T t62_tmp;
+  real32_T t67_tmp;
+  real32_T t75;
+  real32_T t76;
+  real32_T t77;
+  real32_T t80;
+  real32_T t82;
+  real32_T t85;
+  real32_T t87_tmp;
+  real32_T t88;
+  real32_T t92;
+  real32_T t93;
+  real32_T t95_tmp;
+  real32_T t96_tmp;
+  real32_T t97;
+  real32_T t98_tmp;
   covrtLogFcn(&emlrtCoverageInstance, 11U, 0U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 0U);
   /* MASS_MAT_FUNC_GB */
@@ -3192,37 +3232,37 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:22' t16 = conj(t8); */
   /* 'mass_mat_func_gb:23' t17 = conj(t9); */
   /* 'mass_mat_func_gb:24' t18 = cos(t2); */
-  t18_tmp = muDoubleScalarCos(in1[1]);
+  t18_tmp = muSingleScalarCos(in1[1]);
   /* 'mass_mat_func_gb:25' t19 = cos(t3); */
-  t19_tmp = muDoubleScalarCos(in1[2]);
+  t19_tmp = muSingleScalarCos(in1[2]);
   /* 'mass_mat_func_gb:26' t20 = cos(t4); */
-  t20_tmp = muDoubleScalarCos(in1[3]);
+  t20_tmp = muSingleScalarCos(in1[3]);
   /* 'mass_mat_func_gb:27' t21 = cos(t5); */
-  t21_tmp = muDoubleScalarCos(in1[4]);
+  t21_tmp = muSingleScalarCos(in1[4]);
   /* 'mass_mat_func_gb:28' t22 = cos(t6); */
-  t22_tmp = muDoubleScalarCos(in1[5]);
+  t22_tmp = muSingleScalarCos(in1[5]);
   /* 'mass_mat_func_gb:29' t23 = cos(t7); */
-  t23_tmp = muDoubleScalarCos(in1[6]);
+  t23_tmp = muSingleScalarCos(in1[6]);
   /* 'mass_mat_func_gb:30' t24 = cos(t8); */
-  t24_tmp = muDoubleScalarCos(in1[7]);
+  t24_tmp = muSingleScalarCos(in1[7]);
   /* 'mass_mat_func_gb:31' t25 = cos(t9); */
-  t25_tmp = muDoubleScalarCos(in1[8]);
+  t25_tmp = muSingleScalarCos(in1[8]);
   /* 'mass_mat_func_gb:32' t26 = sin(t2); */
-  t26_tmp = muDoubleScalarSin(in1[1]);
+  t26_tmp = muSingleScalarSin(in1[1]);
   /* 'mass_mat_func_gb:33' t27 = sin(t3); */
-  t27_tmp = muDoubleScalarSin(in1[2]);
+  t27_tmp = muSingleScalarSin(in1[2]);
   /* 'mass_mat_func_gb:34' t28 = sin(t4); */
-  t28_tmp = muDoubleScalarSin(in1[3]);
+  t28_tmp = muSingleScalarSin(in1[3]);
   /* 'mass_mat_func_gb:35' t29 = sin(t5); */
-  t29_tmp = muDoubleScalarSin(in1[4]);
+  t29_tmp = muSingleScalarSin(in1[4]);
   /* 'mass_mat_func_gb:36' t30 = sin(t6); */
-  t30_tmp = muDoubleScalarSin(in1[5]);
+  t30_tmp = muSingleScalarSin(in1[5]);
   /* 'mass_mat_func_gb:37' t31 = sin(t7); */
-  t31_tmp = muDoubleScalarSin(in1[6]);
+  t31_tmp = muSingleScalarSin(in1[6]);
   /* 'mass_mat_func_gb:38' t32 = sin(t8); */
-  t32_tmp = muDoubleScalarSin(in1[7]);
+  t32_tmp = muSingleScalarSin(in1[7]);
   /* 'mass_mat_func_gb:39' t33 = sin(t9); */
-  t33_tmp = muDoubleScalarSin(in1[8]);
+  t33_tmp = muSingleScalarSin(in1[8]);
   /* 'mass_mat_func_gb:40' t34 = cos(t10); */
   /* 'mass_mat_func_gb:41' t35 = cos(t11); */
   /* 'mass_mat_func_gb:42' t36 = cos(t12); */
@@ -3284,11 +3324,11 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:84' t72 = -t61; */
   /* 'mass_mat_func_gb:85' t74 = t60.*6.1e+1; */
   /* 'mass_mat_func_gb:86' t75 = t48.*1.34e+2; */
-  t75 = t32_tmp * 134.0;
+  t75 = t32_tmp * 134.0F;
   /* 'mass_mat_func_gb:87' t76 = t45.*4.08e+2; */
-  t76 = t29_tmp * 408.0;
+  t76 = t29_tmp * 408.0F;
   /* 'mass_mat_func_gb:88' t77 = t45.*4.09e+2; */
-  t77 = t29_tmp * 409.0;
+  t77 = t29_tmp * 409.0F;
   /* 'mass_mat_func_gb:89' t78 = t35.*t37; */
   /* 'mass_mat_func_gb:90' t79 = t36.*t38; */
   /* 'mass_mat_func_gb:91' t80 = t37.*t40; */
@@ -3336,7 +3376,7 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:119' t118 = t30.*t37.*t38; */
   /* 'mass_mat_func_gb:120' t119 = t22.*t37.*t46; */
   /* 'mass_mat_func_gb:121' t122 = t37.*t42.*6.1e+1; */
-  t122_tmp = t21_tmp * t26_tmp * 61.0;
+  t122_tmp = t21_tmp * t26_tmp * 61.0F;
   /* 'mass_mat_func_gb:122' t125 = -t94; */
   /* 'mass_mat_func_gb:123' t127 = t19.*t51.*6.1e+1; */
   /* 'mass_mat_func_gb:124' t131 = t42.*t45.*6.1e+1; */
@@ -3347,7 +3387,7 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:129' t182 = t37.*t44.*4.08e+2; */
   /* 'mass_mat_func_gb:130' t183 = t37.*t44.*4.09e+2; */
   t183_tmp = t21_tmp * t28_tmp;
-  t183 = t183_tmp * 409.0;
+  t183 = t183_tmp * 409.0F;
   /* 'mass_mat_func_gb:131' t191 = t56+t57; */
   t191_tmp = t56_tmp + t57_tmp;
   /* 'mass_mat_func_gb:132' t192 = t42.*5.448e+6; */
@@ -3363,10 +3403,10 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:142' t238 = t33.*t40.*t41.*2.44e+2; */
   /* 'mass_mat_func_gb:143' t241 = t37.*t38.*(4.27e+2./5.0); */
   t241_tmp = t21_tmp * t22_tmp;
-  t241 = t241_tmp * 85.4;
+  t241 = t241_tmp * 85.4F;
   /* 'mass_mat_func_gb:144' t244 = t37.*t46.*(4.27e+2./5.0); */
   t244_tmp = t21_tmp * t30_tmp;
-  t244 = t244_tmp * 85.4;
+  t244 = t244_tmp * 85.4F;
   /* 'mass_mat_func_gb:145' t248 = t42.*t45.*2.135e+4; */
   /* 'mass_mat_func_gb:146' t280 = t53+t102; */
   t280_tmp = t18_tmp * t19_tmp;
@@ -3386,9 +3426,9 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:156' t116 = -t109; */
   /* 'mass_mat_func_gb:157' t120 = -t80; */
   /* 'mass_mat_func_gb:158' t121 = t79.*6.1e+1; */
-  t121 = t51_tmp * 61.0;
+  t121 = t51_tmp * 61.0F;
   /* 'mass_mat_func_gb:159' t123 = t86.*6.1e+1; */
-  t123 = t55_tmp * 61.0;
+  t123 = t55_tmp * 61.0F;
   /* 'mass_mat_func_gb:160' t124 = t91.*6.1e+1; */
   /* 'mass_mat_func_gb:161' t126 = -t95; */
   /* 'mass_mat_func_gb:162' t128 = t95.*6.1e+1; */
@@ -3446,13 +3486,13 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:201' t177 = t89.*1.51e+2; */
   /* 'mass_mat_func_gb:202' t178 = t90.*1.51e+2; */
   /* 'mass_mat_func_gb:203' t179 = t91.*3.39e+2; */
-  t179 = t58_tmp * 339.0;
+  t179 = t58_tmp * 339.0F;
   /* 'mass_mat_func_gb:204' t180 = t35.*t76; */
   /* 'mass_mat_func_gb:205' t181 = t35.*t77; */
   /* 'mass_mat_func_gb:206' t185 = t100.*(7.0./5.0); */
   /* 'mass_mat_func_gb:207' t187 = t45.*t75; */
   /* 'mass_mat_func_gb:208' t188 = t99.*4.05e+2; */
-  t188 = t60_tmp * 405.0;
+  t188 = t60_tmp * 405.0F;
   /* 'mass_mat_func_gb:209' t189 = t106.*(7.0./5.0); */
   /* 'mass_mat_func_gb:210' t190 = t107.*(7.0./5.0); */
   /* 'mass_mat_func_gb:211' t193 = -t119; */
@@ -3526,25 +3566,25 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:270' t361 = t44.*t48.*t78.*4.453e+3; */
   t361_tmp_tmp = t28_tmp * t32_tmp;
   t361_tmp = t361_tmp_tmp * t50_tmp;
-  t361 = t361_tmp * 4453.0;
+  t361 = t361_tmp * 4453.0F;
   /* 'mass_mat_func_gb:271' t362 = -t353; */
   /* 'mass_mat_func_gb:272' t363 = t34.*t43.*t79.*(4.27e+2./5.0); */
   t363_tmp = t62_tmp * t51_tmp;
-  t363 = t363_tmp * 85.4;
+  t363 = t363_tmp * 85.4F;
   /* 'mass_mat_func_gb:273' t364 = t83+t143; */
   /* 'mass_mat_func_gb:274' t367 = t34.*t43.*t86.*(4.27e+2./5.0); */
   /* 'mass_mat_func_gb:275' t368 = t84.*t87.*(4.27e+2./5.0); */
   /* 'mass_mat_func_gb:276' t370 = t44.*t48.*t78.*9.15e+3; */
-  t370 = t361_tmp * 9150.0;
+  t370 = t361_tmp * 9150.0F;
   /* 'mass_mat_func_gb:277' t376 = t84.*t98.*(4.27e+2./5.0); */
   /* 'mass_mat_func_gb:278' t391 = t29.*t44.*t78.*1.306071e+6; */
   /* 'mass_mat_func_gb:279' t394 = t70+t203; */
-  t394 = t122_tmp + t28_tmp * t62 * 61.0;
+  t394 = t122_tmp + t28_tmp * t62 * 61.0F;
   /* 'mass_mat_func_gb:280' t419 = t134+t198; */
   t419_tmp = t19_tmp * t55_tmp;
   t419_tmp_tmp = t87_tmp * t54_tmp;
-  b_t419_tmp = t419_tmp_tmp * 61.0;
-  t419 = t419_tmp * 61.0 + b_t419_tmp;
+  b_t419_tmp = t419_tmp_tmp * 61.0F;
+  t419 = t419_tmp * 61.0F + b_t419_tmp;
   /* 'mass_mat_func_gb:281' t421 = t40.*t41.*t44.*t78.*9.15e+3; */
   /* 'mass_mat_func_gb:282' t423 = t40.*t44.*t49.*t78.*9.15e+3; */
   /* 'mass_mat_func_gb:283' t1030 = t117+t173+t299+t300+4.08e+2; */
@@ -3630,7 +3670,7 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:355' t377 = t24.*t311; */
   /* 'mass_mat_func_gb:356' t378 = t32.*t311; */
   /* 'mass_mat_func_gb:357' t379 = t108+t116; */
-  t379_tmp = t52_tmp * 1.4 - t61_tmp * 1.4;
+  t379_tmp = t52_tmp * 1.4F - t61_tmp * 1.4F;
   /* 'mass_mat_func_gb:358' t380 = t21.*t321; */
   /* 'mass_mat_func_gb:359' t382 = t22.*t322; */
   /* 'mass_mat_func_gb:360' t383 = t29.*t321; */
@@ -3641,7 +3681,7 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:364' t388 = t31.*t328; */
   /* 'mass_mat_func_gb:365' t390 = t32.*t33.*t284; */
   /* 'mass_mat_func_gb:366' t392 = t135+t136; */
-  t392_tmp = t106_tmp * 61.0 + t107_tmp * 61.0;
+  t392_tmp = t106_tmp * 61.0F + t107_tmp * 61.0F;
   /* 'mass_mat_func_gb:367' t393 = -t363; */
   /* 'mass_mat_func_gb:368' t395 = -t370; */
   /* 'mass_mat_func_gb:369' t397 = -t376; */
@@ -3653,12 +3693,12 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:375' t404 = t96+t209; */
   /* 'mass_mat_func_gb:376' t407 = t73+t242; */
   t92 = t26_tmp * t29_tmp;
-  t96_tmp = t92 * 61.0;
-  t407 = t96_tmp - t28_tmp * t103 * 61.0;
+  t96_tmp = t92 * 61.0F;
+  t407 = t96_tmp - t28_tmp * t103 * 61.0F;
   /* 'mass_mat_func_gb:377' t418 = t175+t176; */
-  t418 = t56_tmp * 1.4 + t57_tmp * 1.4;
+  t418 = t56_tmp * 1.4F + t57_tmp * 1.4F;
   /* 'mass_mat_func_gb:378' t420 = t189+t190; */
-  t420 = t106_tmp * 1.4 + t107_tmp * 1.4;
+  t420 = t106_tmp * 1.4F + t107_tmp * 1.4F;
   /* 'mass_mat_func_gb:379' t422 = t152+t153; */
   /* 'mass_mat_func_gb:380' t425 = t87.*t156.*(4.27e+2./5.0); */
   /* 'mass_mat_func_gb:381' t427 = t165+t166; */
@@ -3668,8 +3708,8 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   /* 'mass_mat_func_gb:384' t444 = t127+t245; */
   t93 = t19_tmp * t51_tmp;
   t444_tmp_tmp = t98_tmp * t54_tmp;
-  t444_tmp = t444_tmp_tmp * 61.0;
-  t444 = t93 * 61.0 - t444_tmp;
+  t444_tmp = t444_tmp_tmp * 61.0F;
+  t444 = t93 * 61.0F - t444_tmp;
   /* 'mass_mat_func_gb:385' t449 = -t421; */
   /* 'mass_mat_func_gb:386' t450 = t22.*t394; */
   /* 'mass_mat_func_gb:387' t451 = t30.*t394; */
@@ -3800,15 +3840,15 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[1] = t103;
   t100_tmp = t24_tmp * t25_tmp;
   b_t100_tmp = t24_tmp * t33_tmp;
-  t100[2] = (((t24_tmp * t24_tmp * 339.0 + t32_tmp * t32_tmp * 539.0) +
-              t100_tmp * t24_tmp * t25_tmp * 244.0) +
-             b_t100_tmp * t24_tmp * t33_tmp * 213.0) +
-            408.0;
+  t100[2] = (((t24_tmp * t24_tmp * 339.0F + t32_tmp * t32_tmp * 539.0F) +
+              t100_tmp * t24_tmp * t25_tmp * 244.0F) +
+             b_t100_tmp * t24_tmp * t33_tmp * 213.0F) +
+            408.0F;
   t100[3] = t151_tmp;
-  t100[4] = -(t60_tmp * 61.0);
+  t100[4] = -(t60_tmp * 61.0F);
   t100[5] = t244_tmp * t22_tmp;
   t100[6] = t121;
-  t100[7] = t58_tmp * 61.0;
+  t100[7] = t58_tmp * 61.0F;
   t100[8] = t96_tmp;
   t100[9] = t140;
   t100[10] = t95_tmp;
@@ -3828,105 +3868,105 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[24] = t67_tmp;
   t100[25] = t27_tmp * t98_tmp;
   t100[26] = t170;
-  t100[27] = t56_tmp * 151.0;
-  t100[28] = t57_tmp * 151.0;
+  t100[27] = t56_tmp * 151.0F;
+  t100[28] = t57_tmp * 151.0F;
   t100[29] = t179;
   t100[30] = t18_tmp;
   t100[31] = t19_tmp * t77;
   t100[32] = t183;
-  t100[33] = -(t60_tmp * 61.0);
+  t100[33] = -(t60_tmp * 61.0F);
   t100[34] = t29_tmp * t75;
   t100[35] = t188;
   t100[36] = t19_tmp;
   t100[37] = t191_tmp;
-  t100[38] = t26_tmp * 5.448E+6;
+  t100[38] = t26_tmp * 5.448E+6F;
   t100[39] = -(t241_tmp * t30_tmp);
-  t100[40] = t363_tmp * 61.0;
+  t100[40] = t363_tmp * 61.0F;
   t100_tmp_tmp_tmp = t24_tmp * t28_tmp;
   t100_tmp_tmp = t100_tmp_tmp_tmp * t50_tmp;
-  c_t100_tmp = t100_tmp_tmp * 61.0;
+  c_t100_tmp = t100_tmp_tmp * 61.0F;
   t100[41] = c_t100_tmp;
   d_t100_tmp = t62_tmp * t55_tmp;
-  t100[42] = d_t100_tmp * 61.0;
-  t100[43] = t361_tmp * 61.0;
-  t100[44] = -(t183_tmp * 408.0);
+  t100[42] = d_t100_tmp * 61.0F;
+  t100[43] = t361_tmp * 61.0F;
+  t100[44] = -(t183_tmp * 408.0F);
   t100[45] = -t183;
-  t100[46] = t58_tmp * 4453.0;
+  t100[46] = t58_tmp * 4453.0F;
   t100[47] = -t188;
   t100[48] = t21_tmp;
   t100[49] = t20_tmp * -t80;
   t100[50] = t19_tmp * t121;
-  t100[51] = t95_tmp * 61.0;
+  t100[51] = t95_tmp * 61.0F;
   t100[52] = t19_tmp * t123;
   t100[53] = t27_tmp * t121;
   t100[54] = t22_tmp * t122_tmp;
   t100[55] = t22_tmp;
-  t100[56] = t151_tmp * 61.0;
+  t100[56] = t151_tmp * 61.0F;
   t100[57] = -t160;
   t100[58] = t228;
   t100[59] = t30_tmp * t122_tmp;
   t100[60] = t23_tmp;
-  t100[61] = t163 * 61.0;
+  t100[61] = t163 * 61.0F;
   t100[62] = t24_tmp;
   t100[63] = t241;
   t100[64] = t244;
-  t100[65] = -(t60_tmp * 4453.0);
-  t100[66] = t92 * 21350.0;
-  t100[67] = t140 * 1.4;
+  t100[65] = -(t60_tmp * 4453.0F);
+  t100[66] = t92 * 21350.0F;
+  t100[67] = t140 * 1.4F;
   t100[68] = t25_tmp;
   t361_tmp = t24_tmp * t52_tmp;
-  t100[69] = t361_tmp * 134.0;
-  t100[70] = t95_tmp * 151.0;
-  t100[71] = t361_tmp * 405.0;
-  t100[72] = t148 * 1.4;
-  t100[73] = t106_tmp * 1.4;
-  t100[74] = t107_tmp * 1.4;
+  t100[69] = t361_tmp * 134.0F;
+  t100[70] = t95_tmp * 151.0F;
+  t100[71] = t361_tmp * 405.0F;
+  t100[72] = t148 * 1.4F;
+  t100[73] = t106_tmp * 1.4F;
+  t100[74] = t107_tmp * 1.4F;
   t361_tmp = t25_tmp * t58_tmp;
-  t100[75] = t361_tmp * 244.0;
-  t100[76] = t151_tmp * 339.0;
-  t100[77] = t32_tmp * t52_tmp * 339.0;
+  t100[75] = t361_tmp * 244.0F;
+  t100[76] = t151_tmp * 339.0F;
+  t100[77] = t32_tmp * t52_tmp * 339.0F;
   t100[78] = t26_tmp;
-  t100[79] = t146 * 409.0;
-  t100[80] = t165 * 1.4;
-  t100[81] = t166 * 1.4;
-  t100[82] = -(t67_tmp * 61.0);
+  t100[79] = t146 * 409.0F;
+  t100[80] = t165 * 1.4F;
+  t100[81] = t166 * 1.4F;
+  t100[82] = -(t67_tmp * 61.0F);
   t100[83] = t183_tmp * t75;
   t244_tmp = t33_tmp * t58_tmp;
-  t100[84] = t244_tmp * 213.0;
+  t100[84] = t244_tmp * 213.0F;
   t100[85] = t62_tmp * t76;
   t100[86] = t27_tmp;
-  t100[87] = t157 * 408.0;
-  t100[88] = t163 * 405.0;
-  t100[89] = -(t170 * 61.0);
+  t100[87] = t157 * 408.0F;
+  t100[88] = t163 * 405.0F;
+  t100[89] = -(t170 * 61.0F);
   t100[90] = t278;
   t100[91] = t28_tmp;
   t100[92] = t281;
   t100[93] = b_t283_tmp;
   t100[94] = t284_tmp;
-  t100[95] = t29_tmp * t21_tmp * t28_tmp * -409.0;
-  t100[96] = -(t60_tmp * 9150.0);
-  t100[97] = t95_tmp * 4453.0;
-  t100[98] = t163 * -134.0;
+  t100[95] = t29_tmp * t21_tmp * t28_tmp * -409.0F;
+  t100[96] = -(t60_tmp * 9150.0F);
+  t100[97] = t95_tmp * 4453.0F;
+  t100[98] = t163 * -134.0F;
   t100[99] = t29_tmp;
   t241_tmp = t24_tmp * t61_tmp;
-  t100[100] = -(t241_tmp * 134.0);
-  t100[101] = -(t67_tmp * 151.0);
-  t100[102] = t156 * -408.0;
-  t100[103] = t156 * -409.0;
-  t100[104] = -(t241_tmp * 405.0);
-  t100[105] = t67_tmp * 4453.0;
-  t100[106] = -(t32_tmp * t61_tmp * 339.0);
+  t100[100] = -(t241_tmp * 134.0F);
+  t100[101] = -(t67_tmp * 151.0F);
+  t100[102] = t156 * -408.0F;
+  t100[103] = t156 * -409.0F;
+  t100[104] = -(t241_tmp * 405.0F);
+  t100[105] = t67_tmp * 4453.0F;
+  t100[106] = -(t32_tmp * t61_tmp * 339.0F);
   t100[107] = t30_tmp;
   t100[108] = t301_tmp;
   t100[109] = t302_tmp;
-  t100[110] = t93 * 85.4;
-  t100[111] = t419_tmp * 85.4;
+  t100[110] = t93 * 85.4F;
+  t100[111] = t419_tmp * 85.4F;
   t100[112] = t26_tmp * t241;
-  t100[113] = t361_tmp * 9150.0;
+  t100[113] = t361_tmp * 9150.0F;
   t100[114] = t191_tmp;
   t100[115] = t26_tmp * t244;
   t100[116] = t31_tmp;
-  t100[117] = t244_tmp * 9150.0;
+  t100[117] = t244_tmp * 9150.0F;
   t100[118] = t311_tmp;
   t100[119] = t18_tmp * -t139;
   t100[120] = t22_tmp * -t144;
@@ -3936,24 +3976,24 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[124] = b_t419_tmp;
   t100[125] = t32_tmp;
   t100[126] = -(t55_tmp * t97);
-  t100[127] = t87_tmp * t97 * 61.0;
-  t100[128] = t361_tmp_tmp * t85 * 61.0;
+  t100[127] = t87_tmp * t97 * 61.0F;
+  t100[128] = t361_tmp_tmp * t85 * 61.0F;
   t100[129] = t328;
   t100[130] = t33_tmp;
-  t100[131] = t18_tmp * t139 * 408.0;
-  t100[132] = t22_tmp * t144 * 1.4;
-  t100[133] = t363_tmp * -61.0;
+  t100[131] = t18_tmp * t139 * 408.0F;
+  t100[132] = t22_tmp * t144 * 1.4F;
+  t100[133] = t363_tmp * -61.0F;
   c_t100_tmp = t80 * t56_tmp;
-  t100[134] = c_t100_tmp * 405.0;
+  t100[134] = c_t100_tmp * 405.0F;
   t361_tmp = t80 * t57_tmp;
-  t100[135] = t361_tmp * 405.0;
-  t100[136] = t278 * 1.4;
+  t100[135] = t361_tmp * 405.0F;
+  t100[136] = t278 * 1.4F;
   t100[137] = t18_tmp;
   t244_tmp = t28_tmp * t144;
-  t100[138] = -(t244_tmp * 61.0);
-  t100[139] = t33_tmp * t151_tmp * 213.0;
+  t100[138] = -(t244_tmp * 61.0F);
+  t100[139] = t33_tmp * t151_tmp * 213.0F;
   t100[140] = -t444_tmp;
-  t100[141] = -(t97 * t98_tmp * 61.0);
+  t100[141] = -(t97 * t98_tmp * 61.0F);
   t241_tmp = t22_tmp * b_t280_tmp;
   t100[142] = t241_tmp;
   t100[143] = t24_tmp * t281;
@@ -3963,20 +4003,20 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[146] = t32_tmp * t281;
   t93 = t23_tmp * b_t283_tmp;
   t100[147] = t93;
-  t100[148] = t62_tmp * t19_tmp * 5.448E+6;
+  t100[148] = t62_tmp * t19_tmp * 5.448E+6F;
   t100[149] = t354_tmp;
   t100[150] = t284_tmp;
   t100[151] = t356;
-  t100[152] = -(t25_tmp * t151_tmp * 244.0);
+  t100[152] = -(t25_tmp * t151_tmp * 244.0F);
   t100[153] = t20_tmp;
-  t100[154] = t100_tmp_tmp * 4453.0;
+  t100[154] = t100_tmp_tmp * 4453.0F;
   t100[155] = t361;
-  t100[156] = -(t280_tmp * t27_tmp * 5.448E+6);
+  t100[156] = -(t280_tmp * t27_tmp * 5.448E+6F);
   t100[157] = t363;
   t100[158] = b_t280_tmp;
   t100[159] = t365;
-  t100[160] = d_t100_tmp * 85.4;
-  t100[161] = t419_tmp_tmp * 85.4;
+  t100[160] = d_t100_tmp * 85.4F;
+  t100[161] = t419_tmp_tmp * 85.4F;
   t100[162] = -t361;
   t100[163] = t21_tmp;
   t100[164] = t370;
@@ -3992,21 +4032,21 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[173] = t31_tmp * t328;
   t100[174] = t23_tmp;
   t100[175] = t32_tmp * t33_tmp * t284_tmp;
-  t100[176] = t328_tmp * t50_tmp * 1.306071E+6;
+  t100[176] = t328_tmp * t50_tmp * 1.306071E+6F;
   t100[177] = t392_tmp;
   t100[178] = -t363;
   t100[179] = -t370;
-  t100[180] = -(t244_tmp * 21350.0);
-  t100[181] = -(t444_tmp_tmp * 85.4);
+  t100[180] = -(t244_tmp * 21350.0F);
+  t100[181] = -(t444_tmp_tmp * 85.4F);
   t244_tmp = t32_tmp * t301_tmp;
-  t100[182] = t244_tmp * 1.4;
+  t100[182] = t244_tmp * 1.4F;
   t100[183] = t301_tmp;
   t100[184] = t24_tmp;
-  t100[185] = t354_tmp * 1.4;
+  t100[185] = t354_tmp * 1.4F;
   t92 = t32_tmp * t302_tmp;
-  t100[186] = t92 * 1.4;
+  t100[186] = t92 * 1.4F;
   t100[187] = t302_tmp;
-  t100[188] = t67_tmp * 61.0 - t95_tmp * 61.0;
+  t100[188] = t67_tmp * 61.0F - t95_tmp * 61.0F;
   t100[189] = t321_tmp;
   t100[190] = t50_tmp - t20_tmp * t97;
   t100[191] = t97 - t139;
@@ -4026,13 +4066,13 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[204] = t26_tmp;
   t100[205] = t420;
   t100[206] = t311_tmp;
-  t100[207] = t100_tmp_tmp_tmp * t33_tmp * t50_tmp * 9150.0;
+  t100[207] = t100_tmp_tmp_tmp * t33_tmp * t50_tmp * 9150.0F;
   t100[208] = t29_tmp * t365;
-  t100[209] = t87_tmp * t156 * 85.4;
-  t100[210] = t386 * 1.4;
+  t100[209] = t87_tmp * t156 * 85.4F;
+  t100[210] = t386 * 1.4F;
   t100[211] = t427;
   t100[212] = t25_tmp * t284_tmp;
-  t100[213] = t98_tmp * t156 * 85.4;
+  t100[213] = t98_tmp * t156 * 85.4F;
   t100[214] = t27_tmp;
   t100[215] = t25_tmp * t379_tmp;
   t100[216] = t33_tmp * t284_tmp;
@@ -4050,18 +4090,18 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[228] = t92;
   t100[229] = t379_tmp;
   t100[230] = t444;
-  t100[231] = t123 + t283_tmp * 61.0;
+  t100[231] = t123 + t283_tmp * 61.0F;
   t100[232] = t24_tmp * t392_tmp;
   t100[233] = t32_tmp * t392_tmp;
-  t100[234] = -(t100_tmp * t28_tmp * t50_tmp * 9150.0);
+  t100[234] = -(t100_tmp * t28_tmp * t50_tmp * 9150.0F);
   t100[235] = t29_tmp;
   t100[236] = t22_tmp * t394;
   t100[237] = t30_tmp * t394;
   t244_tmp = t20_tmp * t191_tmp;
-  t100[238] = t244_tmp * 151.0;
-  t100[239] = t301_tmp * 213.0;
-  t100[240] = t244_tmp * 246.0;
-  t100[241] = t302_tmp * 244.0;
+  t100[238] = t244_tmp * 151.0F;
+  t100[239] = t301_tmp * 213.0F;
+  t100[240] = t244_tmp * 246.0F;
+  t100[241] = t302_tmp * 244.0F;
   t100[242] = t241_tmp;
   t100[243] = t22_tmp * t366;
   t100[244] = t24_tmp * t365;
@@ -4076,27 +4116,27 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   d_t100_tmp = t32_tmp * t311_tmp;
   t100[253] = t58_tmp + d_t100_tmp;
   t100[254] = t32_tmp;
-  t100[255] = t19_tmp * t76 + t146 * 408.0;
+  t100[255] = t19_tmp * t76 + t146 * 408.0F;
   t100[256] = t23_tmp * t419;
   t100[257] = t31_tmp * t419;
   t100[258] = t25_tmp * t420;
   t100[259] = t33_tmp * t420;
-  t100[260] = t24_tmp * t284_tmp * 134.0;
-  t100[261] = t20_tmp * t284_tmp * 455.0;
+  t100[260] = t24_tmp * t284_tmp * 134.0F;
+  t100[261] = t20_tmp * t284_tmp * 455.0F;
   t244_tmp = t21_tmp * t321_tmp;
   t100[262] = t244_tmp;
   t100[263] = t33_tmp;
   t100[264] = t75 * t365;
-  t100[265] = t22_tmp * t375 * 213.0;
+  t100[265] = t22_tmp * t375 * 213.0F;
   t241_tmp = t88 * t191_tmp;
-  t100[266] = t241_tmp * 339.0;
-  t100[267] = t32_tmp * t365 * 405.0;
+  t100[266] = t241_tmp * 339.0F;
+  t100[267] = t32_tmp * t365 * 405.0F;
   t100[268] = t50_tmp;
   t100_tmp_tmp = t27_tmp * t28_tmp;
   t103 = t100_tmp_tmp * t191_tmp;
-  t100[269] = t103 * 151.0;
-  t100[270] = t103 * 246.0;
-  t100[271] = t30_tmp * t374 * 244.0;
+  t100[269] = t103 * 151.0F;
+  t100[270] = t103 * 246.0F;
+  t100[271] = t30_tmp * t374 * 244.0F;
   t100[272] = t96_tmp;
   t100[273] = t280_tmp * t373;
   t100[274] = d_t100_tmp;
@@ -4105,68 +4145,68 @@ void mass_mat_func_gb(const real_T in1[9], real_T M[81])
   t100[277] = t32_tmp * t427;
   t100[278] = t31_tmp * t444;
   t100[279] = t392_tmp;
-  t100[280] = t122_tmp + t28_tmp * t156 * 61.0;
+  t100[280] = t122_tmp + t28_tmp * t156 * 61.0F;
   t100[281] = t25_tmp * t418;
   d_t100_tmp = t21_tmp * t284_tmp;
-  t100[282] = d_t100_tmp * 4453.0;
+  t100[282] = d_t100_tmp * 4453.0F;
   t100[283] = t33_tmp * t418;
   t103 = t20_tmp * t24_tmp * t191_tmp;
-  t100[284] = t103 * 210.0;
-  t100[285] = t241_tmp * 4453.0;
+  t100[284] = t103 * 210.0F;
+  t100[285] = t241_tmp * 4453.0F;
   t100[286] = t62 + t244_tmp;
-  t100[287] = -(t328_tmp * t191_tmp * 455.0);
+  t100[287] = -(t328_tmp * t191_tmp * 455.0F);
   t100[288] = t100_tmp_tmp * t30_tmp + t22_tmp * t322;
-  t100[289] = t24_tmp * t32_tmp * t284_tmp * 339.0;
-  t100[290] = b_t100_tmp * t25_tmp * 244.0 - t100_tmp * t33_tmp * 213.0;
+  t100[289] = t24_tmp * t32_tmp * t284_tmp * 339.0F;
+  t100[290] = b_t100_tmp * t25_tmp * 244.0F - t100_tmp * t33_tmp * 213.0F;
   t100_tmp = t80 * t191_tmp;
-  t100[291] = -(t100_tmp * 134.0);
-  t100[292] = -(t100_tmp * 405.0);
-  t100[293] = t19_tmp * t20_tmp * t191_tmp * 4453.0;
-  t100[294] = t100_tmp * 4453.0;
+  t100[291] = -(t100_tmp * 134.0F);
+  t100[292] = -(t100_tmp * 405.0F);
+  t100[293] = t19_tmp * t20_tmp * t191_tmp * 4453.0F;
+  t100[294] = t100_tmp * 4453.0F;
   b_t100_tmp = t20_tmp * t32_tmp;
-  t100[295] = b_t100_tmp * t284_tmp * 339.0;
-  t100[296] = b_t100_tmp * t191_tmp * 102.2;
-  t100[297] = t328_tmp * t284_tmp * 151.0;
-  t100[298] = t103 * 102.2;
-  t100[299] = t100_tmp * 9150.0;
+  t100[295] = b_t100_tmp * t284_tmp * 339.0F;
+  t100[296] = b_t100_tmp * t191_tmp * 102.2F;
+  t100[297] = t328_tmp * t284_tmp * 151.0F;
+  t100[298] = t103 * 102.2F;
+  t100[299] = t100_tmp * 9150.0F;
   t100[300] = t60_tmp;
   t100_tmp = t28_tmp * t58_tmp * t191_tmp;
-  t100[301] = t100_tmp * 134.0;
+  t100[301] = t100_tmp * 134.0F;
   b_t100_tmp = t24_tmp * t27_tmp * t28_tmp * t191_tmp;
-  t100[302] = b_t100_tmp * 210.0;
-  t100[303] = t100_tmp * 405.0;
-  t100[304] = t28_tmp * t60_tmp * t191_tmp * 339.0;
-  t100[305] = t18_tmp * t20_tmp * t27_tmp * t191_tmp * 4453.0;
+  t100[302] = b_t100_tmp * 210.0F;
+  t100[303] = t100_tmp * 405.0F;
+  t100[304] = t28_tmp * t60_tmp * t191_tmp * 339.0F;
+  t100[305] = t18_tmp * t20_tmp * t27_tmp * t191_tmp * 4453.0F;
   t100[306] = t22_tmp * t27_tmp * t28_tmp;
   t100[307] = t183_tmp * t32_tmp;
-  t100[308] = b_t100_tmp * 102.2;
-  t100[309] = t100_tmp_tmp * t32_tmp * t191_tmp * 102.2;
-  t100[310] = t58_tmp * 61.0;
+  t100[308] = b_t100_tmp * 102.2F;
+  t100[309] = t100_tmp_tmp * t32_tmp * t191_tmp * 102.2F;
+  t100[310] = t58_tmp * 61.0F;
   t100_tmp = t100_tmp_tmp_tmp * t54_tmp * t191_tmp;
-  t100[311] = t100_tmp * 4453.0;
-  t100[312] = t361_tmp_tmp * t54_tmp * t191_tmp * 4453.0;
-  t100[313] = t100_tmp * 9150.0;
+  t100[311] = t100_tmp * 4453.0F;
+  t100[312] = t361_tmp_tmp * t54_tmp * t191_tmp * 4453.0F;
+  t100[313] = t100_tmp * 9150.0F;
   t100[314] = t75;
   t100[315] = t76;
   t100[316] = t77;
   t100[317] = t50_tmp;
-  t100[318] = d_t100_tmp * t191_tmp * 455.0;
+  t100[318] = d_t100_tmp * t191_tmp * 455.0F;
   t100[319] = t51_tmp;
   t100[320] = t80;
   t100[321] = t52_tmp;
   t100_tmp = t191_tmp * b_t280_tmp;
-  t100[322] = t100_tmp * 151.0;
-  t100[323] = t100_tmp * 246.0;
+  t100[322] = t100_tmp * 151.0F;
+  t100[323] = t100_tmp * 246.0F;
   t100[324] = t54_tmp;
   t100[325] = t55_tmp;
   t100_tmp = t24_tmp * t191_tmp * b_t280_tmp;
-  t100[326] = t100_tmp * 210.0;
+  t100[326] = t100_tmp * 210.0F;
   t100[327] = t88;
-  t100[328] = t100_tmp * 102.2;
+  t100[328] = t100_tmp * 102.2F;
   t100[329] = t58_tmp;
-  t100[330] = t32_tmp * t191_tmp * b_t280_tmp * 102.2;
-  t100[331] = (t179 + t88 * t56_tmp * 339.0) + t88 * t57_tmp * 339.0;
-  t100[332] = (t60_tmp * -134.0 + c_t100_tmp * 134.0) + t361_tmp * 134.0;
+  t100[330] = t32_tmp * t191_tmp * b_t280_tmp * 102.2F;
+  t100[331] = (t179 + t88 * t56_tmp * 339.0F) + t88 * t57_tmp * 339.0F;
+  t100[332] = (t60_tmp * -134.0F + c_t100_tmp * 134.0F) + t361_tmp * 134.0F;
   t100[333] = t60_tmp;
   ft_1(t100, M);
 }

@@ -1,7 +1,7 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2023a">
-  <configuration build-checksum="292754096" file="/home/bholder/bit-matlab-sim/libbitonestep.prj" location="/home/bholder/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/bholder/bit-matlab-sim" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="852334325" file="/home/bholder/bit-matlab-sim/test.prj" location="/home/bholder/bit-matlab-sim" name="test" preferred-package-location="/home/bholder/bit-matlab-sim" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
-      <param.BuiltInstrumentedMex />
+      <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
       <param.WorkingFolder>option.WorkingFolder.Current</param.WorkingFolder>
       <param.SpecifiedWorkingFolder>/home/brad/bit-matlab-sim</param.SpecifiedWorkingFolder>
@@ -87,7 +87,7 @@
       <param.EnableAutoParallelizationReporting>true</param.EnableAutoParallelizationReporting>
       <param.CacheDynamicArrayDataPointer>true</param.CacheDynamicArrayDataPointer>
       <param.EnableJIT>false</param.EnableJIT>
-      <param.EnableJITSilentBailOut />
+      <param.EnableJITSilentBailOut>false</param.EnableJITSilentBailOut>
       <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
       <param.EnableGitSupport>false</param.EnableGitSupport>
       <param.EnableAutoCommit>true</param.EnableAutoCommit>
@@ -369,7 +369,7 @@
       <param.JustifyMISRAViolations>false</param.JustifyMISRAViolations>
       <param.EnableTraceability>true</param.EnableTraceability>
       <param.SILPILVerbosity>option.SILPILVerbosity.off</param.SILPILVerbosity>
-      <param.UseECoderFeatures>false</param.UseECoderFeatures>
+      <param.UseECoderFeatures>true</param.UseECoderFeatures>
       <param.EnableGitSupport>false</param.EnableGitSupport>
       <param.EnableAutoCommit>true</param.EnableAutoCommit>
       <param.RepositoryStyle>option.RepositoryStyle.Auto</param.RepositoryStyle>
@@ -556,7 +556,7 @@
       </unset>
     </profile>
     <param.objective>option.objective.c</param.objective>
-    <param.WorkflowStep>workflowSummary</param.WorkflowStep>
+    <param.WorkflowStep>entryPoints</param.WorkflowStep>
     <param.TestSnippets>
       <item>sim_loop_rust</item>
     </param.TestSnippets>
@@ -564,7 +564,7 @@
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}/codegen/lib/libbitonestep/libbitonestep.a</param.outputfile>
     <param.version>R2012a</param.version>
-    <param.HasECoderFeatures>false</param.HasECoderFeatures>
+    <param.HasECoderFeatures>true</param.HasECoderFeatures>
     <param.HasGpuCoder>false</param.HasGpuCoder>
     <var.HasNeuralNetworkToolbox>false</var.HasNeuralNetworkToolbox>
     <param.newGlobals>
@@ -582,7 +582,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>2612297961</param.AnnotationChecksum>
+    <param.AnnotationChecksum>685763557</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -592,13 +592,13 @@
     <param.hdlParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/libbitonestep</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>3625508932</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>852334325</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen/mex/bit_one_step_mex</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>3053678067</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>2924182611</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>sim_loop_rust</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2817071795&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1118542404&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -606,7 +606,7 @@
     <var.notGpuCoder>true</var.notGpuCoder>
     <var.boundToGui>true</var.boundToGui>
     <var.isConfigDialog>false</var.isConfigDialog>
-    <var.ecoderEnabled>false</var.ecoderEnabled>
+    <var.ecoderEnabled>true</var.ecoderEnabled>
     <param.AlwaysGenerateTypedefGuards>false</param.AlwaysGenerateTypedefGuards>
     <param.RemoveDuplicateFunctionsAndTypes>true</param.RemoveDuplicateFunctionsAndTypes>
     <param.EnableStructExplosion>true</param.EnableStructExplosion>
@@ -648,8 +648,8 @@
     <param.deeplearning.DeepLearningCustomCallback />
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
-    <var.hasMatlabDeepLearningSupportPackage>false</var.hasMatlabDeepLearningSupportPackage>
-    <var.hasGpuDeepLearningSupportPackage>false</var.hasGpuDeepLearningSupportPackage>
+    <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
+    <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType>option.tensorrt.datatype.fp32</param.tensorrt.DataType>
     <param.tensorrt.DataPath />
     <param.tensorrt.NumCalibrationBatches>0</param.tensorrt.NumCalibrationBatches>
@@ -783,6 +783,8 @@
       <param.deeplearning.DeepLearningCustomCallback />
       <param.deeplearning.TargetLib />
       <var.cfiTargetLibSuppression />
+      <var.hasMatlabDeepLearningSupportPackage />
+      <var.hasGpuDeepLearningSupportPackage />
       <param.tensorrt.DataType />
       <param.tensorrt.DataPath />
       <param.tensorrt.NumCalibrationBatches />
@@ -847,28 +849,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}/bit_one_step.m">
-        <Marker>1684521714156</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_angular_velocity_C.m">
-        <Marker>1643125302573</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_angular_velocity_roll_C.m">
-        <Marker>1683393374225</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_angular_velocity_yaw_C.m">
-        <Marker>1683393374210</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_rotation_mat_C.m">
-        <Marker>1643106550737</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_rotation_mat_roll_C.m">
-        <Marker>1683396319586</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_rotation_mat_yaw_C.m">
-        <Marker>1683396319597</Marker>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/rot2axis_C.m">
-        <Marker>1643106550745</Marker>
+        <Marker>1710438856260</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>
@@ -891,31 +872,28 @@
           <Input Name="flexure_flag" typeId="3" />
           <idpTable>
             <type typeId="0">
-              <Class>double</Class>
+              <Class>single</Class>
               <Size>21 x 1</Size>
               <Value />
               <InitialValue />
-              <UserDefined>false</UserDefined>
+              <UserDefined>true</UserDefined>
               <Complex>false</Complex>
-              <Sparse>false</Sparse>
             </type>
             <type typeId="1">
-              <Class>double</Class>
+              <Class>single</Class>
               <Size>9 x 1</Size>
               <Value />
               <InitialValue />
-              <UserDefined>false</UserDefined>
+              <UserDefined>true</UserDefined>
               <Complex>false</Complex>
-              <Sparse>false</Sparse>
             </type>
             <type typeId="2">
-              <Class>double</Class>
+              <Class>single</Class>
               <Size>1 x 1</Size>
               <Value />
               <InitialValue />
-              <UserDefined>false</UserDefined>
+              <UserDefined>true</UserDefined>
               <Complex>false</Complex>
-              <Sparse>false</Sparse>
             </type>
             <type typeId="3">
               <Class>logical</Class>
@@ -934,194 +912,20 @@
               <Complex>false</Complex>
             </type>
             <type typeId="5">
-              <Class>double</Class>
+              <Class>single</Class>
               <Size>104 x 1</Size>
               <Value />
               <InitialValue />
-              <UserDefined>false</UserDefined>
+              <UserDefined>true</UserDefined>
               <Complex>false</Complex>
-              <Sparse>false</Sparse>
             </type>
             <type typeId="6">
-              <Class>double</Class>
+              <Class>single</Class>
               <Size>5 x 1</Size>
               <Value />
               <InitialValue />
-              <UserDefined>false</UserDefined>
+              <UserDefined>true</UserDefined>
               <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_angular_velocity_C.m">
-        <Inputs fileName="compute_angular_velocity_C.m" functionName="compute_angular_velocity_C">
-          <Input Name="x" typeId="0" />
-          <Input Name="z_n" typeId="1" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>18 x 1</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-            <type typeId="1">
-              <Class>double</Class>
-              <Size>3 x 9</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_angular_velocity_roll_C.m">
-        <Inputs fileName="compute_angular_velocity_roll_C.m" functionName="compute_angular_velocity_roll_C">
-          <Input Name="x" typeId="0" />
-          <Input Name="z_n" typeId="1" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>18 x 1</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-            <type typeId="1">
-              <Class>double</Class>
-              <Size>3 x 9</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_angular_velocity_yaw_C.m">
-        <Inputs fileName="compute_angular_velocity_yaw_C.m" functionName="compute_angular_velocity_yaw_C">
-          <Input Name="x" typeId="0" />
-          <Input Name="z_n" typeId="1" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>18 x 1</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-            <type typeId="1">
-              <Class>double</Class>
-              <Size>3 x 9</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_rotation_mat_C.m">
-        <Inputs fileName="compute_rotation_mat_C.m" functionName="compute_rotation_mat_C">
-          <Input Name="z_n" typeId="0" />
-          <Input Name="theta" typeId="1" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>3 x 9</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-            <type typeId="1">
-              <Class>double</Class>
-              <Size>9 x 1</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_rotation_mat_roll_C.m">
-        <Inputs fileName="compute_rotation_mat_roll_C.m" functionName="compute_rotation_mat_roll_C">
-          <Input Name="z_n" typeId="0" />
-          <Input Name="theta" typeId="1" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>3 x 9</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-            <type typeId="1">
-              <Class>double</Class>
-              <Size>9 x 1</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/compute_rotation_mat_yaw_C.m">
-        <Inputs fileName="compute_rotation_mat_yaw_C.m" functionName="compute_rotation_mat_yaw_C">
-          <Input Name="z_n" typeId="0" />
-          <Input Name="theta" typeId="1" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>3 x 9</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-            <type typeId="1">
-              <Class>double</Class>
-              <Size>9 x 1</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
-          </idpTable>
-        </Inputs>
-      </file>
-      <file custom-data-expanded="false" value="${PROJECT_ROOT}/rot2axis_C.m">
-        <Inputs fileName="rot2axis_C.m" functionName="rot2axisC">
-          <Input Name="C" typeId="0" />
-          <idpTable>
-            <type typeId="0">
-              <Class>double</Class>
-              <Size>3 x 3</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>false</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
             </type>
           </idpTable>
         </Inputs>
@@ -1135,11 +939,17 @@
       <root>/usr/local/MATLAB/R2023a</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
       </toolboxes>
       <toolbox>
         <matlabcoder>
           <enabled>true</enabled>
         </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
       </toolbox>
     </matlab>
     <platform>
@@ -1151,7 +961,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>5.15.0-89-generic</osver>
+      <osver>5.15.0-100-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

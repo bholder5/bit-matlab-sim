@@ -2,17 +2,16 @@
  * Academic License - for use in teaching, academic research, and meeting
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
+ * File: libbitonestep_internal_types.h
  *
- * libbitonestep_internal_types.h
- *
- * Code generation for function 'bit_one_step'
- *
+ * MATLAB Coder version            : 5.6
+ * C/C++ source code generated on  : 14-Mar-2024 11:31:39
  */
 
 #ifndef LIBBITONESTEP_INTERNAL_TYPES_H
 #define LIBBITONESTEP_INTERNAL_TYPES_H
 
-/* Include files */
+/* Include Files */
 #include "libbitonestep_types.h"
 #include "rtwtypes.h"
 
@@ -26,4 +25,8 @@ typedef struct {
 #endif /* typedef_rtRunTimeErrorInfo */
 
 #endif
-/* End of code generation (libbitonestep_internal_types.h) */
+/*
+ * File trailer for libbitonestep_internal_types.h
+ *
+ * [EOF]
+ */

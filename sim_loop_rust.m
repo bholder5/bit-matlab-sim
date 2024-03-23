@@ -67,21 +67,32 @@ tau_max_piv = 20;
 %% run propagator loop
 x0 = [d_theta_dt_0; theta_0; hs_rw];
 for step = 1:length(t)
-    [y_all, y_flex] = bit_one_step(x0, tau_applied, unlock2, w_piv, false, ...
-        dt(1), uint16(num_steps), tau_max_piv, thet_pit_nom, x_flex0, tau_flex, false)
+    [y_all, y_flex] = bit_one_step(single(x0),  single(tau_applied), single(unlock2), single(w_piv), false, ...
+        single(dt(1)), uint16(num_steps), single(tau_max_piv), single(thet_pit_nom), single(x_flex0), single(tau_flex), false)
     x0 = y_all(:);
     x_flex0 = y_flex;
 end
     %     y_all2 = bit_one_step(x0, tau_applied, unlock(:,step), w_piv, true, dt(mod(step,2)+1), uint16(5));
     
-    C = compute_rotation_mat_C(z_n, theta_des);
-    Cr = compute_rotation_mat_roll_C(z_n, theta_des);
-    Cy = compute_rotation_mat_yaw_C(z_n, theta_des);
-    [ax, rot] = rot2axis_C(C);
-    omegay = compute_angular_velocity_yaw_C(x0(1:18), z_n);
-    omegar = compute_angular_velocity_roll_C(x0(1:18), z_n);
-    omega = compute_angular_velocity_C(x0(1:18), z_n);
+    C = compute_rotation_mat_C(double(z_n), double(theta_des));
+    Cr = compute_rotation_mat_roll_C(double(z_n), double(theta_des));
+    Cy = compute_rotation_mat_yaw_C(double(z_n), double(theta_des));
+    [ax, rot] = rot2axis_C(double(C))
+    omegay = compute_angular_velocity_yaw_C(double(x0(1:18)), double(z_n));
+    omegar = compute_angular_velocity_roll_C(double(x0(1:18)), double(z_n));
+    omega = compute_angular_velocity_C(double(x0(1:18)), double(z_n));
 % end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
