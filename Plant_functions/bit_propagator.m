@@ -32,10 +32,10 @@ function [Xdot] = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...
     %to eq 3.37
     torques = tau_applied - (Pot + spring + damp + R + r);
  
-    % M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n);
+    M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n);
 
     % M = mass_mat_func(theta);
-    M = mass_mat_func_gb(theta);
+    % M = mass_mat_func_gb(theta);
 
     M_decomp = chol(M);
 

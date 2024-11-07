@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo qc_emlrtRSI = {
+static emlrtRSInfo ad_emlrtRSI = {
     6,                                                      /* lineNo */
     "compute_rotation_mat_C",                               /* fcnName */
     "/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m" /* pathName */
@@ -38,8 +38,8 @@ void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
   int32_T i1;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 16U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 17U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 17U, 0U);
   /* UNTITLED3 Summary of this function goes here */
   /*    Detailed explanation goes here */
   /* 'compute_rotation_mat_C:4' C = (eye(3)); */
@@ -49,11 +49,11 @@ void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
   C[8] = 1.0;
   /* 'compute_rotation_mat_C:5' for i = 1:9 */
   for (i = 0; i < 9; i++) {
-    covrtLogFor(&emlrtCoverageInstance, 16U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 1U);
+    covrtLogFor(&emlrtCoverageInstance, 17U, 0U, 0, 1);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 17U, 1U);
     /* 'compute_rotation_mat_C:6' C = axis2rot(z_n(:,i), theta(i)) * C; */
-    st.site = &qc_emlrtRSI;
-    b_axis2rot(&st, &z_n[3 * i], theta[i], b_a);
+    st.site = &ad_emlrtRSI;
+    axis2rot(&st, &z_n[3 * i], theta[i], b_a);
     for (b_i = 0; b_i < 3; b_i++) {
       real_T d;
       real_T d1;
@@ -71,8 +71,8 @@ void compute_rotation_mat_C(const emlrtStack *sp, const real_T z_n[27],
       emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 16U, 0U, 0, 0);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 2U);
+  covrtLogFor(&emlrtCoverageInstance, 17U, 0U, 0, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 17U, 2U);
   /* 'compute_rotation_mat_C:8' C = C'; */
   for (b_i = 0; b_i < 3; b_i++) {
     b_a[3 * b_i] = C[b_i];

@@ -22,10 +22,7 @@
 #include <string.h>
 
 /* Function Declarations */
-void axis2rot(const emlrtStack *sp, const real_T v[3], real32_T phi,
+void axis2rot(const emlrtStack *sp, const real_T v[3], real_T phi,
               real_T rot[9]);
-
-void b_axis2rot(const emlrtStack *sp, const real_T v[3], real_T phi,
-                real_T rot[9]);
 
 /* End of code generation (axis2rot.h) */

@@ -5,7 +5,7 @@
  * File: _coder_libbitonestep_api.h
  *
  * MATLAB Coder version            : 5.6
- * C/C++ source code generated on  : 14-Mar-2024 11:31:39
+ * C/C++ source code generated on  : 23-Sep-2024 11:45:57
  */
 
 #ifndef _CODER_LIBBITONESTEP_API_H
@@ -25,14 +25,14 @@ extern "C" {
 #endif
 
 /* Function Declarations */
-void bit_one_step(real32_T x0[21], real32_T tau_applied[9], real32_T unlock[9],
-                  real32_T w_piv, boolean_T piv_flag, real32_T dt,
-                  uint16_T num_steps, real32_T tau_max_piv,
-                  real32_T thet_pit_nom, real32_T x_flex0[104],
-                  real32_T tau_flex[5], boolean_T flexure_flag,
-                  real32_T y_true[21], real32_T y_flex[104]);
+void bit_one_step(real_T x0[21], real_T tau_applied[9], real_T unlock[9],
+                  real_T w_piv, boolean_T piv_flag, real_T dt,
+                  uint16_T num_steps, real_T tau_max_piv, real_T thet_pit_nom,
+                  real_T x_flex0[104], real_T tau_flex[5],
+                  boolean_T flexure_flag, boolean_T sb_flag, real_T y_true[21],
+                  real_T y_flex[104]);
 
-void bit_one_step_api(const mxArray *const prhs[12], int32_T nlhs,
+void bit_one_step_api(const mxArray *const prhs[13], int32_T nlhs,
                       const mxArray *plhs[2]);
 
 void c_compute_angular_velocity_roll(const mxArray *const prhs[2],

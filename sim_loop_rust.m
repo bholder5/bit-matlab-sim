@@ -36,43 +36,57 @@ thet_pit_nom = 0* -40*pi/180
 %     -0.001098037684871,  -0.001085183886166,  -0.001924742862772, ...
 %      2.937417436471931,                   0,                   0, ...
 %                      0,                   0, 28.274274172758336]';
-theta_des = [0.,0.4*pi/180.0,0.4*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.,0,-40*pi/180]';
-d_theta_dt_0 = [0.,0.,0.,0.,0.,0.,0.,0.,0.]'; 
+theta_des = double([0.,0.4*pi/180.0,0.4*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.1*pi/180.0,0.,0,-40*pi/180]');
+d_theta_dt_0 = double([0.,0.,0.,0.,0.,0.,0.,0.,0.]'); 
 
-y_flex = zeros(104,1)+1.1;
+y_flex = double(zeros(104,1)+1.1);
 x_flex0 = y_flex;
-tau_flex = zeros(5,1);
+
+y_flex2 = double(zeros(104,1)+1.1);
+x_flex20 = y_flex;
+
+tau_flex = double(zeros(5,1));
 
 
-i_rw = reshape([10.0,0.,0.,0.,10.0,0.,0.,0.,9.0], 3, 3);
-hs_rw = i_rw*pi*[0.0; 0.0; 1.0];
+i_rw = double(reshape([10.0,0.,0.,0.,10.0,0.,0.,0.,9.0], 3, 3));
+hs_rw = double(i_rw*pi*[0.0; 0.0; 1.0]);
 
-x0 = [d_theta_dt_0; theta_0; hs_rw];
-
-z_n = [0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0;
+x0 = double([d_theta_dt_0; theta_0; hs_rw]);
+x20 = double([d_theta_dt_0; theta_0; hs_rw]);
+z_n = double([0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0;
        0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0;
-       1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0];
+       1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]);
 
-dt = [1e-3, 1e-4];
+dt = double([1e-3, 1e-4]);
 num_steps = 10;
-t = 0:dt(1):dt(1)*10;
-w_piv = 0.01;
+t = double(0:dt(1):dt(1)*10);
+w_piv = double(0.01);
 piv_flag = false;
-unlock1 = [1,0,0,0,0,0,0,0,0]';
-unlock2 = [1,1,1,1,1,1,1,1,1]';
+unlock1 = double([1,0,0,0,0,0,0,0,0]');
+unlock2 = double([1,1,1,1,1,1,1,1,1]');
 unlock = eye(9);
-tau_applied = 0.01*[10000; -1000; 1000; -1000; 1000; -1000; 0; 0; 0];
-tau_max_piv = 20;
+tau_applied = double(0.01*[10000; -1000; 1000; -1000; 1000; -1000; 0; 0; 0]);
+tau_max_piv = double(20);
 % tau_applied = [10;0;0;0;0;0;0;0;0]+0.1;
 %% run propagator loop
-x0 = [d_theta_dt_0; theta_0; hs_rw];
+x0 = double([d_theta_dt_0; theta_0; hs_rw]);
 for step = 1:length(t)
-    [y_all, y_flex] = bit_one_step(single(x0),  single(tau_applied), single(unlock2), single(w_piv), false, ...
-        single(dt(1)), uint16(num_steps), single(tau_max_piv), single(thet_pit_nom), single(x_flex0), single(tau_flex), false)
+    [y_all, y_flex] = bit_one_step(double(x0),  double(tau_applied), double(unlock2), double(w_piv), uint8(false), ...
+        double(dt(1)), uint16(num_steps), double(tau_max_piv), double(thet_pit_nom), double(x_flex0), double(tau_flex), uint8(false), uint8(true))
     x0 = y_all(:);
     x_flex0 = y_flex;
 end
+
+for step = 1:length(t)
+    [y_all2, y_flex2] = bit_one_step(double(x20),  double(tau_applied), double(unlock2), double(w_piv), uint8(false), ...
+        double(dt(1)), uint16(num_steps), double(tau_max_piv), double(thet_pit_nom), double(x_flex0), double(tau_flex), uint8(false), uint8(false))
+    x20 = y_all2(:);
+    x_flex20 = y_flex2;
+end
     %     y_all2 = bit_one_step(x0, tau_applied, unlock(:,step), w_piv, true, dt(mod(step,2)+1), uint16(5));
+for step = 1:5
+    theta_des = theta_des*0.8;
+    x0 = x0*1.01;
     
     C = compute_rotation_mat_C(double(z_n), double(theta_des));
     Cr = compute_rotation_mat_roll_C(double(z_n), double(theta_des));
@@ -81,7 +95,7 @@ end
     omegay = compute_angular_velocity_yaw_C(double(x0(1:18)), double(z_n));
     omegar = compute_angular_velocity_roll_C(double(x0(1:18)), double(z_n));
     omega = compute_angular_velocity_C(double(x0(1:18)), double(z_n));
-% end
+end
 
 
 

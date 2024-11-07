@@ -22,7 +22,7 @@
 #include <string.h>
 
 /* Function Declarations */
-void bit_one_step_api(const mxArray *const prhs[12], int32_T nlhs,
+void bit_one_step_api(const mxArray *const prhs[13], int32_T nlhs,
                       const mxArray *plhs[2]);
 
 void c_compute_angular_velocity_roll(const mxArray *const prhs[2],

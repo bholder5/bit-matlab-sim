@@ -66,6 +66,8 @@ void bit_one_step_mex_atexit(void)
   covrtFreeInstanceData(&emlrtCoverageInstance);
   /* Free instance data */
   covrtFreeInstanceData(&emlrtCoverageInstance);
+  /* Free instance data */
+  covrtFreeInstanceData(&emlrtCoverageInstance);
   emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
   emlrtExitTimeCleanup(&emlrtContextGlobal);
 }

@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo nc_emlrtRSI = {
+static emlrtRSInfo wc_emlrtRSI = {
     9,                                                          /* lineNo */
     "compute_angular_velocity_C",                               /* fcnName */
     "/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m" /* pathName */
@@ -39,8 +39,8 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
   int32_T s9_tmp;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 13U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 14U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 14U, 0U);
   /* UNTITLED2 Summary of this function goes here */
   /*    Detailed explanation goes here */
   /* 'compute_angular_velocity_C:4' theta = x(10:18); */
@@ -50,11 +50,11 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
   /* 'compute_angular_velocity_C:8' for i = 1:9 */
   for (i = 0; i < 9; i++) {
     real_T Cn[9];
-    covrtLogFor(&emlrtCoverageInstance, 13U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 1U);
+    covrtLogFor(&emlrtCoverageInstance, 14U, 0U, 0, 1);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 14U, 1U);
     /* 'compute_angular_velocity_C:9' Cn = axis2rot(z_n(:,i), theta(i)); */
-    st.site = &nc_emlrtRSI;
-    b_axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
+    st.site = &wc_emlrtRSI;
+    axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
     /* 'compute_angular_velocity_C:10' s9(:,i) = z_n(:,i); */
     s9[3 * i] = z_n[3 * i];
     s9_tmp = 3 * i + 1;
@@ -78,8 +78,8 @@ void compute_angular_velocity_C(const emlrtStack *sp, const real_T x[18],
       emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 13U, 0U, 0, 0);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 2U);
+  covrtLogFor(&emlrtCoverageInstance, 14U, 0U, 0, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 14U, 2U);
   /* 'compute_angular_velocity_C:14' omega = s9 * dtheta; */
   for (s9_tmp = 0; s9_tmp < 3; s9_tmp++) {
     d = 0.0;

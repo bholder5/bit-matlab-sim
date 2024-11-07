@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo pc_emlrtRSI = {
+static emlrtRSInfo yc_emlrtRSI = {
     9,                                /* lineNo */
     "compute_angular_velocity_yaw_C", /* fcnName */
     "/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m" /* pathName
@@ -40,8 +40,8 @@ void compute_angular_velocity_yaw_C(const emlrtStack *sp, const real_T x[18],
   int32_T s7_tmp;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 15U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 16U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 0U);
   /* UNTITLED2 Summary of this function goes here */
   /*    Detailed explanation goes here */
   /* 'compute_angular_velocity_yaw_C:4' theta = x(10:18); */
@@ -51,11 +51,11 @@ void compute_angular_velocity_yaw_C(const emlrtStack *sp, const real_T x[18],
   /* 'compute_angular_velocity_yaw_C:8' for i = 1:7 */
   for (i = 0; i < 7; i++) {
     real_T Cn[9];
-    covrtLogFor(&emlrtCoverageInstance, 15U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 1U);
+    covrtLogFor(&emlrtCoverageInstance, 16U, 0U, 0, 1);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 1U);
     /* 'compute_angular_velocity_yaw_C:9' Cn = axis2rot(z_n(:,i), theta(i)); */
-    st.site = &pc_emlrtRSI;
-    b_axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
+    st.site = &yc_emlrtRSI;
+    axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
     /* 'compute_angular_velocity_yaw_C:10' s7(:,i) = z_n(:,i); */
     s7[3 * i] = z_n[3 * i];
     s7_tmp = 3 * i + 1;
@@ -79,8 +79,8 @@ void compute_angular_velocity_yaw_C(const emlrtStack *sp, const real_T x[18],
       emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 15U, 0U, 0, 0);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 2U);
+  covrtLogFor(&emlrtCoverageInstance, 16U, 0U, 0, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 16U, 2U);
   /* 'compute_angular_velocity_yaw_C:14' omega = s7 * dtheta; */
   for (s7_tmp = 0; s7_tmp < 3; s7_tmp++) {
     d = 0.0;

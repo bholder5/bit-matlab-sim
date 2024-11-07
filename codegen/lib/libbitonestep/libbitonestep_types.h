@@ -5,7 +5,7 @@
  * File: libbitonestep_types.h
  *
  * MATLAB Coder version            : 5.6
- * C/C++ source code generated on  : 14-Mar-2024 11:31:39
+ * C/C++ source code generated on  : 23-Sep-2024 11:45:57
  */
 
 #ifndef LIBBITONESTEP_TYPES_H

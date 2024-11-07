@@ -23,7 +23,7 @@
 
 /* Function Declarations */
 void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
-                              const mxArray *prhs[12]);
+                              const mxArray *prhs[13]);
 
 void compute_angular_velocity_C_mexFunction(int32_T nlhs, mxArray *plhs[1],
                                             int32_T nrhs,

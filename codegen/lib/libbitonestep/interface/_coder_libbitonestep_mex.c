@@ -5,7 +5,7 @@
  * File: _coder_libbitonestep_mex.c
  *
  * MATLAB Coder version            : 5.6
- * C/C++ source code generated on  : 14-Mar-2024 11:31:39
+ * C/C++ source code generated on  : 23-Sep-2024 11:45:57
  */
 
 /* Include Files */
@@ -17,25 +17,25 @@
  * Arguments    : int32_T nlhs
  *                mxArray *plhs[2]
  *                int32_T nrhs
- *                const mxArray *prhs[12]
+ *                const mxArray *prhs[13]
  * Return Type  : void
  */
 void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
-                              const mxArray *prhs[12])
+                              const mxArray *prhs[13])
 {
   emlrtStack st = {
       NULL, /* site */
       NULL, /* tls */
       NULL  /* prev */
   };
-  const mxArray *b_prhs[12];
+  const mxArray *b_prhs[13];
   const mxArray *outputs[2];
   int32_T b_i;
   int32_T i1;
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
-  if (nrhs != 12) {
-    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 12, 4,
+  if (nrhs != 13) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, 12, 13, 4,
                         12, "bit_one_step");
   }
   if (nlhs > 2) {
@@ -43,7 +43,7 @@ void bit_one_step_mexFunction(int32_T nlhs, mxArray *plhs[2], int32_T nrhs,
                         "bit_one_step");
   }
   /* Call the function. */
-  for (b_i = 0; b_i < 12; b_i++) {
+  for (b_i = 0; b_i < 13; b_i++) {
     b_prhs[b_i] = prhs[b_i];
   }
   bit_one_step_api(b_prhs, nlhs, outputs);

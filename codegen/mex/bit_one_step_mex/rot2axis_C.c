@@ -17,26 +17,26 @@
 #include <emmintrin.h>
 
 /* Variable Definitions */
-static emlrtRSInfo tc_emlrtRSI = {
+static emlrtRSInfo dd_emlrtRSI = {
     2,                                          /* lineNo */
     "rot2axis_C",                               /* fcnName */
     "/home/bholder/bit-matlab-sim/rot2axis_C.m" /* pathName */
 };
 
-static emlrtRSInfo uc_emlrtRSI = {
+static emlrtRSInfo ed_emlrtRSI = {
     6,                                          /* lineNo */
     "rot2axis_C",                               /* fcnName */
     "/home/bholder/bit-matlab-sim/rot2axis_C.m" /* pathName */
 };
 
-static emlrtRTEInfo b_emlrtRTEI = {
+static emlrtRTEInfo e_emlrtRTEI = {
     13,                                                            /* lineNo */
     9,                                                             /* colNo */
     "sqrt",                                                        /* fName */
     "/usr/local/MATLAB/R2023a/toolbox/eml/lib/matlab/elfun/sqrt.m" /* pName */
 };
 
-static emlrtRTEInfo c_emlrtRTEI = {
+static emlrtRTEInfo f_emlrtRTEI = {
     14,                                                            /* lineNo */
     9,                                                             /* colNo */
     "acos",                                                        /* fName */
@@ -55,14 +55,14 @@ void rot2axis_C(const emlrtStack *sp, const real_T C[9], real_T v[3],
   real_T b_v;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 19U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 19U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 20U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 20U, 0U);
   /* 'rot2axis_C:2' phi = acos((C(1,1) + C(2,2) + C(3,3) - 1)/2); */
-  st.site = &tc_emlrtRSI;
+  st.site = &dd_emlrtRSI;
   *phi = (((C[0] + C[4]) + C[8]) - 1.0) / 2.0;
   if ((*phi < -1.0) || (*phi > 1.0)) {
     emlrtErrorWithMessageIdR2018a(
-        &st, &c_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
+        &st, &f_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
         "Coder:toolbox:ElFunDomainError", 3, 4, 4, "acos");
   }
   *phi = muDoubleScalarAcos(*phi);
@@ -75,10 +75,10 @@ void rot2axis_C(const emlrtStack *sp, const real_T C[9], real_T v[3],
   v[2] = (C[1] - C[3]) / b_v;
   /* 'rot2axis_C:6' v = v/sqrt(v'*v); */
   b_v = (v[0] * v[0] + v[1] * v[1]) + v[2] * v[2];
-  st.site = &uc_emlrtRSI;
+  st.site = &ed_emlrtRSI;
   if (b_v < 0.0) {
     emlrtErrorWithMessageIdR2018a(
-        &st, &b_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
+        &st, &e_emlrtRTEI, "Coder:toolbox:ElFunDomainError",
         "Coder:toolbox:ElFunDomainError", 3, 4, 4, "sqrt");
   }
   b_v = muDoubleScalarSqrt(b_v);

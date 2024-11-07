@@ -17,7 +17,7 @@
 #include <string.h>
 
 /* Variable Definitions */
-static emlrtRSInfo oc_emlrtRSI = {
+static emlrtRSInfo xc_emlrtRSI = {
     9,                                 /* lineNo */
     "compute_angular_velocity_roll_C", /* fcnName */
     "/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m" /* pathName
@@ -40,8 +40,8 @@ void compute_angular_velocity_roll_C(const emlrtStack *sp, const real_T x[18],
   int32_T s8_tmp;
   st.prev = sp;
   st.tls = sp->tls;
-  covrtLogFcn(&emlrtCoverageInstance, 14U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 14U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 15U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 0U);
   /* UNTITLED2 Summary of this function goes here */
   /*    Detailed explanation goes here */
   /* 'compute_angular_velocity_roll_C:4' theta = x(10:18); */
@@ -51,11 +51,11 @@ void compute_angular_velocity_roll_C(const emlrtStack *sp, const real_T x[18],
   /* 'compute_angular_velocity_roll_C:8' for i = 1:8 */
   for (i = 0; i < 8; i++) {
     real_T Cn[9];
-    covrtLogFor(&emlrtCoverageInstance, 14U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 14U, 1U);
+    covrtLogFor(&emlrtCoverageInstance, 15U, 0U, 0, 1);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 1U);
     /* 'compute_angular_velocity_roll_C:9' Cn = axis2rot(z_n(:,i), theta(i)); */
-    st.site = &oc_emlrtRSI;
-    b_axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
+    st.site = &xc_emlrtRSI;
+    axis2rot(&st, &z_n[3 * i], x[i + 9], Cn);
     /* 'compute_angular_velocity_roll_C:10' s8(:,i) = z_n(:,i); */
     s8[3 * i] = z_n[3 * i];
     s8_tmp = 3 * i + 1;
@@ -79,8 +79,8 @@ void compute_angular_velocity_roll_C(const emlrtStack *sp, const real_T x[18],
       emlrtBreakCheckR2012b((emlrtConstCTX)sp);
     }
   }
-  covrtLogFor(&emlrtCoverageInstance, 14U, 0U, 0, 0);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 14U, 2U);
+  covrtLogFor(&emlrtCoverageInstance, 15U, 0U, 0, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 2U);
   /* 'compute_angular_velocity_roll_C:14' omega = s8 * dtheta; */
   for (s8_tmp = 0; s8_tmp < 3; s8_tmp++) {
     d = 0.0;
