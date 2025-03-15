@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2023a">
-  <configuration build-checksum="2729024278" file="/home/bholder/bit-matlab-sim/libbitonestep.prj" location="/home/bholder/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/bholder/bit-matlab-sim" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="141575025" file="/home/bholder/bit-matlab-sim/libbitonestep.prj" location="/home/bholder/bit-matlab-sim" name="libbitonestep" preferred-package-location="/home/bholder/bit-matlab-sim" preferred-package-type="package.type.zip.flat" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -12,6 +12,7 @@
         <item>/home/bholder/bit-matlab-sim/ADCS</item>
         <item>/home/bholder/bit-matlab-sim/Miscellaneous</item>
         <item>/home/bholder/bit-matlab-sim/Plant_functions</item>
+        <item>/home/bholder/bit-matlab-sim/codegen</item>
       </param.SearchPaths>
       <var.SimdQueryHardwareVendor>Generic</var.SimdQueryHardwareVendor>
       <var.SimdQueryHardwareType>MATLAB Host Computer</var.SimdQueryHardwareType>
@@ -179,9 +180,9 @@
       <param.PurelyIntegerCode>false</param.PurelyIntegerCode>
       <param.SupportNonFinite>false</param.SupportNonFinite>
       <param.LoopUnrollThreshold>5</param.LoopUnrollThreshold>
-      <param.EnableAutoParallelization>false</param.EnableAutoParallelization>
+      <param.EnableAutoParallelization>true</param.EnableAutoParallelization>
       <param.NumberOfCpuThreads>4</param.NumberOfCpuThreads>
-      <param.OptimizeReductions>false</param.OptimizeReductions>
+      <param.OptimizeReductions>true</param.OptimizeReductions>
       <param.EnableVariableSizing>false</param.EnableVariableSizing>
       <param.EnableDynamicMemoryAllocation>false</param.EnableDynamicMemoryAllocation>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
@@ -393,8 +394,6 @@
         <param.InstructionSetExtensions />
         <param.PurelyIntegerCode />
         <param.LoopUnrollThreshold />
-        <param.EnableAutoParallelization />
-        <param.OptimizeReductions />
         <param.DynamicMemoryAllocation />
         <param.DynamicMemoryAllocationThreshold />
         <param.DynamicMemoryAllocationForFixedSizeArrays />
@@ -592,13 +591,13 @@
     <param.hdlParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/libbitonestep</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>250095962</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>141575025</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen/mex/bit_one_step_mex</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>976300124</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>1437425636</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>sim_loop_rust</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1547854724&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/compute_potential_energy_term.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/poten_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/poten_mat_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2936748381&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Miscellaneous/xmat.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/poten_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/Plant_functions/poten_mat_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/bit_one_step.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/a_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_f_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/b_mf_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/init_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_gb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/mass_mat_func_sb.m&lt;/file&gt;&lt;file&gt;/home/bholder/bit-matlab-sim/rot2axis_C.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -1168,7 +1167,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>5.15.0-122-generic</osver>
+      <osver>5.15.0-126-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

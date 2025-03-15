@@ -1,0 +1,23 @@
+# ninja log v5
+3	204	1734194485953288438	build/glnxa64/axis2rot.o	6fa8789c0c06e4df
+1	270	1734194486017287463	build/glnxa64/bit_one_step_mex_data.o	fb63867bbe039156
+2	278	1734194486029287279	build/glnxa64/bit_one_step_mex_initialize.o	8912d56ae63df74d
+3	296	1734194486045287035	build/glnxa64/bit_one_step_mex_terminate.o	a4a21c1b06464a41
+270	347	1734194486097286243	build/glnxa64/compute_angular_velocity_roll_C.o	6f279f3703eb2842
+204	353	1734194486101286181	build/glnxa64/compute_angular_velocity_C.o	d3c2d9b55bee1812
+2	420	1734194486169285144	build/glnxa64/rt_nonfinite.o	d7fa1af43d9bcd10
+347	436	1734194486185284900	build/glnxa64/compute_rotation_mat_roll_C.o	ffdb1738048c3cfe
+353	450	1734194486201284657	build/glnxa64/compute_rotation_mat_yaw_C.o	6c3ab575a1e8546c
+296	451	1734194486201284657	build/glnxa64/compute_rotation_mat_C.o	87d1fa5e11f954d2
+278	453	1734194486205284595	build/glnxa64/compute_angular_velocity_yaw_C.o	8571b6583b14942e
+2	479	1734194486229284229	build/glnxa64/mass_mat_func_gb.o	9f7d2d7d07720dc8
+3	498	1734194486245283985	build/glnxa64/bit_one_step.o	4f366c45ff3adf40
+450	505	1734194486257283803	build/glnxa64/_coder_bit_one_step_mex_mex.o	85693d111e775e09
+3	510	1734194486257283803	build/glnxa64/mass_mat_func_sb.o	900d0bd65e334d18
+420	515	1734194486261283741	build/glnxa64/rot2axis_C.o	80399c20fd8cb573
+453	521	1734194486269283619	build/glnxa64/eml_int_forloop_overflow_check.o	52032b28212132a
+451	525	1734194486273283558	build/glnxa64/mldivide.o	dc497746421e1b8d
+498	527	1734194486273283558	build/glnxa64/c_mexapi_version.o	3ef373b06b8eb02b
+436	536	1734194486285283375	build/glnxa64/_coder_bit_one_step_mex_api.o	6da48613176e113d
+479	540	1734194486285283375	build/glnxa64/_coder_bit_one_step_mex_info.o	6cbd80f75aa3532c
+540	600	1734194486345282460	bit_one_step_mex.mexa64	c596ec4656aa51a9

@@ -5,7 +5,7 @@
  * File: _coder_libbitonestep_mex.h
  *
  * MATLAB Coder version            : 5.6
- * C/C++ source code generated on  : 23-Sep-2024 11:45:57
+ * C/C++ source code generated on  : 16-Dec-2024 06:17:33
  */
 
 #ifndef _CODER_LIBBITONESTEP_MEX_H

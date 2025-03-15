@@ -1,0 +1,19 @@
+MEX {
+	global:
+		mexFunction;
+		mexfilerequiredapiversion;
+		emlrtMexFcnProperties;
+		bit_one_step;
+		compute_angular_velocity_C;
+		compute_angular_velocity_roll_C;
+		compute_angular_velocity_yaw_C;
+		compute_rotation_mat_C;
+		compute_rotation_mat_roll_C;
+		compute_rotation_mat_yaw_C;
+		rot2axis_C;
+		bit_one_step_mex_initialize;
+		bit_one_step_mex_terminate;
+		bit_one_step_mex_atexit;
+	local:
+		*;
+};

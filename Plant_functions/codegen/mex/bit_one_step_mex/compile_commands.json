@@ -1,0 +1,128 @@
+[
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  bit_one_step_mex_data.c -o build/glnxa64/bit_one_step_mex_data.o",
+    "file": "bit_one_step_mex_data.c",
+    "output": "build/glnxa64/bit_one_step_mex_data.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  rt_nonfinite.c -o build/glnxa64/rt_nonfinite.o",
+    "file": "rt_nonfinite.c",
+    "output": "build/glnxa64/rt_nonfinite.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  bit_one_step_mex_initialize.c -o build/glnxa64/bit_one_step_mex_initialize.o",
+    "file": "bit_one_step_mex_initialize.c",
+    "output": "build/glnxa64/bit_one_step_mex_initialize.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  bit_one_step_mex_terminate.c -o build/glnxa64/bit_one_step_mex_terminate.o",
+    "file": "bit_one_step_mex_terminate.c",
+    "output": "build/glnxa64/bit_one_step_mex_terminate.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  bit_one_step.c -o build/glnxa64/bit_one_step.o",
+    "file": "bit_one_step.c",
+    "output": "build/glnxa64/bit_one_step.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  axis2rot.c -o build/glnxa64/axis2rot.o",
+    "file": "axis2rot.c",
+    "output": "build/glnxa64/axis2rot.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  mass_mat_func_sb.c -o build/glnxa64/mass_mat_func_sb.o",
+    "file": "mass_mat_func_sb.c",
+    "output": "build/glnxa64/mass_mat_func_sb.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  mass_mat_func_gb.c -o build/glnxa64/mass_mat_func_gb.o",
+    "file": "mass_mat_func_gb.c",
+    "output": "build/glnxa64/mass_mat_func_gb.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  compute_angular_velocity_C.c -o build/glnxa64/compute_angular_velocity_C.o",
+    "file": "compute_angular_velocity_C.c",
+    "output": "build/glnxa64/compute_angular_velocity_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  compute_angular_velocity_roll_C.c -o build/glnxa64/compute_angular_velocity_roll_C.o",
+    "file": "compute_angular_velocity_roll_C.c",
+    "output": "build/glnxa64/compute_angular_velocity_roll_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  compute_angular_velocity_yaw_C.c -o build/glnxa64/compute_angular_velocity_yaw_C.o",
+    "file": "compute_angular_velocity_yaw_C.c",
+    "output": "build/glnxa64/compute_angular_velocity_yaw_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  compute_rotation_mat_C.c -o build/glnxa64/compute_rotation_mat_C.o",
+    "file": "compute_rotation_mat_C.c",
+    "output": "build/glnxa64/compute_rotation_mat_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  compute_rotation_mat_roll_C.c -o build/glnxa64/compute_rotation_mat_roll_C.o",
+    "file": "compute_rotation_mat_roll_C.c",
+    "output": "build/glnxa64/compute_rotation_mat_roll_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  compute_rotation_mat_yaw_C.c -o build/glnxa64/compute_rotation_mat_yaw_C.o",
+    "file": "compute_rotation_mat_yaw_C.c",
+    "output": "build/glnxa64/compute_rotation_mat_yaw_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  rot2axis_C.c -o build/glnxa64/rot2axis_C.o",
+    "file": "rot2axis_C.c",
+    "output": "build/glnxa64/rot2axis_C.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  interface/_coder_bit_one_step_mex_api.c -o build/glnxa64/_coder_bit_one_step_mex_api.o",
+    "file": "interface/_coder_bit_one_step_mex_api.c",
+    "output": "build/glnxa64/_coder_bit_one_step_mex_api.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  interface/_coder_bit_one_step_mex_mex.c -o build/glnxa64/_coder_bit_one_step_mex_mex.o",
+    "file": "interface/_coder_bit_one_step_mex_mex.c",
+    "output": "build/glnxa64/_coder_bit_one_step_mex_mex.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  mldivide.c -o build/glnxa64/mldivide.o",
+    "file": "mldivide.c",
+    "output": "build/glnxa64/mldivide.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  eml_int_forloop_overflow_check.c -o build/glnxa64/eml_int_forloop_overflow_check.o",
+    "file": "eml_int_forloop_overflow_check.c",
+    "output": "build/glnxa64/eml_int_forloop_overflow_check.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  interface/_coder_bit_one_step_mex_info.c -o build/glnxa64/_coder_bit_one_step_mex_info.o",
+    "file": "interface/_coder_bit_one_step_mex_info.c",
+    "output": "build/glnxa64/_coder_bit_one_step_mex_info.o"
+  },
+  {
+    "directory": "/home/bholder/bit-matlab-sim/Plant_functions/codegen/mex/bit_one_step_mex",
+    "command": "/usr/bin/gcc -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I \".\" -I \"/home/bholder/bit-matlab-sim/Plant_functions\" -I \"/home/bholder/bit-matlab-sim\" -I \"/home/bholder/bit-matlab-sim/ADCS\" -I \"/home/bholder/bit-matlab-sim/Miscellaneous\" -I \"./interface\" -I \"/usr/local/MATLAB/R2023a/extern/include\" -I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c  /usr/local/MATLAB/R2023a/extern/version/c_mexapi_version.c -o build/glnxa64/c_mexapi_version.o",
+    "file": "/usr/local/MATLAB/R2023a/extern/version/c_mexapi_version.c",
+    "output": "build/glnxa64/c_mexapi_version.o"
+  }
+]

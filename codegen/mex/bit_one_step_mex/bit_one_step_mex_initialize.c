@@ -32,19 +32,19 @@ static void bit_one_step_mex_once(void)
                   "/home/bholder/bit-matlab-sim/bit_one_step.m", 0U, 3U, 7U, 2U,
                   0U, 0U, 0U, 1U, 0U, 1U, 1U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 0U, 0U, "bit_one_step", 0, -1, 3224);
+  covrtFcnInit(&emlrtCoverageInstance, 0U, 0U, "bit_one_step", 0, -1, 3233);
   covrtFcnInit(&emlrtCoverageInstance, 0U, 1U, "bit_one_step_anonFcn1", 922, -1,
-               1117);
-  covrtFcnInit(&emlrtCoverageInstance, 0U, 2U, "bit_one_step_anonFcn2", 1367,
-               -1, 1459);
+               1126);
+  covrtFcnInit(&emlrtCoverageInstance, 0U, 2U, "bit_one_step_anonFcn2", 1376,
+               -1, 1468);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 6U, 1557, -1, 3209);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 3U, 805, -1, 1460);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 6U, 1566, -1, 3218);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 3U, 805, -1, 1469);
   covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 2U, 687, -1, 718);
   covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 1U, 447, -1, 643);
   covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 0U, 229, -1, 428);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 4U, 922, -1, 1117);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 5U, 1367, -1, 1459);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 4U, 922, -1, 1126);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 0U, 5U, 1376, -1, 1468);
   /* Initialize If Information */
   covrtIfInit(&emlrtCoverageInstance, 0U, 0U, 210, 220, 433, 651);
   covrtIfInit(&emlrtCoverageInstance, 0U, 1U, 662, 678, -1, 726);
@@ -52,7 +52,7 @@ static void bit_one_step_mex_once(void)
   covrtMcdcInit(&emlrtCoverageInstance, 0U, 0U, 665, 678, 1, 0,
                 &cond_starts_0_0, &cond_ends_0_0, 2, postfix_exprs_0_0);
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 0U, 0U, 1474, 1496, 3219);
+  covrtForInit(&emlrtCoverageInstance, 0U, 0U, 1483, 1505, 3228);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -190,67 +190,50 @@ static void bit_one_step_mex_once(void)
   covrtScriptInit(
       &emlrtCoverageInstance,
       "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m", 8U, 1U,
-      8U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U);
+      13U, 5U, 0U, 0U, 0U, 0U, 1U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 8U, 0U, "bit_propagator", 0, -1, 2033);
+  covrtFcnInit(&emlrtCoverageInstance, 8U, 0U, "bit_propagator", 0, -1, 2266);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 7U, 1913, -1, 2024);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 5U, 1539, -1, 1697);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 6U, 1725, -1, 1887);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 4U, 1429, -1, 1480);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 3U, 1190, -1, 1367);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 2U, 464, -1, 1156);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 1U, 421, -1, 439);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 0U, 211, -1, 350);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 12U, 2146, -1, 2257);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 10U, 1772, -1, 1930);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 11U, 1958, -1, 2120);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 9U, 1662, -1, 1713);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 8U, 1423, -1, 1600);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 7U, 1292, -1, 1389);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 6U, 1183, -1, 1210);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 5U, 1137, -1, 1164);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 4U, 663, -1, 1045);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 3U, 618, -1, 648);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 2U, 569, -1, 599);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 1U, 430, -1, 448);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 8U, 0U, 220, -1, 359);
   /* Initialize If Information */
-  covrtIfInit(&emlrtCoverageInstance, 8U, 0U, 393, 412, -1, 447);
-  covrtIfInit(&emlrtCoverageInstance, 8U, 1U, 1162, 1181, -1, 1907);
-  covrtIfInit(&emlrtCoverageInstance, 8U, 2U, 1493, 1522, 1898, 1899);
+  covrtIfInit(&emlrtCoverageInstance, 8U, 0U, 402, 421, -1, 456);
+  covrtIfInit(&emlrtCoverageInstance, 8U, 1U, 550, 560, 604, 656);
+  covrtIfInit(&emlrtCoverageInstance, 8U, 2U, 1118, 1128, 1169, 1218);
+  covrtIfInit(&emlrtCoverageInstance, 8U, 3U, 1395, 1414, -1, 2140);
+  covrtIfInit(&emlrtCoverageInstance, 8U, 4U, 1726, 1755, 2131, 2132);
   /* Initialize MCDC Information */
   /* Initialize For Information */
   /* Initialize While Information */
-  covrtWhileInit(&emlrtCoverageInstance, 8U, 0U, 1377, 1403, 1899);
+  covrtWhileInit(&emlrtCoverageInstance, 8U, 0U, 1610, 1636, 2132);
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
   covrtScriptStart(&emlrtCoverageInstance, 8U);
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/Plant_functions/"
-                  "compute_potential_energy_term.m",
-                  9U, 1U, 14U, 3U, 0U, 0U, 0U, 7U, 0U, 0U, 0U);
+  covrtScriptInit(
+      &emlrtCoverageInstance,
+      "/home/bholder/bit-matlab-sim/Plant_functions/poten_mat_func_sb.m", 9U,
+      1U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 9U, 0U, "compute_potential_energy_term",
-               0, -1, 2671);
+  covrtFcnInit(&emlrtCoverageInstance, 9U, 0U, "poten_mat_func_sb", 0, -1, 802);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 13U, 2644, -1, 2667);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 12U, 2515, -1, 2607);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 11U, 2341, -1, 2368);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 10U, 2259, -1, 2291);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 9U, 1936, -1, 1951);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 8U, 1803, -1, 1837);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 7U, 1715, -1, 1742);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 6U, 1633, -1, 1665);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 5U, 1367, -1, 1382);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 4U, 1092, -1, 1132);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 3U, 1017, -1, 1036);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 2U, 853, -1, 897);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 1U, 560, -1, 712);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 0U, 382, -1, 527);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 9U, 0U, 190, -1, 798);
   /* Initialize If Information */
-  covrtIfInit(&emlrtCoverageInstance, 9U, 0U, 1066, 1079, -1, 2635);
-  covrtIfInit(&emlrtCoverageInstance, 9U, 1U, 1597, 1608, 1686, 1766);
-  covrtIfInit(&emlrtCoverageInstance, 9U, 2U, 2223, 2234, 2312, 2392);
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 9U, 0U, 537, 551, 720);
-  covrtForInit(&emlrtCoverageInstance, 9U, 1U, 829, 843, 2671);
-  covrtForInit(&emlrtCoverageInstance, 9U, 2U, 990, 1004, 1048);
-  covrtForInit(&emlrtCoverageInstance, 9U, 3U, 1337, 1350, 1853);
-  covrtForInit(&emlrtCoverageInstance, 9U, 4U, 1416, 1429, 1786);
-  covrtForInit(&emlrtCoverageInstance, 9U, 5U, 1908, 1919, 2623);
-  covrtForInit(&emlrtCoverageInstance, 9U, 6U, 1985, 1996, 2412);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -258,22 +241,18 @@ static void bit_one_step_mex_once(void)
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m", 10U,
-                  1U, 4U, 1U, 0U, 0U, 0U, 2U, 0U, 0U, 0U);
+  covrtScriptInit(
+      &emlrtCoverageInstance,
+      "/home/bholder/bit-matlab-sim/Plant_functions/poten_mat_func_gb.m", 10U,
+      1U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 10U, 0U, "axis2rot", 0, -1, 718);
+  covrtFcnInit(&emlrtCoverageInstance, 10U, 0U, "poten_mat_func_gb", 0, -1,
+               667);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 10U, 3U, 545, -1, 678);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 10U, 2U, 390, -1, 439);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 10U, 1U, 324, -1, 349);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 10U, 0U, 190, -1, 270);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 10U, 0U, 190, -1, 663);
   /* Initialize If Information */
-  covrtIfInit(&emlrtCoverageInstance, 10U, 0U, 362, 373, 452, 694);
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 10U, 0U, 280, 291, 714);
-  covrtForInit(&emlrtCoverageInstance, 10U, 1U, 300, 311, 706);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -308,33 +287,22 @@ static void bit_one_step_mex_once(void)
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(
-      &emlrtCoverageInstance,
-      "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m", 12U,
-      1U, 9U, 1U, 0U, 0U, 0U, 6U, 0U, 0U, 0U);
+  covrtScriptInit(&emlrtCoverageInstance,
+                  "/home/bholder/bit-matlab-sim/Miscellaneous/axis2rot.m", 12U,
+                  1U, 4U, 1U, 0U, 0U, 0U, 2U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 12U, 0U, "compute_mass_matrix", 0, -1,
-               1589);
+  covrtFcnInit(&emlrtCoverageInstance, 12U, 0U, "axis2rot", 0, -1, 718);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 8U, 1539, -1, 1560);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 7U, 1485, -1, 1506);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 6U, 1225, -1, 1464);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 5U, 1121, -1, 1146);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 4U, 910, -1, 933);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 3U, 791, -1, 832);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 2U, 749, -1, 758);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 1U, 511, -1, 665);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 0U, 271, -1, 436);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 3U, 545, -1, 678);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 2U, 390, -1, 439);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 1U, 324, -1, 349);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 12U, 0U, 190, -1, 270);
   /* Initialize If Information */
-  covrtIfInit(&emlrtCoverageInstance, 12U, 0U, 1515, 1526, -1, 1572);
+  covrtIfInit(&emlrtCoverageInstance, 12U, 0U, 362, 373, 452, 694);
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 12U, 0U, 495, 506, 669);
-  covrtForInit(&emlrtCoverageInstance, 12U, 1U, 713, 724, 1584);
-  covrtForInit(&emlrtCoverageInstance, 12U, 2U, 729, 740, 1580);
-  covrtForInit(&emlrtCoverageInstance, 12U, 3U, 767, 778, 1476);
-  covrtForInit(&emlrtCoverageInstance, 12U, 4U, 858, 871, 1065);
-  covrtForInit(&emlrtCoverageInstance, 12U, 5U, 1091, 1104, 1212);
+  covrtForInit(&emlrtCoverageInstance, 12U, 0U, 280, 291, 714);
+  covrtForInit(&emlrtCoverageInstance, 12U, 1U, 300, 311, 706);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -342,14 +310,20 @@ static void bit_one_step_mex_once(void)
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(
-      &emlrtCoverageInstance,
-      "/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m", 13U,
-      1U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
+  covrtScriptInit(&emlrtCoverageInstance,
+                  "/home/bholder/bit-matlab-sim/mass_mat_func_sb.m", 13U, 4U,
+                  4U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 13U, 0U, "flex_propogate", 0, -1, 577);
+  covrtFcnInit(&emlrtCoverageInstance, 13U, 0U, "mass_mat_func_sb", 0, -1,
+               12250);
+  covrtFcnInit(&emlrtCoverageInstance, 13U, 1U, "ft_1", 12251, -1, 29533);
+  covrtFcnInit(&emlrtCoverageInstance, 13U, 2U, "ft_2", 29534, -1, 49239);
+  covrtFcnInit(&emlrtCoverageInstance, 13U, 3U, "ft_3", 49240, -1, 64797);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 13U, 0U, 168, -1, 573);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 13U, 0U, 187, -1, 12246);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 13U, 1U, 12273, -1, 29529);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 13U, 2U, 29556, -1, 49235);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 13U, 3U, 49262, -1, 64793);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
@@ -361,19 +335,22 @@ static void bit_one_step_mex_once(void)
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
   covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m",
-                  14U, 1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+                  "/home/bholder/bit-matlab-sim/mass_mat_func_gb.m", 14U, 4U,
+                  4U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 14U, 0U, "compute_angular_velocity_C", 0,
-               -1, 313);
+  covrtFcnInit(&emlrtCoverageInstance, 14U, 0U, "mass_mat_func_gb", 0, -1,
+               12110);
+  covrtFcnInit(&emlrtCoverageInstance, 14U, 1U, "ft_1", 12111, -1, 29226);
+  covrtFcnInit(&emlrtCoverageInstance, 14U, 2U, "ft_2", 29227, -1, 48722);
+  covrtFcnInit(&emlrtCoverageInstance, 14U, 3U, "ft_3", 48723, -1, 63358);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 2U, 288, -1, 308);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 1U, 204, -1, 278);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 0U, 135, -1, 187);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 0U, 187, -1, 12106);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 1U, 12133, -1, 29222);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 2U, 29249, -1, 48718);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 14U, 3U, 48745, -1, 63354);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 14U, 0U, 188, 199, 286);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -383,19 +360,15 @@ static void bit_one_step_mex_once(void)
   /* Initialize Coverage Information */
   covrtScriptInit(
       &emlrtCoverageInstance,
-      "/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m", 15U, 1U,
-      3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+      "/home/bholder/bit-matlab-sim/flexible_model_data/flex_propogate.m", 15U,
+      1U, 1U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 15U, 0U,
-               "compute_angular_velocity_roll_C", 0, -1, 318);
+  covrtFcnInit(&emlrtCoverageInstance, 15U, 0U, "flex_propogate", 0, -1, 577);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 15U, 2U, 293, -1, 313);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 15U, 1U, 209, -1, 283);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 15U, 0U, 140, -1, 192);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 15U, 0U, 168, -1, 573);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 15U, 0U, 193, 204, 291);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -403,21 +376,20 @@ static void bit_one_step_mex_once(void)
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(
-      &emlrtCoverageInstance,
-      "/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m", 16U, 1U,
-      3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+  covrtScriptInit(&emlrtCoverageInstance,
+                  "/home/bholder/bit-matlab-sim/compute_angular_velocity_C.m",
+                  16U, 1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 16U, 0U,
-               "compute_angular_velocity_yaw_C", 0, -1, 317);
+  covrtFcnInit(&emlrtCoverageInstance, 16U, 0U, "compute_angular_velocity_C", 0,
+               -1, 313);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 16U, 2U, 292, -1, 312);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 16U, 1U, 208, -1, 282);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 16U, 0U, 139, -1, 191);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 16U, 2U, 288, -1, 308);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 16U, 1U, 204, -1, 278);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 16U, 0U, 135, -1, 187);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 16U, 0U, 192, 203, 290);
+  covrtForInit(&emlrtCoverageInstance, 16U, 0U, 188, 199, 286);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -425,20 +397,21 @@ static void bit_one_step_mex_once(void)
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m", 17U,
-                  1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+  covrtScriptInit(
+      &emlrtCoverageInstance,
+      "/home/bholder/bit-matlab-sim/compute_angular_velocity_roll_C.m", 17U, 1U,
+      3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 17U, 0U, "compute_rotation_mat_C", 0, -1,
-               214);
+  covrtFcnInit(&emlrtCoverageInstance, 17U, 0U,
+               "compute_angular_velocity_roll_C", 0, -1, 318);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 17U, 2U, 203, -1, 210);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 17U, 1U, 161, -1, 198);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 17U, 0U, 131, -1, 144);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 17U, 2U, 293, -1, 313);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 17U, 1U, 209, -1, 283);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 17U, 0U, 140, -1, 192);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 17U, 0U, 145, 156, 202);
+  covrtForInit(&emlrtCoverageInstance, 17U, 0U, 193, 204, 291);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -446,20 +419,21 @@ static void bit_one_step_mex_once(void)
   /* Allocate instance data */
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
-  covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m",
-                  18U, 1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+  covrtScriptInit(
+      &emlrtCoverageInstance,
+      "/home/bholder/bit-matlab-sim/compute_angular_velocity_yaw_C.m", 18U, 1U,
+      3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 18U, 0U, "compute_rotation_mat_roll_C",
-               0, -1, 219);
+  covrtFcnInit(&emlrtCoverageInstance, 18U, 0U,
+               "compute_angular_velocity_yaw_C", 0, -1, 317);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 18U, 2U, 208, -1, 215);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 18U, 1U, 166, -1, 203);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 18U, 0U, 136, -1, 149);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 18U, 2U, 292, -1, 312);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 18U, 1U, 208, -1, 282);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 18U, 0U, 139, -1, 191);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 18U, 0U, 150, 161, 207);
+  covrtForInit(&emlrtCoverageInstance, 18U, 0U, 192, 203, 290);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -468,19 +442,19 @@ static void bit_one_step_mex_once(void)
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
   covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m",
-                  19U, 1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+                  "/home/bholder/bit-matlab-sim/compute_rotation_mat_C.m", 19U,
+                  1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 19U, 0U, "compute_rotation_mat_yaw_C", 0,
-               -1, 218);
+  covrtFcnInit(&emlrtCoverageInstance, 19U, 0U, "compute_rotation_mat_C", 0, -1,
+               214);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 19U, 2U, 207, -1, 214);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 19U, 1U, 165, -1, 202);
-  covrtBasicBlockInit(&emlrtCoverageInstance, 19U, 0U, 135, -1, 148);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 19U, 2U, 203, -1, 210);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 19U, 1U, 161, -1, 198);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 19U, 0U, 131, -1, 144);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
-  covrtForInit(&emlrtCoverageInstance, 19U, 0U, 149, 160, 206);
+  covrtForInit(&emlrtCoverageInstance, 19U, 0U, 145, 156, 202);
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
@@ -489,19 +463,61 @@ static void bit_one_step_mex_once(void)
   covrtAllocateInstanceData(&emlrtCoverageInstance);
   /* Initialize Coverage Information */
   covrtScriptInit(&emlrtCoverageInstance,
-                  "/home/bholder/bit-matlab-sim/rot2axis_C.m", 20U, 1U, 1U, 0U,
+                  "/home/bholder/bit-matlab-sim/compute_rotation_mat_roll_C.m",
+                  20U, 1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+  /* Initialize Function Information */
+  covrtFcnInit(&emlrtCoverageInstance, 20U, 0U, "compute_rotation_mat_roll_C",
+               0, -1, 219);
+  /* Initialize Basic Block Information */
+  covrtBasicBlockInit(&emlrtCoverageInstance, 20U, 2U, 208, -1, 215);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 20U, 1U, 166, -1, 203);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 20U, 0U, 136, -1, 149);
+  /* Initialize If Information */
+  /* Initialize MCDC Information */
+  /* Initialize For Information */
+  covrtForInit(&emlrtCoverageInstance, 20U, 0U, 150, 161, 207);
+  /* Initialize While Information */
+  /* Initialize Switch Information */
+  /* Start callback for coverage engine */
+  covrtScriptStart(&emlrtCoverageInstance, 20U);
+  /* Allocate instance data */
+  covrtAllocateInstanceData(&emlrtCoverageInstance);
+  /* Initialize Coverage Information */
+  covrtScriptInit(&emlrtCoverageInstance,
+                  "/home/bholder/bit-matlab-sim/compute_rotation_mat_yaw_C.m",
+                  21U, 1U, 3U, 0U, 0U, 0U, 0U, 1U, 0U, 0U, 0U);
+  /* Initialize Function Information */
+  covrtFcnInit(&emlrtCoverageInstance, 21U, 0U, "compute_rotation_mat_yaw_C", 0,
+               -1, 218);
+  /* Initialize Basic Block Information */
+  covrtBasicBlockInit(&emlrtCoverageInstance, 21U, 2U, 207, -1, 214);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 21U, 1U, 165, -1, 202);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 21U, 0U, 135, -1, 148);
+  /* Initialize If Information */
+  /* Initialize MCDC Information */
+  /* Initialize For Information */
+  covrtForInit(&emlrtCoverageInstance, 21U, 0U, 149, 160, 206);
+  /* Initialize While Information */
+  /* Initialize Switch Information */
+  /* Start callback for coverage engine */
+  covrtScriptStart(&emlrtCoverageInstance, 21U);
+  /* Allocate instance data */
+  covrtAllocateInstanceData(&emlrtCoverageInstance);
+  /* Initialize Coverage Information */
+  covrtScriptInit(&emlrtCoverageInstance,
+                  "/home/bholder/bit-matlab-sim/rot2axis_C.m", 22U, 1U, 1U, 0U,
                   0U, 0U, 0U, 0U, 0U, 0U, 0U);
   /* Initialize Function Information */
-  covrtFcnInit(&emlrtCoverageInstance, 20U, 0U, "rot2axis_C", 0, -1, 204);
+  covrtFcnInit(&emlrtCoverageInstance, 22U, 0U, "rot2axis_C", 0, -1, 204);
   /* Initialize Basic Block Information */
-  covrtBasicBlockInit(&emlrtCoverageInstance, 20U, 0U, 37, -1, 200);
+  covrtBasicBlockInit(&emlrtCoverageInstance, 22U, 0U, 37, -1, 200);
   /* Initialize If Information */
   /* Initialize MCDC Information */
   /* Initialize For Information */
   /* Initialize While Information */
   /* Initialize Switch Information */
   /* Start callback for coverage engine */
-  covrtScriptStart(&emlrtCoverageInstance, 20U);
+  covrtScriptStart(&emlrtCoverageInstance, 22U);
 }
 
 void bit_one_step_mex_initialize(void)

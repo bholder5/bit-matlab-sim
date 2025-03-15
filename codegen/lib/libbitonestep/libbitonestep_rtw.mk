@@ -2,7 +2,7 @@
 ## Makefile generated for component 'libbitonestep'. 
 ## 
 ## Makefile     : libbitonestep_rtw.mk
-## Generated on : Mon Sep 23 06:22:38 2024
+## Generated on : Sat Dec 14 08:03:05 2024
 ## Final product: ./libbitonestep.a
 ## Product type : static-library
 ## 
@@ -195,7 +195,7 @@ LIBS =
 ## SYSTEM LIBRARIES
 ###########################################################################
 
-SYSTEM_LIBS =  -lm
+SYSTEM_LIBS =  -L"$(MATLAB_ROOT)/sys/os/glnxa64" -lm -liomp5
 
 ###########################################################################
 ## ADDITIONAL TOOLCHAIN FLAGS
@@ -205,17 +205,19 @@ SYSTEM_LIBS =  -lm
 # C Compiler
 #---------------
 
+CFLAGS_OPTS = -fopenmp
 CFLAGS_BASIC = $(DEFINES) $(INCLUDES)
 
-CFLAGS += $(CFLAGS_BASIC)
+CFLAGS += $(CFLAGS_OPTS) $(CFLAGS_BASIC)
 
 #-----------------
 # C++ Compiler
 #-----------------
 
+CPPFLAGS_OPTS = -fopenmp
 CPPFLAGS_BASIC = $(DEFINES) $(INCLUDES)
 
-CPPFLAGS += $(CPPFLAGS_BASIC)
+CPPFLAGS += $(CPPFLAGS_OPTS) $(CPPFLAGS_BASIC)
 
 ###########################################################################
 ## INLINED COMMANDS

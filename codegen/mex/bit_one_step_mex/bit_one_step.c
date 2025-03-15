@@ -13,7 +13,8 @@
 #include "bit_one_step.h"
 #include "axis2rot.h"
 #include "bit_one_step_mex_data.h"
-#include "compute_potential_energy_term.h"
+#include "mass_mat_func_gb.h"
+#include "mass_mat_func_sb.h"
 #include "mldivide.h"
 #include "rt_nonfinite.h"
 #include "blas.h"
@@ -81,41 +82,51 @@ static emlrtRSInfo u_emlrtRSI = { 63,  /* lineNo */
 
 static emlrtRSInfo v_emlrtRSI = { 28,  /* lineNo */
   "@(y_true,tau_applied,dw_piv)bit_propagator(y_true,c_n,z_n,m_n,r_n1_n,m_w_n,p_n,k_d,b_d,g0,unlock,hs_rw_max,tau_applied,w_piv,piv"
-  "_flag,dw_piv,tau_max_piv,thet_pit_nom)",/* fcnName */
+  "_flag,dw_piv,tau_max_piv,thet_pit_nom,sb_flag)",/* fcnName */
   "/home/bholder/bit-matlab-sim/bit_one_step.m"/* pathName */
 };
 
-static emlrtRSInfo w_emlrtRSI = { 20,  /* lineNo */
+static emlrtRSInfo w_emlrtRSI = { 22,  /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo x_emlrtRSI = { 29,  /* lineNo */
+static emlrtRSInfo x_emlrtRSI = { 24,  /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo y_emlrtRSI = { 35,  /* lineNo */
+static emlrtRSInfo y_emlrtRSI = { 34,  /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo ab_emlrtRSI = { 40, /* lineNo */
+static emlrtRSInfo ab_emlrtRSI = { 42, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo bb_emlrtRSI = { 42, /* lineNo */
+static emlrtRSInfo bb_emlrtRSI = { 44, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo cb_emlrtRSI = { 61, /* lineNo */
+static emlrtRSInfo cb_emlrtRSI = { 49, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
 
-static emlrtRSInfo db_emlrtRSI = { 66, /* lineNo */
+static emlrtRSInfo db_emlrtRSI = { 51, /* lineNo */
+  "bit_propagator",                    /* fcnName */
+  "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
+};
+
+static emlrtRSInfo eb_emlrtRSI = { 70, /* lineNo */
+  "bit_propagator",                    /* fcnName */
+  "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
+};
+
+static emlrtRSInfo fb_emlrtRSI = { 75, /* lineNo */
   "bit_propagator",                    /* fcnName */
   "/home/bholder/bit-matlab-sim/Plant_functions/bit_propagator.m"/* pathName */
 };
@@ -130,42 +141,32 @@ static emlrtRSInfo hb_emlrtRSI = { 29, /* lineNo */
   "/home/bholder/bit-matlab-sim/Plant_functions/RW_terms.m"/* pathName */
 };
 
-static emlrtRSInfo ib_emlrtRSI = { 20, /* lineNo */
-  "compute_mass_matrix",               /* fcnName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m"/* pathName */
-};
-
-static emlrtRSInfo jb_emlrtRSI = { 21, /* lineNo */
-  "compute_mass_matrix",               /* fcnName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m"/* pathName */
-};
-
-static emlrtRSInfo kb_emlrtRSI = { 12, /* lineNo */
+static emlrtRSInfo ob_emlrtRSI = { 12, /* lineNo */
   "chol",                              /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/lib/matlab/matfun/chol.m"/* pathName */
 };
 
-static emlrtRSInfo lb_emlrtRSI = { 84, /* lineNo */
+static emlrtRSInfo pb_emlrtRSI = { 84, /* lineNo */
   "chol",                              /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/chol.m"/* pathName */
 };
 
-static emlrtRSInfo mb_emlrtRSI = { 100,/* lineNo */
+static emlrtRSInfo qb_emlrtRSI = { 100,/* lineNo */
   "chol",                              /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/chol.m"/* pathName */
 };
 
-static emlrtRSInfo nb_emlrtRSI = { 101,/* lineNo */
+static emlrtRSInfo rb_emlrtRSI = { 101,/* lineNo */
   "chol",                              /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/chol.m"/* pathName */
 };
 
-static emlrtRSInfo ob_emlrtRSI = { 79, /* lineNo */
+static emlrtRSInfo sb_emlrtRSI = { 79, /* lineNo */
   "ceval_xpotrf",                      /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/+lapack/xpotrf.m"/* pathName */
 };
 
-static emlrtRSInfo pb_emlrtRSI = { 13, /* lineNo */
+static emlrtRSInfo tb_emlrtRSI = { 13, /* lineNo */
   "xpotrf",                            /* fcnName */
   "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/+lapack/xpotrf.m"/* pathName */
 };
@@ -188,64 +189,12 @@ static emlrtRTEInfo c_emlrtRTEI = { 47,/* lineNo */
   "/usr/local/MATLAB/R2023a/toolbox/eml/eml/+coder/+internal/+lapack/infocheck.m"/* pName */
 };
 
-static emlrtBCInfo emlrtBCI = { 1,     /* iFirst */
-  9,                                   /* iLast */
-  57,                                  /* lineNo */
-  20,                                  /* colNo */
-  "mass_mat",                          /* aName */
-  "compute_mass_matrix",               /* fName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m",/* pName */
-  3                                    /* checkKind */
-};
-
-static emlrtBCInfo b_emlrtBCI = { 1,   /* iFirst */
-  9,                                   /* iLast */
-  54,                                  /* lineNo */
-  38,                                  /* colNo */
-  "m_w_n",                             /* aName */
-  "compute_mass_matrix",               /* fName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m",/* pName */
-  0                                    /* checkKind */
-};
-
-static emlrtBCInfo c_emlrtBCI = { 1,   /* iFirst */
-  9,                                   /* iLast */
-  52,                                  /* lineNo */
-  35,                                  /* colNo */
-  "p_n",                               /* aName */
-  "compute_mass_matrix",               /* fName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m",/* pName */
-  0                                    /* checkKind */
-};
-
-static emlrtBCInfo d_emlrtBCI = { 1,   /* iFirst */
-  9,                                   /* iLast */
-  45,                                  /* lineNo */
-  32,                                  /* colNo */
-  "T_n",                               /* aName */
-  "compute_mass_matrix",               /* fName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m",/* pName */
-  0                                    /* checkKind */
-};
-
-static emlrtBCInfo e_emlrtBCI = { 1,   /* iFirst */
-  9,                                   /* iLast */
-  37,                                  /* lineNo */
-  32,                                  /* colNo */
-  "T_n",                               /* aName */
-  "compute_mass_matrix",               /* fName */
-  "/home/bholder/bit-matlab-sim/Plant_functions/compute_mass_matrix.m",/* pName */
-  0                                    /* checkKind */
-};
-
 /* Function Declarations */
-static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
-  const real_T z_n[27], const real_T m_n[9], const real_T r_n1_n[27], const
-  real_T m_w_n[324], const real_T p_n[54], const real_T k_d[9], const real_T
-  b_d[9], const real_T g0[3], const real_T unlock[9], const real_T hs_rw_max[3],
-  real_T w_piv, boolean_T piv_flag, real_T tau_max_piv, real_T thet_pit_nom,
-  const real_T y_true[21], const real_T tau_applied[9], real_T dw_piv, real_T
-  varargout_1[24]);
+static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T z_n[27],
+  const real_T k_d[9], const real_T b_d[9], const real_T unlock[9], const real_T
+  hs_rw_max[3], real_T w_piv, boolean_T piv_flag, real_T tau_max_piv, real_T
+  thet_pit_nom, boolean_T sb_flag, const real_T y_true[21], const real_T
+  tau_applied[9], real_T dw_piv, real_T varargout_1[24]);
 static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
   [520], const real_T y_flex[104], const real_T tau_app_flex[3], const real_T
   tau_flex[5], real_T varargout_1[104]);
@@ -254,32 +203,27 @@ static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
 /*
  * @(y_true, tau_applied, dw_piv)
  */
-static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
-  const real_T z_n[27], const real_T m_n[9], const real_T r_n1_n[27], const
-  real_T m_w_n[324], const real_T p_n[54], const real_T k_d[9], const real_T
-  b_d[9], const real_T g0[3], const real_T unlock[9], const real_T hs_rw_max[3],
-  real_T w_piv, boolean_T piv_flag, real_T tau_max_piv, real_T thet_pit_nom,
-  const real_T y_true[21], const real_T tau_applied[9], real_T dw_piv, real_T
-  varargout_1[24])
+static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T z_n[27],
+  const real_T k_d[9], const real_T b_d[9], const real_T unlock[9], const real_T
+  hs_rw_max[3], real_T w_piv, boolean_T piv_flag, real_T tau_max_piv, real_T
+  thet_pit_nom, boolean_T sb_flag, const real_T y_true[21], const real_T
+  tau_applied[9], real_T dw_piv, real_T varargout_1[24])
 {
   static const char_T fname[19] = { 'L', 'A', 'P', 'A', 'C', 'K', 'E', '_', 'd',
     'p', 'o', 't', 'r', 'f', '_', 'w', 'o', 'r', 'k' };
 
   __m128d r;
   __m128d r1;
+  ptrdiff_t info_t;
   emlrtStack b_st;
   emlrtStack c_st;
   emlrtStack d_st;
   emlrtStack e_st;
   emlrtStack f_st;
   emlrtStack st;
-  real_T T_n[324];
   real_T M[81];
   real_T M_decomp[81];
   real_T b_M_decomp[81];
-  real_T T_nj[36];
-  real_T b_T_n[36];
-  real_T b_T_ni[36];
   real_T b_Cn[27];
   real_T b_r_tmp[27];
   real_T r_tmp[27];
@@ -287,30 +231,19 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
   real_T Cn[9];
   real_T Pot[9];
   real_T dtheta[9];
-  real_T dv[9];
   real_T theta_spring[9];
   real_T torques[9];
   real_T b_M[3];
-  real_T M_ij;
-  real_T d;
-  real_T d_hs_idx_0;
-  real_T d_hs_idx_1;
-  real_T d_hs_idx_2;
   real_T int_err;
-  real_T tau_piv;
-  int32_T T_n_tmp;
-  int32_T b_i;
+  real_T t10;
+  real_T t11;
+  real_T t6;
+  real_T t7;
+  real_T t8;
+  real_T t9;
   int32_T i;
-  int32_T i1;
-  int32_T i2;
-  int32_T i3;
-  int32_T i4;
-  int32_T i5;
-  int32_T i6;
   int32_T j;
   int32_T jmax;
-  int32_T k;
-  int32_T n;
   int32_T s7_tmp;
   boolean_T x[3];
   boolean_T exitg1;
@@ -331,7 +264,7 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
   covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 4U);
 
   /* 'bit_one_step:28' @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
-  /* 'bit_one_step:29'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom) */
+  /* 'bit_one_step:29'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom, sb_flag) */
   st.site = &v_emlrtRSI;
   memcpy(&torques[0], &tau_applied[0], 9U * sizeof(real_T));
   covrtLogFcn(&emlrtCoverageInstance, 8U, 0U);
@@ -357,25 +290,149 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
     dtheta[5] = w_piv;
   }
 
-  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 2U);
-
   /*     %% */
-  /* 'bit_propagator:20' Pot = compute_potential_energy_term(theta, c_n, z_n, m_n, r_n1_n, g0); */
-  b_st.site = &w_emlrtRSI;
-  compute_potential_energy_term(&b_st, &y_true[9], c_n, z_n, m_n, r_n1_n, g0,
-    Pot);
+  /*  Pot = compute_potential_energy_term(theta, c_n, z_n, m_n, r_n1_n, g0); */
+  /* 'bit_propagator:21' if sb_flag */
+  if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 1, sb_flag)) {
+    real_T Pot_tmp;
+    real_T b_Pot_tmp;
+    real_T t12;
+    real_T t13;
+    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 2U);
 
-  /* 'bit_propagator:22' theta_spring = theta; */
+    /* 'bit_propagator:22' Pot = poten_mat_func_sb(theta) */
+    b_st.site = &w_emlrtRSI;
+    covrtLogFcn(&emlrtCoverageInstance, 9U, 0U);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 9U, 0U);
+
+    /* POTEN_MAT_FUNC_SB */
+    /*     P = POTEN_MAT_FUNC_SB(IN1) */
+    /*     This function was generated by the Symbolic Math Toolbox version 9.3. */
+    /*     14-Dec-2024 08:34:10 */
+    /* 'poten_mat_func_sb:8' t2 = in1(2,:); */
+    /* 'poten_mat_func_sb:9' t3 = in1(3,:); */
+    /* 'poten_mat_func_sb:10' t4 = in1(4,:); */
+    /* 'poten_mat_func_sb:11' t5 = in1(5,:); */
+    /* 'poten_mat_func_sb:12' t6 = cos(t2); */
+    t6 = muDoubleScalarCos(y_true[10]);
+
+    /* 'poten_mat_func_sb:13' t7 = cos(t3); */
+    t7 = muDoubleScalarCos(y_true[11]);
+
+    /* 'poten_mat_func_sb:14' t8 = cos(t4); */
+    t8 = muDoubleScalarCos(y_true[12]);
+
+    /* 'poten_mat_func_sb:15' t9 = cos(t5); */
+    t9 = muDoubleScalarCos(y_true[13]);
+
+    /* 'poten_mat_func_sb:16' t10 = sin(t2); */
+    t10 = muDoubleScalarSin(y_true[10]);
+
+    /* 'poten_mat_func_sb:17' t11 = sin(t3); */
+    t11 = muDoubleScalarSin(y_true[11]);
+
+    /* 'poten_mat_func_sb:18' t12 = sin(t4); */
+    t12 = muDoubleScalarSin(y_true[12]);
+
+    /* 'poten_mat_func_sb:19' t13 = sin(t5); */
+    t13 = muDoubleScalarSin(y_true[13]);
+
+    /* 'poten_mat_func_sb:20' mt1 = [0.0;t9.*(t6.*t12+t7.*t8.*t10).*3.551688e+3+t7.*t10.*1.25131392e+6+t6.*t12.*2.9646e+2+t7.*t8.*t10.*2.9646e+2-t10.*t11.*t13.*3.551688e+3;t6.*t11.*1.25131392e+6+t6.*t8.*t11.*2.9646e+2+t6.*t7.*t13.*3.551688e+3+t6.*t8.*t9.*t11.*3.551688e+3;t9.*(t8.*t10+t6.*t7.*t12).*3.551688e+3+t8.*t10.*2.9646e+2+t6.*t7.*t12.*2.9646e+2]; */
+    /* 'poten_mat_func_sb:21' mt2 = [t13.*(t10.*t12-t6.*t7.*t8).*(-3.551688e+3)+t6.*t9.*t11.*3.551688e+3;0.0;0.0;0.0;0.0]; */
+    /* 'poten_mat_func_sb:22' P = [mt1;mt2]; */
+    Pot[0] = 0.0;
+    Pot_tmp = t6 * t12;
+    b_Pot_tmp = t7 * t8 * t10;
+    Pot[1] = (((t9 * (Pot_tmp + b_Pot_tmp) * 3551.688 + t7 * t10 * 1.25131392E+6)
+               + Pot_tmp * 296.46) + b_Pot_tmp * 296.46) - t10 * t11 * t13 *
+      3551.688;
+    Pot_tmp = t6 * t8;
+    b_Pot_tmp = t6 * t7;
+    Pot[2] = ((t6 * t11 * 1.25131392E+6 + Pot_tmp * t11 * 296.46) + b_Pot_tmp *
+              t13 * 3551.688) + Pot_tmp * t9 * t11 * 3551.688;
+    Pot_tmp = t8 * t10;
+    int_err = b_Pot_tmp * t12;
+    Pot[3] = (t9 * (Pot_tmp + int_err) * 3551.688 + Pot_tmp * 296.46) + int_err *
+      296.46;
+    Pot[4] = t13 * (t10 * t12 - b_Pot_tmp * t8) * -3551.688 + t6 * t9 * t11 *
+      3551.688;
+    Pot[5] = 0.0;
+    Pot[6] = 0.0;
+    Pot[7] = 0.0;
+    Pot[8] = 0.0;
+  } else {
+    real_T Pot_tmp;
+    real_T t12;
+    real_T t13;
+    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 3U);
+
+    /* 'bit_propagator:23' else */
+    /* 'bit_propagator:24' Pot = poten_mat_func_gb(theta) */
+    b_st.site = &x_emlrtRSI;
+    covrtLogFcn(&emlrtCoverageInstance, 10U, 0U);
+    covrtLogBasicBlock(&emlrtCoverageInstance, 10U, 0U);
+
+    /* POTEN_MAT_FUNC_GB */
+    /*     P = POTEN_MAT_FUNC_GB(IN1) */
+    /*     This function was generated by the Symbolic Math Toolbox version 9.3. */
+    /*     14-Dec-2024 08:34:26 */
+    /* 'poten_mat_func_gb:8' t2 = in1(2,:); */
+    /* 'poten_mat_func_gb:9' t3 = in1(3,:); */
+    /* 'poten_mat_func_gb:10' t4 = in1(4,:); */
+    /* 'poten_mat_func_gb:11' t5 = in1(5,:); */
+    /* 'poten_mat_func_gb:12' t6 = cos(t2); */
+    t6 = muDoubleScalarCos(y_true[10]);
+
+    /* 'poten_mat_func_gb:13' t7 = cos(t3); */
+    t7 = muDoubleScalarCos(y_true[11]);
+
+    /* 'poten_mat_func_gb:14' t8 = cos(t4); */
+    t8 = muDoubleScalarCos(y_true[12]);
+
+    /* 'poten_mat_func_gb:15' t9 = cos(t5); */
+    t9 = muDoubleScalarCos(y_true[13]);
+
+    /* 'poten_mat_func_gb:16' t10 = sin(t2); */
+    t10 = muDoubleScalarSin(y_true[10]);
+
+    /* 'poten_mat_func_gb:17' t11 = sin(t3); */
+    t11 = muDoubleScalarSin(y_true[11]);
+
+    /* 'poten_mat_func_gb:18' t12 = sin(t4); */
+    t12 = muDoubleScalarSin(y_true[12]);
+
+    /* 'poten_mat_func_gb:19' t13 = sin(t5); */
+    t13 = muDoubleScalarSin(y_true[13]);
+
+    /* 'poten_mat_func_gb:20' P = [0.0;t9.*(t6.*t12+t7.*t8.*t10).*3.048192e+3+t7.*t10.*3.4063254e+5-t10.*t11.*t13.*3.048192e+3;t6.*t11.*3.4063254e+5+t6.*t7.*t13.*3.048192e+3+t6.*t8.*t9.*t11.*3.048192e+3;t9.*(t8.*t10+t6.*t7.*t12).*3.048192e+3;t13.*(t10.*t12-t6.*t7.*t8).*(-3.048192e+3)+t6.*t9.*t11.*3.048192e+3;0.0;0.0;0.0;0.0]; */
+    Pot[0] = 0.0;
+    Pot[1] = (t9 * (t6 * t12 + t7 * t8 * t10) * 3048.192 + t7 * t10 * 340632.54)
+      - t10 * t11 * t13 * 3048.192;
+    Pot_tmp = t6 * t7;
+    Pot[2] = (t6 * t11 * 340632.54 + Pot_tmp * t13 * 3048.192) + t6 * t8 * t9 *
+      t11 * 3048.192;
+    Pot[3] = t9 * (t8 * t10 + Pot_tmp * t12) * 3048.192;
+    Pot[4] = t13 * (t10 * t12 - Pot_tmp * t8) * -3048.192 + t6 * t9 * t11 *
+      3048.192;
+    Pot[5] = 0.0;
+    Pot[6] = 0.0;
+    Pot[7] = 0.0;
+    Pot[8] = 0.0;
+  }
+
+  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 4U);
+
+  /* 'bit_propagator:27' theta_spring = theta; */
   memcpy(&theta_spring[0], &y_true[9], 9U * sizeof(real_T));
 
-  /* 'bit_propagator:23' theta_spring(9) = theta(9) - thet_pit_nom; */
+  /* 'bit_propagator:28' theta_spring(9) = theta(9) - thet_pit_nom; */
   theta_spring[8] = y_true[17] - thet_pit_nom;
 
-  /* 'bit_propagator:25' spring = k_d.*theta_spring; */
-  /* 'bit_propagator:26' damp = b_d.*dtheta; */
+  /* 'bit_propagator:30' spring = k_d.*theta_spring; */
+  /* 'bit_propagator:31' damp = b_d.*dtheta; */
   /* place holder */
-  /* 'bit_propagator:29' [R,r, d_hs] = RW_terms(theta, dtheta, z_n, hs, tau_rw, hs_rw_max); */
-  b_st.site = &x_emlrtRSI;
+  /* 'bit_propagator:34' [R,r, d_hs] = RW_terms(theta, dtheta, z_n, hs, tau_rw, hs_rw_max); */
+  b_st.site = &y_emlrtRSI;
   covrtLogFcn(&emlrtCoverageInstance, 11U, 0U);
   covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 0U);
 
@@ -402,13 +459,13 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
     s7[s7_tmp] = z_n[s7_tmp];
 
     /* 'RW_terms:11' s7 = Cn*s7; */
-    for (b_i = 0; b_i < 3; b_i++) {
-      tau_piv = Cn[b_i];
-      d = Cn[b_i + 3];
-      M_ij = Cn[b_i + 6];
-      for (i1 = 0; i1 < 9; i1++) {
-        b_Cn[b_i + 3 * i1] = (tau_piv * s7[3 * i1] + d * s7[3 * i1 + 1]) + M_ij *
-          s7[3 * i1 + 2];
+    for (s7_tmp = 0; s7_tmp < 3; s7_tmp++) {
+      t7 = Cn[s7_tmp];
+      int_err = Cn[s7_tmp + 3];
+      t6 = Cn[s7_tmp + 6];
+      for (jmax = 0; jmax < 9; jmax++) {
+        b_Cn[s7_tmp + 3 * jmax] = (t7 * s7[3 * jmax] + int_err * s7[3 * jmax + 1])
+          + t6 * s7[3 * jmax + 2];
       }
     }
 
@@ -423,65 +480,65 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
 
   /* 'RW_terms:15' d_hs = tau_rw*z_n(:,7); */
   /* 'RW_terms:17' if hs(3) >= hs_rw_max */
-  d_hs_idx_0 = tau_applied[6] * z_n[18];
+  t9 = tau_applied[6] * z_n[18];
   x[0] = (y_true[20] >= hs_rw_max[0]);
-  d_hs_idx_1 = tau_applied[6] * z_n[19];
+  t10 = tau_applied[6] * z_n[19];
   x[1] = (y_true[20] >= hs_rw_max[1]);
-  d_hs_idx_2 = tau_applied[6] * z_n[20];
+  t11 = tau_applied[6] * z_n[20];
   x[2] = (y_true[20] >= hs_rw_max[2]);
   y = true;
-  k = 0;
+  s7_tmp = 0;
   exitg1 = false;
-  while ((!exitg1) && (k < 3)) {
-    if (!x[k]) {
+  while ((!exitg1) && (s7_tmp < 3)) {
+    if (!x[s7_tmp]) {
       y = false;
       exitg1 = true;
     } else {
-      k++;
+      s7_tmp++;
     }
   }
 
   if (covrtLogIf(&emlrtCoverageInstance, 11U, 0U, 0, y)) {
     /* 'RW_terms:18' if d_hs(3) > 0 */
-    if (covrtLogIf(&emlrtCoverageInstance, 11U, 0U, 1, d_hs_idx_2 > 0.0)) {
+    if (covrtLogIf(&emlrtCoverageInstance, 11U, 0U, 1, t11 > 0.0)) {
       covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 3U);
 
       /* 'RW_terms:19' d_hs(3) = 0; */
-      d_hs_idx_2 = 0.0;
+      t11 = 0.0;
     }
   } else {
     x[0] = (y_true[20] <= -hs_rw_max[0]);
     x[1] = (y_true[20] <= -hs_rw_max[1]);
     x[2] = (y_true[20] <= -hs_rw_max[2]);
     y = true;
-    k = 0;
+    s7_tmp = 0;
     exitg1 = false;
-    while ((!exitg1) && (k < 3)) {
-      if (!x[k]) {
+    while ((!exitg1) && (s7_tmp < 3)) {
+      if (!x[s7_tmp]) {
         y = false;
         exitg1 = true;
       } else {
-        k++;
+        s7_tmp++;
       }
     }
 
     if (covrtLogIf(&emlrtCoverageInstance, 11U, 0U, 2, y) && covrtLogIf
-        (&emlrtCoverageInstance, 11U, 0U, 3, d_hs_idx_2 < 0.0)) {
+        (&emlrtCoverageInstance, 11U, 0U, 3, t11 < 0.0)) {
       /* 'RW_terms:21' elseif hs(3) <= -hs_rw_max */
       /* 'RW_terms:22' if d_hs(3) < 0 */
       covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 4U);
 
       /* 'RW_terms:23' d_hs(3) = 0; */
-      d_hs_idx_2 = 0.0;
+      t11 = 0.0;
     }
   }
 
   covrtLogBasicBlock(&emlrtCoverageInstance, 11U, 5U);
 
   /* 'RW_terms:27' r = (s7')*d_hs; */
-  for (b_i = 0; b_i < 3; b_i++) {
-    for (i1 = 0; i1 < 9; i1++) {
-      b_Cn[i1 + 9 * b_i] = s7[b_i + 3 * i1];
+  for (s7_tmp = 0; s7_tmp < 3; s7_tmp++) {
+    for (jmax = 0; jmax < 9; jmax++) {
+      b_Cn[jmax + 9 * s7_tmp] = s7[s7_tmp + 3 * jmax];
     }
   }
 
@@ -498,334 +555,79 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
   /*  w_piv = rw_g1*((-hs(3)/i_rw(3,3))-w_rw_nom) - (rw_g2*tau_rw); */
   /* calculate joint torques from gravity elasticity and damnping according */
   /* to eq 3.37 */
-  /* 'bit_propagator:33' torques = tau_applied - (Pot + spring + damp + R + r); */
-  for (b_i = 0; b_i <= 24; b_i += 2) {
-    r = _mm_loadu_pd(&b_Cn[b_i]);
-    _mm_storeu_pd(&r_tmp[b_i], _mm_mul_pd(r, _mm_set1_pd(-1.0)));
+  /* 'bit_propagator:38' torques = tau_applied - (Pot + spring + damp + R + r); */
+  for (s7_tmp = 0; s7_tmp <= 24; s7_tmp += 2) {
+    r = _mm_loadu_pd(&b_Cn[s7_tmp]);
+    _mm_storeu_pd(&r_tmp[s7_tmp], _mm_mul_pd(r, _mm_set1_pd(-1.0)));
   }
 
   r_tmp[26] = -b_Cn[26];
-  dv[0] = 0.0;
-  dv[3] = -y_true[20];
-  dv[6] = y_true[19];
-  dv[1] = y_true[20];
-  dv[4] = 0.0;
-  dv[7] = -y_true[18];
-  dv[2] = -y_true[19];
-  dv[5] = y_true[18];
-  dv[8] = 0.0;
-  for (b_i = 0; b_i < 9; b_i++) {
-    tau_piv = r_tmp[b_i];
-    d = r_tmp[b_i + 9];
-    M_ij = r_tmp[b_i + 18];
-    for (i1 = 0; i1 < 3; i1++) {
-      b_r_tmp[b_i + 9 * i1] = (tau_piv * dv[3 * i1] + d * dv[3 * i1 + 1]) + M_ij
-        * dv[3 * i1 + 2];
+  Cn[0] = 0.0;
+  Cn[3] = -y_true[20];
+  Cn[6] = y_true[19];
+  Cn[1] = y_true[20];
+  Cn[4] = 0.0;
+  Cn[7] = -y_true[18];
+  Cn[2] = -y_true[19];
+  Cn[5] = y_true[18];
+  Cn[8] = 0.0;
+  for (s7_tmp = 0; s7_tmp < 9; s7_tmp++) {
+    t7 = r_tmp[s7_tmp];
+    int_err = r_tmp[s7_tmp + 9];
+    t6 = r_tmp[s7_tmp + 18];
+    for (jmax = 0; jmax < 3; jmax++) {
+      b_r_tmp[s7_tmp + 9 * jmax] = (t7 * Cn[3 * jmax] + int_err * Cn[3 * jmax +
+        1]) + t6 * Cn[3 * jmax + 2];
     }
 
-    tau_piv = 0.0;
-    d = b_r_tmp[b_i];
-    M_ij = b_r_tmp[b_i + 9];
-    int_err = b_r_tmp[b_i + 18];
-    for (i1 = 0; i1 < 9; i1++) {
-      tau_piv += ((d * s7[3 * i1] + M_ij * s7[3 * i1 + 1]) + int_err * s7[3 * i1
-                  + 2]) * dtheta[i1];
+    t7 = 0.0;
+    int_err = b_r_tmp[s7_tmp];
+    t6 = b_r_tmp[s7_tmp + 9];
+    t8 = b_r_tmp[s7_tmp + 18];
+    for (jmax = 0; jmax < 9; jmax++) {
+      t7 += ((int_err * s7[3 * jmax] + t6 * s7[3 * jmax + 1]) + t8 * s7[3 * jmax
+             + 2]) * dtheta[jmax];
     }
 
-    tau_piv += (Pot[b_i] + k_d[b_i] * theta_spring[b_i]) + b_d[b_i] * dtheta[b_i];
-    d = (b_Cn[b_i] * d_hs_idx_0 + b_Cn[b_i + 9] * d_hs_idx_1) + b_Cn[b_i + 18] *
-      d_hs_idx_2;
-    Pot[b_i] = d;
-    torques[b_i] -= tau_piv + d;
+    t7 += (Pot[s7_tmp] + k_d[s7_tmp] * theta_spring[s7_tmp]) + b_d[s7_tmp] *
+      dtheta[s7_tmp];
+    int_err = (b_Cn[s7_tmp] * t9 + b_Cn[s7_tmp + 9] * t10) + b_Cn[s7_tmp + 18] *
+      t11;
+    Pot[s7_tmp] = int_err;
+    torques[s7_tmp] -= t7 + int_err;
   }
 
-  /* 'bit_propagator:35' M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n); */
-  b_st.site = &y_emlrtRSI;
-  covrtLogFcn(&emlrtCoverageInstance, 12U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 0U);
+  /*  M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n); */
+  /* 'bit_propagator:41' if sb_flag */
+  if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 2, sb_flag)) {
+    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 5U);
 
-  /* Compute_Mass_Matrix computes the mass matrix of the 9 state system using */
-  /* the angles theta to calculate the interbody transformation matrices and */
-  /* the axis of rotations. */
-  /*  Initialize mass matrix */
-  /* 'compute_mass_matrix:7' mass_mat = (zeros(9,9)); */
-  memset(&M[0], 0, 81U * sizeof(real_T));
+    /* 'bit_propagator:42' M = mass_mat_func_sb(theta) */
+    b_st.site = &ab_emlrtRSI;
+    mass_mat_func_sb(&y_true[9], M);
+  } else {
+    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 6U);
 
-  /*  memory to store the interbody transformations */
-  /* 'compute_mass_matrix:10' T_n = (zeros(6,6,9)); */
-  /* 'compute_mass_matrix:12' T_ni = (zeros(6,6)); */
-  /* 'compute_mass_matrix:13' T_nj = T_ni; */
-  /* 'compute_mass_matrix:15' J_ni = (zeros(6,1)); */
-  /* 'compute_mass_matrix:16' J_nj = J_ni; */
-  /*  equation 3.8: Interbody transformations for each frame */
-  /* 'compute_mass_matrix:19' for i = 1:9 */
-  dv[0] = 0.0;
-  dv[4] = 0.0;
-  dv[8] = 0.0;
-  for (i = 0; i < 9; i++) {
-    covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 0, 1);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 1U);
-
-    /* 'compute_mass_matrix:20' C_n = axis2rot(z_n(:,i), theta(i)); */
-    c_st.site = &ib_emlrtRSI;
-    axis2rot(&c_st, &z_n[3 * i], y_true[i + 9], Cn);
-
-    /* 'compute_mass_matrix:21' off_term = xmat(r_n1_n(:,i)); */
-    c_st.site = &jb_emlrtRSI;
-    covrtLogFcn(&emlrtCoverageInstance, 2U, 0U);
-    covrtLogBasicBlock(&emlrtCoverageInstance, 2U, 0U);
-
-    /* 'xmat:2' mat = [        0, -vec(3),  vec(2); */
-    /* 'xmat:3'             vec(3),         0, -vec(1); */
-    /* 'xmat:4'            -vec(2),  vec(1),         0]; */
-    /* 'compute_mass_matrix:22' off_term = -1*C_n*off_term; */
-    /* 'compute_mass_matrix:23' T_n(:,:,i) = ([C_n, off_term; zeros(3,3), C_n]); */
-    tau_piv = r_n1_n[3 * i + 2];
-    dv[3] = -tau_piv;
-    d = r_n1_n[3 * i + 1];
-    dv[6] = d;
-    dv[1] = tau_piv;
-    tau_piv = r_n1_n[3 * i];
-    dv[7] = -tau_piv;
-    dv[2] = -d;
-    dv[5] = tau_piv;
-    for (b_i = 0; b_i < 3; b_i++) {
-      for (i1 = 0; i1 < 3; i1++) {
-        Pot[b_i + 3 * i1] = (-Cn[b_i] * dv[3 * i1] + -Cn[b_i + 3] * dv[3 * i1 +
-                             1]) + -Cn[b_i + 6] * dv[3 * i1 + 2];
-        T_n[(i1 + 6 * b_i) + 36 * i] = Cn[i1 + 3 * b_i];
-      }
-    }
-
-    for (b_i = 0; b_i < 3; b_i++) {
-      s7_tmp = 6 * (b_i + 3) + 36 * i;
-      T_n[s7_tmp] = Pot[3 * b_i];
-      jmax = 6 * b_i + 36 * i;
-      T_n[jmax + 3] = 0.0;
-      T_n[s7_tmp + 3] = Cn[3 * b_i];
-      T_n_tmp = 3 * b_i + 1;
-      T_n[s7_tmp + 1] = Pot[T_n_tmp];
-      T_n[jmax + 4] = 0.0;
-      T_n[s7_tmp + 4] = Cn[T_n_tmp];
-      T_n_tmp = 3 * b_i + 2;
-      T_n[s7_tmp + 2] = Pot[T_n_tmp];
-      T_n[jmax + 5] = 0.0;
-      T_n[s7_tmp + 5] = Cn[T_n_tmp];
-    }
-
-    if (*emlrtBreakCheckR2012bFlagVar != 0) {
-      emlrtBreakCheckR2012b(&b_st);
-    }
+    /* 'bit_propagator:43' else */
+    /* 'bit_propagator:44' M = mass_mat_func_gb(theta) */
+    b_st.site = &bb_emlrtRSI;
+    mass_mat_func_gb(&y_true[9], M);
   }
 
-  covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 0, 0);
-
-  /*  Generate the mass matrix */
-  /*  Eq 3.12-3.13 */
-  /* 'compute_mass_matrix:28' for i = 1:9 */
-  for (i = 0; i < 9; i++) {
-    covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 1, 1);
-
-    /* 'compute_mass_matrix:29' for j = i:9 */
-    b_i = 8 - i;
-    for (j = 0; j <= b_i; j++) {
-      jmax = (i + j) + 1;
-      covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 2, 1);
-      covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 2U);
-
-      /* 'compute_mass_matrix:30' M_ij = 0; */
-      M_ij = 0.0;
-
-      /* 'compute_mass_matrix:31' for n = j:9 */
-      i1 = 9 - jmax;
-      if (i1 >= 0) {
-        i2 = jmax - i;
-      }
-
-      for (n = 0; n <= i1; n++) {
-        real_T T_ni[6];
-        T_n_tmp = (jmax + n) - 1;
-        covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 3, 1);
-        covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 3U);
-
-        /* 'compute_mass_matrix:32' T_ni = (eye(6)); */
-        memset(&b_T_ni[0], 0, 36U * sizeof(real_T));
-        for (k = 0; k < 6; k++) {
-          b_T_ni[k + 6 * k] = 1.0;
-        }
-
-        /* 'compute_mass_matrix:33' T_nj = T_ni; */
-        memcpy(&T_nj[0], &b_T_ni[0], 36U * sizeof(real_T));
-
-        /* 'compute_mass_matrix:35' for k = i+1:j */
-        for (k = 0; k <= i2 - 2; k++) {
-          covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 4, 1);
-          covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 4U);
-
-          /*                  tic */
-          /* 'compute_mass_matrix:37' T_ni = T_n(:,:,k)*T_ni; */
-          s7_tmp = i + k;
-          if (s7_tmp + 2 > 9) {
-            emlrtDynamicBoundsCheckR2012b(s7_tmp + 2, 1, 9, &e_emlrtBCI, &b_st);
-          }
-
-          for (i3 = 0; i3 < 6; i3++) {
-            for (i4 = 0; i4 < 6; i4++) {
-              tau_piv = 0.0;
-              for (i5 = 0; i5 < 6; i5++) {
-                tau_piv += T_n[(i3 + 6 * i5) + 36 * (s7_tmp + 1)] * b_T_ni[i5 +
-                  6 * i4];
-              }
-
-              b_T_n[i3 + 6 * i4] = tau_piv;
-            }
-          }
-
-          memcpy(&b_T_ni[0], &b_T_n[0], 36U * sizeof(real_T));
-
-          /*                  toc */
-          /*                  tic */
-          /*                  T_ni = mtimes(T_n(:,:,k),T_ni); */
-          /*                  toc */
-          if (*emlrtBreakCheckR2012bFlagVar != 0) {
-            emlrtBreakCheckR2012b(&b_st);
-          }
-        }
-
-        covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 4, 0);
-
-        /* 'compute_mass_matrix:44' for k = j+1:n */
-        i3 = T_n_tmp - jmax;
-        for (k = 0; k <= i3; k++) {
-          covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 5, 1);
-          covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 5U);
-
-          /* 'compute_mass_matrix:45' T_nj = T_n(:,:,k) * T_nj; */
-          s7_tmp = jmax + k;
-          if (s7_tmp + 1 > 9) {
-            emlrtDynamicBoundsCheckR2012b(s7_tmp + 1, 1, 9, &d_emlrtBCI, &b_st);
-          }
-
-          for (i4 = 0; i4 < 6; i4++) {
-            for (i5 = 0; i5 < 6; i5++) {
-              tau_piv = 0.0;
-              for (i6 = 0; i6 < 6; i6++) {
-                tau_piv += T_n[(i4 + 6 * i6) + 36 * s7_tmp] * T_nj[i6 + 6 * i5];
-              }
-
-              b_T_n[i4 + 6 * i5] = tau_piv;
-            }
-          }
-
-          memcpy(&T_nj[0], &b_T_n[0], 36U * sizeof(real_T));
-
-          /*                  T_nj = mtimes(T_n(:,:,k),T_nj); */
-          if (*emlrtBreakCheckR2012bFlagVar != 0) {
-            emlrtBreakCheckR2012b(&b_st);
-          }
-        }
-
-        covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 5, 0);
-        covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 6U);
-
-        /* 'compute_mass_matrix:48' T_ni = T_nj*T_ni; */
-        for (i3 = 0; i3 < 6; i3++) {
-          for (i4 = 0; i4 < 6; i4++) {
-            tau_piv = 0.0;
-            for (i5 = 0; i5 < 6; i5++) {
-              tau_piv += T_nj[i3 + 6 * i5] * b_T_ni[i5 + 6 * i4];
-            }
-
-            b_T_n[i3 + 6 * i4] = tau_piv;
-          }
-        }
-
-        memcpy(&b_T_ni[0], &b_T_n[0], 36U * sizeof(real_T));
-
-        /*              T_ni = mtimes(T_nj,T_ni); */
-        /* 'compute_mass_matrix:51' J_ni = (T_ni) * p_n(:,i); */
-        /* 'compute_mass_matrix:52' J_nj = (T_nj) * p_n(:,j); */
-        if (jmax > 9) {
-          emlrtDynamicBoundsCheckR2012b(jmax, 1, 9, &c_emlrtBCI, &b_st);
-        }
-
-        /* 'compute_mass_matrix:54' add = (J_ni' * m_w_n(:,:,n) * J_nj); */
-        if (T_n_tmp + 1 > 9) {
-          emlrtDynamicBoundsCheckR2012b(T_n_tmp + 1, 1, 9, &b_emlrtBCI, &b_st);
-        }
-
-        /* 'compute_mass_matrix:55' M_ij = M_ij + add; */
-        for (i3 = 0; i3 < 6; i3++) {
-          tau_piv = 0.0;
-          for (i4 = 0; i4 < 6; i4++) {
-            tau_piv += b_T_ni[i3 + 6 * i4] * p_n[i4 + 6 * i];
-          }
-
-          T_ni[i3] = tau_piv;
-        }
-
-        int_err = 0.0;
-        for (i3 = 0; i3 < 6; i3++) {
-          tau_piv = 0.0;
-          d = 0.0;
-          for (i4 = 0; i4 < 6; i4++) {
-            tau_piv += T_ni[i4] * m_w_n[(i4 + 6 * i3) + 36 * T_n_tmp];
-            d += T_nj[i3 + 6 * i4] * p_n[i4 + 6 * (jmax - 1)];
-          }
-
-          int_err += tau_piv * d;
-        }
-
-        M_ij += int_err;
-        if (*emlrtBreakCheckR2012bFlagVar != 0) {
-          emlrtBreakCheckR2012b(&b_st);
-        }
-      }
-
-      covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 3, 0);
-      covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 7U);
-
-      /* 'compute_mass_matrix:57' mass_mat(i,j) = M_ij; */
-      if (jmax > 9) {
-        emlrtDynamicBoundsCheckR2012b(jmax, 1, 9, &emlrtBCI, &b_st);
-      }
-
-      M[i + 9 * (jmax - 1)] = M_ij;
-
-      /* 'compute_mass_matrix:58' if (i ~= j) */
-      if (covrtLogIf(&emlrtCoverageInstance, 12U, 0U, 0, i + 1 != jmax)) {
-        covrtLogBasicBlock(&emlrtCoverageInstance, 12U, 8U);
-
-        /* 'compute_mass_matrix:59' mass_mat(j,i) = M_ij; */
-        M[(jmax + 9 * i) - 1] = M_ij;
-      }
-
-      if (*emlrtBreakCheckR2012bFlagVar != 0) {
-        emlrtBreakCheckR2012b(&b_st);
-      }
-    }
-
-    covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 2, 0);
-    if (*emlrtBreakCheckR2012bFlagVar != 0) {
-      emlrtBreakCheckR2012b(&b_st);
-    }
-  }
-
-  ptrdiff_t info_t;
-  covrtLogFor(&emlrtCoverageInstance, 12U, 0U, 1, 0);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 7U);
 
   /*  M = mass_mat_func(theta); */
   /*  M = mass_mat_func_gb(theta); */
-  /* 'bit_propagator:40' M_decomp = chol(M); */
-  b_st.site = &ab_emlrtRSI;
-  c_st.site = &kb_emlrtRSI;
+  /* 'bit_propagator:49' M_decomp = chol(M); */
+  b_st.site = &cb_emlrtRSI;
+  c_st.site = &ob_emlrtRSI;
   memcpy(&M_decomp[0], &M[0], 81U * sizeof(real_T));
-  d_st.site = &lb_emlrtRSI;
-  e_st.site = &pb_emlrtRSI;
+  d_st.site = &pb_emlrtRSI;
+  e_st.site = &tb_emlrtRSI;
   info_t = LAPACKE_dpotrf_work(102, 'U', (ptrdiff_t)9, &M_decomp[0], (ptrdiff_t)
     9);
   s7_tmp = (int32_T)info_t;
-  f_st.site = &ob_emlrtRSI;
+  f_st.site = &sb_emlrtRSI;
   if (s7_tmp < 0) {
     if (s7_tmp == -1010) {
       emlrtErrorWithMessageIdR2018a(&f_st, &b_emlrtRTEI, "MATLAB:nomem",
@@ -843,13 +645,13 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
     jmax = s7_tmp - 3;
   }
 
-  d_st.site = &mb_emlrtRSI;
+  d_st.site = &qb_emlrtRSI;
   for (j = 0; j <= jmax; j++) {
-    T_n_tmp = j + 2;
-    d_st.site = &nb_emlrtRSI;
-    if (T_n_tmp <= jmax + 2) {
-      memset(&M_decomp[(j * 9 + T_n_tmp) + -1], 0, (uint32_T)((jmax - T_n_tmp) +
-              3) * sizeof(real_T));
+    i = j + 2;
+    d_st.site = &rb_emlrtRSI;
+    if (i <= jmax + 2) {
+      memset(&M_decomp[(j * 9 + i) + -1], 0, (uint32_T)((jmax - i) + 3) * sizeof
+             (real_T));
     }
   }
 
@@ -858,20 +660,20 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
       "MATLAB:posdef", 0);
   }
 
-  /* 'bit_propagator:42' ddtheta = M_decomp\((M_decomp')\torques); */
-  for (b_i = 0; b_i < 9; b_i++) {
-    Cn[b_i] = torques[b_i];
-    for (i1 = 0; i1 < 9; i1++) {
-      b_M_decomp[i1 + 9 * b_i] = M_decomp[b_i + 9 * i1];
+  /* 'bit_propagator:51' ddtheta = M_decomp\((M_decomp')\torques); */
+  for (s7_tmp = 0; s7_tmp < 9; s7_tmp++) {
+    Cn[s7_tmp] = torques[s7_tmp];
+    for (jmax = 0; jmax < 9; jmax++) {
+      b_M_decomp[jmax + 9 * s7_tmp] = M_decomp[s7_tmp + 9 * jmax];
     }
   }
 
-  b_st.site = &bb_emlrtRSI;
+  b_st.site = &db_emlrtRSI;
   mldivide(&b_st, b_M_decomp, Cn);
-  b_st.site = &bb_emlrtRSI;
+  b_st.site = &db_emlrtRSI;
   mldivide(&b_st, M_decomp, Cn);
 
-  /* 'bit_propagator:43' ddtheta = ddtheta.*unlock; */
+  /* 'bit_propagator:52' ddtheta = ddtheta.*unlock; */
   r = _mm_loadu_pd(&Cn[0]);
   _mm_storeu_pd(&Cn[0], _mm_mul_pd(r, _mm_loadu_pd(&unlock[0])));
   r = _mm_loadu_pd(&Cn[2]);
@@ -882,78 +684,78 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
   _mm_storeu_pd(&Cn[6], _mm_mul_pd(r, _mm_loadu_pd(&unlock[6])));
   Cn[8] *= unlock[8];
 
-  /* 'bit_propagator:45' if piv_flag == true */
-  if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 1, piv_flag)) {
-    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 3U);
+  /* 'bit_propagator:54' if piv_flag == true */
+  if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 3, piv_flag)) {
+    covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 8U);
 
-    /* 'bit_propagator:46' prop_err = 10; */
-    /* 'bit_propagator:47' int_err = 0; */
-    /* 'bit_propagator:48' kp = 1; */
-    /* 'bit_propagator:49' ki = 0.5; */
-    /* 'bit_propagator:50' prop_err = dw_piv - ddtheta(6); */
-    M_ij = dw_piv - Cn[5];
+    /* 'bit_propagator:55' prop_err = 10; */
+    /* 'bit_propagator:56' int_err = 0; */
+    /* 'bit_propagator:57' kp = 1; */
+    /* 'bit_propagator:58' ki = 0.5; */
+    /* 'bit_propagator:59' prop_err = dw_piv - ddtheta(6); */
+    t7 = dw_piv - Cn[5];
 
-    /* 'bit_propagator:51' int_err = int_err + prop_err; */
-    int_err = M_ij;
+    /* 'bit_propagator:60' int_err = int_err + prop_err; */
+    int_err = t7;
 
-    /* 'bit_propagator:52' tau_piv = torques(6); */
-    tau_piv = torques[5];
+    /* 'bit_propagator:61' tau_piv = torques(6); */
+    t6 = torques[5];
 
-    /* 'bit_propagator:54' while abs(prop_err) > 1e-9 */
+    /* 'bit_propagator:63' while abs(prop_err) > 1e-9 */
     exitg1 = false;
     while ((!exitg1) && covrtLogWhile(&emlrtCoverageInstance, 8U, 0U, 0,
-            muDoubleScalarAbs(M_ij) > 1.0E-9)) {
-      covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 4U);
+            muDoubleScalarAbs(t7) > 1.0E-9)) {
+      covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 9U);
 
-      /* 'bit_propagator:56' tau_piv = tau_piv + ((kp*prop_err) + (ki*int_err)); */
-      tau_piv += M_ij + 0.5 * int_err;
+      /* 'bit_propagator:65' tau_piv = tau_piv + ((kp*prop_err) + (ki*int_err)); */
+      t6 += t7 + 0.5 * int_err;
 
-      /* 'bit_propagator:57' if abs(tau_piv) > tau_max_piv */
-      if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 2, muDoubleScalarAbs
-                     (tau_piv) > tau_max_piv)) {
-        covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 5U);
+      /* 'bit_propagator:66' if abs(tau_piv) > tau_max_piv */
+      if (covrtLogIf(&emlrtCoverageInstance, 8U, 0U, 4, muDoubleScalarAbs(t6) >
+                     tau_max_piv)) {
+        covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 10U);
 
-        /* 'bit_propagator:58' tau_piv = sign(tau_piv) * tau_max_piv; */
-        torques[5] = muDoubleScalarSign(tau_piv) * tau_max_piv;
+        /* 'bit_propagator:67' tau_piv = sign(tau_piv) * tau_max_piv; */
+        torques[5] = muDoubleScalarSign(t6) * tau_max_piv;
 
-        /* 'bit_propagator:59' torques(6) = tau_piv; */
-        /* 'bit_propagator:61' ddtheta = M_decomp\((M_decomp')\torques); */
-        for (b_i = 0; b_i < 9; b_i++) {
-          for (i1 = 0; i1 < 9; i1++) {
-            b_M_decomp[i1 + 9 * b_i] = M_decomp[b_i + 9 * i1];
+        /* 'bit_propagator:68' torques(6) = tau_piv; */
+        /* 'bit_propagator:70' ddtheta = M_decomp\((M_decomp')\torques); */
+        for (s7_tmp = 0; s7_tmp < 9; s7_tmp++) {
+          for (jmax = 0; jmax < 9; jmax++) {
+            b_M_decomp[jmax + 9 * s7_tmp] = M_decomp[s7_tmp + 9 * jmax];
           }
         }
 
-        b_st.site = &cb_emlrtRSI;
+        b_st.site = &eb_emlrtRSI;
         mldivide(&b_st, b_M_decomp, torques);
         memcpy(&Cn[0], &torques[0], 9U * sizeof(real_T));
-        b_st.site = &cb_emlrtRSI;
+        b_st.site = &eb_emlrtRSI;
         mldivide(&b_st, M_decomp, Cn);
         exitg1 = true;
       } else {
-        covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 6U);
+        covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 11U);
 
-        /* 'bit_propagator:64' torques(6) = tau_piv; */
-        torques[5] = tau_piv;
+        /* 'bit_propagator:73' torques(6) = tau_piv; */
+        torques[5] = t6;
 
-        /* 'bit_propagator:66' ddtheta = M_decomp\((M_decomp')\torques); */
-        for (b_i = 0; b_i < 9; b_i++) {
-          Cn[b_i] = torques[b_i];
-          for (i1 = 0; i1 < 9; i1++) {
-            b_M_decomp[i1 + 9 * b_i] = M_decomp[b_i + 9 * i1];
+        /* 'bit_propagator:75' ddtheta = M_decomp\((M_decomp')\torques); */
+        for (s7_tmp = 0; s7_tmp < 9; s7_tmp++) {
+          Cn[s7_tmp] = torques[s7_tmp];
+          for (jmax = 0; jmax < 9; jmax++) {
+            b_M_decomp[jmax + 9 * s7_tmp] = M_decomp[s7_tmp + 9 * jmax];
           }
         }
 
-        b_st.site = &db_emlrtRSI;
+        b_st.site = &fb_emlrtRSI;
         mldivide(&b_st, b_M_decomp, Cn);
-        b_st.site = &db_emlrtRSI;
+        b_st.site = &fb_emlrtRSI;
         mldivide(&b_st, M_decomp, Cn);
 
-        /* 'bit_propagator:67' prop_err = dw_piv - ddtheta(6); */
-        M_ij = dw_piv - Cn[5];
+        /* 'bit_propagator:76' prop_err = dw_piv - ddtheta(6); */
+        t7 = dw_piv - Cn[5];
 
-        /* 'bit_propagator:68' int_err = int_err + prop_err; */
-        int_err += M_ij;
+        /* 'bit_propagator:77' int_err = int_err + prop_err; */
+        int_err += t7;
         if (*emlrtBreakCheckR2012bFlagVar != 0) {
           emlrtBreakCheckR2012b(&st);
         }
@@ -961,34 +763,34 @@ static void bit_one_step_anonFcn1(const emlrtStack *sp, const real_T c_n[27],
     }
   }
 
-  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 7U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 8U, 12U);
 
-  /* 'bit_propagator:72' tau_gond = M(7:9,7:9) * ddtheta(7:9); */
+  /* 'bit_propagator:81' tau_gond = M(7:9,7:9) * ddtheta(7:9); */
   /*  tau_gond(1) = tau_rw */
-  /* 'bit_propagator:75' Xdot = [ddtheta; dtheta; d_hs; tau_gond]; */
-  tau_piv = Cn[6];
-  d = Cn[7];
-  M_ij = Cn[8];
+  /* 'bit_propagator:84' Xdot = [ddtheta; dtheta; d_hs; tau_gond]; */
+  t7 = Cn[6];
+  int_err = Cn[7];
+  t6 = Cn[8];
   r = _mm_loadu_pd(&M[60]);
-  r = _mm_mul_pd(r, _mm_set1_pd(tau_piv));
+  r = _mm_mul_pd(r, _mm_set1_pd(t7));
   r1 = _mm_loadu_pd(&M[69]);
-  r1 = _mm_mul_pd(r1, _mm_set1_pd(d));
+  r1 = _mm_mul_pd(r1, _mm_set1_pd(int_err));
   r = _mm_add_pd(r, r1);
   r1 = _mm_loadu_pd(&M[78]);
-  r1 = _mm_mul_pd(r1, _mm_set1_pd(M_ij));
+  r1 = _mm_mul_pd(r1, _mm_set1_pd(t6));
   r = _mm_add_pd(r, r1);
   _mm_storeu_pd(&b_M[0], r);
-  b_M[2] = (M[62] * tau_piv + M[71] * d) + M[80] * M_ij;
-  for (b_i = 0; b_i < 9; b_i++) {
-    varargout_1[b_i] = Cn[b_i];
-    varargout_1[b_i + 9] = dtheta[b_i];
+  b_M[2] = (M[62] * t7 + M[71] * int_err) + M[80] * t6;
+  for (s7_tmp = 0; s7_tmp < 9; s7_tmp++) {
+    varargout_1[s7_tmp] = Cn[s7_tmp];
+    varargout_1[s7_tmp + 9] = dtheta[s7_tmp];
   }
 
-  varargout_1[18] = d_hs_idx_0;
+  varargout_1[18] = t9;
   varargout_1[21] = b_M[0];
-  varargout_1[19] = d_hs_idx_1;
+  varargout_1[19] = t10;
   varargout_1[22] = b_M[1];
-  varargout_1[20] = d_hs_idx_2;
+  varargout_1[20] = t11;
   varargout_1[23] = b_M[2];
 }
 
@@ -1016,8 +818,8 @@ static void bit_one_step_anonFcn2(const real_T a_df[10816], const real_T b_df
   covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 5U);
 
   /* 'bit_one_step:37' @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex) */
-  covrtLogFcn(&emlrtCoverageInstance, 13U, 0U);
-  covrtLogBasicBlock(&emlrtCoverageInstance, 13U, 0U);
+  covrtLogFcn(&emlrtCoverageInstance, 15U, 0U);
+  covrtLogBasicBlock(&emlrtCoverageInstance, 15U, 0U);
 
   /* UNTITLED Summary of this function goes here */
   /*    Detailed explanation goes here */
@@ -1956,88 +1758,39 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     -0.00020938302908622, 0.0, 0.166599021410397, 0.0, -0.0144830576027064, 0.0,
     -0.054790779983943542 };
 
-  static const real_T c_i_n[81] = { 0.0, 0.0, 8.448E+6, 0.0, 0.0, 10.1, 2655.0,
-    14.0, 34.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 7.5448E+6, 0.0, 0.0, 8000.0, 3787.0, 21.0, 40.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 7.5448E+6, 0.0, 0.0,
-    8000.0, 3787.0, 30.0, 25.0 };
-
-  static const real_T b_c_n[27] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 35.0,
-    0.0, 0.0, -30.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.4, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0 };
-
-  static const real_T c_n[27] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -30.5,
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.4, 0.0, 0.0, 0.0,
-    0.0, 0.0, 0.0 };
-
-  static const real_T r_n1_n[27] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-    0.0, 0.0, -61.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.4,
-    0.0, 0.0, 0.0 };
-
   static const real_T b_k_d[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 34906.585039886588,
     0.0, 303.09234741555724, 555.66930359518835 };
 
   static const real_T k_d[9] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0017453292519943296,
     0.0, 62.607671231740191, 62.607671231740191 };
 
-  static const real_T g0[3] = { 0.0, 0.0, -9.72 };
-
   static const real_T hs_rw_max[3] = { 0.0, 0.0, 56.548667764616276 };
-
-  static const int32_T b_i_n[81] = { 0, 0, 5448000, 0, 0, 1, 246, 151, 213, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 5448000, 0, 0, 1, 455, 405, 134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5448000, 0, 0, 1, 408, 339, 244
-  };
-
-  static const int32_T iv[9] = { 0, 0, 100000, 0, 0, 1, 350, 73, 150 };
-
-  static const int32_T m_n[9] = { 0, 0, 100000, 0, 0, 1, 350, 73, 150 };
-
-  static const int16_T b_m_n[9] = { 0, 0, 10000, 0, 0, 1, 1850, 60, 200 };
-
-  static const int16_T iv1[9] = { 0, 0, 10000, 0, 0, 1, 1850, 60, 200 };
-
-  static const int8_T p_n[54] = { 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
-    1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1,
-    0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0 };
 
   static const int8_T z_n[27] = { 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0,
     0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0 };
-
-  static const int8_T a[9] = { 1, 0, 0, 0, 1, 0, 0, 0, 1 };
 
   __m128d r;
   __m128d r1;
   __m128d r2;
   emlrtStack b_st;
   emlrtStack st;
-  real_T m_w_n[324];
   real_T b_varargout_1[104];
   real_T b_y_flex[104];
   real_T kf1[104];
   real_T kf2[104];
   real_T kf3[104];
-  real_T sys_workspace_p_n[54];
-  real_T sys_workspace_c_n[27];
   real_T sys_workspace_z_n[27];
   real_T k1[24];
   real_T k2[24];
   real_T k3[24];
   real_T varargout_1[24];
   real_T b_y_true[21];
-  real_T i_n[9];
-  real_T offterm[9];
   real_T sys_workspace_b_d[9];
+  real_T sys_workspace_k_d[9];
   real_T tau_app_flex[3];
-  real_T dw_piv;
   int32_T b_i;
   int32_T i;
-  int32_T i1;
-  int32_T k;
-  int32_T m_w_n_tmp;
+  int32_T step;
   st.prev = sp;
   st.tls = sp->tls;
   b_st.prev = &st;
@@ -2112,62 +1865,20 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /* 'init_func_sb:65'         [   34,  0.0,  0.0,  0.0, 40,  0.0, 0, 0, 25]]; */
     /* 'init_func_sb:67' m_w_n = zeros(6,6,9); */
     /* 'init_func_sb:68' for k = 1:9 */
-    offterm[0] = 0.0;
-    offterm[4] = 0.0;
-    offterm[8] = 0.0;
-    for (k = 0; k < 9; k++) {
-      int16_T i2;
+    for (i = 0; i < 9; i++) {
       covrtLogFor(&emlrtCoverageInstance, 1U, 0U, 0, 1);
       covrtLogBasicBlock(&emlrtCoverageInstance, 1U, 1U);
 
       /* 'init_func_sb:69' mass = eye(3) * m_n(k); */
       /* 'init_func_sb:70' i_k = reshape(i_n(k,:), 3, 3); */
       /* 'init_func_sb:71' offterm = xmat(c_n(:,k)); */
-      tau_app_flex[0] = b_c_n[3 * k];
-      tau_app_flex[1] = b_c_n[3 * k + 1];
-      tau_app_flex[2] = b_c_n[3 * k + 2];
       covrtLogFcn(&emlrtCoverageInstance, 2U, 0U);
       covrtLogBasicBlock(&emlrtCoverageInstance, 2U, 0U);
 
       /* 'xmat:2' mat = [        0, -vec(3),  vec(2); */
       /* 'xmat:3'             vec(3),         0, -vec(1); */
       /* 'xmat:4'            -vec(2),  vec(1),         0]; */
-      offterm[3] = -tau_app_flex[2];
-      offterm[6] = tau_app_flex[1];
-      offterm[1] = tau_app_flex[2];
-      offterm[7] = -tau_app_flex[0];
-      offterm[2] = -tau_app_flex[1];
-      offterm[5] = tau_app_flex[0];
-
       /* 'init_func_sb:73' m_w_n_i = [mass, -offterm; offterm, i_k]; */
-      for (i = 0; i < 9; i++) {
-        i_n[i] = c_i_n[k + 9 * i];
-      }
-
-      i2 = iv1[k];
-      for (i = 0; i < 3; i++) {
-        int32_T b_m_w_n_tmp;
-        b_i = 6 * i + 36 * k;
-        m_w_n[b_i] = a[3 * i] * i2;
-        dw_piv = offterm[3 * i];
-        m_w_n_tmp = 6 * (i + 3) + 36 * k;
-        m_w_n[m_w_n_tmp] = -dw_piv;
-        m_w_n[b_i + 3] = dw_piv;
-        m_w_n[m_w_n_tmp + 3] = i_n[3 * i];
-        b_m_w_n_tmp = 3 * i + 1;
-        m_w_n[b_i + 1] = a[b_m_w_n_tmp] * i2;
-        dw_piv = offterm[b_m_w_n_tmp];
-        m_w_n[m_w_n_tmp + 1] = -dw_piv;
-        m_w_n[b_i + 4] = dw_piv;
-        m_w_n[m_w_n_tmp + 4] = i_n[b_m_w_n_tmp];
-        b_m_w_n_tmp = 3 * i + 2;
-        m_w_n[b_i + 2] = a[b_m_w_n_tmp] * i2;
-        dw_piv = offterm[b_m_w_n_tmp];
-        m_w_n[m_w_n_tmp + 2] = -dw_piv;
-        m_w_n[b_i + 5] = dw_piv;
-        m_w_n[m_w_n_tmp + 5] = i_n[b_m_w_n_tmp];
-      }
-
       /* 'init_func_sb:74' m_w_n(:,:,k) = m_w_n_i; */
       if (*emlrtBreakCheckR2012bFlagVar != 0) {
         emlrtBreakCheckR2012b(&st);
@@ -2477,22 +2188,13 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /* 'b_mf_func:58' mt51 = [1.489152586798825e-2,0.0,9.199053481626634e-2,0.0,6.344316825951378e-2,0.0,-1.687366895204676e-2,0.0,2.219990512445736e-2,0.0]; */
     /* 'b_mf_func:59' mt52 = [-7.647777929260242e-4,0.0,-2.0938302908622e-4,0.0,1.66599021410397e-1,0.0,-1.44830576027064e-2,0.0,-5.479077998394354e-2]; */
     /* 'b_mf_func:60' b_mf_syms = reshape([mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10,mt11,mt12,mt13,mt14,mt15,mt16,mt17,mt18,mt19,mt20,mt21,mt22,mt23,mt24,mt25,mt26,mt27,mt28,mt29,mt30,mt31,mt32,mt33,mt34,mt35,mt36,mt37,mt38,mt39,mt40,mt41,mt42,mt43,mt44,mt45,mt46,mt47,mt48,mt49,mt50,mt51,mt52],104,5); */
-    for (i = 0; i < 27; i++) {
-      sys_workspace_z_n[i] = z_n[i];
-    }
-
-    for (i = 0; i < 54; i++) {
-      sys_workspace_p_n[i] = p_n[i];
+    for (b_i = 0; b_i < 27; b_i++) {
+      sys_workspace_z_n[b_i] = z_n[b_i];
     }
 
     for (i = 0; i < 9; i++) {
-      i_n[i] = b_m_n[i];
-    }
-
-    memcpy(&sys_workspace_c_n[0], &b_c_n[0], 27U * sizeof(real_T));
-    for (b_i = 0; b_i < 9; b_i++) {
-      offterm[b_i] = b_k_d[b_i];
-      sys_workspace_b_d[b_i] = 0.0;
+      sys_workspace_k_d[i] = b_k_d[i];
+      sys_workspace_b_d[i] = 0.0;
     }
   } else {
     covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 1U);
@@ -2538,61 +2240,20 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /* 'init_func:40'         [   213,  0.0,  0.0,  0.0, 134.0,  0.0, 0, 0, 244]]; */
     /* 'init_func:44' m_w_n = zeros(6,6,9); */
     /* 'init_func:45' for k = 1:9 */
-    offterm[0] = 0.0;
-    offterm[4] = 0.0;
-    offterm[8] = 0.0;
-    for (k = 0; k < 9; k++) {
+    for (i = 0; i < 9; i++) {
       covrtLogFor(&emlrtCoverageInstance, 7U, 0U, 0, 1);
       covrtLogBasicBlock(&emlrtCoverageInstance, 7U, 1U);
 
       /* 'init_func:46' mass = eye(3) * m_n(k); */
       /* 'init_func:47' i_k = reshape(i_n(k,:), 3, 3); */
       /* 'init_func:48' offterm = xmat(c_n(:,k)); */
-      tau_app_flex[0] = c_n[3 * k];
-      tau_app_flex[1] = c_n[3 * k + 1];
-      tau_app_flex[2] = c_n[3 * k + 2];
       covrtLogFcn(&emlrtCoverageInstance, 2U, 0U);
       covrtLogBasicBlock(&emlrtCoverageInstance, 2U, 0U);
 
       /* 'xmat:2' mat = [        0, -vec(3),  vec(2); */
       /* 'xmat:3'             vec(3),         0, -vec(1); */
       /* 'xmat:4'            -vec(2),  vec(1),         0]; */
-      offterm[3] = -tau_app_flex[2];
-      offterm[6] = tau_app_flex[1];
-      offterm[1] = tau_app_flex[2];
-      offterm[7] = -tau_app_flex[0];
-      offterm[2] = -tau_app_flex[1];
-      offterm[5] = tau_app_flex[0];
-
       /* 'init_func:50' m_w_n_i = [mass, -offterm; offterm, i_k]; */
-      for (i = 0; i < 9; i++) {
-        i_n[i] = b_i_n[k + 9 * i];
-      }
-
-      i = iv[k];
-      for (i1 = 0; i1 < 3; i1++) {
-        int32_T b_m_w_n_tmp;
-        b_i = 6 * i1 + 36 * k;
-        m_w_n[b_i] = a[3 * i1] * i;
-        dw_piv = offterm[3 * i1];
-        m_w_n_tmp = 6 * (i1 + 3) + 36 * k;
-        m_w_n[m_w_n_tmp] = -dw_piv;
-        m_w_n[b_i + 3] = dw_piv;
-        m_w_n[m_w_n_tmp + 3] = i_n[3 * i1];
-        b_m_w_n_tmp = 3 * i1 + 1;
-        m_w_n[b_i + 1] = a[b_m_w_n_tmp] * i;
-        dw_piv = offterm[b_m_w_n_tmp];
-        m_w_n[m_w_n_tmp + 1] = -dw_piv;
-        m_w_n[b_i + 4] = dw_piv;
-        m_w_n[m_w_n_tmp + 4] = i_n[b_m_w_n_tmp];
-        b_m_w_n_tmp = 3 * i1 + 2;
-        m_w_n[b_i + 2] = a[b_m_w_n_tmp] * i;
-        dw_piv = offterm[b_m_w_n_tmp];
-        m_w_n[m_w_n_tmp + 2] = -dw_piv;
-        m_w_n[b_i + 5] = dw_piv;
-        m_w_n[m_w_n_tmp + 5] = i_n[b_m_w_n_tmp];
-      }
-
       /* 'init_func:51' m_w_n(:,:,k) = m_w_n_i; */
       if (*emlrtBreakCheckR2012bFlagVar != 0) {
         emlrtBreakCheckR2012b(&st);
@@ -2899,22 +2560,13 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /* 'b_mf_func:58' mt51 = [1.489152586798825e-2,0.0,9.199053481626634e-2,0.0,6.344316825951378e-2,0.0,-1.687366895204676e-2,0.0,2.219990512445736e-2,0.0]; */
     /* 'b_mf_func:59' mt52 = [-7.647777929260242e-4,0.0,-2.0938302908622e-4,0.0,1.66599021410397e-1,0.0,-1.44830576027064e-2,0.0,-5.479077998394354e-2]; */
     /* 'b_mf_func:60' b_mf_syms = reshape([mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10,mt11,mt12,mt13,mt14,mt15,mt16,mt17,mt18,mt19,mt20,mt21,mt22,mt23,mt24,mt25,mt26,mt27,mt28,mt29,mt30,mt31,mt32,mt33,mt34,mt35,mt36,mt37,mt38,mt39,mt40,mt41,mt42,mt43,mt44,mt45,mt46,mt47,mt48,mt49,mt50,mt51,mt52],104,5); */
-    for (i = 0; i < 27; i++) {
-      sys_workspace_z_n[i] = z_n[i];
-    }
-
-    for (i = 0; i < 54; i++) {
-      sys_workspace_p_n[i] = p_n[i];
+    for (b_i = 0; b_i < 27; b_i++) {
+      sys_workspace_z_n[b_i] = z_n[b_i];
     }
 
     for (i = 0; i < 9; i++) {
-      i_n[i] = m_n[i];
-    }
-
-    memcpy(&sys_workspace_c_n[0], &c_n[0], 27U * sizeof(real_T));
-    for (b_i = 0; b_i < 9; b_i++) {
-      offterm[b_i] = k_d[b_i];
-      sys_workspace_b_d[b_i] = 0.0;
+      sys_workspace_k_d[i] = k_d[i];
+      sys_workspace_b_d[i] = 0.0;
     }
   }
 
@@ -2925,10 +2577,10 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 2U);
 
     /* 'bit_one_step:15' k_d(8) = 0; */
-    offterm[7] = 0.0;
+    sys_workspace_k_d[7] = 0.0;
 
     /* 'bit_one_step:16' k_d(9) = 0; */
-    offterm[8] = 0.0;
+    sys_workspace_k_d[8] = 0.0;
   }
 
   covrtLogBasicBlock(&emlrtCoverageInstance, 0U, 3U);
@@ -2945,7 +2597,7 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /*  y_all1 = zeros(18, tf/(dt)); */
   /* 'bit_one_step:26' step = 0; */
   /* 'bit_one_step:28' sys = @(y_true, tau_applied, dw_piv) bit_propagator(y_true, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...  */
-  /* 'bit_one_step:29'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom); */
+  /* 'bit_one_step:29'     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag, dw_piv, tau_max_piv, thet_pit_nom, sb_flag); */
   /* 'bit_one_step:31' tau_app_flex = tau_applied(7:9); */
   /* 'bit_one_step:33' tau_applied(7) = tau_applied(7) + tau_flex(1); */
   tau_applied[6] += tau_flex[0];
@@ -2959,18 +2611,19 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
   /* 'bit_one_step:37' sys_flex = @(y_flex, tau_app_flex, tau_flex) flex_propogate(a_df, b_df, tau_app_flex, tau_flex, y_flex); */
   /*  sim */
   /* 'bit_one_step:41' for step = 1:num_steps */
-  i = num_steps;
-  if (i - 1 >= 0) {
+  b_i = num_steps;
+  if (b_i - 1 >= 0) {
     r = _mm_set1_pd(2.0);
     r1 = _mm_set1_pd(dt);
     r2 = _mm_set1_pd(2.0);
   }
 
-  for (m_w_n_tmp = 0; m_w_n_tmp < i; m_w_n_tmp++) {
+  for (step = 0; step < b_i; step++) {
     __m128d r3;
     __m128d r4;
     __m128d r5;
     __m128d r6;
+    real_T dw_piv;
     boolean_T th_over[9];
     boolean_T th_under[9];
     covrtLogFor(&emlrtCoverageInstance, 0U, 0U, 0, 1);
@@ -2984,79 +2637,75 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /* 'bit_one_step:46' [k1] = sys(y_true, tau_applied, dw_piv) * dt; */
     st.site = &c_emlrtRSI;
     b_st.site = &u_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, sys_workspace_c_n, sys_workspace_z_n, i_n,
-                          r_n1_n, m_w_n, sys_workspace_p_n, offterm,
-                          sys_workspace_b_d, g0, unlock, hs_rw_max, w_piv,
-                          piv_flag, tau_max_piv, thet_pit_nom, y_true,
+    bit_one_step_anonFcn1(&b_st, sys_workspace_z_n, sys_workspace_k_d,
+                          sys_workspace_b_d, unlock, hs_rw_max, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, sb_flag, y_true,
                           tau_applied, dw_piv, k1);
-    for (i1 = 0; i1 <= 22; i1 += 2) {
-      r3 = _mm_loadu_pd(&k1[i1]);
-      _mm_storeu_pd(&k1[i1], _mm_mul_pd(r3, _mm_set1_pd(dt)));
+    for (i = 0; i <= 22; i += 2) {
+      r3 = _mm_loadu_pd(&k1[i]);
+      _mm_storeu_pd(&k1[i], _mm_mul_pd(r3, _mm_set1_pd(dt)));
     }
 
     /* 'bit_one_step:47' [k2] = sys(y_true + (k1(1:21)/2), tau_applied, dw_piv) * dt; */
     st.site = &d_emlrtRSI;
-    for (i1 = 0; i1 <= 18; i1 += 2) {
-      r3 = _mm_loadu_pd(&k1[i1]);
-      r4 = _mm_loadu_pd(&y_true[i1]);
-      _mm_storeu_pd(&b_y_true[i1], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
+    for (i = 0; i <= 18; i += 2) {
+      r3 = _mm_loadu_pd(&k1[i]);
+      r4 = _mm_loadu_pd(&y_true[i]);
+      _mm_storeu_pd(&b_y_true[i], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
     }
 
     b_y_true[20] = y_true[20] + k1[20] / 2.0;
     b_st.site = &u_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, sys_workspace_c_n, sys_workspace_z_n, i_n,
-                          r_n1_n, m_w_n, sys_workspace_p_n, offterm,
-                          sys_workspace_b_d, g0, unlock, hs_rw_max, w_piv,
-                          piv_flag, tau_max_piv, thet_pit_nom, b_y_true,
+    bit_one_step_anonFcn1(&b_st, sys_workspace_z_n, sys_workspace_k_d,
+                          sys_workspace_b_d, unlock, hs_rw_max, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, sb_flag, b_y_true,
                           tau_applied, dw_piv, k2);
-    for (i1 = 0; i1 <= 22; i1 += 2) {
-      r3 = _mm_loadu_pd(&k2[i1]);
-      _mm_storeu_pd(&k2[i1], _mm_mul_pd(r3, _mm_set1_pd(dt)));
+    for (i = 0; i <= 22; i += 2) {
+      r3 = _mm_loadu_pd(&k2[i]);
+      _mm_storeu_pd(&k2[i], _mm_mul_pd(r3, _mm_set1_pd(dt)));
     }
 
     /* 'bit_one_step:48' [k3] = sys(y_true + (k2(1:21)/2), tau_applied, dw_piv) * dt; */
     st.site = &e_emlrtRSI;
-    for (i1 = 0; i1 <= 18; i1 += 2) {
-      r3 = _mm_loadu_pd(&k2[i1]);
-      r4 = _mm_loadu_pd(&y_true[i1]);
-      _mm_storeu_pd(&b_y_true[i1], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
+    for (i = 0; i <= 18; i += 2) {
+      r3 = _mm_loadu_pd(&k2[i]);
+      r4 = _mm_loadu_pd(&y_true[i]);
+      _mm_storeu_pd(&b_y_true[i], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
     }
 
     b_y_true[20] = y_true[20] + k2[20] / 2.0;
     b_st.site = &u_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, sys_workspace_c_n, sys_workspace_z_n, i_n,
-                          r_n1_n, m_w_n, sys_workspace_p_n, offterm,
-                          sys_workspace_b_d, g0, unlock, hs_rw_max, w_piv,
-                          piv_flag, tau_max_piv, thet_pit_nom, b_y_true,
+    bit_one_step_anonFcn1(&b_st, sys_workspace_z_n, sys_workspace_k_d,
+                          sys_workspace_b_d, unlock, hs_rw_max, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, sb_flag, b_y_true,
                           tau_applied, dw_piv, k3);
-    for (i1 = 0; i1 <= 22; i1 += 2) {
-      r3 = _mm_loadu_pd(&k3[i1]);
-      _mm_storeu_pd(&k3[i1], _mm_mul_pd(r3, _mm_set1_pd(dt)));
+    for (i = 0; i <= 22; i += 2) {
+      r3 = _mm_loadu_pd(&k3[i]);
+      _mm_storeu_pd(&k3[i], _mm_mul_pd(r3, _mm_set1_pd(dt)));
     }
 
     /* 'bit_one_step:49' [k4] = sys(y_true + k3(1:21), tau_applied, dw_piv) * dt; */
     st.site = &f_emlrtRSI;
-    for (i1 = 0; i1 <= 18; i1 += 2) {
-      r3 = _mm_loadu_pd(&y_true[i1]);
-      r4 = _mm_loadu_pd(&k3[i1]);
-      _mm_storeu_pd(&b_y_true[i1], _mm_add_pd(r3, r4));
+    for (i = 0; i <= 18; i += 2) {
+      r3 = _mm_loadu_pd(&y_true[i]);
+      r4 = _mm_loadu_pd(&k3[i]);
+      _mm_storeu_pd(&b_y_true[i], _mm_add_pd(r3, r4));
     }
 
     b_y_true[20] = y_true[20] + k3[20];
     b_st.site = &u_emlrtRSI;
-    bit_one_step_anonFcn1(&b_st, sys_workspace_c_n, sys_workspace_z_n, i_n,
-                          r_n1_n, m_w_n, sys_workspace_p_n, offterm,
-                          sys_workspace_b_d, g0, unlock, hs_rw_max, w_piv,
-                          piv_flag, tau_max_piv, thet_pit_nom, b_y_true,
+    bit_one_step_anonFcn1(&b_st, sys_workspace_z_n, sys_workspace_k_d,
+                          sys_workspace_b_d, unlock, hs_rw_max, w_piv, piv_flag,
+                          tau_max_piv, thet_pit_nom, sb_flag, b_y_true,
                           tau_applied, dw_piv, varargout_1);
 
     /* 'bit_one_step:51' temp = ((k1+(2*k2)+(2*k3)+k4)/6); */
-    for (i1 = 0; i1 <= 22; i1 += 2) {
-      r3 = _mm_loadu_pd(&k2[i1]);
-      r4 = _mm_loadu_pd(&k1[i1]);
-      r5 = _mm_loadu_pd(&k3[i1]);
-      r6 = _mm_loadu_pd(&varargout_1[i1]);
-      _mm_storeu_pd(&k1[i1], _mm_div_pd(_mm_add_pd(_mm_add_pd(_mm_add_pd(r4,
+    for (i = 0; i <= 22; i += 2) {
+      r3 = _mm_loadu_pd(&k2[i]);
+      r4 = _mm_loadu_pd(&k1[i]);
+      r5 = _mm_loadu_pd(&k3[i]);
+      r6 = _mm_loadu_pd(&varargout_1[i]);
+      _mm_storeu_pd(&k1[i], _mm_div_pd(_mm_add_pd(_mm_add_pd(_mm_add_pd(r4,
         _mm_mul_pd(r, r3)), _mm_mul_pd(r, r5)), _mm_mul_pd(r6, _mm_set1_pd(dt))),
         _mm_set1_pd(6.0)));
     }
@@ -3068,26 +2717,26 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     tau_app_flex[2] = k1[23] / dt;
 
     /* 'bit_one_step:54' y_true = y_true + tdd; */
-    for (i1 = 0; i1 <= 18; i1 += 2) {
-      r3 = _mm_loadu_pd(&y_true[i1]);
-      r4 = _mm_loadu_pd(&k1[i1]);
-      _mm_storeu_pd(&y_true[i1], _mm_add_pd(r3, r4));
+    for (i = 0; i <= 18; i += 2) {
+      r3 = _mm_loadu_pd(&y_true[i]);
+      r4 = _mm_loadu_pd(&k1[i]);
+      _mm_storeu_pd(&y_true[i], _mm_add_pd(r3, r4));
     }
 
     y_true[20] += k1[20];
 
     /* 'bit_one_step:56' th_over = y_true(10:18) > pi; */
     /* 'bit_one_step:57' th_under = y_true(10:18) < -pi; */
-    for (b_i = 0; b_i < 9; b_i++) {
-      dw_piv = y_true[b_i + 9];
-      th_over[b_i] = (dw_piv > 3.1415926535897931);
-      th_under[b_i] = (dw_piv < -3.1415926535897931);
+    for (i = 0; i < 9; i++) {
+      dw_piv = y_true[i + 9];
+      th_over[i] = (dw_piv > 3.1415926535897931);
+      th_under[i] = (dw_piv < -3.1415926535897931);
     }
 
     /* 'bit_one_step:58' y_true(10:14) = y_true(10:14) -(2*pi*th_over(1:5)) + (2*pi*th_under(1:5)); */
-    for (i1 = 0; i1 < 5; i1++) {
-      y_true[i1 + 9] = (y_true[i1 + 9] - 6.2831853071795862 * (real_T)th_over[i1])
-        + 6.2831853071795862 * (real_T)th_under[i1];
+    for (i = 0; i < 5; i++) {
+      y_true[i + 9] = (y_true[i + 9] - 6.2831853071795862 * (real_T)th_over[i])
+        + 6.2831853071795862 * (real_T)th_under[i];
     }
 
     /* 'bit_one_step:59' y_true(16:18) = y_true(16:18) -(2*pi*th_over(7:9)) + (2*pi*th_under(7:9)); */
@@ -3107,45 +2756,45 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
     /* 'bit_one_step:67' kf1 = sys_flex(y_flex, tau_app_flex, tau_flex) * dt; */
     st.site = &g_emlrtRSI;
     bit_one_step_anonFcn2(a_df, b_df, y_flex, tau_app_flex, tau_flex, kf1);
-    for (i1 = 0; i1 <= 102; i1 += 2) {
-      r3 = _mm_loadu_pd(&kf1[i1]);
-      _mm_storeu_pd(&kf1[i1], _mm_mul_pd(r3, r1));
+    for (i = 0; i <= 102; i += 2) {
+      r3 = _mm_loadu_pd(&kf1[i]);
+      _mm_storeu_pd(&kf1[i], _mm_mul_pd(r3, r1));
     }
 
     /* 'bit_one_step:68' kf2 = sys_flex(y_flex + (kf1/2), tau_app_flex, tau_flex) * dt; */
     st.site = &h_emlrtRSI;
-    for (i1 = 0; i1 <= 102; i1 += 2) {
-      r3 = _mm_loadu_pd(&kf1[i1]);
-      r4 = _mm_loadu_pd(&y_flex[i1]);
-      _mm_storeu_pd(&b_y_flex[i1], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
+    for (i = 0; i <= 102; i += 2) {
+      r3 = _mm_loadu_pd(&kf1[i]);
+      r4 = _mm_loadu_pd(&y_flex[i]);
+      _mm_storeu_pd(&b_y_flex[i], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
     }
 
     bit_one_step_anonFcn2(a_df, b_df, b_y_flex, tau_app_flex, tau_flex, kf2);
-    for (i1 = 0; i1 <= 102; i1 += 2) {
-      r3 = _mm_loadu_pd(&kf2[i1]);
-      _mm_storeu_pd(&kf2[i1], _mm_mul_pd(r3, r1));
+    for (i = 0; i <= 102; i += 2) {
+      r3 = _mm_loadu_pd(&kf2[i]);
+      _mm_storeu_pd(&kf2[i], _mm_mul_pd(r3, r1));
     }
 
     /* 'bit_one_step:69' kf3 = sys_flex(y_flex + (kf2/2), tau_app_flex, tau_flex) * dt; */
     st.site = &i_emlrtRSI;
-    for (i1 = 0; i1 <= 102; i1 += 2) {
-      r3 = _mm_loadu_pd(&kf2[i1]);
-      r4 = _mm_loadu_pd(&y_flex[i1]);
-      _mm_storeu_pd(&b_y_flex[i1], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
+    for (i = 0; i <= 102; i += 2) {
+      r3 = _mm_loadu_pd(&kf2[i]);
+      r4 = _mm_loadu_pd(&y_flex[i]);
+      _mm_storeu_pd(&b_y_flex[i], _mm_add_pd(r4, _mm_div_pd(r3, _mm_set1_pd(2.0))));
     }
 
     bit_one_step_anonFcn2(a_df, b_df, b_y_flex, tau_app_flex, tau_flex, kf3);
-    for (i1 = 0; i1 <= 102; i1 += 2) {
-      r3 = _mm_loadu_pd(&kf3[i1]);
-      _mm_storeu_pd(&kf3[i1], _mm_mul_pd(r3, r1));
+    for (i = 0; i <= 102; i += 2) {
+      r3 = _mm_loadu_pd(&kf3[i]);
+      _mm_storeu_pd(&kf3[i], _mm_mul_pd(r3, r1));
     }
 
     /* 'bit_one_step:70' kf4 = sys_flex(y_flex + kf3, tau_app_flex, tau_flex) * dt; */
     st.site = &j_emlrtRSI;
-    for (i1 = 0; i1 <= 102; i1 += 2) {
-      r3 = _mm_loadu_pd(&y_flex[i1]);
-      r4 = _mm_loadu_pd(&kf3[i1]);
-      _mm_storeu_pd(&b_y_flex[i1], _mm_add_pd(r3, r4));
+    for (i = 0; i <= 102; i += 2) {
+      r3 = _mm_loadu_pd(&y_flex[i]);
+      r4 = _mm_loadu_pd(&kf3[i]);
+      _mm_storeu_pd(&b_y_flex[i], _mm_add_pd(r3, r4));
     }
 
     bit_one_step_anonFcn2(a_df, b_df, b_y_flex, tau_app_flex, tau_flex,
@@ -3153,14 +2802,14 @@ void bit_one_step(const emlrtStack *sp, const real_T x0[21], real_T tau_applied
 
     /* 'bit_one_step:72' eta_dd = ((kf1+(2*kf2)+(2*kf3)+kf4)/6); */
     /* 'bit_one_step:73' y_flex = y_flex + eta_dd; */
-    for (i1 = 0; i1 <= 102; i1 += 2) {
+    for (i = 0; i <= 102; i += 2) {
       __m128d r7;
-      r3 = _mm_loadu_pd(&kf2[i1]);
-      r4 = _mm_loadu_pd(&kf1[i1]);
-      r5 = _mm_loadu_pd(&kf3[i1]);
-      r6 = _mm_loadu_pd(&b_varargout_1[i1]);
-      r7 = _mm_loadu_pd(&y_flex[i1]);
-      _mm_storeu_pd(&y_flex[i1], _mm_add_pd(r7, _mm_div_pd(_mm_add_pd(_mm_add_pd
+      r3 = _mm_loadu_pd(&kf2[i]);
+      r4 = _mm_loadu_pd(&kf1[i]);
+      r5 = _mm_loadu_pd(&kf3[i]);
+      r6 = _mm_loadu_pd(&b_varargout_1[i]);
+      r7 = _mm_loadu_pd(&y_flex[i]);
+      _mm_storeu_pd(&y_flex[i], _mm_add_pd(r7, _mm_div_pd(_mm_add_pd(_mm_add_pd
         (_mm_add_pd(r4, _mm_mul_pd(r2, r3)), _mm_mul_pd(r2, r5)), _mm_mul_pd(r6,
         r1)), _mm_set1_pd(6.0))));
     }

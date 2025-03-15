@@ -1,6 +1,6 @@
 function [Xdot] = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ... 
     k_d, b_d, g0, unlock, hs_rw_max, tau_applied, w_piv, piv_flag,...
-    dw_piv, tau_max_piv, thet_pit_nom)
+    dw_piv, tau_max_piv, thet_pit_nom, sb_flag)
     %split the state
 
     theta = X(10:18);
@@ -17,7 +17,12 @@ function [Xdot] = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...
     end
     
     %%
-    Pot = compute_potential_energy_term(theta, c_n, z_n, m_n, r_n1_n, g0);
+    % Pot = compute_potential_energy_term(theta, c_n, z_n, m_n, r_n1_n, g0);
+    if sb_flag
+        Pot = poten_mat_func_sb(theta)
+    else 
+        Pot = poten_mat_func_gb(theta)
+    end 
 
     theta_spring = theta;
     theta_spring(9) = theta(9) - thet_pit_nom;
@@ -31,9 +36,13 @@ function [Xdot] = bit_propagator(X, c_n, z_n, m_n, r_n1_n, m_w_n, p_n, ...
     %calculate joint torques from gravity elasticity and damnping according
     %to eq 3.37
     torques = tau_applied - (Pot + spring + damp + R + r);
- 
-    M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n);
-
+    
+    % M = compute_mass_matrix(theta, z_n, r_n1_n, m_w_n, p_n);
+    if sb_flag
+        M = mass_mat_func_sb(theta)
+    else 
+        M = mass_mat_func_gb(theta)
+    end 
     % M = mass_mat_func(theta);
     % M = mass_mat_func_gb(theta);
 

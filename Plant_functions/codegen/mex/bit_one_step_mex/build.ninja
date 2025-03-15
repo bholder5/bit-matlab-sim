@@ -1,0 +1,62 @@
+# CompilerName=gcc
+# Mode=debug
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/glnxa64
+matlabdir = /usr/local/MATLAB/R2023a
+startdir = /home/bholder/bit-matlab-sim/Plant_functions
+
+# Toolchain information
+cc = /usr/bin/gcc
+cxx = g++
+linker = /usr/bin/gcc
+linkerxx = g++
+
+cflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c99 -I "$root" -I "$startdir" -I "/home/bholder/bit-matlab-sim" -I "/home/bholder/bit-matlab-sim/ADCS" -I "/home/bholder/bit-matlab-sim/Miscellaneous" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c 
+
+cxxflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -g -std=c++11 -I "$root" -I "$startdir" -I "/home/bholder/bit-matlab-sim" -I "/home/bholder/bit-matlab-sim/ADCS" -I "/home/bholder/bit-matlab-sim/Miscellaneous" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=bit_one_step_mex -msse2 -c 
+
+ldflags =  -pthread -Wl,--no-undefined -Wl,-rpath-link,$matlabdir/bin/glnxa64 -shared  -L"$matlabdir/bin/glnxa64" -lmx -lmex -lmat -lm -lstdc++  -g -Wl,-Bsymbolic -o bit_one_step_mex.mexa64 -L"$matlabdir/bin/glnxa64" -lmwlapack -lmwblas -lemlrt -lcovrt -lut -lmwmathutil  -Wl,--version-script,bit_one_step_mex.map
+
+linkobjs = 
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker $in $linkobjs $ldflags
+
+rule linkxx
+    command = $linkerxx $in $linkobjs $ldflags
+
+# Build
+build $builddir/bit_one_step_mex_data.o : cc $root/bit_one_step_mex_data.c
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/bit_one_step_mex_initialize.o : cc $root/bit_one_step_mex_initialize.c
+build $builddir/bit_one_step_mex_terminate.o : cc $root/bit_one_step_mex_terminate.c
+build $builddir/bit_one_step.o : cc $root/bit_one_step.c
+build $builddir/axis2rot.o : cc $root/axis2rot.c
+build $builddir/mass_mat_func_sb.o : cc $root/mass_mat_func_sb.c
+build $builddir/mass_mat_func_gb.o : cc $root/mass_mat_func_gb.c
+build $builddir/compute_angular_velocity_C.o : cc $root/compute_angular_velocity_C.c
+build $builddir/compute_angular_velocity_roll_C.o : cc $root/compute_angular_velocity_roll_C.c
+build $builddir/compute_angular_velocity_yaw_C.o : cc $root/compute_angular_velocity_yaw_C.c
+build $builddir/compute_rotation_mat_C.o : cc $root/compute_rotation_mat_C.c
+build $builddir/compute_rotation_mat_roll_C.o : cc $root/compute_rotation_mat_roll_C.c
+build $builddir/compute_rotation_mat_yaw_C.o : cc $root/compute_rotation_mat_yaw_C.c
+build $builddir/rot2axis_C.o : cc $root/rot2axis_C.c
+build $builddir/_coder_bit_one_step_mex_api.o : cc $root/interface/_coder_bit_one_step_mex_api.c
+build $builddir/_coder_bit_one_step_mex_mex.o : cc $root/interface/_coder_bit_one_step_mex_mex.c
+build $builddir/mldivide.o : cc $root/mldivide.c
+build $builddir/eml_int_forloop_overflow_check.o : cc $root/eml_int_forloop_overflow_check.c
+build $builddir/_coder_bit_one_step_mex_info.o : cc $root/interface/_coder_bit_one_step_mex_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+
+# Link
+build $root/bit_one_step_mex.mexa64 : link $builddir/bit_one_step_mex_data.o $builddir/rt_nonfinite.o $builddir/bit_one_step_mex_initialize.o $builddir/bit_one_step_mex_terminate.o $builddir/bit_one_step.o $builddir/axis2rot.o $builddir/mass_mat_func_sb.o $builddir/mass_mat_func_gb.o $builddir/compute_angular_velocity_C.o $builddir/compute_angular_velocity_roll_C.o $builddir/compute_angular_velocity_yaw_C.o $builddir/compute_rotation_mat_C.o $builddir/compute_rotation_mat_roll_C.o $builddir/compute_rotation_mat_yaw_C.o $builddir/rot2axis_C.o $builddir/_coder_bit_one_step_mex_api.o $builddir/_coder_bit_one_step_mex_mex.o $builddir/mldivide.o $builddir/eml_int_forloop_overflow_check.o $builddir/_coder_bit_one_step_mex_info.o $builddir/c_mexapi_version.o 
